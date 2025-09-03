@@ -25,10 +25,10 @@ label_settings = SubResource("LabelSettings_lthh4")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 45.0
-offset_top = 142.0
-offset_right = 329.0
-offset_bottom = 173.0
+offset_left = 43.0
+offset_top = 151.0
+offset_right = 327.0
+offset_bottom = 182.0
 text = "Play"
 script = ExtResource("1_uubjt")
 
