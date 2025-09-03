@@ -3,22 +3,24 @@
 [ext_resource type="SpriteFrames" uid="uid://0c8dh3dydbnx" path="res://player/player_sprite_frames.tres" id="1_1v1wt"]
 [ext_resource type="Script" uid="uid://b2488bb5sflx0" path="res://player/player_character.gd" id="1_6ahhe"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1v1wt"]
-radius = 8.0
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ahhe"]
+size = Vector2(14, 14)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+physics_interpolation_mode = 1
 motion_mode = 1
 script = ExtResource("1_6ahhe")
-speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
-shape = SubResource("CapsuleShape2D_1v1wt")
+shape = SubResource("RectangleShape2D_6ahhe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -5)
+position = Vector2(0, -10)
 sprite_frames = ExtResource("1_1v1wt")
-animation = &"idle"
-frame_progress = 0.889875
+animation = &"walk_right"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+process_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
