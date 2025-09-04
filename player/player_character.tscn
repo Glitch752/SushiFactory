@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://4wwkpufbecw8"]
+[gd_scene load_steps=7 format=3 uid="uid://4wwkpufbecw8"]
 
 [ext_resource type="SpriteFrames" uid="uid://0c8dh3dydbnx" path="res://player/player_sprite_frames.tres" id="1_1v1wt"]
 [ext_resource type="Script" uid="uid://b2488bb5sflx0" path="res://player/player_character.gd" id="1_6ahhe"]
+[ext_resource type="Texture2D" uid="uid://v03yy2baua81" path="res://images/selection.png" id="3_ni121"]
+[ext_resource type="Script" uid="uid://cxhktgwoq2wrx" path="res://player/interaction_zone.gd" id="3_tncax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ahhe"]
 size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni121"]
+size = Vector2(4, 4)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 physics_interpolation_mode = 1
@@ -24,3 +29,17 @@ animation = &"walk_right"
 process_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="InteractionZone" type="Area2D" parent="."]
+script = ExtResource("3_tncax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("RectangleShape2D_ni121")
+
+[node name="DebugSprite" type="Sprite2D" parent="InteractionZone"]
+position = Vector2(1.49012e-07, 8.9407e-08)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_ni121")
+
+[connection signal="area_entered" from="InteractionZone" to="InteractionZone" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionZone" to="InteractionZone" method="_on_area_exited"]
