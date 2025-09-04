@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://bjb0in362wq1m"]
+[gd_scene load_steps=12 format=4 uid="uid://bjb0in362wq1m"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_bexhn"]
 [ext_resource type="PackedScene" uid="uid://4wwkpufbecw8" path="res://player/player_character.tscn" id="2_t7iv1"]
 [ext_resource type="PackedScene" uid="uid://dt7o2rnblgvu8" path="res://world/interactable/PlateStack.tscn" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://bkejwj48qdgsd" path="res://world/interactable/RiceCooker.tscn" id="4_3ywx5"]
 [ext_resource type="PackedScene" uid="uid://bfpegqboaskg6" path="res://LevelInterface.tscn" id="4_wkftn"]
 [ext_resource type="PackedScene" uid="uid://nj52twa42cxf" path="res://world/interactable/TableSurfaceInteractable.tscn" id="5_q4iis"]
 [ext_resource type="PackedScene" uid="uid://f8btjn6b4071" path="res://world/interactable/ItemSource.tscn" id="6_m3clv"]
@@ -35,6 +36,9 @@ position_smoothing_speed = 25.0
 
 [node name="CounterInteractables" type="Node" parent="."]
 
+[node name="RiceCooker" parent="CounterInteractables" instance=ExtResource("4_3ywx5")]
+position = Vector2(40, -6)
+
 [node name="Plates2" parent="CounterInteractables" instance=ExtResource("3_2nifc")]
 position = Vector2(8, -8)
 
@@ -46,9 +50,6 @@ position = Vector2(72, -5)
 
 [node name="Counter2" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(56, -5)
-
-[node name="Counter3" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(40, -5)
 
 [node name="Counter4" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(24, -5)
@@ -151,5 +152,5 @@ position = Vector2(88, -8)
 texture = SubResource("AtlasTexture_4eo0i")
 item_data = ExtResource("8_4eo0i")
 
-[node name="Interactable" parent="." instance=ExtResource("9_86ljf")]
-position = Vector2(-41, -7)
+[node name="TrashCan" parent="CounterInteractables" instance=ExtResource("9_86ljf")]
+position = Vector2(-40, -7)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkejwj48qdgsd"]
+
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_gw2mi"]
+[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="2_515tj"]
+[ext_resource type="Script" uid="uid://6c22h3cfrjse" path="res://world/interactable/rice_cooker.gd" id="2_a0dn8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0dn8"]
+atlas = ExtResource("2_515tj")
+region = Rect2(64, 0, 16, 16)
+
+[node name="RiceCooker" instance=ExtResource("1_gw2mi")]
+script = ExtResource("2_a0dn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_a0dn8")

@@ -38,6 +38,7 @@ script = ExtResource("3_tncax")
 shape = SubResource("RectangleShape2D_ni121")
 
 [node name="DebugSprite" type="Sprite2D" parent="InteractionZone"]
+visible = false
 position = Vector2(1.49012e-07, 8.9407e-08)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ni121")

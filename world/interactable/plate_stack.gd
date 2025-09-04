@@ -9,3 +9,6 @@ func interact():
 
 func can_interact() -> bool:
     return !PlayerInventorySingleton.has_item()
+
+func get_interact_explanation():
+    return "pick up a plate"

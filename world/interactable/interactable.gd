@@ -9,9 +9,11 @@ func _ready():
 func can_interact():
     return true
 
+func get_interact_explanation():
+    return "interact"
+
 func interact_show():
-    if can_interact():
-        highlight.visible = true
+    highlight.visible = true
 
 func interact_hide():
     highlight.visible = false

@@ -8,7 +8,7 @@
 atlas = ExtResource("3_xgxfq")
 region = Rect2(16, 0, 16, 16)
 
-[node name="Interactable" instance=ExtResource("1_aow0j")]
+[node name="TrashCan" instance=ExtResource("1_aow0j")]
 script = ExtResource("2_aow0j")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
