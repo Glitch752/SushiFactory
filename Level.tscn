@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=4 uid="uid://bjb0in362wq1m"]
+[gd_scene load_steps=11 format=4 uid="uid://bjb0in362wq1m"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_bexhn"]
 [ext_resource type="PackedScene" uid="uid://4wwkpufbecw8" path="res://player/player_character.tscn" id="2_t7iv1"]
 [ext_resource type="PackedScene" uid="uid://dt7o2rnblgvu8" path="res://world/interactable/PlateStack.tscn" id="3_2nifc"]
+[ext_resource type="PackedScene" uid="uid://bfpegqboaskg6" path="res://LevelInterface.tscn" id="4_wkftn"]
+[ext_resource type="PackedScene" uid="uid://nj52twa42cxf" path="res://world/interactable/TableSurfaceInteractable.tscn" id="5_q4iis"]
+[ext_resource type="PackedScene" uid="uid://f8btjn6b4071" path="res://world/interactable/ItemSource.tscn" id="6_m3clv"]
+[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="7_mxnmf"]
+[ext_resource type="Resource" uid="uid://bm2ligtkokn1a" path="res://world/items/rice_item_data.tres" id="8_4eo0i"]
+[ext_resource type="PackedScene" uid="uid://b48amfwogm8ge" path="res://world/interactable/TrashCan.tscn" id="9_86ljf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eo0i"]
+atlas = ExtResource("7_mxnmf")
+region = Rect2(32, 0, 16, 16)
 
 [node name="Level" type="Node2D"]
 
@@ -19,8 +29,127 @@ position = Vector2(40, 72)
 zoom = Vector2(5, 5)
 position_smoothing_speed = 25.0
 
-[node name="Interactable" parent="." instance=ExtResource("3_2nifc")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelInterface" parent="CanvasLayer" instance=ExtResource("4_wkftn")]
+
+[node name="CounterInteractables" type="Node" parent="."]
+
+[node name="Plates2" parent="CounterInteractables" instance=ExtResource("3_2nifc")]
+position = Vector2(8, -8)
+
+[node name="Plates" parent="CounterInteractables" instance=ExtResource("3_2nifc")]
 position = Vector2(-8, -8)
 
-[node name="Interactable" parent="Interactable" instance=ExtResource("3_2nifc")]
-position = Vector2(16, 0)
+[node name="Counter" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(72, -5)
+
+[node name="Counter2" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(56, -5)
+
+[node name="Counter3" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(40, -5)
+
+[node name="Counter4" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(24, -5)
+rotation = -0.000539821
+
+[node name="Counter5" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(136, -5)
+
+[node name="Counter6" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(120, -5)
+
+[node name="Counter7" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(104, -5)
+
+[node name="Counter9" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(264, -5)
+rotation = -0.000539821
+
+[node name="Counter10" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(248, -4.99136)
+rotation = -0.00107964
+
+[node name="Counter11" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-24, -5)
+
+[node name="Counter13" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 8)
+
+[node name="Counter14" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 24)
+
+[node name="Counter15" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 40)
+
+[node name="Counter16" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 55)
+
+[node name="Counter17" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 72)
+
+[node name="Counter18" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 88)
+
+[node name="Counter19" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 104)
+
+[node name="Counter20" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 120)
+
+[node name="Counter21" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 136)
+
+[node name="Counter22" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 152)
+
+[node name="Counter23" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 168)
+
+[node name="Counter24" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-57, 184)
+
+[node name="Counter25" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 8)
+
+[node name="Counter26" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 24)
+
+[node name="Counter27" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 40)
+
+[node name="Counter28" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 55)
+
+[node name="Counter29" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 72)
+
+[node name="Counter30" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 88)
+
+[node name="Counter31" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 104)
+
+[node name="Counter32" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 120)
+
+[node name="Counter33" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 136)
+
+[node name="Counter34" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 152)
+
+[node name="Counter35" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 168)
+
+[node name="Counter36" parent="CounterInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(281, 184)
+
+[node name="RiceSource" parent="CounterInteractables" instance=ExtResource("6_m3clv")]
+position = Vector2(88, -8)
+texture = SubResource("AtlasTexture_4eo0i")
+item_data = ExtResource("8_4eo0i")
+
+[node name="Interactable" parent="." instance=ExtResource("9_86ljf")]
+position = Vector2(-41, -7)

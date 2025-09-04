@@ -9,5 +9,6 @@ func _ready():
         apply_data()
 
 func apply_data():
-    sprite.texture = data.item_sprite
-    name = data.item_name
+    if is_node_ready():
+        sprite.texture = data.item_sprite
+        name = data.item_name

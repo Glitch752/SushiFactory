@@ -9,6 +9,7 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_pox5d")
+id = "plate"
 item_name = "Plate"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "A plate. Used to create meals and present food to customers."

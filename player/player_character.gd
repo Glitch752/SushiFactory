@@ -18,8 +18,6 @@ func _physics_process(_delta: float) -> void:
     move_and_slide()
     
     update_animation()
-    
-    $InteractionZone.position = facing * 8
 
 func _ready():
     animated_sprite.play()

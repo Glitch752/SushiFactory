@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://f8btjn6b4071"]
+
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_yhwb5"]
+[ext_resource type="Script" uid="uid://ccbqvwxb7deva" path="res://world/interactable/item_source.gd" id="2_we35n"]
+
+[node name="ItemSource" instance=ExtResource("1_yhwb5")]
+script = ExtResource("2_we35n")
+texture = null
+item_data = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]

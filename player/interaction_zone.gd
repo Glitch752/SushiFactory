@@ -2,9 +2,14 @@ extends Area2D
 
 var current_interactable: Variant = null
 
+func _physics_process(_delta):
+    var player = $".."
+    position = player.facing * 12
+
 func _unhandled_input(event):
     if event.is_action_pressed("interact") and current_interactable != null:
-        current_interactable.interact()
+        if current_interactable.can_interact():
+            current_interactable.interact()
 
 func _on_area_entered(area: Area2D):
     if area.is_in_group("interact_zone"):

@@ -4,10 +4,14 @@ extends Node2D
 
 func _ready():
     $Area2D.add_to_group("interact_zone")
-    add_user_signal("interacted")
+
+## Can be overriden to turn off interaction depending on the situation
+func can_interact():
+    return true
 
 func interact_show():
-    highlight.visible = true
+    if can_interact():
+        highlight.visible = true
 
 func interact_hide():
     highlight.visible = false

@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://b48amfwogm8ge"]
+
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_aow0j"]
+[ext_resource type="Script" uid="uid://c6ae3wess17pq" path="res://world/interactable/trash_can.gd" id="2_aow0j"]
+[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="3_xgxfq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itut0"]
+atlas = ExtResource("3_xgxfq")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Interactable" instance=ExtResource("1_aow0j")]
+script = ExtResource("2_aow0j")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = SubResource("AtlasTexture_itut0")
