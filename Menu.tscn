@@ -27,11 +27,11 @@ grow_vertical = 2
 [node name="Label2" type="Label" parent="."]
 offset_left = 40.0
 offset_top = 216.0
-offset_right = 543.0
-offset_bottom = 312.0
+offset_right = 1376.0
+offset_bottom = 327.0
 text = "Sorry for the quite uninteresting and unfinished demo! I hope you can have fun messing around a bit, though :)
 There's currently no core game loop, as I've been working on the interaction systems while learning Godot.
-The music and assets are all custom, so I spent a lot of (mostly unlogged) time on those as well."
+The assets are all custom, so I spent a lot of (mostly unlogged) time on those as well."
 label_settings = SubResource("LabelSettings_uubjt")
 
 [node name="Label" type="Label" parent="."]

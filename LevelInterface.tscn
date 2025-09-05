@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=6 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="3_grx74"]
+[ext_resource type="Texture2D" uid="uid://dy113bsj6ku48" path="res://images/uiIcons.png" id="3_sb6wj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_prnbh"]
 font_size = 32
@@ -37,7 +38,7 @@ layout_mode = 2
 text = "Press E to interact"
 label_settings = SubResource("LabelSettings_prnbh")
 
-[node name="Orders" type="PanelContainer" parent="."]
+[node name="MenuButtons" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -45,11 +46,34 @@ anchor_right = 1.0
 offset_left = -456.0
 offset_top = 16.0
 offset_right = -16.0
-offset_bottom = 48.0
+offset_bottom = 80.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuButtons"]
+layout_mode = 2
+theme = ExtResource("3_grx74")
+
+[node name="MenuButton" type="Button" parent="MenuButtons/PanelContainer"]
+layout_mode = 2
+tooltip_text = "Open recipes"
+icon = ExtResource("3_sb6wj")
+flat = true
+
+[node name="Orders" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -536.0
+offset_top = 88.0
+offset_right = -16.0
+offset_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource("3_grx74")
 
 [node name="OrderLayout" type="BoxContainer" parent="Orders"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_grx74")
 
@@ -66,6 +90,7 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1, 0.999195)
 theme = ExtResource("3_grx74")
 script = ExtResource("1_u453c")
 

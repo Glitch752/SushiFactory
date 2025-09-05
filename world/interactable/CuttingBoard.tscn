@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwjlkol4p7ql8"]
+
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_mcwij"]
+[ext_resource type="Script" uid="uid://vrwyu05ebw1j" path="res://world/interactable/cutting_board.gd" id="2_gnlda"]
+[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="3_pet3a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r0tn"]
+atlas = ExtResource("3_pet3a")
+region = Rect2(128, 0, 16, 16)
+
+[node name="Interactable" instance=ExtResource("1_mcwij")]
+script = ExtResource("2_gnlda")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_2r0tn")

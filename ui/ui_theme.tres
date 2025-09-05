@@ -7,7 +7,7 @@
 [resource]
 Panel/styles/panel = ExtResource("1_vuqvt")
 PanelContainer/styles/panel = ExtResource("1_vuqvt")
-RichTextLabel/font_sizes/bold_font_size = 24
-RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/font_sizes/bold_font_size = 20
+RichTextLabel/font_sizes/normal_font_size = 20
 RichTextLabel/fonts/bold_font = ExtResource("1_4mq11")
 RichTextLabel/fonts/normal_font = ExtResource("2_vuqvt")
