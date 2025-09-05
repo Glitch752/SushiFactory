@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=5 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="3_grx74"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_prnbh"]
 font_size = 32
@@ -46,9 +47,11 @@ offset_top = 16.0
 offset_right = -16.0
 offset_bottom = 48.0
 grow_horizontal = 0
+theme = ExtResource("3_grx74")
 
 [node name="OrderLayout" type="BoxContainer" parent="Orders"]
 layout_mode = 2
+theme = ExtResource("3_grx74")
 
 [node name="Inventory" type="Panel" parent="."]
 layout_mode = 1
@@ -63,6 +66,7 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("3_grx74")
 script = ExtResource("1_u453c")
 
 [node name="TextureRect" type="TextureRect" parent="Inventory"]
@@ -73,12 +77,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ItemDescription" type="PanelContainer" parent="Inventory"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = -0.384615
+anchor_right = 0.991071
+anchor_bottom = -0.432692
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/ItemDescription"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Inventory/ItemDescription/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_grx74")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
 [node name="MachineInfo" type="PanelContainer" parent="."]
+visible = false
 layout_mode = 1
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 456.0
+offset_right = 168.0
 offset_bottom = 48.0
+theme = ExtResource("3_grx74")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MachineInfo"]
+[node name="MarginContainer" type="MarginContainer" parent="MachineInfo"]
 layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MachineInfo/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_grx74")
+bbcode_enabled = true
+text = "Test[ul]
+Item
+Item 2[ul]
+sublist
+[/ul]
+wow
+[/ul]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[connection signal="mouse_entered" from="Inventory" to="Inventory" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory" to="Inventory" method="_on_mouse_exited"]

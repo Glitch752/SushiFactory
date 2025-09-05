@@ -48,3 +48,11 @@ func get_interact_explanation():
         return "put the " + PlayerInventorySingleton.held_item_data().item_name.to_lower() + " on the plate"
     
     return ""
+
+func get_interactable_name():
+    return "Table"
+
+func get_description():
+    if current_object == null:
+        return "An empty table."
+    return "A table with:[ul]\n " + current_object.get_description() + "\n[/ul]"

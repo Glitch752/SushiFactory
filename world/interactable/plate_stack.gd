@@ -12,3 +12,9 @@ func can_interact() -> bool:
 
 func get_interact_explanation():
     return "pick up a plate"
+
+func get_interactable_name():
+    return "Plate Stack"
+
+func get_description():
+    return "A stack of clean plates. You can take one."

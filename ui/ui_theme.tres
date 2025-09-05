@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ymm1n4k8ahab"]
+
+[ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="1_4mq11"]
+[ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/9_patch_stylebox.tres" id="1_vuqvt"]
+[ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="2_vuqvt"]
+
+[resource]
+Panel/styles/panel = ExtResource("1_vuqvt")
+PanelContainer/styles/panel = ExtResource("1_vuqvt")
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/bold_font = ExtResource("1_4mq11")
+RichTextLabel/fonts/normal_font = ExtResource("2_vuqvt")

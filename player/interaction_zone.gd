@@ -14,8 +14,7 @@ func _unhandled_input(event):
             if !current_interactable.can_interact():
                 stop_interacting()
             else:
-                LevelInterfaceSingleton.set_interact_text_shown("Interact", true, "Press E to " + current_interactable.get_interact_explanation())
-                
+                LevelInterfaceSingleton.update_interactable(current_interactable)
 
 func _on_area_entered(area: Area2D):
     if area.is_in_group("interact_zone"):
@@ -25,7 +24,7 @@ func _on_area_entered(area: Area2D):
         current_interactable = area.get_parent()
         if current_interactable.can_interact():
             current_interactable.interact_show()
-            LevelInterfaceSingleton.set_interact_text_shown("Interact", true, "Press E to " + current_interactable.get_interact_explanation())
+            LevelInterfaceSingleton.update_interactable(current_interactable)
 
 func _on_area_exited(area: Area2D):
     if area.is_in_group("interact_zone"):
@@ -35,4 +34,4 @@ func _on_area_exited(area: Area2D):
 func stop_interacting():
     current_interactable.interact_hide()
     current_interactable = null
-    LevelInterfaceSingleton.set_interact_text_shown("Interact", false, "")
+    LevelInterfaceSingleton.clear_interactable()

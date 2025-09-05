@@ -16,3 +16,9 @@ func can_interact() -> bool:
 
 func get_interact_explanation():
     return "pick up a " + item_data.item_name.to_lower()
+
+func get_interactable_name():
+    return item_data.item_name + " Source"
+
+func get_description():
+    return "A source of " + item_data.item_name.to_lower() + ". You can pick one up here."

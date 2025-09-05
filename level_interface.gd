@@ -13,3 +13,11 @@ func set_interact_text_shown(txt_name: String, txt_show: bool, new_text: String)
         child.visible = txt_show
     else:
         push_error("No interact text with name '%s'" % txt_name)
+
+## @param text The new text to display, or null to hide the description.
+func set_info_description(text: Variant):
+    if text is String and text != "":
+        $MachineInfo/MarginContainer/RichTextLabel.text = text.strip_edges()
+        $MachineInfo.visible = true
+    else:
+        $MachineInfo.visible = false

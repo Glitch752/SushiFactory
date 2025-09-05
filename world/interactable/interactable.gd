@@ -20,3 +20,9 @@ func interact_hide():
 
 func interact():
     print("Must override interact in a subclass")
+
+func get_interactable_name():
+    return name
+
+func get_description():
+    return "A " + name

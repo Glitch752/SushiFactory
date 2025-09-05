@@ -13,6 +13,8 @@ config_version=5
 config/name="Sushi Factory"
 run/main_scene="uid://br5jostnw8e3n"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.223222, 0.306852, 0.34479, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

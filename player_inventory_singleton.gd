@@ -2,7 +2,7 @@ extends Node
 
 @export var held_item: Node2D = null
 
-signal item_changed(item: ItemData)
+signal item_changed(item: Node2D)
 ## Should only be connected to by the object that wants to hold our current item, e.g. the player's carried item manager.
 ## This probably isn't the best way to structure this, but meh
 signal item_scene_reparent(item: Node2D)
@@ -44,7 +44,7 @@ func try_grab_item(item: Node2D) -> bool:
         get_tree().current_scene.add_child(item)
 
     held_item = item
-    emit_signal("item_changed", held_item.data)
+    emit_signal("item_changed", held_item)
     
     # Will reparent to wherever we need it
     item_scene_reparent.emit(item)
