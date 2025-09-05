@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=7 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
@@ -10,6 +10,9 @@ font_size = 32
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_sb6wj"]
+font_size = 20
+
 [node name="LevelInterface" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -17,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_grx74")
 script = ExtResource("1_ta4wj")
 
 [node name="InteractText" type="BoxContainer" parent="."]
@@ -62,20 +66,27 @@ flat = true
 
 [node name="Orders" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -536.0
-offset_top = 88.0
-offset_right = -16.0
-offset_bottom = 120.0
-grow_horizontal = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 536.0
+offset_bottom = 62.0
 theme = ExtResource("3_grx74")
 
-[node name="OrderLayout" type="BoxContainer" parent="Orders"]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="Orders"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="OrderLayout" type="BoxContainer" parent="Orders/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("3_grx74")
+
+[node name="OrdersLabel" type="Label" parent="Orders/MarginContainer/OrderLayout"]
+layout_mode = 2
+text = "Orders"
+label_settings = SubResource("LabelSettings_sb6wj")
 
 [node name="Inventory" type="Panel" parent="."]
 layout_mode = 1
@@ -135,10 +146,14 @@ shortcut_keys_enabled = false
 [node name="MachineInfo" type="PanelContainer" parent="."]
 visible = false
 layout_mode = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 168.0
-offset_bottom = 48.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 88.0
+offset_right = -18.0
+offset_bottom = 116.0
+grow_horizontal = 0
 theme = ExtResource("3_grx74")
 
 [node name="MarginContainer" type="MarginContainer" parent="MachineInfo"]

@@ -9,7 +9,7 @@ region = Rect2(128, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_y7uu2")
-id = "slliced_cucumber"
+id = "sliced_cucumber"
 item_name = "Sliced Cucumber"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "Slices of cucumber."

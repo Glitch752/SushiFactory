@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="2_vuqvt"]
 
 [resource]
+default_font = ExtResource("2_vuqvt")
+default_font_size = 20
 Panel/styles/panel = ExtResource("1_vuqvt")
 PanelContainer/styles/panel = ExtResource("1_vuqvt")
 RichTextLabel/font_sizes/bold_font_size = 20
