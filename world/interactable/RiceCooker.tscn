@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkejwj48qdgsd"]
+[gd_scene load_steps=17 format=3 uid="uid://bkejwj48qdgsd"]
 
 [ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_gw2mi"]
 [ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="2_515tj"]
@@ -68,8 +68,15 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc0d7"]
+atlas = ExtResource("5_8fl6t")
+region = Rect2(0, 0, 8, 8)
+
 [node name="RiceCooker" instance=ExtResource("1_gw2mi")]
 script = ExtResource("2_a0dn8")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+z_index = 4096
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 texture = SubResource("AtlasTexture_a0dn8")
@@ -87,5 +94,5 @@ speed_scale = 0.0
 [node name="OutputIndicator" type="Sprite2D" parent="." index="5"]
 visible = false
 position = Vector2(0, -13)
-texture = ExtResource("5_8fl6t")
+texture = SubResource("AtlasTexture_jc0d7")
 script = ExtResource("6_facjm")

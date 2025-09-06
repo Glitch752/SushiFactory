@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://btal74mucv6b0"]
+
+[ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
+[ext_resource type="Script" uid="uid://dxsluj5blctll" path="res://world/interactable/computer/application_button.gd" id="2_ikyhb"]
+[ext_resource type="PackedScene" uid="uid://dgeewn3pr40y3" path="res://world/interactable/computer/ShopAppScene.tscn" id="3_5qwym"]
+[ext_resource type="PackedScene" uid="uid://dy0u10a1d8iyf" path="res://world/interactable/computer/EmailAppScene.tscn" id="4_5amdb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_220wo"]
+bg_color = Color(0.231373, 0.431373, 0.647059, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0970885, 0.135028, 0.164248, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_220wo"]
+atlas = ExtResource("1_220wo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikyhb"]
+atlas = ExtResource("1_220wo")
+region = Rect2(16, 0, 16, 16)
+
+[node name="ComputerDesktop" type="CanvasLayer"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -823.0
+offset_top = -443.0
+offset_right = 824.0
+offset_bottom = 443.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+ratio = 1.7778
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_220wo")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="FlowContainer" type="FlowContainer" parent="AspectRatioContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+vertical = true
+
+[node name="AmazingButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+text = "Amazing"
+icon = SubResource("AtlasTexture_220wo")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("2_ikyhb")
+app_scene = ExtResource("3_5qwym")
+window_title = "Amazing"
+
+[node name="EmailButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+text = "Email"
+icon = SubResource("AtlasTexture_ikyhb")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("2_ikyhb")
+app_scene = ExtResource("4_5amdb")
+window_title = "Email"
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+offset_right = -0.130859
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Panel/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="Taskbar" type="HBoxContainer" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
+layout_mode = 2
+text = "5:30 PM"

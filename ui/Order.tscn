@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4k8uvcvp373t"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_0wuek"]
+[ext_resource type="Script" uid="uid://dnygk65julrfk" path="res://ui/order.gd" id="2_dsl5g"]
+[ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="2_rfqa5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqa5"]
+atlas = ExtResource("2_rfqa5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfe7y"]
+atlas = ExtResource("2_rfqa5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j5is"]
+atlas = ExtResource("2_rfqa5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfqa5"]
+bg_color = Color(0, 0, 0, 0.2)
+
+[node name="Order" type="PanelContainer"]
+offset_right = 272.0
+offset_bottom = 62.0
+theme = ExtResource("1_0wuek")
+script = ExtResource("2_dsl5g")
+order_text = "1x Cucumber Maki"
+order_texture = SubResource("AtlasTexture_rfqa5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="IconAspect" type="AspectRatioContainer" parent="MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+
+[node name="PlateRect" type="TextureRect" parent="MarginContainer/HBoxContainer/IconAspect"]
+visible = false
+custom_minimum_size = Vector2(96, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_lfe7y")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/IconAspect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_5j5is")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 10
+
+[node name="ItemName" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]1x Cucumber Maki[/b]
+[color=red]10s remaining[/color]"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="CountdownContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Countdown" type="ProgressBar" parent="CountdownContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_rfqa5")
+value = 25.85
+show_percentage = false

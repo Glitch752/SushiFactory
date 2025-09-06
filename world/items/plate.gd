@@ -53,9 +53,15 @@ func add_to_plate(item: ItemData) -> void:
     print("Adding item to plate ", item.id)
 
     var item_sprite = Sprite2D.new()
-    item_sprite.texture = item.item_sprite
-    item_sprite.scale = Vector2.ONE * 0.5
-    item_sprite.position = Vector2(rng.randi_range(-4, 4), rng.randi_range(-4, 4))
+
+    # item_sprite.texture = item.item_sprite
+    # Scale down the sprite to half its size using nearest sampling. This will lose detail, but that's the point!
+    var tex = item.item_sprite.get_image()
+    @warning_ignore("integer_division")
+    tex.resize(tex.get_width() / 2, tex.get_height() / 2, Image.INTERPOLATE_NEAREST)
+    item_sprite.texture = ImageTexture.create_from_image(tex)
+
+    item_sprite.position = Vector2(rng.randi_range(-3, 3), rng.randi_range(-3, 3))
     
     add_child(item_sprite)
     
@@ -96,7 +102,7 @@ func get_description():
     if contents.size() == 0:
         return "An empty plate."
     var desc = "A plate with:[ul]"
-    for data in contents:
-        desc += "\n %s" % data.item.item_name
+    for itemData in contents:
+        desc += "\n %s" % itemData.item.item_name
     desc += "\n[/ul]"
     return desc

@@ -52,7 +52,12 @@ func get_interact_explanation():
 func get_interactable_name():
     return "Table"
 
+func lowercase_start(s: String) -> String:
+    if s.length() == 0:
+        return s
+    return s[0].to_lower() + s.substr(1, s.length() - 1)
+
 func get_description():
     if current_object == null:
         return "An empty table."
-    return "A table with:[ul]\n " + current_object.get_description() + "\n[/ul]"
+    return "Has " + lowercase_start(current_object.get_description())

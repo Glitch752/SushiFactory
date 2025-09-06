@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgeewn3pr40y3"]
+
+[ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_g4vvq"]
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_ud1m4"]
+[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/9_patch_stylebox_dark.tres" id="3_1lpb4"]
+[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="3_2stqe"]
+[ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/9_patch_stylebox_green.tres" id="3_iuw0s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuw0s"]
+bg_color = Color(0.937255, 0.937255, 0.937255, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud1m4"]
+atlas = ExtResource("1_g4vvq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ud1m4"]
+font_color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lpb4"]
+atlas = ExtResource("3_2stqe")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iuw0s"]
+font_color = Color(0.356863, 0.745098, 0.584314, 1)
+
+[node name="ShopScene" type="MarginContainer"]
+custom_minimum_size = Vector2(800, 500)
+offset_right = 800.0
+offset_bottom = 500.0
+theme = ExtResource("1_ud1m4")
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iuw0s")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/MarginContainer/Header"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ud1m4")
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/Header"]
+layout_mode = 2
+text = "mazing (legally distinct from the other one)"
+label_settings = SubResource("LabelSettings_ud1m4")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="TemplateShopItem" type="PanelContainer" parent="VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_1lpb4")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/GridContainer/TemplateShopItem"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/GridContainer/TemplateShopItem/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Item to purchase idk"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+texture = SubResource("AtlasTexture_1lpb4")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "$30,000"
+label_settings = SubResource("LabelSettings_iuw0s")
+
+[node name="PurchaseButton" type="Button" parent="VBoxContainer/MarginContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_iuw0s")
+text = "Purchase"

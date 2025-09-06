@@ -1,3 +1,5 @@
+@tool
+
 extends "res://world/interactable/interactable.gd"
 
 @export var texture: Texture2D;
@@ -5,7 +7,8 @@ extends "res://world/interactable/interactable.gd"
 
 func _ready():
     $Sprite2D.texture = texture
-    super._ready()
+    if not Engine.is_editor_hint():
+        super._ready()
 
 func interact():
     var item = PlayerInventorySingleton.create_item(item_data)

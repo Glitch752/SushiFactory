@@ -69,6 +69,9 @@ animations = [{
 [node name="CuttingBoard" instance=ExtResource("1_mcwij")]
 script = ExtResource("2_gnlda")
 
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+z_index = 4096
+
 [node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 texture = SubResource("AtlasTexture_2r0tn")
 

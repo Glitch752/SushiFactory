@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://btrh3cgarkwx2"]
+
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_cfe5b"]
+[ext_resource type="Script" uid="uid://blq4ew5laodth" path="res://world/interactable/computer.gd" id="2_83uxb"]
+[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="2_ukfk5"]
+[ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="3_a7wyj"]
+[ext_resource type="Script" uid="uid://b2mwkk3333tir" path="res://scripts/hover.gd" id="4_83uxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7wyj"]
+atlas = ExtResource("2_ukfk5")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3sid"]
+atlas = ExtResource("3_a7wyj")
+region = Rect2(8, 0, 8, 8)
+
+[node name="Interactable" instance=ExtResource("1_cfe5b")]
+script = ExtResource("2_83uxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+texture = SubResource("AtlasTexture_a7wyj")
+
+[node name="InfoIndicator" type="Sprite2D" parent="." index="3"]
+position = Vector2(0, -13)
+scale = Vector2(1.00342, 1)
+texture = SubResource("AtlasTexture_m3sid")
+script = ExtResource("4_83uxb")

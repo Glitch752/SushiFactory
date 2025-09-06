@@ -71,6 +71,6 @@ func get_interactable_name():
 
 func get_description():
     if has_item():
-        return "A cutting board with %s on it. You have cut it %d out of %d times." % [item.data.item_name.to_lower(), cut_progress, CUTS_REQUIRED]
+        return "A cutting board with %s on it.\nYou have cut it %d out of %d times." % [item.data.item_name.to_lower(), cut_progress, CUTS_REQUIRED]
     else:
-        return "A cutting board. You can place certain items on it to cut them."
+        return "A cutting board.\nYou can place certain items on it to cut them."

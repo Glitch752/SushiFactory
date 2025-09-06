@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://datlkyer0fxxt"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_wflhw"]
+[ext_resource type="Script" uid="uid://kys4hnkoeiyd" path="res://world/interactable/computer/computer_app_window.gd" id="2_g87qx"]
+[ext_resource type="Texture2D" uid="uid://bk2hd3t21syhh" path="res://images/9tile.png" id="2_y4b4v"]
+[ext_resource type="Texture2D" uid="uid://c2unm5ippi3bt" path="res://images/windowIcons.png" id="3_lguuv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lguuv"]
+content_margin_left = 0.0
+content_margin_top = 8.0
+content_margin_right = 0.0
+content_margin_bottom = 8.0
+texture = ExtResource("2_y4b4v")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g87qx"]
+atlas = ExtResource("3_lguuv")
+
+[node name="ComputerAppWindow" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 134.0
+offset_top = 57.0
+offset_right = -1166.0
+offset_bottom = -925.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wflhw")
+script = ExtResource("2_g87qx")
+
+[node name="OuterContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="WindowTitlebar" type="PanelContainer" parent="OuterContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lguuv")
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterContainer/WindowTitlebar"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 64
+
+[node name="WindowTitle" type="Label" parent="OuterContainer/WindowTitlebar/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Window title (with a background?? idk)"
+horizontal_alignment = 1
+
+[node name="WindowButtons" type="Control" parent="OuterContainer/WindowTitlebar"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="CloseButton" type="Button" parent="OuterContainer/WindowTitlebar/WindowButtons"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_right = -16.0
+offset_bottom = 27.0
+grow_horizontal = 0
+icon = SubResource("AtlasTexture_g87qx")
+flat = true
+expand_icon = true
+
+[connection signal="gui_input" from="OuterContainer/WindowTitlebar" to="." method="_on_window_titlebar_gui_input"]
+[connection signal="pressed" from="OuterContainer/WindowTitlebar/WindowButtons/CloseButton" to="." method="_on_close_button_pressed"]

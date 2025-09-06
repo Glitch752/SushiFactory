@@ -63,10 +63,10 @@ func get_description():
     var extra = ""
     if has_rice:
         if cooking_time_remaining > 0:
-            extra = "It's cooking rice, with %.1f seconds remaining." % cooking_time_remaining
+            extra = "It's cooking rice."
         else:
             extra = "The rice is cooked and ready to take."
     else:
         extra = "It's empty."
     
-    return "A rice cooker. " + extra
+    return "A rice cooker.\n" + extra
