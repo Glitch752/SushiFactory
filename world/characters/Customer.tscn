@@ -1,0 +1,86 @@
+[gd_scene load_steps=39 format=3 uid="uid://dawwsjq8rxe4k"]
+
+[ext_resource type="Script" uid="uid://c17a3oh4vn6gl" path="res://world/characters/customer.gd" id="1_8tp7u"]
+[ext_resource type="SpriteFrames" uid="uid://cyva5vii7jkxg" path="res://world/characters/characters_0_body.tres" id="1_mi0lu"]
+[ext_resource type="Script" uid="uid://bsfrs6p2sjrvh" path="res://world/characters/random_sprite.gd" id="2_8dfhy"]
+[ext_resource type="SpriteFrames" uid="uid://gmhcereom3mo" path="res://world/characters/characters_0_shirt.tres" id="3_58v6r"]
+[ext_resource type="SpriteFrames" uid="uid://c7n035y65gp0" path="res://world/characters/characters_0_skin.tres" id="3_73exh"]
+[ext_resource type="SpriteFrames" uid="uid://ghvvurds0bp4" path="res://world/characters/characters_1_skin.tres" id="3_o4kfx"]
+[ext_resource type="SpriteFrames" uid="uid://nsc7ilpq1h4p" path="res://world/characters/characters_2_skin.tres" id="4_0qj33"]
+[ext_resource type="SpriteFrames" uid="uid://c20vuydyn7bc2" path="res://world/characters/characters_0_hair_0.tres" id="4_58v6r"]
+[ext_resource type="SpriteFrames" uid="uid://4komxpco1qgg" path="res://world/characters/characters_3_skin.tres" id="5_bm7fx"]
+[ext_resource type="SpriteFrames" uid="uid://cycbo007nw1b" path="res://world/characters/characters_0_hair_1.tres" id="5_l1iah"]
+[ext_resource type="SpriteFrames" uid="uid://bkvxh8bkb4g46" path="res://world/characters/characters_4_skin.tres" id="6_1xm8r"]
+[ext_resource type="SpriteFrames" uid="uid://c7rg5hfo4815g" path="res://world/characters/characters_5_skin.tres" id="7_oo68m"]
+[ext_resource type="SpriteFrames" uid="uid://brtjykhyvu8mn" path="res://world/characters/characters_1_body.tres" id="9_6oibd"]
+[ext_resource type="SpriteFrames" uid="uid://bnpukxjvi5hhw" path="res://world/characters/characters_6_skin.tres" id="9_gcmlm"]
+[ext_resource type="SpriteFrames" uid="uid://dmw0ly6ulna4n" path="res://world/characters/characters_2_body.tres" id="10_aogdh"]
+[ext_resource type="SpriteFrames" uid="uid://ct77v5w3kcwdg" path="res://world/characters/characters_3_body.tres" id="11_srx7w"]
+[ext_resource type="SpriteFrames" uid="uid://dany0fw4x4jwf" path="res://world/characters/characters_4_body.tres" id="12_ic53b"]
+[ext_resource type="SpriteFrames" uid="uid://bt2x53d1d2d5t" path="res://world/characters/characters_5_body.tres" id="13_xtoaq"]
+[ext_resource type="SpriteFrames" uid="uid://srho3b6smjkb" path="res://world/characters/characters_1_shirt.tres" id="15_8sphe"]
+[ext_resource type="SpriteFrames" uid="uid://b642wuscxwu8l" path="res://world/characters/characters_2_shirt.tres" id="16_lwetr"]
+[ext_resource type="SpriteFrames" uid="uid://d35hbyvd4dm5d" path="res://world/characters/characters_6_body.tres" id="16_tgvec"]
+[ext_resource type="SpriteFrames" uid="uid://dnfn71dihuqxc" path="res://world/characters/characters_3_shirt.tres" id="17_etjll"]
+[ext_resource type="SpriteFrames" uid="uid://ijmbimjkgvwg" path="res://world/characters/characters_4_shirt.tres" id="18_owmed"]
+[ext_resource type="SpriteFrames" uid="uid://bxf40qgkuyfsm" path="res://world/characters/characters_5_shirt.tres" id="19_s5w8o"]
+[ext_resource type="SpriteFrames" uid="uid://qs6o63pt152i" path="res://world/characters/characters_1_hair_0.tres" id="21_qr4jk"]
+[ext_resource type="SpriteFrames" uid="uid://coyrv2sity033" path="res://world/characters/characters_2_hair_0.tres" id="22_fudwa"]
+[ext_resource type="SpriteFrames" uid="uid://dekhfyx2njuq2" path="res://world/characters/characters_3_hair_0.tres" id="23_jitse"]
+[ext_resource type="SpriteFrames" uid="uid://d2f6tidb0mxep" path="res://world/characters/characters_6_shirt.tres" id="23_tblxn"]
+[ext_resource type="SpriteFrames" uid="uid://c87heaald5pum" path="res://world/characters/characters_4_hair_0.tres" id="24_wfqq4"]
+[ext_resource type="SpriteFrames" uid="uid://cll207qdwot0b" path="res://world/characters/characters_5_hair_0.tres" id="25_2wkyp"]
+[ext_resource type="SpriteFrames" uid="uid://bh87ynabgggsh" path="res://world/characters/characters_1_hair_1.tres" id="27_71xyg"]
+[ext_resource type="SpriteFrames" uid="uid://dblxpt8sty6y7" path="res://world/characters/characters_2_hair_1.tres" id="28_8tp7u"]
+[ext_resource type="SpriteFrames" uid="uid://j8rsg83haq7e" path="res://world/characters/characters_3_hair_1.tres" id="29_ygj2m"]
+[ext_resource type="SpriteFrames" uid="uid://m2dxj6e7j565" path="res://world/characters/characters_4_hair_1.tres" id="30_fxwsu"]
+[ext_resource type="SpriteFrames" uid="uid://cogytknhkd01n" path="res://world/characters/characters_6_hair_0.tres" id="30_jme2h"]
+[ext_resource type="SpriteFrames" uid="uid://y2bxjsy5y3wt" path="res://world/characters/characters_5_hair_1.tres" id="31_bjlce"]
+[ext_resource type="SpriteFrames" uid="uid://qoj02ruq5dtd" path="res://world/characters/characters_6_hair_1.tres" id="37_yckeu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vx3a"]
+size = Vector2(14, 30)
+
+[node name="Customer" type="AnimatableBody2D"]
+script = ExtResource("1_8tp7u")
+
+[node name="SkinSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = ExtResource("3_73exh")
+animation = &"walk_down"
+script = ExtResource("2_8dfhy")
+choices = Array[SpriteFrames]([ExtResource("3_73exh"), ExtResource("3_o4kfx"), ExtResource("4_0qj33"), ExtResource("5_bm7fx"), ExtResource("6_1xm8r"), ExtResource("7_oo68m"), ExtResource("9_gcmlm")])
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+sprite_frames = ExtResource("1_mi0lu")
+animation = &"walk_down"
+script = ExtResource("2_8dfhy")
+choices = Array[SpriteFrames]([ExtResource("1_mi0lu"), ExtResource("9_6oibd"), ExtResource("10_aogdh"), ExtResource("11_srx7w"), ExtResource("12_ic53b"), ExtResource("13_xtoaq"), ExtResource("16_tgvec")])
+
+[node name="ShirtSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 6)
+sprite_frames = ExtResource("3_58v6r")
+animation = &"walk_down"
+script = ExtResource("2_8dfhy")
+choices = Array[SpriteFrames]([ExtResource("3_58v6r"), ExtResource("15_8sphe"), ExtResource("16_lwetr"), ExtResource("17_etjll"), ExtResource("18_owmed"), ExtResource("19_s5w8o"), ExtResource("23_tblxn")])
+
+[node name="Hair0Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -7)
+sprite_frames = ExtResource("4_58v6r")
+animation = &"walk_down"
+script = ExtResource("2_8dfhy")
+choices = Array[SpriteFrames]([ExtResource("4_58v6r"), ExtResource("21_qr4jk"), ExtResource("22_fudwa"), ExtResource("23_jitse"), ExtResource("24_wfqq4"), ExtResource("25_2wkyp"), ExtResource("30_jme2h")])
+
+[node name="Hair1Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = ExtResource("5_l1iah")
+animation = &"walk_down"
+script = ExtResource("2_8dfhy")
+choices = Array[SpriteFrames]([ExtResource("5_l1iah"), ExtResource("27_71xyg"), ExtResource("28_8tp7u"), ExtResource("29_ygj2m"), ExtResource("30_fxwsu"), ExtResource("31_bjlce"), ExtResource("37_yckeu")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_6vx3a")

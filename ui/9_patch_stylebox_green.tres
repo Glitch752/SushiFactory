@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://becn8jxbdeah2"]
 
-[ext_resource type="Texture2D" path="res://images/green9tile.png" id="1_yowd8"]
+[ext_resource type="Texture2D" uid="uid://b5lnnn3yr2ir7" path="res://images/green9tile.png" id="1_yowd8"]
 
 [resource]
 content_margin_top = 4.0

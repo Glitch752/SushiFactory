@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bjb0in362wq1m"]
+[gd_scene load_steps=25 format=4 uid="uid://bjb0in362wq1m"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_bexhn"]
 [ext_resource type="Script" uid="uid://chmu82saqdjsw" path="res://level.gd" id="1_dcckh"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cwjlkol4p7ql8" path="res://world/interactable/CuttingBoard.tscn" id="12_d6u53"]
 [ext_resource type="Resource" uid="uid://dkegtyxt0ey3d" path="res://world/items/cucumber_item_data.tres" id="13_sypgb"]
 [ext_resource type="PackedScene" uid="uid://btrh3cgarkwx2" path="res://world/interactable/Computer.tscn" id="16_5qkpu"]
+[ext_resource type="PackedScene" uid="uid://dawwsjq8rxe4k" path="res://world/characters/Customer.tscn" id="19_yye10"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofirr"]
 atlas = ExtResource("7_mxnmf")
@@ -244,3 +245,45 @@ stream = SubResource("AudioStreamWAV_3ywx5")
 volume_db = -10.0
 autoplay = true
 bus = &"Music"
+
+[node name="Customer" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(183, -71)
+
+[node name="Customer2" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(146, -80)
+
+[node name="Customer3" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(111, -73)
+
+[node name="Customer4" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(72, -85)
+
+[node name="Customer5" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(38, -73)
+
+[node name="Customer6" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(8, -83)
+
+[node name="Customer7" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(-22, -69)
+
+[node name="Customer8" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(183, -115)
+
+[node name="Customer9" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(146, -124)
+
+[node name="Customer10" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(111, -117)
+
+[node name="Customer11" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(72, -129)
+
+[node name="Customer12" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(38, -117)
+
+[node name="Customer13" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(8, -127)
+
+[node name="Customer14" parent="." instance=ExtResource("19_yye10")]
+position = Vector2(-22, -113)

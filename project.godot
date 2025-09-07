@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerInventorySingleton="*res://player_inventory_singleton.gd"
+PlayerInventorySingleton="*res://scripts/player_inventory_singleton.gd"
 LevelInterfaceSingleton="*res://ui/level_interface_singleton.gd"
 EmailSystem="*res://world/interactable/computer/emails/EmailSystem.tscn"
 

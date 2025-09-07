@@ -52,8 +52,8 @@ func format_time_of_day() -> String:
 
 func _process(delta):
     if day_cycle_active:
-        # 1 second real-time is 1 minute in-game time
-        time_of_day += delta * (1.0 / 60.0)
+        # 1 second real-time is 2 minutes in-game time
+        time_of_day += delta * (2.0 / 60.0)
 
         if time_of_day >= 17.0:
             # At 5 PM, the day cycle ends.

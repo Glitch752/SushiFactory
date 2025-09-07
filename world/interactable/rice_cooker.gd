@@ -5,7 +5,7 @@ var has_rice = false
 
 @onready var timer = $Timer
 
-const COOK_TIME = 10.0
+const COOK_TIME = 30.0
 
 func _ready():
     set_process(false)
