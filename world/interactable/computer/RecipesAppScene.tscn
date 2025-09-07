@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5invywjrlhub"]
+[gd_scene load_steps=7 format=3 uid="uid://c5invywjrlhub"]
 
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_a3s3b"]
 [ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/9_patch_stylebox_dark.tres" id="3_blbny"]
 [ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="3_bqcgj"]
+[ext_resource type="StyleBox" uid="uid://bdkk47742j3ol" path="res://ui/9_patch_stylebox_white.tres" id="3_l4qer"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l34hu"]
 atlas = ExtResource("3_bqcgj")
@@ -12,8 +13,8 @@ region = Rect2(96, 0, 16, 16)
 atlas = ExtResource("3_bqcgj")
 region = Rect2(80, 0, 16, 16)
 
-[node name="ShopScene" type="MarginContainer"]
-custom_minimum_size = Vector2(800, 500)
+[node name="RecipesApp" type="MarginContainer"]
+custom_minimum_size = Vector2(800, 576.025)
 offset_right = 800.0
 offset_bottom = 500.0
 theme = ExtResource("1_a3s3b")
@@ -56,17 +57,21 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Recipe name here"
+text = "Cucumber Maki"
+horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("3_l4qer")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe/MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_l34hu")
-stretch_mode = 5
+expand_mode = 3
+stretch_mode = 4
 
 [node name="Recipe2" type="PanelContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
@@ -85,10 +90,24 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Recipe name here"
+text = "Salmon Nigiri"
+horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/Recipe2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 texture = SubResource("AtlasTexture_l4qer")
 stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = " Sorry, this menu is still a work-in-progress!
+
+ You can combine cooked rice,
+ sliced cucumber, and nori (seaweed)
+ bundles to make cucumber maki.
+
+ You can also make nigiri by combining
+ sliced salmon and cooked rice.
+
+ Have fun :)"
