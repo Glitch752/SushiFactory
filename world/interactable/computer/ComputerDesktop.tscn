@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://btal74mucv6b0"]
+[gd_scene load_steps=14 format=3 uid="uid://btal74mucv6b0"]
 
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
 [ext_resource type="Script" uid="uid://dxsluj5blctll" path="res://world/interactable/computer/application_button.gd" id="2_ikyhb"]
 [ext_resource type="PackedScene" uid="uid://dgeewn3pr40y3" path="res://world/interactable/computer/ShopAppScene.tscn" id="3_5qwym"]
 [ext_resource type="PackedScene" uid="uid://dy0u10a1d8iyf" path="res://world/interactable/computer/EmailAppScene.tscn" id="4_5amdb"]
+[ext_resource type="PackedScene" uid="uid://c5invywjrlhub" path="res://world/interactable/computer/RecipesAppScene.tscn" id="4_cbafg"]
 [ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_bth5r"]
 [ext_resource type="Script" uid="uid://clkxj4bqb5lex" path="res://world/interactable/computer/desktop_time.gd" id="5_ky8ly"]
 [ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/unread_email_indicator.gd" id="6_eahm3"]
@@ -23,6 +24,10 @@ expand_margin_bottom = 8.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_220wo"]
 atlas = ExtResource("1_220wo")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbafg"]
+atlas = ExtResource("1_220wo")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikyhb"]
 atlas = ExtResource("1_220wo")
@@ -84,6 +89,19 @@ expand_icon = true
 script = ExtResource("2_ikyhb")
 app_scene = ExtResource("3_5qwym")
 window_title = "Amazing"
+
+[node name="RecipesButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+text = "Recipes"
+icon = SubResource("AtlasTexture_cbafg")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+script = ExtResource("2_ikyhb")
+app_scene = ExtResource("4_cbafg")
+window_title = "Recipes"
 
 [node name="Control" type="Control" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
 custom_minimum_size = Vector2(0, 80)

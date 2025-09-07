@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="PlateRect" type="TextureRect" parent="MarginContainer/HBoxContainer/IconAspect"]
 visible = false
-custom_minimum_size = Vector2(96, 64)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 texture = SubResource("AtlasTexture_lfe7y")
 expand_mode = 2
