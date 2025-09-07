@@ -21,6 +21,7 @@ script = ExtResource("2_83uxb")
 texture = SubResource("AtlasTexture_a7wyj")
 
 [node name="InfoIndicator" type="Sprite2D" parent="." index="3"]
+unique_name_in_owner = true
 position = Vector2(0, -13)
 scale = Vector2(1.00342, 1)
 texture = SubResource("AtlasTexture_m3sid")

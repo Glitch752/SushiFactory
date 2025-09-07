@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc4kboo6y5bp1"]
+
+[ext_resource type="Script" uid="uid://cmdoht6s3pmw5" path="res://world/interactable/computer/email_template.gd" id="1_vr1mi"]
+[ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="2_qt1he"]
+[ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="3_jecob"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chh8d"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.208806, 0.224358, 0.250079, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_clire"]
+font = ExtResource("2_qt1he")
+
+[sub_resource type="LabelSettings" id="LabelSettings_crvhu"]
+font = ExtResource("3_jecob")
+font_size = 18
+
+[node name="EmailTemplate" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_chh8d")
+script = ExtResource("1_vr1mi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SenderName" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+text = "Sender"
+label_settings = SubResource("LabelSettings_clire")
+
+[node name="Subject" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Subject"
+label_settings = SubResource("LabelSettings_crvhu")
+
+[node name="SentTime" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Day 1, 8:00 AM"
+label_settings = SubResource("LabelSettings_crvhu")

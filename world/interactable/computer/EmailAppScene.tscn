@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy0u10a1d8iyf"]
+[gd_scene load_steps=16 format=3 uid="uid://dy0u10a1d8iyf"]
 
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_crvhu"]
+[ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="2_vgryo"]
+[ext_resource type="Script" uid="uid://tb2be00d0887" path="res://world/interactable/computer/email_list.gd" id="2_vxsc8"]
+[ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="3_chh8d"]
+[ext_resource type="Script" uid="uid://cgqjfa7r0d7mh" path="res://world/interactable/computer/emails/email_data.gd" id="3_crvhu"]
+[ext_resource type="PackedScene" uid="uid://cc4kboo6y5bp1" path="res://world/interactable/computer/EmailTemplate.tscn" id="3_vxsc8"]
+[ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="6_1hs58"]
+[ext_resource type="Texture2D" uid="uid://c2unm5ippi3bt" path="res://images/windowIcons.png" id="7_7ycg7"]
+[ext_resource type="Script" uid="uid://4qtut42ry6se" path="res://world/interactable/computer/email_back.gd" id="8_vxsc8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuw0s"]
 bg_color = Color(0.937255, 0.937255, 0.937255, 0.501961)
@@ -8,7 +16,27 @@ bg_color = Color(0.937255, 0.937255, 0.937255, 0.501961)
 [sub_resource type="LabelSettings" id="LabelSettings_ud1m4"]
 font_color = Color(0.133333, 0.12549, 0.203922, 1)
 
-[node name="ShopScene" type="MarginContainer"]
+[sub_resource type="Resource" id="Resource_b3jfi"]
+script = ExtResource("3_crvhu")
+sender = ""
+subject = ""
+body = ""
+sent = ""
+is_read = false
+metadata/_custom_type_script = "uid://cgqjfa7r0d7mh"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxsc8"]
+atlas = ExtResource("7_7ycg7")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_crvhu"]
+font = ExtResource("3_chh8d")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_clire"]
+font = ExtResource("2_vgryo")
+
+[node name="EmailAppScene" type="MarginContainer"]
 custom_minimum_size = Vector2(800, 500)
 offset_right = 800.0
 offset_bottom = 500.0
@@ -17,8 +45,10 @@ theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iuw0s")
 
@@ -36,7 +66,84 @@ layout_mode = 2
 text = "Emails"
 label_settings = SubResource("LabelSettings_ud1m4")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="EmailListMargin" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="EmailList" type="VBoxContainer" parent="VBoxContainer/EmailListMargin"]
+layout_mode = 2
+script = ExtResource("2_vxsc8")
+
+[node name="EmailTemplate" parent="VBoxContainer/EmailListMargin/EmailList" instance=ExtResource("3_vxsc8")]
+layout_mode = 2
+emailData = SubResource("Resource_b3jfi")
+
+[node name="EmailContent" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+script = ExtResource("6_1hs58")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/EmailContent"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/EmailContent/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EmailContent/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBoxContainer/EmailContent/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = " Back"
+icon = SubResource("AtlasTexture_vxsc8")
+alignment = 0
+expand_icon = true
+script = ExtResource("8_vxsc8")
+
+[node name="ContentSubject" type="Label" parent="VBoxContainer/EmailContent/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Welcome to your new position!"
+label_settings = SubResource("LabelSettings_crvhu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EmailContent/VBoxContainer"]
+layout_mode = 2
+
+[node name="ContentSender" type="Label" parent="VBoxContainer/EmailContent/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Boss"
+label_settings = SubResource("LabelSettings_clire")
+
+[node name="ContentSentTime" type="Label" parent="VBoxContainer/EmailContent/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Day 1, 5:00 PM"
+label_settings = SubResource("LabelSettings_crvhu")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/EmailContent/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+
+[node name="Content" type="RichTextLabel" parent="VBoxContainer/EmailContent/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Hello, new employee!
+
+Welcome to your position at our sushi restaurant. lorem ipsum dolor sit amet idk blah blah blah"
+fit_content = true

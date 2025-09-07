@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bfpegqboaskg6"]
 
-[ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://level_interface.gd" id="1_ta4wj"]
+[ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://ui/level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="3_grx74"]
 [ext_resource type="Texture2D" uid="uid://dy113bsj6ku48" path="res://images/uiIcons.png" id="3_sb6wj"]
@@ -114,15 +114,19 @@ custom_minimum_size = Vector2(256, 48)
 layout_mode = 2
 tooltip_text = "The current time. The store is open from 9:00 AM to 5:00 PM."
 
-[node name="ProgressBar" type="ProgressBar" parent="InfoDisplays/Time"]
+[node name="TimeProgress" type="ProgressBar" parent="InfoDisplays/Time"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/background = SubResource("StyleBoxEmpty_xj0kr")
 theme_override_styles/fill = ExtResource("5_xj0kr")
-min_value = -10.0
+min_value = 7.0
+max_value = 17.0
+value = 8.0
 show_percentage = false
 
-[node name="TimeLabel" type="Label" parent="InfoDisplays/Time/ProgressBar"]
+[node name="TimeLabel" type="Label" parent="InfoDisplays/Time/TimeProgress"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = 15.0
 offset_top = 7.0
@@ -157,6 +161,7 @@ text = "Orders"
 label_settings = SubResource("LabelSettings_sb6wj")
 
 [node name="OrderLayout" type="BoxContainer" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 24.0
 offset_top = 48.0

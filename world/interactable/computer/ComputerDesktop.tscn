@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://btal74mucv6b0"]
+[gd_scene load_steps=12 format=3 uid="uid://btal74mucv6b0"]
 
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
 [ext_resource type="Script" uid="uid://dxsluj5blctll" path="res://world/interactable/computer/application_button.gd" id="2_ikyhb"]
 [ext_resource type="PackedScene" uid="uid://dgeewn3pr40y3" path="res://world/interactable/computer/ShopAppScene.tscn" id="3_5qwym"]
 [ext_resource type="PackedScene" uid="uid://dy0u10a1d8iyf" path="res://world/interactable/computer/EmailAppScene.tscn" id="4_5amdb"]
+[ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_bth5r"]
+[ext_resource type="Script" uid="uid://clkxj4bqb5lex" path="res://world/interactable/computer/desktop_time.gd" id="5_ky8ly"]
+[ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/unread_email_indicator.gd" id="6_eahm3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_220wo"]
 bg_color = Color(0.231373, 0.431373, 0.647059, 1)
@@ -24,6 +27,10 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikyhb"]
 atlas = ExtResource("1_220wo")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eahm3"]
+atlas = ExtResource("5_bth5r")
+region = Rect2(8, 0, 8, 8)
 
 [node name="ComputerDesktop" type="CanvasLayer"]
 
@@ -78,9 +85,15 @@ script = ExtResource("2_ikyhb")
 app_scene = ExtResource("3_5qwym")
 window_title = "Amazing"
 
-[node name="EmailButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
-custom_minimum_size = Vector2(64, 80)
+[node name="Control" type="Control" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+
+[node name="EmailButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer/Control"]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 1
+offset_right = 75.0
+offset_bottom = 80.0
 text = "Email"
 icon = SubResource("AtlasTexture_ikyhb")
 flat = true
@@ -90,6 +103,15 @@ expand_icon = true
 script = ExtResource("2_ikyhb")
 app_scene = ExtResource("4_5amdb")
 window_title = "Email"
+
+[node name="UnreadEmailIndicator" type="TextureRect" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer/Control"]
+layout_mode = 0
+offset_left = 49.0654
+offset_top = -1.0
+offset_right = 73.0654
+offset_bottom = 23.0
+texture = SubResource("AtlasTexture_eahm3")
+script = ExtResource("6_eahm3")
 
 [node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Panel"]
 layout_mode = 1
@@ -111,6 +133,8 @@ theme_override_constants/margin_right = 15
 layout_mode = 2
 alignment = 2
 
-[node name="Label" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
+[node name="DesktopTime" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "5:30 PM"
+script = ExtResource("5_ky8ly")

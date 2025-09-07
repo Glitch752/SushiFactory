@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://0uceoygqslm2"]
+
+[ext_resource type="Texture2D" uid="uid://b5lnnn3yr2ir7" path="res://images/green9tile.png" id="1_kt3ln"]
+
+[resource]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_kt3ln")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+modulate_color = Color(0.724643, 0.724642, 0.724643, 1)

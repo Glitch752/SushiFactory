@@ -19,6 +19,7 @@ modulate_color = Color(0.617455, 0.617455, 0.617455, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g87qx"]
 atlas = ExtResource("3_lguuv")
+region = Rect2(0, 0, 8, 8)
 
 [node name="ComputerAppWindow" type="PanelContainer"]
 anchors_preset = 15

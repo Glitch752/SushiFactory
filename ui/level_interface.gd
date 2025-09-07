@@ -1,7 +1,16 @@
 extends Control
 
 func _ready():
-    add_to_group("level_interface")
+    LevelInterfaceSingleton.money_changed.connect(update_money_display)
+    LevelInterfaceSingleton.day_changed.connect(update_day_display)
+    LevelInterfaceSingleton.time_of_day_changed.connect(update_time_display)
+    
+    LevelInterfaceSingleton.interact_text_changed.connect(set_interact_text_shown)
+    LevelInterfaceSingleton.info_description_changed.connect(set_info_description)
+
+    update_money_display(LevelInterfaceSingleton.current_money)
+    update_day_display(LevelInterfaceSingleton.day)
+    update_time_display(LevelInterfaceSingleton.time_of_day)
 
 
 ## @param new_text The new text to display, or "" to keep the current text.
@@ -28,3 +37,7 @@ func update_money_display(money: int):
 
 func update_day_display(day: int):
     $%DayLabel.text = "Day " + str(day)
+
+func update_time_display(time_of_day: float):
+    $%TimeLabel.text = LevelInterfaceSingleton.format_time_of_day()
+    $%TimeProgress.value = time_of_day
