@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=10 format=3 uid="uid://sbwaxx16kh3g"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_s60w0"]
+[ext_resource type="Resource" uid="uid://dgva8y3u01i30" path="res://world/items/data/cucumber_maki_item_data.tres" id="2_s60w0"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="2_sygx7"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="3_ig7ah"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="3_sygx7"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_u8frn"]
+
+[sub_resource type="Resource" id="Resource_s60w0"]
+script = ExtResource("1_s60w0")
+item = ExtResource("2_sygx7")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_u8frn"]
+script = ExtResource("1_s60w0")
+item = ExtResource("3_u8frn")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_sygx7"]
+script = ExtResource("1_s60w0")
+item = ExtResource("3_ig7ah")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("3_sygx7")
+ingredients = Array[ExtResource("1_s60w0")]([SubResource("Resource_s60w0"), SubResource("Resource_u8frn"), SubResource("Resource_sygx7")])
+result = ExtResource("2_s60w0")
+recipe_information = "[item]Cucumber Maki[/item] is made with [item]sliced cucumbers[/item], [rawitem]nori[/rawitem] (seaweed), and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Maki is a type of sushi roll made by wrapping rice and various fillings in a sheet of nori."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

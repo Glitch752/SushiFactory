@@ -1,16 +1,15 @@
 extends PanelContainer
 
 @export var window_title: String
-@export var app_scene: PackedScene
+@export var app_scene_instance: Node
 var dragging = false
 
 func _ready():
     $%WindowTitle.text = window_title
-    $OuterContainer.add_child(app_scene.instantiate())
+    $OuterContainer.add_child(app_scene_instance)
 
 func _on_close_button_pressed():
     queue_free()
-
 
 func _on_window_titlebar_gui_input(event):
     if event is InputEventMouseButton:
@@ -18,8 +17,7 @@ func _on_window_titlebar_gui_input(event):
             dragging = event.pressed
             if dragging:
                 get_viewport().set_input_as_handled()
-                # Move ourself to the front
-                get_parent().move_child(self, get_parent().get_child_count() - 1)
+                move_to_front()
     elif event is InputEventMouseMotion and dragging:
         global_position += event.relative
         

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=6 format=3 uid="uid://ch680fxhp1n74"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_n3d3a"]
+[ext_resource type="Resource" uid="uid://dkegtyxt0ey3d" path="res://world/items/data/cucumber_item_data.tres" id="2_jokxg"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="3_opo0u"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="4_xi0dh"]
+
+[sub_resource type="Resource" id="Resource_mdwu4"]
+script = ExtResource("1_n3d3a")
+item = ExtResource("2_jokxg")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_xi0dh")
+ingredients = Array[ExtResource("1_n3d3a")]([SubResource("Resource_mdwu4")])
+result = ExtResource("3_opo0u")
+recipe_information = "[item]Sliced cucumbers[/item] are made using a [machine]cutting board[/machine] to slice [rawitem]cucumbers[/rawitem]."
+machine = ""
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

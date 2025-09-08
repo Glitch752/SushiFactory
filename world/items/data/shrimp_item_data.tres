@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://ddqwxyrwx2dwk"]
+
+[ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="1_hrbnj"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_dpkwv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0wf6"]
+atlas = ExtResource("1_hrbnj")
+region = Rect2(432, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_dpkwv")
+id = "shrimp"
+item_name = "Raw Shrimp"
+item_sprite = SubResource("AtlasTexture_m0wf6")
+description = "Raw shimp."
+metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

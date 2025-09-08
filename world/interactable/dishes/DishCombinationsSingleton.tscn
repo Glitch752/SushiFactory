@@ -1,0 +1,13 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuisrb1qejkpq"]
+
+[ext_resource type="Script" uid="uid://dnms63g65hday" path="res://world/interactable/dishes/dish_combinations.gd" id="1_7g3b4"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="2_bj0eg"]
+[ext_resource type="Resource" uid="uid://dm568tpvwqpn" path="res://world/interactable/dishes/combinations/salmon_nigiri_combination.tres" id="3_bj0eg"]
+[ext_resource type="Resource" uid="uid://sbwaxx16kh3g" path="res://world/interactable/dishes/combinations/cucumber_maki_combination.tres" id="4_sxcdt"]
+[ext_resource type="Resource" uid="uid://dk258ucy47ocw" path="res://world/interactable/dishes/combinations/cooked_rice_combination.tres" id="5_sxcdt"]
+[ext_resource type="Resource" uid="uid://cygg7pdohkw5g" path="res://world/interactable/dishes/combinations/sliced_salmon_combination.tres" id="6_5shs4"]
+[ext_resource type="Resource" uid="uid://ch680fxhp1n74" path="res://world/interactable/dishes/combinations/sliced_cucumber_combination.tres" id="7_21mhq"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_7g3b4")
+dish_combinations = Array[ExtResource("2_bj0eg")]([ExtResource("3_bj0eg"), ExtResource("4_sxcdt"), ExtResource("5_sxcdt"), ExtResource("6_5shs4"), ExtResource("7_21mhq")])

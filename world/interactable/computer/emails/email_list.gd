@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-var EmailTemplate = preload("res://world/interactable/computer/EmailTemplate.tscn")
+var EmailTemplate = preload("res://world/interactable/computer/emails/EmailTemplate.tscn")
 
 func _ready():
     EmailSystem.inbox_updated.connect(update_list)

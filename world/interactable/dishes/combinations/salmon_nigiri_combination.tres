@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=8 format=3 uid="uid://dm568tpvwqpn"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_vkxe2"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://world/items/data/sliced_salmon_item_data.tres" id="2_6psyo"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="3_6psyo"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="3_x3ny3"]
+[ext_resource type="Resource" uid="uid://dj45kc2uvgw3p" path="res://world/items/data/salmon_nigiri_item_data.tres" id="4_41tq8"]
+
+[sub_resource type="Resource" id="Resource_21mhq"]
+script = ExtResource("1_vkxe2")
+item = ExtResource("2_6psyo")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_rtuua"]
+script = ExtResource("1_vkxe2")
+item = ExtResource("3_x3ny3")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("3_6psyo")
+ingredients = Array[ExtResource("1_vkxe2")]([SubResource("Resource_21mhq"), SubResource("Resource_rtuua")])
+result = ExtResource("4_41tq8")
+recipe_information = "[item]Salmon Nigiri[/item] is made with [item]sliced salmon[/item] and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Nigiri is a traditional Japanese dish consisting of a small mound of sushi rice topped with a slice of raw fish."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

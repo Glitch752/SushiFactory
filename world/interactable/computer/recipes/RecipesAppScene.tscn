@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5invywjrlhub"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_a3s3b"]
+[ext_resource type="Script" uid="uid://tw0e7cya37v" path="res://world/interactable/computer/recipes/recipes_app_scene.gd" id="2_dapyh"]
+[ext_resource type="PackedScene" uid="uid://blv8ydpuxesd3" path="res://world/interactable/computer/recipes/ItemPanel.tscn" id="2_nvf2a"]
+[ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="3_1jkhi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_je1w7"]
+font = ExtResource("3_1jkhi")
+font_size = 20
+
+[node name="RecipesApp" type="MarginContainer"]
+custom_minimum_size = Vector2(800, 576.025)
+offset_right = 800.0
+offset_bottom = 500.0
+theme = ExtResource("1_a3s3b")
+theme_override_constants/margin_bottom = 25
+script = ExtResource("2_dapyh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dishes"
+label_settings = SubResource("LabelSettings_je1w7")
+
+[node name="DishesGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Recipe" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/DishesGrid" instance=ExtResource("2_nvf2a")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+Ingredients"
+label_settings = SubResource("LabelSettings_je1w7")
+
+[node name="IngredientsGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Recipe" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/IngredientsGrid" instance=ExtResource("2_nvf2a")]
+layout_mode = 2

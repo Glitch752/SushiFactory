@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cc4kboo6y5bp1"]
 
-[ext_resource type="Script" uid="uid://cmdoht6s3pmw5" path="res://world/interactable/computer/email_template.gd" id="1_vr1mi"]
+[ext_resource type="Script" uid="uid://cmdoht6s3pmw5" path="res://world/interactable/computer/emails/email_template.gd" id="1_vr1mi"]
 [ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="2_qt1he"]
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="3_jecob"]
 

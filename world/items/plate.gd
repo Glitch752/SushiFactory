@@ -10,40 +10,6 @@ class ContentData:
 
 var contents: Array[ContentData] = []
 
-class DishIngredient:
-    var item_id: String
-    var quantity: int = 1
-    @warning_ignore("shadowed_variable")
-    func _init(item_id: String, quantity: int = 1):
-        self.item_id = item_id
-        self.quantity = quantity
-
-class DishCombination:
-    var ingredients: Array[DishIngredient]
-    var result: ItemData
-    @warning_ignore("shadowed_variable")
-    func _init(result: ItemData, ingredients: Array[DishIngredient]):
-        self.ingredients = ingredients
-        self.result = result
-
-var DISH_COMBINATIONS: Array[DishCombination] = [
-    DishCombination.new(
-        preload("res://world/items/salmon_nigiri_item_data.tres"),
-        [
-            DishIngredient.new("sliced_salmon"),
-            DishIngredient.new("cooked_rice"),
-        ]
-    ),
-    DishCombination.new(
-        preload("res://world/items/cucumber_maki_item_data.tres"),
-        [
-            DishIngredient.new("sliced_cucumber"),
-            DishIngredient.new("nori_bundle"),
-            DishIngredient.new("cooked_rice"),
-        ]
-    )
-]
-
 func can_add(item: ItemData) -> bool:
     return item.id != "plate"
 
@@ -77,10 +43,13 @@ func process_dishes():
         else:
             found_ingredients.set(content.item.id, 1)
     
-    for dish in DISH_COMBINATIONS:
+    for dish in DishCombinationsSingleton.dish_combinations:
+        if dish.machine != "plate":
+            continue
+        
         var all_found = true
         for ingredient in dish.ingredients:
-            if !found_ingredients.has(ingredient.item_id) or found_ingredients[ingredient.item_id] < ingredient.quantity:
+            if !found_ingredients.has(ingredient.item.id) or found_ingredients[ingredient.item.id] < ingredient.quantity:
                 all_found = false
                 break
         
@@ -89,7 +58,7 @@ func process_dishes():
 
             for item in dish.ingredients:
                 for content in contents:
-                    if content.item.id == item.item_id:
+                    if content.item.id == item.item.id:
                         remove_child(content.sprite)
                         content.sprite.queue_free()
                         contents.erase(content)

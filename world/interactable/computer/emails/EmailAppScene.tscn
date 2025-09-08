@@ -2,13 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_crvhu"]
 [ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="2_vgryo"]
-[ext_resource type="Script" uid="uid://tb2be00d0887" path="res://world/interactable/computer/email_list.gd" id="2_vxsc8"]
+[ext_resource type="Script" uid="uid://tb2be00d0887" path="res://world/interactable/computer/emails/email_list.gd" id="2_vxsc8"]
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="3_chh8d"]
 [ext_resource type="Script" uid="uid://cgqjfa7r0d7mh" path="res://world/interactable/computer/emails/email_data.gd" id="3_crvhu"]
-[ext_resource type="PackedScene" uid="uid://cc4kboo6y5bp1" path="res://world/interactable/computer/EmailTemplate.tscn" id="3_vxsc8"]
+[ext_resource type="PackedScene" uid="uid://cc4kboo6y5bp1" path="res://world/interactable/computer/emails/EmailTemplate.tscn" id="3_vxsc8"]
 [ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="6_1hs58"]
 [ext_resource type="Texture2D" uid="uid://c2unm5ippi3bt" path="res://images/windowIcons.png" id="7_7ycg7"]
-[ext_resource type="Script" uid="uid://4qtut42ry6se" path="res://world/interactable/computer/email_back.gd" id="8_vxsc8"]
+[ext_resource type="Script" uid="uid://4qtut42ry6se" path="res://world/interactable/computer/emails/email_back.gd" id="8_vxsc8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuw0s"]
 bg_color = Color(0.937255, 0.937255, 0.937255, 0.501961)

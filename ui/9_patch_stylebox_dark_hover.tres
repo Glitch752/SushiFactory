@@ -1,0 +1,12 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://0aipyu3t58is"]
+
+[ext_resource type="Texture2D" uid="uid://01gw852flw0v" path="res://images/darkhover9tile.png" id="1_x1dq7"]
+
+[resource]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("1_x1dq7")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0

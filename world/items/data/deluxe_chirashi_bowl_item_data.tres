@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cby2iuxg5t7kx"]
+
+[ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="1_ep2hm"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_7a6r1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0wf6"]
+atlas = ExtResource("1_ep2hm")
+region = Rect2(288, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_7a6r1")
+id = "deluxe_chirashi_bowl"
+item_name = "Deluxe Chirashi Bowl"
+item_sprite = SubResource("AtlasTexture_m0wf6")
+description = "A complex chirashi bowl; essentially deconstructed sushi."
+metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

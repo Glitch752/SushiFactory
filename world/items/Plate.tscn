@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dsribb2jwmt70" path="res://world/items/item.tscn" id="1_me6qw"]
 [ext_resource type="Script" uid="uid://cojj8g0xyiolo" path="res://world/items/plate.gd" id="2_jgcqh"]
-[ext_resource type="Resource" uid="uid://c5lt5fmehue" path="res://world/items/plate_item_data.tres" id="3_md7g8"]
+[ext_resource type="Resource" uid="uid://c5lt5fmehue" path="res://world/items/data/plate_item_data.tres" id="3_md7g8"]
 
 [node name="Plate" instance=ExtResource("1_me6qw")]
 script = ExtResource("2_jgcqh")

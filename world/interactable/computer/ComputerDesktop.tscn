@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://btal74mucv6b0"]
+[gd_scene load_steps=15 format=3 uid="uid://btal74mucv6b0"]
 
+[ext_resource type="Script" uid="uid://bpxxda7d2j770" path="res://world/interactable/computer/computer_desktop.gd" id="1_4ijat"]
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
 [ext_resource type="Script" uid="uid://dxsluj5blctll" path="res://world/interactable/computer/application_button.gd" id="2_ikyhb"]
 [ext_resource type="PackedScene" uid="uid://dgeewn3pr40y3" path="res://world/interactable/computer/ShopAppScene.tscn" id="3_5qwym"]
-[ext_resource type="PackedScene" uid="uid://dy0u10a1d8iyf" path="res://world/interactable/computer/EmailAppScene.tscn" id="4_5amdb"]
-[ext_resource type="PackedScene" uid="uid://c5invywjrlhub" path="res://world/interactable/computer/RecipesAppScene.tscn" id="4_cbafg"]
+[ext_resource type="PackedScene" uid="uid://dy0u10a1d8iyf" path="res://world/interactable/computer/emails/EmailAppScene.tscn" id="4_5amdb"]
+[ext_resource type="PackedScene" uid="uid://c5invywjrlhub" path="res://world/interactable/computer/recipes/RecipesAppScene.tscn" id="4_cbafg"]
 [ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_bth5r"]
 [ext_resource type="Script" uid="uid://clkxj4bqb5lex" path="res://world/interactable/computer/desktop_time.gd" id="5_ky8ly"]
-[ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/unread_email_indicator.gd" id="6_eahm3"]
+[ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/emails/unread_email_indicator.gd" id="6_eahm3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_220wo"]
 bg_color = Color(0.231373, 0.431373, 0.647059, 1)
@@ -38,6 +39,7 @@ atlas = ExtResource("5_bth5r")
 region = Rect2(8, 0, 8, 8)
 
 [node name="ComputerDesktop" type="CanvasLayer"]
+script = ExtResource("1_4ijat")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 anchors_preset = 8
