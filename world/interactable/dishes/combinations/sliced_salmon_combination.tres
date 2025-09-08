@@ -1,20 +1,20 @@
 [gd_resource type="Resource" script_class="DishCombination" load_steps=6 format=3 uid="uid://cygg7pdohkw5g"]
 
 [ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_wuoj8"]
-[ext_resource type="Resource" uid="uid://bvucci4fj2n1m" path="res://world/items/data/salmon_item_data.tres" id="2_1muw8"]
-[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://world/items/data/sliced_salmon_item_data.tres" id="3_wuoj8"]
+[ext_resource type="Resource" uid="uid://bvucci4fj2n1m" path="res://world/items/data/salmon_item_data.tres" id="2_wuoj8"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://world/items/data/sliced_salmon_item_data.tres" id="3_1muw8"]
 [ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="4_8xj5m"]
 
 [sub_resource type="Resource" id="Resource_l2s6x"]
 script = ExtResource("1_wuoj8")
-item = ExtResource("2_1muw8")
+item = ExtResource("2_wuoj8")
 quantity = 1
 metadata/_custom_type_script = "uid://dju7gp1bh43js"
 
 [resource]
 script = ExtResource("4_8xj5m")
 ingredients = Array[ExtResource("1_wuoj8")]([SubResource("Resource_l2s6x")])
-result = ExtResource("3_wuoj8")
+result = ExtResource("3_1muw8")
 recipe_information = "[item]Sliced salmon[/item] is made using a [machine]cutting board[/machine] to slice [rawitem]raw salmon[/rawitem]."
-machine = ""
+machine = "cutting_board"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

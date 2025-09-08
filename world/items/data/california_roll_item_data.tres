@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cmlcprlouf8xa"]
+
+[ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="1_jhy08"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_tlg52"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0wf6"]
+atlas = ExtResource("1_jhy08")
+region = Rect2(192, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_tlg52")
+id = "california_roll"
+item_name = "California Roll"
+item_sprite = SubResource("AtlasTexture_m0wf6")
+description = "A california sushi roll containing imitation crab."
+metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

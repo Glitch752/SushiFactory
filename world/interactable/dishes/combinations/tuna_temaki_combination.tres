@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=12 format=3 uid="uid://c5putl56v3ero"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_en060"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="2_o84vg"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_0576q"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="3_jlopk"]
+[ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://world/items/data/sliced_tuna_item_data.tres" id="4_juxg2"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="5_4f5uk"]
+[ext_resource type="Resource" uid="uid://b4k3phsx0chkl" path="res://world/items/data/tuna_temaki_item_data.tres" id="6_us4la"]
+
+[sub_resource type="Resource" id="Resource_mb5ml"]
+script = ExtResource("1_en060")
+item = ExtResource("2_o84vg")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_2de3j"]
+script = ExtResource("1_en060")
+item = ExtResource("3_0576q")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_3kmgg"]
+script = ExtResource("1_en060")
+item = ExtResource("4_juxg2")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_87hoa"]
+script = ExtResource("1_en060")
+item = ExtResource("5_4f5uk")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("3_jlopk")
+ingredients = Array[ExtResource("1_en060")]([SubResource("Resource_mb5ml"), SubResource("Resource_2de3j"), SubResource("Resource_3kmgg"), SubResource("Resource_87hoa")])
+result = ExtResource("6_us4la")
+recipe_information = "[item]Tuna temaki[/item] is made with [item]sliced tuna[/item], [item]cucumber slices[/item],, [rawitem]nori[/rawitem] (seaweed), and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Temaki is a sushi variant using a hand-rolled nori cone to contain rice and toppings."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

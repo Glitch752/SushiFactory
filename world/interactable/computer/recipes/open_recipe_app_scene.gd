@@ -1,4 +1,4 @@
-extends MarginContainer
+extends ScrollContainer
 
 @export var dish: DishCombination
 

@@ -32,7 +32,7 @@ func interact():
             remove_child(item)
             item.queue_free()
             
-            var sliced_item = PlayerInventorySingleton.create_item(load("res://world/items/%s_item_data.tres" % sliced_item_id))
+            var sliced_item = PlayerInventorySingleton.create_item(load("res://world/items/data/%s_item_data.tres" % sliced_item_id))
             add_child(sliced_item)
             
             item = sliced_item

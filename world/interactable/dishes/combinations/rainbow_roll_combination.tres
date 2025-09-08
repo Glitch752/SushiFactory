@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=18 format=3 uid="uid://vnjmhpg1yerq"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_2v36d"]
+[ext_resource type="Resource" uid="uid://dayg8sjqypvy1" path="res://world/items/data/rainbow_roll_item_data.tres" id="2_6d5rn"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="2_31p6a"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_2kt0u"]
+[ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://world/items/data/sliced_tuna_item_data.tres" id="4_6p0h2"]
+[ext_resource type="Resource" uid="uid://b2twqfc7es7hv" path="res://world/items/data/imitation_crab_item_data.tres" id="5_6p0h2"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="5_cboty"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://world/items/data/sliced_salmon_item_data.tres" id="7_cboty"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="7_p2osj"]
+[ext_resource type="Resource" uid="uid://chb3ty3o3cosn" path="res://world/items/data/sliced_avocado_item_data.tres" id="8_x1r33"]
+
+[sub_resource type="Resource" id="Resource_p2osj"]
+script = ExtResource("1_2v36d")
+item = ExtResource("2_31p6a")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_cqj31"]
+script = ExtResource("1_2v36d")
+item = ExtResource("3_2kt0u")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_qqwtp"]
+script = ExtResource("1_2v36d")
+item = ExtResource("5_cboty")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_ounqf"]
+script = ExtResource("1_2v36d")
+item = ExtResource("5_6p0h2")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_arahp"]
+script = ExtResource("1_2v36d")
+item = ExtResource("4_6p0h2")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_fcxt4"]
+script = ExtResource("1_2v36d")
+item = ExtResource("7_cboty")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_8wa4b"]
+script = ExtResource("1_2v36d")
+item = ExtResource("8_x1r33")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("7_p2osj")
+ingredients = Array[ExtResource("1_2v36d")]([SubResource("Resource_p2osj"), SubResource("Resource_cqj31"), SubResource("Resource_qqwtp"), SubResource("Resource_ounqf"), SubResource("Resource_arahp"), SubResource("Resource_fcxt4"), SubResource("Resource_8wa4b")])
+result = ExtResource("2_6d5rn")
+recipe_information = "[item]Rainbow rolls[/item] are made with [item]sliced salmon[/item], [item]sliced tuna[/item], [rawitem]imitation crab[/rawitem], [item]cucumber slices[/item], [item]avocado slices[/item], [rawitem]nori[/rawitem] (seaweed), and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Rainbow rolls are a popular western variation on the california roll containing mixed colorful fish and vegetables."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

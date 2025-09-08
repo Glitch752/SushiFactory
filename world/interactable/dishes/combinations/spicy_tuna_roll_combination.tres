@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=10 format=3 uid="uid://c4l5ojfkf6hfp"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_pdaoc"]
+[ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://world/items/data/sliced_tuna_item_data.tres" id="3_kp5mk"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="5_c5hm5"]
+[ext_resource type="Resource" uid="uid://do2tnm1sebo21" path="res://world/items/data/spicy_tuna_roll_item_data.tres" id="5_kr7c2"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="6_rlwgi"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="8_nhjsv"]
+
+[sub_resource type="Resource" id="Resource_pdaoc"]
+script = ExtResource("1_pdaoc")
+item = ExtResource("6_rlwgi")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_paiw1"]
+script = ExtResource("1_pdaoc")
+item = ExtResource("3_kp5mk")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_3gxws"]
+script = ExtResource("1_pdaoc")
+item = ExtResource("5_c5hm5")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("8_nhjsv")
+ingredients = Array[ExtResource("1_pdaoc")]([SubResource("Resource_pdaoc"), SubResource("Resource_paiw1"), SubResource("Resource_3gxws")])
+result = ExtResource("5_kr7c2")
+recipe_information = "[item]Spicy tuna rolls[/item] are made with [item]sliced tuna[/item], [rawitem]nori[/rawitem] (seaweed), [item]cooked rice[/item] from a [machine]rice cooker[/machine], and spicy sauce (use your imagination). Spicy tuna rolls are a western type of sushi typically seasoned with sasame siracha sauce."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

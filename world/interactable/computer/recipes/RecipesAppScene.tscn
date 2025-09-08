@@ -10,36 +10,36 @@ font = ExtResource("3_1jkhi")
 font_size = 20
 
 [node name="RecipesApp" type="MarginContainer"]
-custom_minimum_size = Vector2(800, 576.025)
+custom_minimum_size = Vector2(800, 600)
 offset_right = 800.0
 offset_bottom = 500.0
 theme = ExtResource("1_a3s3b")
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 script = ExtResource("2_dapyh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Dishes"
 label_settings = SubResource("LabelSettings_je1w7")
 
-[node name="DishesGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="DishesGrid" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -47,16 +47,16 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="Recipe" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/DishesGrid" instance=ExtResource("2_nvf2a")]
+[node name="Recipe" parent="ScrollContainer/MarginContainer/VBoxContainer/DishesGrid" instance=ExtResource("2_nvf2a")]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "
 Ingredients"
 label_settings = SubResource("LabelSettings_je1w7")
 
-[node name="IngredientsGrid" type="GridContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="IngredientsGrid" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -64,5 +64,5 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="Recipe" parent="VBoxContainer/MarginContainer/ScrollContainer/VBoxContainer/IngredientsGrid" instance=ExtResource("2_nvf2a")]
+[node name="Recipe" parent="ScrollContainer/MarginContainer/VBoxContainer/IngredientsGrid" instance=ExtResource("2_nvf2a")]
 layout_mode = 2

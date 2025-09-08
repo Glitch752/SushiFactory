@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=14 format=3 uid="uid://dt3wk8kj4qhq4"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_vy28i"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="2_oc6py"]
+[ext_resource type="Resource" uid="uid://chb3ty3o3cosn" path="res://world/items/data/sliced_avocado_item_data.tres" id="3_b2cif"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_d748u"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="4_b2cif"]
+[ext_resource type="Resource" uid="uid://b2twqfc7es7hv" path="res://world/items/data/imitation_crab_item_data.tres" id="4_d5ao8"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="6_sy8pv"]
+[ext_resource type="Resource" uid="uid://cmlcprlouf8xa" path="res://world/items/data/california_roll_item_data.tres" id="7_d748u"]
+
+[sub_resource type="Resource" id="Resource_sy8pv"]
+script = ExtResource("1_vy28i")
+item = ExtResource("2_oc6py")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_3hnnj"]
+script = ExtResource("1_vy28i")
+item = ExtResource("3_b2cif")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_5eurr"]
+script = ExtResource("1_vy28i")
+item = ExtResource("4_d5ao8")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_mtpnd"]
+script = ExtResource("1_vy28i")
+item = ExtResource("3_d748u")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_eftf5"]
+script = ExtResource("1_vy28i")
+item = ExtResource("4_b2cif")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("6_sy8pv")
+ingredients = Array[ExtResource("1_vy28i")]([SubResource("Resource_sy8pv"), SubResource("Resource_3hnnj"), SubResource("Resource_5eurr"), SubResource("Resource_mtpnd"), SubResource("Resource_eftf5")])
+result = ExtResource("7_d748u")
+recipe_information = "[item]California rolls[/item] are made with [item]sliced cucumbers[/item], [item]sliced avocado[/item], [rawitem]imitation crab[/rawitem], [rawitem]nori[/rawitem] (seaweed) and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. California rolls are a western-style sushi containing imitation crab."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

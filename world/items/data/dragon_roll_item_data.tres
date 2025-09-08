@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://5m8u3i5er6yv"]
+
+[ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="1_53h0d"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_ob0n7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0wf6"]
+atlas = ExtResource("1_53h0d")
+region = Rect2(224, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_ob0n7")
+id = "dragon_roll"
+item_name = "Dragon Roll"
+item_sprite = SubResource("AtlasTexture_m0wf6")
+description = "A dragon sushi roll, containing shrimp tempura and topped with avocado to resemble dragon scales."
+metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

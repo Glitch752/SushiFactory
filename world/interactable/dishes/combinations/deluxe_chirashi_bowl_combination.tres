@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=18 format=3 uid="uid://dxg8g7l11mttd"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_pcp5k"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="2_8p04a"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_n37kn"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="4_teyqy"]
+[ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://world/items/data/sliced_tuna_item_data.tres" id="6_ftg0v"]
+[ext_resource type="Resource" uid="uid://ddqwxyrwx2dwk" path="res://world/items/data/shrimp_item_data.tres" id="6_pcp5k"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://world/items/data/sliced_salmon_item_data.tres" id="7_evwrc"]
+[ext_resource type="Resource" uid="uid://bl2y6osmcngo0" path="res://world/items/data/tamago_item_data.tres" id="8_8p04a"]
+[ext_resource type="Resource" uid="uid://cby2iuxg5t7kx" path="res://world/items/data/deluxe_chirashi_bowl_item_data.tres" id="9_pcp5k"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="10_l53f5"]
+
+[sub_resource type="Resource" id="Resource_n37kn"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("2_8p04a")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_teyqy"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("3_n37kn")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_jr25j"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("6_ftg0v")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_ftg0v"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("7_evwrc")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_evwrc"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("6_pcp5k")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_q0k7c"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("4_teyqy")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_xwmyl"]
+script = ExtResource("1_pcp5k")
+item = ExtResource("8_8p04a")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("10_l53f5")
+ingredients = Array[ExtResource("1_pcp5k")]([SubResource("Resource_n37kn"), SubResource("Resource_teyqy"), SubResource("Resource_jr25j"), SubResource("Resource_ftg0v"), SubResource("Resource_evwrc"), SubResource("Resource_q0k7c"), SubResource("Resource_xwmyl")])
+result = ExtResource("9_pcp5k")
+recipe_information = "[item]Deluxe chirashi bowls[/item] are made with [item]sliced salmon[/item], [item]sliced tuna[/item], [rawitem]shrimp[/rawitem], [item]cucumber slices[/item], [item]tamago[/item] from a [machine]frying pan[/machine], [rawitem]nori[/rawitem] (seaweed), and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Chirashi bowls are traditional Japanese rice bowls topped with ingredients typically found in sushi; they're essentially deconstructed sushi."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

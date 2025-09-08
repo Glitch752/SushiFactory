@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=10 format=3 uid="uid://c5vege0ktqtol"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_wy7v4"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://world/items/data/sliced_salmon_item_data.tres" id="2_wy7v4"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_jr0ai"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="4_tafab"]
+[ext_resource type="Resource" uid="uid://bubcawox4m6t2" path="res://world/items/data/salmon_maki_item_data.tres" id="5_1fu0w"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="6_keqcg"]
+
+[sub_resource type="Resource" id="Resource_jr0ai"]
+script = ExtResource("1_wy7v4")
+item = ExtResource("2_wy7v4")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_tafab"]
+script = ExtResource("1_wy7v4")
+item = ExtResource("3_jr0ai")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_oigvc"]
+script = ExtResource("1_wy7v4")
+item = ExtResource("4_tafab")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("6_keqcg")
+ingredients = Array[ExtResource("1_wy7v4")]([SubResource("Resource_jr0ai"), SubResource("Resource_tafab"), SubResource("Resource_oigvc")])
+result = ExtResource("5_1fu0w")
+recipe_information = "[item]Salmon Maki[/item] is made with [item]sliced salmon[/item], [rawitem]nori[/rawitem] (seaweed), and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Maki is a type of sushi roll made by wrapping rice and various fillings in a sheet of nori."
+machine = "plate"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

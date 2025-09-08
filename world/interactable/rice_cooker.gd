@@ -22,7 +22,7 @@ func interact():
         timer.start(cooking_time_remaining)
         set_process(true)
     elif cooking_time_remaining == 0:
-        var rice = PlayerInventorySingleton.create_item(load("res://world/items/cooked_rice_item_data.tres"))
+        var rice = PlayerInventorySingleton.create_item(load("res://world/items/data/cooked_rice_item_data.tres"))
         PlayerInventorySingleton.try_grab_item(rice)
         has_rice = false
         _process(0)
