@@ -19,8 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://cwjlkol4p7ql8" path="res://world/interactable/CuttingBoard.tscn" id="12_d6u53"]
 [ext_resource type="Resource" uid="uid://dkegtyxt0ey3d" path="res://world/items/data/cucumber_item_data.tres" id="13_sypgb"]
 [ext_resource type="PackedScene" uid="uid://btrh3cgarkwx2" path="res://world/interactable/Computer.tscn" id="16_5qkpu"]
-[ext_resource type="PackedScene" uid="uid://dawwsjq8rxe4k" path="res://world/characters/Customer.tscn" id="19_yye10"]
+[ext_resource type="PackedScene" uid="uid://clxq0aoegothj" path="res://world/interactable/Stovetop.tscn" id="18_viiqw"]
 [ext_resource type="Texture2D" uid="uid://ct7dv4e8jcn4g" path="res://images/construction.png" id="20_viiqw"]
+
+[sub_resource type="Curve2D" id="Curve2D_yye10"]
+bake_interval = 4.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 139, -150, 0, 0, 0, 30, 139, -40, 30, 0, 0, 0, 99, 0, 0, 0, -10, 0, -144, 0, 0, -10, 0, 0, -165, 20, 0, 0, 0, 0, -165, 35)
+}
+point_count = 6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofirr"]
 atlas = ExtResource("7_mxnmf")
@@ -49,13 +56,6 @@ stereo = true
 [sub_resource type="LabelSettings" id="LabelSettings_pd0bf"]
 font_size = 32
 
-[sub_resource type="Curve2D" id="Curve2D_yye10"]
-bake_interval = 4.0
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 139, -150, 0, 0, 0, 30, 139, -40, 30, 0, 0, 0, 99, 0, 0, 0, -10, 0, -144, 0, 0, -10, 0, 0, -165, 20, 0, 0, 0, 0, -165, 40)
-}
-point_count = 6
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_viiqw"]
 atlas = ExtResource("20_viiqw")
 region = Rect2(32, 0, 32, 32)
@@ -70,6 +70,14 @@ tile_set = ExtResource("2_jftiw")
 occlusion_enabled = false
 collision_enabled = false
 navigation_enabled = false
+
+[node name="CustomerPaths" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="EntrancePath" type="Path2D" parent="CustomerPaths"]
+y_sort_enabled = true
+position = Vector2(125, -58)
+curve = SubResource("Curve2D_yye10")
 
 [node name="BuildingTileMap" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -269,6 +277,9 @@ item_data = ExtResource("13_sypgb")
 [node name="Computer" parent="BuildingTileMap/CounterInteractables" instance=ExtResource("16_5qkpu")]
 position = Vector2(-8, -8)
 
+[node name="Stovetop" parent="BuildingTileMap/CounterInteractables" instance=ExtResource("18_viiqw")]
+position = Vector2(-8, 58)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("3_esphl")
@@ -292,30 +303,6 @@ text = "Sorry! The game loop is still a WIP :)
 There will be actual customers here... eventually.
 Here's some randomly generated ones for now!"
 label_settings = SubResource("LabelSettings_pd0bf")
-
-[node name="CustomerPaths" type="Node2D" parent="."]
-
-[node name="EntrancePath" type="Path2D" parent="CustomerPaths"]
-position = Vector2(125, -58)
-curve = SubResource("Curve2D_yye10")
-
-[node name="Customer" parent="." instance=ExtResource("19_yye10")]
-position = Vector2(-53, -147)
-
-[node name="Customer2" parent="." instance=ExtResource("19_yye10")]
-position = Vector2(-24, -146)
-
-[node name="Customer3" parent="." instance=ExtResource("19_yye10")]
-position = Vector2(16, -147)
-
-[node name="Customer4" parent="." instance=ExtResource("19_yye10")]
-position = Vector2(56, -146)
-
-[node name="Customer5" parent="." instance=ExtResource("19_yye10")]
-position = Vector2(85, -147)
-
-[node name="Customer6" parent="." instance=ExtResource("19_yye10")]
-position = Vector2(116, -145)
 
 [node name="Construction" type="Sprite2D" parent="."]
 position = Vector2(-96, 223)

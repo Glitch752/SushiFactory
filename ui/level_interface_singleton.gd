@@ -60,6 +60,8 @@ func begin_day():
     day += 1
     time_of_day = 8.0  # Start at 8 AM
     day_cycle_active = true
+    
+    CustomerManagerSingleton.begin_day()
 
 ## @param new_text The new text to display, or "" to keep the current text.
 func set_interact_text_shown(txt_name: String, show: bool, new_text: String):

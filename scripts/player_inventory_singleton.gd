@@ -63,6 +63,5 @@ func remove_item() -> Node2D:
     
     return item
 
-func _process(_delta):
-    # print(has_item())
-    pass
+func load_item_data(item_id: String) -> ItemData:
+    return load("res://world/items/data/%s_item_data.tres" % item_id)
