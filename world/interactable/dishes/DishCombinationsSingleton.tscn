@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cuisrb1qejkpq"]
+[gd_scene load_steps=20 format=3 uid="uid://cuisrb1qejkpq"]
 
 [ext_resource type="Script" uid="uid://dnms63g65hday" path="res://world/interactable/dishes/dish_combinations.gd" id="1_7g3b4"]
 [ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="2_bj0eg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://ch680fxhp1n74" path="res://world/interactable/dishes/combinations/sliced_cucumber_combination.tres" id="7_21mhq"]
 [ext_resource type="Resource" uid="uid://d222lfigwjjo5" path="res://world/interactable/dishes/combinations/sliced_avocado_combination.tres" id="7_aomir"]
 [ext_resource type="Resource" uid="uid://vnjmhpg1yerq" path="res://world/interactable/dishes/combinations/rainbow_roll_combination.tres" id="7_jsme1"]
+[ext_resource type="Resource" uid="uid://csfhp0fsqifae" path="res://world/interactable/dishes/combinations/tamago_combination.tres" id="8_aomir"]
 [ext_resource type="Resource" uid="uid://c5putl56v3ero" path="res://world/interactable/dishes/combinations/tuna_temaki_combination.tres" id="8_kekqe"]
 [ext_resource type="Resource" uid="uid://c5vege0ktqtol" path="res://world/interactable/dishes/combinations/salmon_maki_combination.tres" id="8_rtuua"]
 [ext_resource type="Resource" uid="uid://nk6tg2sjmg85" path="res://world/interactable/dishes/combinations/salmon_temaki_combination.tres" id="9_aomir"]
@@ -21,4 +22,4 @@
 
 [node name="Node" type="Node"]
 script = ExtResource("1_7g3b4")
-dish_combinations = Array[ExtResource("2_bj0eg")]([ExtResource("5_sxcdt"), ExtResource("6_5shs4"), ExtResource("7_21mhq"), ExtResource("6_kekqe"), ExtResource("7_aomir"), ExtResource("6_p5wcy"), ExtResource("7_jsme1"), ExtResource("8_kekqe"), ExtResource("9_aomir"), ExtResource("10_el5au"), ExtResource("11_kof6p"), ExtResource("12_o08ao"), ExtResource("13_npbtp"), ExtResource("8_rtuua"), ExtResource("4_sxcdt"), ExtResource("3_bj0eg")])
+dish_combinations = Array[ExtResource("2_bj0eg")]([ExtResource("5_sxcdt"), ExtResource("6_5shs4"), ExtResource("7_21mhq"), ExtResource("6_kekqe"), ExtResource("7_aomir"), ExtResource("8_aomir"), ExtResource("6_p5wcy"), ExtResource("7_jsme1"), ExtResource("8_kekqe"), ExtResource("9_aomir"), ExtResource("10_el5au"), ExtResource("11_kof6p"), ExtResource("12_o08ao"), ExtResource("13_npbtp"), ExtResource("8_rtuua"), ExtResource("4_sxcdt"), ExtResource("3_bj0eg")])

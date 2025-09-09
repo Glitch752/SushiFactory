@@ -16,5 +16,5 @@ script = ExtResource("4_6lx43")
 ingredients = Array[ExtResource("1_r54dp")]([SubResource("Resource_21mhq")])
 result = ExtResource("3_7ylvp")
 recipe_information = "[item]Cooked rice[/item] is made in the [machine]rice cooker[/machine] with [rawitem]raw rice[/rawitem]."
-machine = ""
+machine = "rice_cooker"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

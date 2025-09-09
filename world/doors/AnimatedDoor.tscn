@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxkion6pwqwbb"]
+
+[ext_resource type="Script" uid="uid://v55u322t4k7c" path="res://world/doors/animated_door.gd" id="1_bqffe"]
+[ext_resource type="SpriteFrames" uid="uid://dvwxptk6xh0wk" path="res://world/doors/kitchen_door_sprite_frames.tres" id="1_lfbsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfbsc"]
+size = Vector2(30, 55.5)
+
+[node name="AnimatedDoor" type="Node2D"]
+z_index = -1
+script = ExtResource("1_bqffe")
+
+[node name="LeftDoor" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_lfbsc")
+
+[node name="RightDoor" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("1_lfbsc")
+
+[node name="OpenArea" type="Area2D" parent="."]
+position = Vector2(-8, 24)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenArea"]
+position = Vector2(16, -17.25)
+shape = SubResource("RectangleShape2D_lfbsc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[connection signal="area_entered" from="OpenArea" to="." method="_on_open_area_area_entered"]
+[connection signal="area_exited" from="OpenArea" to="." method="_on_open_area_area_exited"]

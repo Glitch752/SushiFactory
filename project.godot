@@ -23,6 +23,7 @@ PlayerInventorySingleton="*res://scripts/player_inventory_singleton.gd"
 LevelInterfaceSingleton="*res://ui/level_interface_singleton.gd"
 EmailSystem="*res://world/interactable/computer/emails/EmailSystem.tscn"
 DishCombinationsSingleton="*res://world/interactable/dishes/DishCombinationsSingleton.tscn"
+CustomerManagerSingleton="*res://scripts/customer_manager_singleton.gd"
 
 [display]
 

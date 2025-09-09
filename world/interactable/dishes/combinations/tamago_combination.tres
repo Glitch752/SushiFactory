@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=6 format=3 uid="uid://csfhp0fsqifae"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_5nr45"]
+[ext_resource type="Resource" uid="uid://bl2y6osmcngo0" path="res://world/items/data/tamago_item_data.tres" id="2_h5la0"]
+[ext_resource type="Resource" uid="uid://qomvg2y12lnk" path="res://world/items/data/egg_item_data.tres" id="2_lb8il"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="5_yh68m"]
+
+[sub_resource type="Resource" id="Resource_5nr45"]
+script = ExtResource("1_5nr45")
+item = ExtResource("2_lb8il")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("5_yh68m")
+ingredients = Array[ExtResource("1_5nr45")]([SubResource("Resource_5nr45")])
+result = ExtResource("2_h5la0")
+recipe_information = "[item]Tamago[/item] is made with an [rawitem]egg[/rawitem] using a [machine]frying pan[/machine]. Tamago is a traditional Japanese omelette made by rolling together layers of fried eggs."
+machine = "frying_pan"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

@@ -1,9 +1,6 @@
 extends "res://world/interactable/interactable.gd"
 
-const CUT_ITEMS = {
-    "cucumber": "sliced_cucumber",
-    "salmon": "sliced_salmon"
-}
+var CUT_ITEMS = DishCombinationsSingleton.get_single_input_dishes_for("cutting_board")
 
 var cut_progress = 0
 var item = null

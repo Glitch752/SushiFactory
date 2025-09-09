@@ -20,6 +20,8 @@ func _physics_process(_delta: float) -> void:
     update_animation()
 
 func _ready():
+    $%MovementInteractionZone.add_to_group("open_doors")
+    
     animated_sprite.play()
 
 func get_player_input() -> void:

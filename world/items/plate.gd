@@ -1,5 +1,7 @@
 extends "res://world/items/item.gd"
 
+var plate_dishes = DishCombinationsSingleton.get_dishes_for_machine("plate")
+
 class ContentData:
     var item: ItemData
     var sprite: Sprite2D
@@ -43,10 +45,7 @@ func process_dishes():
         else:
             found_ingredients.set(content.item.id, 1)
     
-    for dish in DishCombinationsSingleton.dish_combinations:
-        if dish.machine != "plate":
-            continue
-        
+    for dish in plate_dishes:
         var all_found = true
         for ingredient in dish.ingredients:
             if !found_ingredients.has(ingredient.item.id) or found_ingredients[ingredient.item.id] < ingredient.quantity:
