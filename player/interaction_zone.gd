@@ -21,14 +21,14 @@ func _on_area_entered(area: Area2D):
         if current_interactable != null:
             current_interactable.interact_hide()
         
-        current_interactable = area.get_parent()
+        current_interactable = area.get_parent().get_parent()
         if current_interactable.can_interact():
             current_interactable.interact_show()
             LevelInterfaceSingleton.update_interactable(current_interactable)
 
 func _on_area_exited(area: Area2D):
     if area.is_in_group("interact_zone"):
-        if area.get_parent() == current_interactable:
+        if area.get_parent().get_parent() == current_interactable:
             stop_interacting()
 
 func stop_interacting():

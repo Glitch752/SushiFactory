@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="DishCombination" load_steps=6 format=3 uid="uid://8jxe7m5p6yac"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_gx1mx"]
+[ext_resource type="Resource" uid="uid://ddqwxyrwx2dwk" path="res://world/items/data/shrimp_item_data.tres" id="2_gx1mx"]
+[ext_resource type="Resource" uid="uid://6kmr5tuwi2wb" path="res://world/items/data/shrimp_tempura_item_data.tres" id="3_gx1mx"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="4_i78y0"]
+
+[sub_resource type="Resource" id="Resource_7ysfd"]
+script = ExtResource("1_gx1mx")
+item = ExtResource("2_gx1mx")
+quantity = 1
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_i78y0")
+ingredients = Array[ExtResource("1_gx1mx")]([SubResource("Resource_7ysfd")])
+result = ExtResource("3_gx1mx")
+recipe_information = "[item]Shrimp Tempura[/item] is made with [rawitem]raw shrimp[/rawitem] using a [machine]deep fryer[/machine]. Shrimp tempura is a popular fried Japanese dish made from shrimp."
+machine = "deep_fryer"
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

@@ -11,5 +11,6 @@ region = Rect2(48, 0, 16, 16)
 [node name="Interactable" instance=ExtResource("1_jabyj")]
 script = ExtResource("2_itut0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
+position = Vector2(0, -2)
 texture = SubResource("AtlasTexture_itut0")

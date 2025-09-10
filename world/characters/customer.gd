@@ -3,8 +3,10 @@ extends AnimatableBody2D
 @onready var sprites = [$SkinSprite, $BodySprite, $ShirtSprite]
 
 var previous_position: Vector2
-
+    
 func _ready():
+    $%MovementInteractionZone.add_to_group("open_doors")
+    
     # Randomly show either Hair0Sprite, Hair1Sprite, or neither (with a small probability)
     var chance = randi() % 9
     if chance < 4:

@@ -42,7 +42,7 @@ func interact():
     update_progressbar()
 
 func update_progressbar():
-    var progress_bar: AnimatedSprite2D = $ProgressBar
+    var progress_bar: AnimatedSprite2D = $%ProgressBar
     progress_bar.visible = has_item() and cut_progress < CUTS_REQUIRED
     if has_item() and cut_progress < CUTS_REQUIRED:
         var frame_count = progress_bar.sprite_frames.get_frame_count("default");

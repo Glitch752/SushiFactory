@@ -11,6 +11,6 @@ region = Rect2(16, 0, 16, 16)
 [node name="TrashCan" instance=ExtResource("1_aow0j")]
 script = ExtResource("2_aow0j")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
-position = Vector2(0, -1)
+[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
+position = Vector2(0, -3)
 texture = SubResource("AtlasTexture_itut0")

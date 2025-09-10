@@ -8,7 +8,5 @@ script = ExtResource("2_we35n")
 texture = null
 item_data = null
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-z_index = 4096
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
+position = Vector2(0, -2)

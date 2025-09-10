@@ -24,6 +24,7 @@ LevelInterfaceSingleton="*res://ui/level_interface_singleton.gd"
 EmailSystem="*res://world/interactable/computer/emails/EmailSystem.tscn"
 DishCombinationsSingleton="*res://world/interactable/dishes/DishCombinationsSingleton.tscn"
 CustomerManagerSingleton="*res://scripts/customer_manager_singleton.gd"
+DayManagerSingleton="*res://scripts/day_manager_singleton.gd"
 
 [display]
 

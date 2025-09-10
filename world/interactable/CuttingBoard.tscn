@@ -69,16 +69,15 @@ animations = [{
 [node name="CuttingBoard" instance=ExtResource("1_mcwij")]
 script = ExtResource("2_gnlda")
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-z_index = 4096
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
+position = Vector2(0, -1)
 texture = SubResource("AtlasTexture_2r0tn")
 
-[node name="Timer" type="Timer" parent="." index="3"]
-
-[node name="ProgressBar" type="AnimatedSprite2D" parent="." index="4"]
+[node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="3"]
+unique_name_in_owner = true
 visible = false
-position = Vector2(0, -13)
+position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_pet3a")
 speed_scale = 0.0
+
+[node name="Timer" type="Timer" parent="." index="1"]

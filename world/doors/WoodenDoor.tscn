@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ug8k1f3asut"]
+
+[ext_resource type="PackedScene" uid="uid://dxkion6pwqwbb" path="res://world/doors/AnimatedDoor.tscn" id="1_qyvee"]
+[ext_resource type="SpriteFrames" uid="uid://c28s0bbvnu860" path="res://world/doors/wooden_door_sprite_frames.tres" id="2_s321m"]
+
+[node name="AnimatedDoor" instance=ExtResource("1_qyvee")]
+
+[node name="LeftDoor" parent="." index="0"]
+sprite_frames = ExtResource("2_s321m")
+
+[node name="RightDoor" parent="." index="1"]
+sprite_frames = ExtResource("2_s321m")

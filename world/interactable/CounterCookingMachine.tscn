@@ -1,42 +1,40 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkejwj48qdgsd"]
+[gd_scene load_steps=16 format=3 uid="uid://clxq0aoegothj"]
 
-[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_gw2mi"]
-[ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="2_515tj"]
-[ext_resource type="Script" uid="uid://6c22h3cfrjse" path="res://world/interactable/rice_cooker.gd" id="2_a0dn8"]
-[ext_resource type="Texture2D" uid="uid://bslpylya1nkqo" path="res://images/progressbar.png" id="4_a0dn8"]
-[ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_8fl6t"]
-[ext_resource type="Script" uid="uid://b2mwkk3333tir" path="res://scripts/hover.gd" id="6_facjm"]
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_mcxjx"]
+[ext_resource type="Script" uid="uid://u4rv401f2vsn" path="res://world/interactable/counter_cooking_machine.gd" id="2_pbnwo"]
+[ext_resource type="Texture2D" uid="uid://bslpylya1nkqo" path="res://images/progressbar.png" id="4_nw88y"]
+[ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_nw88y"]
+[ext_resource type="Script" uid="uid://b2mwkk3333tir" path="res://scripts/hover.gd" id="6_b8qpw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0dn8"]
-atlas = ExtResource("2_515tj")
-region = Rect2(64, 0, 16, 16)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0wqxd"]
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l10mk"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 0, 24, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fl6t"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 6, 24, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_facjm"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 12, 24, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ek5qo"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 18, 24, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j8ot7"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 24, 24, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4to2"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 30, 24, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxnu7"]
-atlas = ExtResource("4_a0dn8")
+atlas = ExtResource("4_nw88y")
 region = Rect2(0, 36, 24, 6)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jc0d7"]
@@ -69,14 +67,23 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jc0d7"]
-atlas = ExtResource("5_8fl6t")
+atlas = ExtResource("5_nw88y")
 region = Rect2(0, 0, 8, 8)
 
-[node name="RiceCooker" instance=ExtResource("1_gw2mi")]
-script = ExtResource("2_a0dn8")
+[node name="CounterCookingMachine" instance=ExtResource("1_mcxjx")]
+script = ExtResource("2_pbnwo")
+normal_texture = null
+active_texture = null
+machine_id = ""
+machine_name = ""
+interactable_description = ""
+action_word = "cooking"
+action_word_past = "cooked"
 
-[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
-texture = SubResource("AtlasTexture_a0dn8")
+[node name="Sprite" type="Sprite2D" parent="InteractableContent" index="2"]
+unique_name_in_owner = true
+position = Vector2(6, -3)
+texture = SubResource("PlaceholderTexture2D_0wqxd")
 
 [node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="3"]
 unique_name_in_owner = true
@@ -91,7 +98,7 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(0, -13)
 texture = SubResource("AtlasTexture_jc0d7")
-script = ExtResource("6_facjm")
+script = ExtResource("6_b8qpw")
 
 [node name="Timer" type="Timer" parent="." index="1"]
 one_shot = true

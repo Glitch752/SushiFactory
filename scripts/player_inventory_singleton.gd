@@ -37,8 +37,8 @@ func try_grab_item(item: Node2D) -> bool:
         # If the item isn't in the scene, we can free it
         if not item.is_inside_tree():
             item.queue_free()
-        
-        return false
+        else:
+            return false
     
     if not item.is_inside_tree():
         get_tree().current_scene.add_child(item)

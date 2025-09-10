@@ -9,13 +9,16 @@ size = Vector2(12, 12)
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_n8mfl")
 
-[node name="InteractionHighlight" type="Sprite2D" parent="."]
+[node name="InteractableContent" type="Node2D" parent="."]
+position = Vector2(0, -11)
+
+[node name="InteractionHighlight" type="Sprite2D" parent="InteractableContent"]
 visible = false
 z_index = 100
 z_as_relative = false
 texture = ExtResource("2_04w52")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="InteractableContent"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableContent/Area2D"]
 shape = SubResource("RectangleShape2D_iow7s")

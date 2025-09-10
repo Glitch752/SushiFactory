@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://c28s0bbvnu860"]
+
+[ext_resource type="Texture2D" uid="uid://bjgx86wl4ewd6" path="res://images/doors/woodenDoor.png" id="1_7cuqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4py6m"]
+atlas = ExtResource("1_7cuqt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uafd"]
+atlas = ExtResource("1_7cuqt")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gc33"]
+atlas = ExtResource("1_7cuqt")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkn35"]
+atlas = ExtResource("1_7cuqt")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5wdx"]
+atlas = ExtResource("1_7cuqt")
+region = Rect2(64, 0, 16, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4py6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uafd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gc33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkn35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5wdx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]

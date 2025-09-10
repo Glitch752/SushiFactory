@@ -1,99 +1,29 @@
-[gd_scene load_steps=17 format=3 uid="uid://clxq0aoegothj"]
+[gd_scene load_steps=7 format=3 uid="uid://yw46f0qjhh7a"]
 
-[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_mcxjx"]
-[ext_resource type="Script" uid="uid://u4rv401f2vsn" path="res://world/interactable/stovetop.gd" id="2_pbnwo"]
+[ext_resource type="PackedScene" uid="uid://clxq0aoegothj" path="res://world/interactable/CounterCookingMachine.tscn" id="1_rk3h1"]
+[ext_resource type="Script" uid="uid://ck417cjmbtw5e" path="res://world/interactable/stovetop.gd" id="2_pbnwo"]
 [ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="3_pbnwo"]
-[ext_resource type="Texture2D" uid="uid://bslpylya1nkqo" path="res://images/progressbar.png" id="4_nw88y"]
-[ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_nw88y"]
-[ext_resource type="Script" uid="uid://b2mwkk3333tir" path="res://scripts/hover.gd" id="6_b8qpw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0dn8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6ll6"]
 atlas = ExtResource("3_pbnwo")
 region = Rect2(448, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l10mk"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 0, 24, 6)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcxjx"]
+atlas = ExtResource("3_pbnwo")
+region = Rect2(464, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8fl6t"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 6, 24, 6)
+[sub_resource type="AtlasTexture" id="AtlasTexture_86o1x"]
+atlas = ExtResource("3_pbnwo")
+region = Rect2(448, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_facjm"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 12, 24, 6)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ek5qo"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 18, 24, 6)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j8ot7"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 24, 24, 6)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4to2"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 30, 24, 6)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxnu7"]
-atlas = ExtResource("4_nw88y")
-region = Rect2(0, 36, 24, 6)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jc0d7"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l10mk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8fl6t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_facjm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ek5qo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j8ot7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b4to2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oxnu7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jc0d7"]
-atlas = ExtResource("5_nw88y")
-region = Rect2(0, 0, 8, 8)
-
-[node name="Stovetop" instance=ExtResource("1_mcxjx")]
+[node name="Stovetop" instance=ExtResource("1_rk3h1")]
 script = ExtResource("2_pbnwo")
+normal_texture = SubResource("AtlasTexture_p6ll6")
+active_texture = SubResource("AtlasTexture_mcxjx")
+machine_id = "frying_pan"
+machine_name = "Stove Top"
+interactable_description = "A stove top with a frying pan."
+action_word_past = "cooked"
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-z_index = 4096
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
-position = Vector2(6, -2)
-texture = SubResource("AtlasTexture_a0dn8")
-
-[node name="Timer" type="Timer" parent="." index="3"]
-one_shot = true
-
-[node name="ProgressBar" type="AnimatedSprite2D" parent="." index="4"]
-visible = false
-position = Vector2(0, -13)
-sprite_frames = SubResource("SpriteFrames_jc0d7")
-frame_progress = 0.904093
-speed_scale = 0.0
-
-[node name="OutputIndicator" type="Sprite2D" parent="." index="5"]
-visible = false
-position = Vector2(0, -13)
-texture = SubResource("AtlasTexture_jc0d7")
-script = ExtResource("6_b8qpw")
+[node name="Sprite" parent="InteractableContent" index="2"]
+texture = SubResource("AtlasTexture_86o1x")

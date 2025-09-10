@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dawwsjq8rxe4k"]
+[gd_scene load_steps=40 format=3 uid="uid://dawwsjq8rxe4k"]
 
 [ext_resource type="Script" uid="uid://c17a3oh4vn6gl" path="res://world/characters/customer.gd" id="1_8tp7u"]
 [ext_resource type="SpriteFrames" uid="uid://cyva5vii7jkxg" path="res://world/characters/characters_0_body.tres" id="1_mi0lu"]
@@ -41,6 +41,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vx3a"]
 size = Vector2(14, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcmlm"]
+size = Vector2(14, 13)
+
 [node name="Customer" type="AnimatableBody2D"]
 script = ExtResource("1_8tp7u")
 
@@ -81,6 +84,14 @@ script = ExtResource("2_8dfhy")
 choices = Array[SpriteFrames]([ExtResource("5_l1iah"), ExtResource("27_71xyg"), ExtResource("28_8tp7u"), ExtResource("29_ygj2m"), ExtResource("30_fxwsu"), ExtResource("31_bjlce"), ExtResource("37_yckeu")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_6vx3a")
+disabled = true
+
+[node name="MovementInteractionZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementInteractionZone"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_gcmlm")

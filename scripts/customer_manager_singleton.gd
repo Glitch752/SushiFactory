@@ -6,8 +6,12 @@ signal order_added(data: OrderData)
 signal order_removed(data: OrderData)
 
 var customer_paths_parent: Node2D
+
 var entrance_path: Path2D
 var entrance_path_length: float
+
+var exit_path: Path2D
+var exit_path_length: float
 
 const FIRST_CUSTOMER_GAP = 50
 const CUSTOMER_GAP = 20
@@ -21,6 +25,10 @@ func init() -> void:
     entrance_path = customer_paths_parent.get_node("EntrancePath")
     if entrance_path == null:
         push_error("Could not find EntrancePath node in CustomerPaths.")
+    
+    exit_path = customer_paths_parent.get_node("ExitPath")
+    if exit_path == null:
+        push_error("Could not find ExitPath node in CustomerPaths.")
     
     entrance_path_length = entrance_path.curve.get_baked_length()
 
@@ -85,6 +93,8 @@ func spawn_customer() -> void:
     customers.append(customerData)
 
     order_added.emit(order)
+
+# func satisfy_first_customer
 
 func _physics_process(delta):
     var target_position = entrance_path_length

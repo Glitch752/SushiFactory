@@ -6,4 +6,4 @@ class_name EmailSendTrigger
 @export var time: float = 8.0
 
 func should_send():
-    return LevelInterfaceSingleton.day >= day and LevelInterfaceSingleton.time_of_day >= time
+    return DayManagerSingleton.day >= day and DayManagerSingleton.time_of_day >= time

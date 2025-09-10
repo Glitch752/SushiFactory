@@ -17,12 +17,13 @@ region = Rect2(8, 0, 8, 8)
 [node name="Interactable" instance=ExtResource("1_cfe5b")]
 script = ExtResource("2_83uxb")
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
+position = Vector2(0, -2)
 texture = SubResource("AtlasTexture_a7wyj")
 
-[node name="InfoIndicator" type="Sprite2D" parent="." index="3"]
+[node name="InfoIndicator" type="Sprite2D" parent="InteractableContent" index="3"]
 unique_name_in_owner = true
-position = Vector2(0, -13)
+position = Vector2(0, -15)
 scale = Vector2(1.00342, 1)
 texture = SubResource("AtlasTexture_m3sid")
 script = ExtResource("4_83uxb")

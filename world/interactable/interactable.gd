@@ -1,9 +1,9 @@
 extends Node2D
 
-@onready var highlight = $InteractionHighlight
+@onready var highlight = $InteractableContent/InteractionHighlight
 
 func _ready():
-    $Area2D.add_to_group("interact_zone")
+    $InteractableContent/Area2D.add_to_group("interact_zone")
 
 ## Can be overriden to turn off interaction depending on the situation
 func can_interact():

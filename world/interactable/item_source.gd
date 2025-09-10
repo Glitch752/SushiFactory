@@ -2,11 +2,16 @@
 
 extends "res://world/interactable/interactable.gd"
 
-@export var texture: Texture2D;
+@export var texture: Texture2D:
+    set(value):
+        texture = value
+        if has_node("InteractableContent/Sprite2D"):
+            $InteractableContent/Sprite2D.texture = texture
+
 @export var item_data: ItemData;
 
 func _ready():
-    $Sprite2D.texture = texture
+    $InteractableContent/Sprite2D.texture = texture
     if not Engine.is_editor_hint():
         super._ready()
 

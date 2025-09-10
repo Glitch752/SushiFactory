@@ -10,13 +10,13 @@ func interact():
         var object = current_object
         current_object = null
         
-        remove_child(object)
+        $InteractableContent.remove_child(object)
         PlayerInventorySingleton.try_grab_item(object)
         return
     
     if PlayerInventorySingleton.has_item() and current_object == null:
         current_object = PlayerInventorySingleton.remove_item()
-        add_child(current_object)
+        $InteractableContent.add_child(current_object)
         return
     
     if has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
