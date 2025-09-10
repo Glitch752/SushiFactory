@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bjb0in362wq1m"]
+[gd_scene load_steps=43 format=4 uid="uid://bjb0in362wq1m"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_bexhn"]
 [ext_resource type="Script" uid="uid://chmu82saqdjsw" path="res://level.gd" id="1_dcckh"]
@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://ddqwxyrwx2dwk" path="res://world/items/data/shrimp_item_data.tres" id="19_qqkhr"]
 [ext_resource type="Texture2D" uid="uid://ct7dv4e8jcn4g" path="res://images/construction.png" id="20_viiqw"]
 [ext_resource type="PackedScene" uid="uid://bmpaies3w0yfg" path="res://world/interactable/Fryer.tscn" id="27_4vjci"]
+[ext_resource type="Script" uid="uid://bsgbtpeim8hc7" path="res://automation_manager.gd" id="28_b4adj"]
 
 [sub_resource type="Curve2D" id="Curve2D_4vjci"]
 _data = {
@@ -350,3 +351,10 @@ label_settings = SubResource("LabelSettings_pd0bf")
 [node name="Construction" type="Sprite2D" parent="."]
 position = Vector2(-96, 223)
 texture = SubResource("AtlasTexture_viiqw")
+
+[node name="AutomationManager" type="Node2D" parent="." node_paths=PackedStringArray("automation_tilemap")]
+unique_name_in_owner = true
+z_index = -1
+script = ExtResource("28_b4adj")
+automation_tilemap = NodePath("../BuildingTileMap")
+belt_movement_speed = 3.8
