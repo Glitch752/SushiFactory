@@ -17,13 +17,14 @@ atlas = ExtResource("3_pbnwo")
 region = Rect2(448, 0, 16, 16)
 
 [node name="Stovetop" instance=ExtResource("1_rk3h1")]
+show_behind_parent = false
 script = ExtResource("2_pbnwo")
 normal_texture = SubResource("AtlasTexture_p6ll6")
 active_texture = SubResource("AtlasTexture_mcxjx")
 machine_id = "frying_pan"
 machine_name = "Stove Top"
 interactable_description = "A stove top with a frying pan."
-action_word_past = "cooked"
 
 [node name="Sprite" parent="InteractableContent" index="2"]
+position = Vector2(5, -2)
 texture = SubResource("AtlasTexture_86o1x")

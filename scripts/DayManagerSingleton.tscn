@@ -1,0 +1,19 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfhaoi32vn60w"]
+
+[ext_resource type="Script" uid="uid://ca36w64e1wcvh" path="res://scripts/day_manager_singleton.gd" id="1_8tv76"]
+[ext_resource type="Script" uid="uid://dlvmqlayss6ln" path="res://scripts/day_data.gd" id="2_viq34"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="3_j0v3x"]
+[ext_resource type="Resource" uid="uid://dj45kc2uvgw3p" path="res://world/items/data/salmon_nigiri_item_data.tres" id="4_a31cr"]
+[ext_resource type="Resource" uid="uid://bubcawox4m6t2" path="res://world/items/data/salmon_maki_item_data.tres" id="5_53pog"]
+[ext_resource type="Resource" uid="uid://dgva8y3u01i30" path="res://world/items/data/cucumber_maki_item_data.tres" id="6_w14ii"]
+
+[sub_resource type="Resource" id="Resource_rnkol"]
+script = ExtResource("2_viq34")
+customer_interval = 1.0
+customer_patience = 120.0
+possible_orders = Array[ExtResource("3_j0v3x")]([ExtResource("4_a31cr"), ExtResource("5_53pog"), ExtResource("6_w14ii")])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[node name="DayManagerSingleton" type="Node"]
+script = ExtResource("1_8tv76")
+day_data = Array[ExtResource("2_viq34")]([SubResource("Resource_rnkol")])

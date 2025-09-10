@@ -19,6 +19,12 @@ machine_name = "Deep Fryer"
 interactable_description = "A deep fryer."
 action_word = "frying"
 
+[node name="InteractableContent" parent="." index="0"]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" parent="InteractableContent/Area2D" index="0"]
+position = Vector2(0, 1)
+
 [node name="Sprite" parent="InteractableContent" index="2"]
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_8nmls")

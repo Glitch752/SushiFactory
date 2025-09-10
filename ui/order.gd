@@ -31,8 +31,9 @@ func update():
     $%Countdown.add_theme_stylebox_override("fill", background_stylebox)
 
     var time_text = ""
-    if time_remaining > 60:
-        time_text = str(floor(time_remaining / 60)) + ":" + str(int(floor(time_remaining)) % 60) + "s"
+    if time_remaining > 10:
+        @warning_ignore("integer_division")
+        time_text = "%d:%02d" % [int(time_remaining) / 60, int(time_remaining) % 60]
     else:
-        time_text = str(floor(time_remaining)) + "s"
+        time_text = "%.1fs" % time_remaining
     $%ItemName.text = "[b]" + order_text + "[/b]\n[color=#" + color.to_html() + "]" + time_text + " remaining[/color]"

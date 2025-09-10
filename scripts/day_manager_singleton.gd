@@ -3,6 +3,8 @@ extends Node
 signal day_changed(new_day: int)
 signal time_of_day_changed(new_time_of_day: float)
 
+@export var day_data: Array[DayData] = []
+
 var _day: int = 0
 @export var day: int:
     get:

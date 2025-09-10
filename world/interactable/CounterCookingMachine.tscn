@@ -71,6 +71,7 @@ atlas = ExtResource("5_nw88y")
 region = Rect2(0, 0, 8, 8)
 
 [node name="CounterCookingMachine" instance=ExtResource("1_mcxjx")]
+show_behind_parent = true
 script = ExtResource("2_pbnwo")
 normal_texture = null
 active_texture = null
@@ -82,7 +83,7 @@ action_word_past = "cooked"
 
 [node name="Sprite" type="Sprite2D" parent="InteractableContent" index="2"]
 unique_name_in_owner = true
-position = Vector2(6, -3)
+position = Vector2(0, 11)
 texture = SubResource("PlaceholderTexture2D_0wqxd")
 
 [node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="3"]

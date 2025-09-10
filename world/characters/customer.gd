@@ -3,6 +3,8 @@ extends AnimatableBody2D
 @onready var sprites = [$SkinSprite, $BodySprite, $ShirtSprite]
 
 var previous_position: Vector2
+
+@export var animation_base_speed = 100
     
 func _ready():
     $%MovementInteractionZone.add_to_group("open_doors")
@@ -30,21 +32,23 @@ func _physics_process(delta):
     previous_position = global_position
     
     if velocity.length() > 0:
+        var speed = velocity.length() / animation_base_speed
         var angle = velocity.angle()
         if abs(angle) < PI / 4:
-            animate_all("walk_right")
+            animate_all("walk_right", speed)
         elif abs(angle) > 3 * PI / 4:
-            animate_all("walk_left")
+            animate_all("walk_left", speed)
         elif angle > 0:
-            animate_all("walk_down")
+            animate_all("walk_down", speed)
         else:
-            animate_all("walk_up")
+            animate_all("walk_up", speed)
     else:
         for sprite in sprites:
             sprite.stop()
             sprite.frame = 0
 
-func animate_all(anim_name: String):
+func animate_all(anim_name: String, speed_scale: float = 1.0):
     for sprite in sprites:
         sprite.animation = anim_name
+        sprite.speed_scale = speed_scale
         sprite.play()

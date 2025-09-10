@@ -161,7 +161,7 @@ text = "Orders"
 label_settings = SubResource("LabelSettings_sb6wj")
 
 [node name="OrderLayout" type="BoxContainer" parent="."]
-visible = false
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = 24.0
 offset_top = 48.0
@@ -171,9 +171,6 @@ theme = ExtResource("3_grx74")
 vertical = true
 
 [node name="Order" parent="OrderLayout" instance=ExtResource("5_py5b0")]
-layout_mode = 2
-
-[node name="Order2" parent="OrderLayout" instance=ExtResource("5_py5b0")]
 layout_mode = 2
 
 [node name="Inventory" type="Panel" parent="."]

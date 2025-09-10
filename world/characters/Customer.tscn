@@ -39,58 +39,59 @@
 [ext_resource type="SpriteFrames" uid="uid://qoj02ruq5dtd" path="res://world/characters/characters_6_hair_1.tres" id="37_yckeu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vx3a"]
-size = Vector2(14, 30)
+size = Vector2(12, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcmlm"]
 size = Vector2(14, 13)
 
 [node name="Customer" type="AnimatableBody2D"]
+physics_interpolation_mode = 1
+collision_priority = 0.5
+sync_to_physics = false
 script = ExtResource("1_8tp7u")
 
 [node name="SkinSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -14)
 sprite_frames = ExtResource("3_73exh")
 animation = &"walk_down"
 script = ExtResource("2_8dfhy")
 choices = Array[SpriteFrames]([ExtResource("3_73exh"), ExtResource("3_o4kfx"), ExtResource("4_0qj33"), ExtResource("5_bm7fx"), ExtResource("6_1xm8r"), ExtResource("7_oo68m"), ExtResource("9_gcmlm")])
 
 [node name="BodySprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -10)
 sprite_frames = ExtResource("1_mi0lu")
 animation = &"walk_down"
 script = ExtResource("2_8dfhy")
 choices = Array[SpriteFrames]([ExtResource("1_mi0lu"), ExtResource("9_6oibd"), ExtResource("10_aogdh"), ExtResource("11_srx7w"), ExtResource("12_ic53b"), ExtResource("13_xtoaq"), ExtResource("16_tgvec")])
 
 [node name="ShirtSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 6)
+position = Vector2(0, -6)
 sprite_frames = ExtResource("3_58v6r")
 animation = &"walk_down"
 script = ExtResource("2_8dfhy")
 choices = Array[SpriteFrames]([ExtResource("3_58v6r"), ExtResource("15_8sphe"), ExtResource("16_lwetr"), ExtResource("17_etjll"), ExtResource("18_owmed"), ExtResource("19_s5w8o"), ExtResource("23_tblxn")])
 
 [node name="Hair0Sprite" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(0, -7)
+position = Vector2(0, -19)
 sprite_frames = ExtResource("4_58v6r")
 animation = &"walk_down"
 script = ExtResource("2_8dfhy")
 choices = Array[SpriteFrames]([ExtResource("4_58v6r"), ExtResource("21_qr4jk"), ExtResource("22_fudwa"), ExtResource("23_jitse"), ExtResource("24_wfqq4"), ExtResource("25_2wkyp"), ExtResource("30_jme2h")])
 
 [node name="Hair1Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -20)
 sprite_frames = ExtResource("5_l1iah")
 animation = &"walk_down"
 script = ExtResource("2_8dfhy")
 choices = Array[SpriteFrames]([ExtResource("5_l1iah"), ExtResource("27_71xyg"), ExtResource("28_8tp7u"), ExtResource("29_ygj2m"), ExtResource("30_fxwsu"), ExtResource("31_bjlce"), ExtResource("37_yckeu")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_6vx3a")
-disabled = true
 
 [node name="MovementInteractionZone" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
+position = Vector2(0, -12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementInteractionZone"]
 position = Vector2(0, 6)

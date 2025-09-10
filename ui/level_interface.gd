@@ -1,9 +1,17 @@
 extends Control
 
+@onready var order_layout = $%OrderLayout
+
+var OrderScene = preload("res://ui/Order.tscn")
+
 func _ready():
     LevelInterfaceSingleton.money_changed.connect(update_money_display)
     DayManagerSingleton.day_changed.connect(update_day_display)
     DayManagerSingleton.time_of_day_changed.connect(update_time_display)
+
+    # Clear the children of order layout; they're for visualizing in the editor
+    for child in order_layout.get_children():
+        child.queue_free()
     
     LevelInterfaceSingleton.interact_text_changed.connect(set_interact_text_shown)
     LevelInterfaceSingleton.info_description_changed.connect(set_info_description)
@@ -12,6 +20,23 @@ func _ready():
     update_day_display(DayManagerSingleton.day)
     update_time_display(DayManagerSingleton.time_of_day)
 
+    CustomerManagerSingleton.order_added.connect(add_order)
+
+func add_order(order: OrderData):
+    var order_instance = OrderScene.instantiate()
+    order_instance.order_text = order.order_text
+    order_instance.total_time = order.total_time
+    order_instance.order_texture = order.order_texture
+    order_instance.time_remaining = order.time_remaining
+
+    order.update_time.connect(func():
+        if order.node and order.node.is_inside_tree():
+            order.node.time_remaining = order.time_remaining
+    )
+
+    order_layout.add_child(order_instance)
+
+    order.node = order_instance
 
 ## @param new_text The new text to display, or "" to keep the current text.
 func set_interact_text_shown(txt_name: String, txt_show: bool, new_text: String):

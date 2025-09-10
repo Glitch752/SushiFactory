@@ -16,7 +16,7 @@ func interact():
         if held_item and held_item.id in CUT_ITEMS.keys():
             var new_item = PlayerInventorySingleton.remove_item()
             
-            add_child(new_item)
+            $InteractableContent.add_child(new_item)
             item = new_item
 
             cut_progress = 0
@@ -26,11 +26,11 @@ func interact():
         if cut_progress == CUTS_REQUIRED:
             var sliced_item_id = CUT_ITEMS.get(item.data.id, null)
 
-            remove_child(item)
+            $InteractableContent.remove_child(item)
             item.queue_free()
             
             var sliced_item = PlayerInventorySingleton.create_item(PlayerInventorySingleton.load_item_data(sliced_item_id))
-            add_child(sliced_item)
+            $InteractableContent.add_child(sliced_item)
             
             item = sliced_item
     else:
