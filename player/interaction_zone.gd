@@ -1,7 +1,16 @@
 extends Area2D
 
-## Vector2i if interacting with the automation map, Node2D if interacting with an Interactable
+const InteractionData = preload("res://world/interactable/interactable.gd").InteractionData
+
+@onready var player = $".."
+@onready var interaction_highlight: Sprite2D = $InteractionHighlight
+
+@export var highlight_active_texture: Texture2D
+@export var highlight_inactive_texture: Texture2D
+
+## null if interacting with the automation map, Node2D if interacting with an Interactable
 var current_interactable: Variant = null
+var current_interaction_data: InteractionData = null
 
 var automation_manager
 
@@ -11,53 +20,43 @@ func _ready():
         push_error("Could not find AutomationManager node.")
 
 func _physics_process(_delta):
-    var player = $".."
     position = player.facing * 12
 
-    var automation_interact_pos: Vector2i = automation_manager.get_interaction_position(global_position)
-    if automation_manager.can_interact(automation_interact_pos):
-        if not (current_interactable is Vector2i):
-            current_interactable = automation_interact_pos
-        LevelInterfaceSingleton.update_interactable(automation_manager)
-    elif current_interactable is Vector2i:
-        stop_interacting()
+    var cell = automation_manager.get_interaction_cell(global_position)
+    var automation_interact_data = automation_manager.get_interaction_data(cell)
+    if automation_interact_data != null:
+        current_interactable = null
+        current_interaction_data = automation_interact_data
+        interaction_highlight.global_position = automation_manager.get_cell_center(cell)
+    elif current_interactable != null:
+        current_interaction_data = current_interactable.get_interaction_data()
+        interaction_highlight.global_position = current_interactable.get_node("InteractableContent").global_position
+    else:
+        current_interaction_data = null
+    
+    var active = false
+    if current_interaction_data != null:
+        active = current_interaction_data.primary_action != null or current_interaction_data.secondary_action != null
+    interaction_highlight.texture = highlight_active_texture if active else highlight_inactive_texture
+    
+    interaction_highlight.visible = current_interaction_data != null
+    
+    LevelInterfaceSingleton.update_interactable(current_interaction_data)
 
 func _unhandled_input(event):
-    if event.is_action_pressed("interact") and current_interactable != null:
-        if current_interactable is Vector2i:
-            automation_manager.interact(current_interactable)
-            # Update the interaction state after each interaction
-            if not automation_manager.can_interact(current_interactable):
-                stop_interacting()
-            else:
-                LevelInterfaceSingleton.update_interactable(automation_manager)
-        elif current_interactable is Node2D and current_interactable.has_method("interact") and current_interactable.has_method("can_interact"):
-            current_interactable.interact()
-            # Update the interaction state after each interaction
-            if !current_interactable.can_interact():
-                stop_interacting()
-            else:
-                LevelInterfaceSingleton.update_interactable(current_interactable)
-        else:
-            push_error("Unsupported interactable interface")
+    if current_interaction_data == null:
+        return
+    
+    if event.is_action_pressed("interact") and current_interaction_data.primary_action != null:
+        current_interaction_data.primary_action.callable.call()
+    elif event.is_action_pressed("secondary_interact") and current_interaction_data.secondary_action != null:
+        current_interaction_data.secondary_action.callable.call()
 
 func _on_area_entered(area: Area2D):
     if area.is_in_group("interact_zone"):
-        if current_interactable is Node2D:
-            current_interactable.interact_hide()
-        
         current_interactable = area.get_parent().get_parent()
-        if current_interactable.can_interact():
-            current_interactable.interact_show()
-            LevelInterfaceSingleton.update_interactable(current_interactable)
 
 func _on_area_exited(area: Area2D):
     if area.is_in_group("interact_zone") and not (current_interactable is Vector2i):
         if area.get_parent().get_parent() == current_interactable:
-            stop_interacting()
-
-func stop_interacting():
-    if current_interactable is Node2D:
-        current_interactable.interact_hide()
-    current_interactable = null
-    LevelInterfaceSingleton.clear_interactable()
+            current_interactable = null

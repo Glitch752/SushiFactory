@@ -13,5 +13,5 @@ func apply_data():
         sprite.texture = data.item_sprite
         name = data.item_name
 
-func get_description():
+func get_description() -> String:
     return data.description

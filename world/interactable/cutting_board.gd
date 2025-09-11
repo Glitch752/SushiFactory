@@ -48,26 +48,22 @@ func update_progressbar():
         var frame_count = progress_bar.sprite_frames.get_frame_count("default");
         progress_bar.frame = int((cut_progress / CUTS_REQUIRED) * frame_count) % frame_count
 
-func can_interact() -> bool:
+
+func get_interaction_data() -> InteractionData:
+    var action: InteractionAction = null
+    var interactable_name = "Cutting Board"
+    var desc = ""
     if !has_item():
         var held_item = PlayerInventorySingleton.held_item_data()
-        return held_item and held_item.id in CUT_ITEMS.keys()
-    
-    return !PlayerInventorySingleton.has_item()
-
-func get_interact_explanation():
-    if !has_item():
-        return "place " + PlayerInventorySingleton.held_item_data().item_name.to_lower() + " on the cutting board"
+        if held_item and held_item.id in CUT_ITEMS.keys():
+            action = InteractionAction.new("Place %s" % held_item.item_name, interact)
+            desc = "A cutting board.\nPlace %s on it to cut." % held_item.item_name.to_lower()
+        else:
+            desc = "A cutting board.\nYou can place certain items on it to cut them."
     elif cut_progress < CUTS_REQUIRED:
-        return "cut the " + item.data.item_name.to_lower()
+        action = InteractionAction.new("Cut %s" % item.data.item_name, interact)
+        desc = "A cutting board with %s on it.\nYou have cut it %d out of %d times." % [item.data.item_name.to_lower(), cut_progress, CUTS_REQUIRED]
     else:
-        return "take the " + item.data.item_name.to_lower()
-
-func get_interactable_name():
-    return "Cutting Board"
-
-func get_description():
-    if has_item():
-        return "A cutting board with %s on it.\nYou have cut it %d out of %d times." % [item.data.item_name.to_lower(), cut_progress, CUTS_REQUIRED]
-    else:
-        return "A cutting board.\nYou can place certain items on it to cut them."
+        action = InteractionAction.new("Take %s" % item.data.item_name, interact)
+        desc = "A cutting board with %s on it.\nCutting complete." % item.data.item_name.to_lower()
+    return InteractionData.new(interactable_name, desc, action)

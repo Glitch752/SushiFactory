@@ -9,4 +9,4 @@ func _item_scene_reparent(item: Node2D):
 func _process(_delta):
     var facing = $"..".facing
     position = facing * 8 + Vector2(0, -4)
-    z_index = -10 if facing == Vector2.UP else 101
+    z_index = -10 if facing == Vector2.UP else 1

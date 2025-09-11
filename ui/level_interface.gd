@@ -4,6 +4,9 @@ extends Control
 
 var OrderScene = preload("res://ui/Order.tscn")
 
+const InteractionData = preload("res://world/interactable/interactable.gd").InteractionData
+const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
+
 func _ready():
     LevelInterfaceSingleton.money_changed.connect(update_money_display)
     DayManagerSingleton.day_changed.connect(update_day_display)
@@ -13,8 +16,7 @@ func _ready():
     for child in order_layout.get_children():
         child.queue_free()
     
-    LevelInterfaceSingleton.interact_text_changed.connect(set_interact_text_shown)
-    LevelInterfaceSingleton.info_description_changed.connect(set_info_description)
+    LevelInterfaceSingleton.interaction_data_changed.connect(update_interaction_info)
 
     update_money_display(LevelInterfaceSingleton.current_money)
     update_day_display(DayManagerSingleton.day)
@@ -38,24 +40,24 @@ func add_order(order: OrderData):
 
     order.node = order_instance
 
-## @param new_text The new text to display, or "" to keep the current text.
-func set_interact_text_shown(txt_name: String, txt_show: bool, new_text: String):
-    var interact_text = $InteractText
-    var child = interact_text.get_node(txt_name)
-    if child:
-        if new_text != "":
-            child.text = new_text
-        child.visible = txt_show
-    else:
-        push_error("No interact text with name '%s'" % txt_name)
+func update_interaction_info(data: InteractionData):
+    if data != null:
+        $%InteractionInfo.visible = true
 
-## @param text The new text to display, or null to hide the description.
-func set_info_description(text: Variant):
-    if text is String and text != "":
-        $%MachineInfoLabel.text = text.strip_edges()
-        $MachineInfo.visible = true
+        $%InteractionName.text = data.name
+        $%InteractionDescription.text = data.description
+        
+        update_interact_hint($%PrimaryInteractHint, data.primary_action)
+        update_interact_hint($%SecondaryInteractHint, data.secondary_action)
     else:
-        $MachineInfo.visible = false
+        $%InteractionInfo.visible = false
+
+func update_interact_hint(container: HBoxContainer, action: InteractionAction):
+    if action != null:
+        container.visible = true
+        container.get_node("Label").text = action.name
+    else:
+        container.visible = false
 
 func update_money_display(money: int):
     $%MoneyLabel.text = "$" + str(money)

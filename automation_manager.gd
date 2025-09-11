@@ -18,7 +18,7 @@ extends Node2D
 # - Call rescan_belts() when the tilemap layout changes
 
 @export var automation_tilemap: TileMapLayer
-@export var belt_movement_speed: float = 3.0 # tiles per second
+@export var belt_movement_speed: float = 3.8 # tiles per second
 
 var belt_update_timer: float = 0.0
 
@@ -405,45 +405,75 @@ func update_item_interpolation(delta: float) -> void:
 
 
 #################### Interaction API
-# We need to implement everything level_interface relies on since it just treats us as a interactable lol
 
-func get_interaction_position(global_pos: Vector2) -> Vector2i:
-    var local_pos = to_local(global_pos)
-    return automation_tilemap.local_to_map(local_pos)
+const InteractionData = preload("res://world/interactable/interactable.gd").InteractionData
+const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
 
-func can_interact(cell: Vector2i) -> bool:
+func get_interaction_cell(global_pos: Vector2) -> Vector2i:
+    return automation_tilemap.local_to_map(to_local(global_pos))
+
+func get_cell_center(cell: Vector2i) -> Vector2:
+    return automation_tilemap.to_global(automation_tilemap.map_to_local(cell))
+
+func get_interaction_data(cell: Vector2i) -> InteractionData:
     if not belt_tiles_set.has(cell):
-        return false
+        return null
     
     var has_item = item_tile_positions.has(cell)
+    var action: InteractionAction = null
     if has_item:
-        # If the cell is a belt and has an item, we can interact if the player doesn't have one.
-        return not PlayerInventorySingleton.has_item()
+        if not PlayerInventorySingleton.has_item():
+            action = InteractionAction.new("Take item", func(): take_item_from_belt(cell))
     else:
-        # If the cell is a belt and doesn't have an item, we can interact if the player has one to place.
-        return PlayerInventorySingleton.has_item()
+        if PlayerInventorySingleton.has_item():
+            action = InteractionAction.new("Place item", func(): add_item_to_belt(cell))
+    
+    var interactable_name = "Conveyor Belt"
 
-func interact(cell: Vector2i):
+    var direction = ""
+    var cell_data = automation_tilemap.get_cell_tile_data(cell)
+    if cell_data != null:
+        var automation_id: String = cell_data.get_custom_data("automation_id")
+        match automation_id:
+            "left_belt":
+                direction = "left"
+            "right_belt":
+                direction = "right"
+            "up_belt":
+                direction = "up"
+            "down_belt":
+                direction = "down"
+    
+    var desc = "A belt that moves items %s." % direction
+    if has_item:
+        desc += "\nCurrently has %s on it." % item_tile_positions[cell].data.item_name
+    else:
+        desc += "\nCurrently empty."
+    
+    return InteractionData.new(interactable_name, desc, action)
+
+func add_item_to_belt(cell: Vector2i) -> void:
     if not belt_tiles_set.has(cell):
         return
+    if item_tile_positions.has(cell):
+        return
+    if not PlayerInventorySingleton.has_item():
+        return
     
-    var has_item = item_tile_positions.has(cell)
-    if has_item and not PlayerInventorySingleton.has_item():
-        var item = item_tile_positions[cell]
-        remove_item(item)
-        PlayerInventorySingleton.try_grab_item(item)
-    elif not has_item and PlayerInventorySingleton.has_item():
-        var item = PlayerInventorySingleton.remove_item()
-        register_item(item, cell)
+    var item = PlayerInventorySingleton.remove_item()
+    register_item(item, cell)
 
-func get_interact_explanation() -> String:
-    return "Place item on belt"
-
-func get_interactable_name() -> String:
-    return "Conveyor Belt"
-
-func get_description() -> String:
-    return "A conveyor belt that moves items in a set direction.\nPlace an item on the belt to move it along."
+func take_item_from_belt(cell: Vector2i) -> void:
+    if not belt_tiles_set.has(cell):
+        return
+    if not item_tile_positions.has(cell):
+        return
+    if PlayerInventorySingleton.has_item():
+        return
+    
+    var item = item_tile_positions[cell]
+    remove_item(item)
+    PlayerInventorySingleton.try_grab_item(item)
 
 
 #################### Debug drawing

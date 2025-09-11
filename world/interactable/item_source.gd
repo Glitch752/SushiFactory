@@ -1,5 +1,4 @@
 @tool
-
 extends "res://world/interactable/interactable.gd"
 
 @export var texture: Texture2D:
@@ -19,14 +18,10 @@ func interact():
     var item = PlayerInventorySingleton.create_item(item_data)
     PlayerInventorySingleton.try_grab_item(item)
 
-func can_interact() -> bool:
-    return !PlayerInventorySingleton.has_item()
-
-func get_interact_explanation():
-    return "pick up a " + item_data.item_name.to_lower()
-
-func get_interactable_name():
-    return item_data.item_name + " Source"
-
-func get_description():
-    return "A source of " + item_data.item_name.to_lower() + ". You can pick one up here."
+func get_interaction_data() -> InteractionData:
+    var action: InteractionAction = null
+    var interactable_name = item_data.item_name + " Source"
+    var desc = "A source of %s. You can pick one up here." % item_data.item_name.to_lower()
+    if !PlayerInventorySingleton.has_item():
+        action = InteractionAction.new("Pick Up %s" % item_data.item_name, interact)
+    return InteractionData.new(interactable_name, desc, action)

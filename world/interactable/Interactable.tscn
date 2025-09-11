@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djus2beu8ssd4"]
+[gd_scene load_steps=3 format=3 uid="uid://djus2beu8ssd4"]
 
 [ext_resource type="Script" uid="uid://bhpdkwsbdmvmb" path="res://world/interactable/interactable.gd" id="1_n8mfl"]
-[ext_resource type="Texture2D" uid="uid://v03yy2baua81" path="res://images/selection.png" id="2_04w52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iow7s"]
-size = Vector2(12, 12)
+size = Vector2(12, 10)
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_n8mfl")
@@ -12,13 +11,8 @@ script = ExtResource("1_n8mfl")
 [node name="InteractableContent" type="Node2D" parent="."]
 position = Vector2(0, -11)
 
-[node name="InteractionHighlight" type="Sprite2D" parent="InteractableContent"]
-visible = false
-z_index = 100
-z_as_relative = false
-texture = ExtResource("2_04w52")
-
 [node name="Area2D" type="Area2D" parent="InteractableContent"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableContent/Area2D"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_iow7s")

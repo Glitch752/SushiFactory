@@ -25,39 +25,22 @@ func interact():
         current_item.queue_free()
         return
 
-func can_interact() -> bool:
+func lower_start(text: String) -> String:
+    if text.is_empty():
+        return text
+    return text[0].to_lower() + text.substr(1, text.length() - 1)
+
+func get_interaction_data() -> InteractionData:
+    var action: InteractionAction = null
+    var interactable_name = "Table"
     if !PlayerInventorySingleton.has_item() and current_object != null:
-        return true
+        action = InteractionAction.new("Take %s" % current_object.data.item_name, interact)
+    elif PlayerInventorySingleton.has_item() and current_object == null:
+        var held_item = PlayerInventorySingleton.held_item_data()
+        action = InteractionAction.new("Place %s" % held_item.item_name, interact)
+    elif has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
+        var held_item = PlayerInventorySingleton.held_item_data()
+        action = InteractionAction.new("Put %s on the plate" % held_item.item_name, interact)
     
-    if PlayerInventorySingleton.has_item() and current_object == null:
-        return true
-    
-    if has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
-        return true
-    
-    return false
-
-func get_interact_explanation():
-    if !PlayerInventorySingleton.has_item() and current_object != null:
-        return "take the " + current_object.data.item_name.to_lower()
-    
-    if PlayerInventorySingleton.has_item() and current_object == null:
-        return "place the " + PlayerInventorySingleton.held_item_data().item_name.to_lower() + " on the table"
-    
-    if PlayerInventorySingleton.held_item and current_object and current_object.can_add(PlayerInventorySingleton.held_item_data()):
-        return "put the " + PlayerInventorySingleton.held_item_data().item_name.to_lower() + " on the plate"
-    
-    return ""
-
-func get_interactable_name():
-    return "Table"
-
-func lowercase_start(s: String) -> String:
-    if s.length() == 0:
-        return s
-    return s[0].to_lower() + s.substr(1, s.length() - 1)
-
-func get_description():
-    if current_object == null:
-        return "An empty table."
-    return "Has " + lowercase_start(current_object.get_description())
+    var desc = "An empty table." if current_object == null else "Has %s" % lower_start(current_object.get_description())
+    return InteractionData.new(interactable_name, desc, action)

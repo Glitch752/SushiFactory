@@ -78,34 +78,22 @@ func _physics_process(delta):
     var output_indicator: Sprite2D = $%OutputIndicator
     output_indicator.visible = input_item_id != null and cooking_time_remaining == 0
 
-func can_interact() -> bool:
+
+func get_interaction_data() -> InteractionData:
+    var action: InteractionAction = null
+    var desc = ""
+    var interactable_name = machine_name
     if input_item_id == null:
         var held_item = PlayerInventorySingleton.held_item_data()
-        if held_item == null:
-            return false
-        
-        return recipes.has(held_item.id)
-    elif cooking_time_remaining == 0:
-        return !PlayerInventorySingleton.has_item()
-    return false
-
-func get_interact_explanation():
-    if input_item_id == null:
-        return "add %s to the %s" % [PlayerInventorySingleton.held_item_data().item_name, machine_name.to_lower()]
-    elif cooking_time_remaining == 0:
-        return "take the %s out of the %s" % [current_output.item_name, machine_name.to_lower()]
-    return ""
-
-func get_interactable_name():
-    return machine_name
-
-func get_description():
-    var extra = ""
-    if input_item_id != null:
-        if cooking_time_remaining > 0:
-            extra = "It's %s %s." % [action_word, current_output.item_name]
+        if held_item and recipes.has(held_item.id):
+            action = InteractionAction.new("Add %s" % held_item.item_name, interact)
+            desc = "%s\nAdd %s to start %s." % [interactable_description, held_item.item_name.to_lower(), action_word]
         else:
-            extra = "The %s is %s and ready to take." % [current_output.item_name, action_word_past]
-    else:
-        extra = "It's empty."
-    return "\n" + extra
+            desc = "%s\nIt's empty." % interactable_description
+    elif cooking_time_remaining > 0:
+        desc = "%s\nIt's %s %s." % [interactable_description, action_word, current_output.item_name]
+    elif cooking_time_remaining == 0:
+        if !PlayerInventorySingleton.has_item():
+            action = InteractionAction.new("Take %s" % current_output.item_name, interact)
+        desc = "%s\nThe %s is %s and ready to take." % [interactable_description, current_output.item_name, action_word_past]
+    return InteractionData.new(interactable_name, desc, action)

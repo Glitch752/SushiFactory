@@ -7,14 +7,9 @@ func interact():
     var plate = PlayerInventorySingleton.create_item_from_scene(PlateScene)
     PlayerInventorySingleton.try_grab_item(plate)
 
-func can_interact() -> bool:
-    return !PlayerInventorySingleton.has_item()
-
-func get_interact_explanation():
-    return "pick up a plate"
-
-func get_interactable_name():
-    return "Plate Stack"
-
-func get_description():
-    return "A stack of clean plates. You can take one."
+func get_interaction_data() -> InteractionData:
+    return InteractionData.new(
+        "Plate Stack",
+        "A stack of clean plates. You can take one.",
+        InteractionAction.new("Take Plate", interact) if not PlayerInventorySingleton.has_item() else null
+    )

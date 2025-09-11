@@ -42,31 +42,23 @@ func _physics_process(delta):
     output_indicator.visible = cooking_time_remaining == 0 and has_rice
 
 
-func can_interact() -> bool:
+
+func get_interaction_data() -> InteractionData:
+    var action: InteractionAction = null
+    var interactable_name = "Rice Cooker"
+    var desc = "A rice cooker.\n"
     if !has_rice:
-        return PlayerInventorySingleton.holding_item("rice")
-    elif cooking_time_remaining == 0:
-        return !PlayerInventorySingleton.has_item()
-    return false
-
-func get_interact_explanation():
-    if !has_rice:
-        return "add rice to the rice cooker"
-    elif cooking_time_remaining == 0:
-        return "take cooked rice from the rice cooker"
-    return ""
-
-func get_interactable_name():
-    return "Rice Cooker"
-
-func get_description():
-    var extra = ""
-    if has_rice:
-        if cooking_time_remaining > 0:
-            extra = "It's cooking rice."
+        if PlayerInventorySingleton.holding_item("rice"):
+            action = InteractionAction.new("Add Rice", interact)
+            desc += "It's empty. Add rice to start cooking."
         else:
-            extra = "The rice is cooked and ready to take."
-    else:
-        extra = "It's empty."
-    
-    return "A rice cooker.\n" + extra
+            desc += "It's empty."
+    elif cooking_time_remaining > 0:
+        desc += "It's cooking rice."
+    elif cooking_time_remaining == 0:
+        if !PlayerInventorySingleton.has_item():
+            action = InteractionAction.new("Take Cooked Rice", interact)
+            desc += "The rice is cooked and ready to take."
+        else:
+            desc += "The rice is cooked and ready to take."
+    return InteractionData.new(interactable_name, desc, action)

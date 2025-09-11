@@ -50,14 +50,11 @@ func _input(event):
             desktop.visible = false
             computer_ui_open = false
 
-func can_interact() -> bool:
-    return not computer_ui_open
 
-func get_interact_explanation():
-    return "use the computer"
-
-func get_interactable_name():
-    return "Computer"
-
-func get_description():
-    return "A computer used to manage your restaurant,\norder supplies, and communicate with your boss."
+func get_interaction_data() -> InteractionData:
+    var action: InteractionAction = null
+    var interactable_name = "Computer"
+    var desc = "A computer used to manage your restaurant,\norder supplies, and communicate with your boss."
+    if not computer_ui_open:
+        action = InteractionAction.new("Use Computer", interact)
+    return InteractionData.new(interactable_name, desc, action)
