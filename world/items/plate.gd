@@ -17,9 +17,7 @@ func can_add(item: ItemData) -> bool:
 
 var rng = RandomNumberGenerator.new()
 
-func add_to_plate(item: ItemData) -> void:
-    print("Adding item to plate ", item.id)
-
+func add_to_plate(item: ItemData, visual_only: bool = false) -> void:
     var item_sprite = Sprite2D.new()
 
     # item_sprite.texture = item.item_sprite
@@ -29,10 +27,13 @@ func add_to_plate(item: ItemData) -> void:
     tex.resize(tex.get_width() / 2, tex.get_height() / 2, Image.INTERPOLATE_NEAREST)
     item_sprite.texture = ImageTexture.create_from_image(tex)
 
-    item_sprite.position = Vector2(rng.randi_range(-3, 3), rng.randi_range(-3, 3))
+    item_sprite.position = Vector2(rng.randi_range(-3, 3), rng.randi_range(-3, 1))
     
     add_child(item_sprite)
     
+    if visual_only:
+        return
+
     contents.append(ContentData.new(item, item_sprite))
 
     process_dishes()
