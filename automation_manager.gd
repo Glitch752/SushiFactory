@@ -1,9 +1,7 @@
 extends Node2D
 
-# Alright, this one is definitely the most complex part of the project
-# so it justifies some better documentation.
-# This class manages "the automation system" as a whole, which includes
-# item movement on belts and into machines.
+# Alright, this one is definitely the most complex part of the project so it justifies some better documentation.
+# This class manages "the automation system" as a whole, which includes item movement on belts and into machines.
 # If I actually implemented it properly based on the implementations I referenced, it should run in O(belt tiles) per simulation tick.
 # Because it uses a graph implementation, it supports simultaneous move planning without overlaps e.g. a circle of belts that all have items will move as expected.
 # Furthermore, this allows it to handle chains, merges where multiple belts go into one, and full loops.
@@ -62,6 +60,7 @@ var _visited_cycle: Dictionary = {}
 func _ready():
     # pre-scan belts once at startup
     rescan_belts()
+    set_process(false)
 
 func _physics_process(delta: float) -> void:
     belt_update_timer += delta
@@ -144,15 +143,15 @@ func register_item(item: Node2D, cell: Vector2i) -> void:
     if item.has_meta("target_pos"):
         item.remove_meta("target_pos")
 
-## Remove an item from the system and free it. Should be used when machines take items (should we do this outselves?)
+## Remove an item from the system (but don't free it). Should be used when machines take items (should we do this outselves?)
 func remove_item(item: Node2D) -> void:
     if item.has_meta("tile_pos"):
         var t = item.get_meta("tile_pos")
         item_tile_positions.erase(t)
         item.remove_meta("tile_pos")
     items.erase(item)
-    if item.is_inside_tree():
-        item.queue_free()
+
+    remove_child(item)
 
 #################### The Actual Simulation Wow
 
@@ -188,7 +187,98 @@ func update_belts() -> void:
 
     # After the loop, nodes where _indeg > 0 form cycles
 
-    # 4. Process acyclic nodes in reverse topological order to plan moves with reservation
+    # 4. Process cycles
+    _visited_cycle.clear()
+    for u in belt_tiles:
+        if _indeg.get(u, 0) <= 0:
+            continue
+        if _visited_cycle.has(u):
+            continue
+        
+        # Build the cycle in order
+        var cycle = []
+        var w = u
+        while not _visited_cycle.has(w):
+            cycle.append(w)
+            _visited_cycle[w] = true
+            w = successor_map.get(w, null)
+            # w should always be valid in a well-formed cycle
+        if cycle.size() == 0:
+            continue
+
+        var L = cycle.size()
+
+        # Count the occupied cell count to determine if we have a full cycle or partial
+        var k = 0
+        for c in cycle:
+            if occ.has(c):
+                k += 1
+        if k == 0:
+            continue
+
+        if k == L:
+            # This is a fully occupied cycle, so we rotate all items forward by one
+            var last_item = occ[cycle[L - 1]]
+            for i in range(L - 1, 0, -1):
+                var from = cycle[i - 1]
+                var to = cycle[i]
+                occ[to] = occ[from]
+                
+                var moved_item = occ[to]
+                
+                moved_item.set_meta("tile_pos", to)
+                moved_item.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(to)))
+                
+                item_tile_positions.erase(from)
+                item_tile_positions[to] = moved_item
+            occ[cycle[0]] = last_item
+
+            var moved_first_item = occ[cycle[0]]
+            moved_first_item.set_meta("tile_pos", cycle[0])
+            moved_first_item.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(cycle[0])))
+            item_tile_positions[cycle[0]] = moved_first_item
+        else:
+            # This is a partial cycle, so move occupied runs forward by one if the cell after is empty
+            var extended_cycle = cycle.duplicate()
+            extended_cycle.append(cycle[0]) # wrap around for easier handling of end case
+            var start = -1
+
+            for i in range(L):
+                var c = extended_cycle[i]
+                if occ.has(c) and start == -1:
+                    start = i
+                elif not occ.has(c) and start != -1:
+                    # We found a run from start to i-1 (inclusive) that can move forward
+                    for j in range(i - 1, start - 1, -1):
+                        var from = extended_cycle[j]
+                        var to = extended_cycle[j + 1]
+                        occ[to] = occ[from]
+                        var moved_item = occ[to]
+                        
+                        moved_item.set_meta("tile_pos", to)
+                        moved_item.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(to)))
+                        
+                        item_tile_positions.erase(from)
+                        item_tile_positions[to] = moved_item
+                    occ.erase(extended_cycle[start])
+                    start = -1
+            
+            # If we ended with a run, it wraps around
+            if start != -1:
+                for j in range(L - 1, start - 1, -1):
+                    var from = extended_cycle[j]
+                    var to = extended_cycle[j + 1]
+                    occ[to] = occ[from]
+                    var moved_item = occ[to]
+                    
+                    moved_item.set_meta("tile_pos", to)
+                    moved_item.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(to)))
+                    
+                    item_tile_positions.erase(from)
+                    item_tile_positions[to] = moved_item
+                occ.erase(extended_cycle[start])
+
+    # 5. Process acyclic nodes in reverse topological order to plan moves with reservation
     _will_move.clear()
     _reserved.clear()
 
@@ -245,7 +335,7 @@ func update_belts() -> void:
                     _reserved[v] = true
                     _will_move[u] = v
 
-    # 5. Apply acyclic moves simultaneously
+    # 6. Apply acyclic moves simultaneously
     # We mutate occ and item_tile_positions accordingly and set target_pos on items for interpolation
     for src in _will_move.keys():
         var dst = _will_move[src]
@@ -287,112 +377,6 @@ func update_belts() -> void:
                 if item.is_inside_tree():
                     item.queue_free()
 
-    # 6. Process cycles (remaining nodes with _indeg > 0 are cycle nodes)
-    _visited_cycle.clear()
-    for u in belt_tiles:
-        if _indeg.get(u, 0) <= 0:
-            continue
-        if _visited_cycle.has(u):
-            continue
-        
-        # Build the cycle in order
-        var cycle = []
-        var w = u
-        while not _visited_cycle.has(w):
-            cycle.append(w)
-            _visited_cycle[w] = true
-            w = successor_map.get(w, null)
-            # w should always be valid in a well-formed cycle
-        if cycle.size() == 0:
-            continue
-
-        var L = cycle.size()
-
-        # Count occupancy using occ AFTER the acyclic moves
-        var k = 0
-        for c in cycle:
-            if occ.has(c):
-                k += 1
-        if k == 0:
-            continue
-
-        if k == L:
-            # This is a fully occupied cycle, so we rotate all items forward by one
-            var last_item = occ[cycle[L - 1]]
-            for i in range(L - 1, 0, -1):
-                var from = cycle[i - 1]
-                var to = cycle[i]
-                occ[to] = occ[from]
-                var moved_item = occ[to]
-                
-                moved_item.set_meta("tile_pos", to)
-                moved_item.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(to)))
-                
-                item_tile_positions.erase(from)
-                item_tile_positions[to] = moved_item
-            
-            occ[cycle[0]] = last_item
-            
-            last_item.set_meta("tile_pos", cycle[0])
-            last_item.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(cycle[0])))
-            
-            item_tile_positions.erase(cycle[L - 1])
-            item_tile_positions[cycle[0]] = last_item
-        else:
-            # This is a partial cycle, so move occupied runs forward by one if the cell after is empty
-            var moves = []
-            moves.resize(L)
-            for i in range(L):
-                moves[i] = false
-
-            var i = 0
-            while i < L:
-                if not occ.has(cycle[i]):
-                    i += 1
-                    continue
-                var s = i
-                var r = 0
-                while r < L and occ.has(cycle[(s + r) % L]):
-                    r += 1
-                var next_idx = (s + r) % L
-                if not occ.has(cycle[next_idx]):
-                    # mark the whole run to move forward
-                    for j in range(r):
-                        moves[(s + j) % L] = true
-                i = s + r
-            
-            # Apply moves simultaneously
-            var newvals = {}
-            
-            # Copy current values
-            for idx in range(L):
-                var ccell = cycle[idx]
-                if occ.has(ccell):
-                    newvals[ccell] = occ[ccell]
-                else:
-                    newvals[ccell] = null
-            for idx in range(L):
-                if moves[idx]:
-                    var from = cycle[idx]
-                    var to = cycle[(idx + 1) % L]
-                    newvals[to] = occ[from]
-                    newvals[from] = null
-            
-            # Commit back to occ and update item metas / manager map
-            for idx in range(L):
-                var ccell = cycle[idx]
-                var val = newvals[ccell]
-                if val == null:
-                    occ.erase(ccell)
-                    item_tile_positions.erase(ccell)
-                else:
-                    occ[ccell] = val
-
-                    val.set_meta("tile_pos", ccell)
-                    val.set_meta("target_pos", automation_tilemap.to_global(automation_tilemap.map_to_local(ccell)))
-                    
-                    item_tile_positions[ccell] = val
-
     # Yay!
 
 #################### Interpolation
@@ -412,6 +396,13 @@ func update_item_interpolation(delta: float) -> void:
         var new_pos = item.global_position.move_toward(target_pos, step)
         item.global_position = new_pos
 
+    # # FOR DEBUGGING: use the tile_pos instead to show discrete positions
+    # for item in items.duplicate():
+    #     if not item.has_meta("tile_pos"):
+    #         continue
+    #     var tile_pos: Vector2i = item.get_meta("tile_pos")
+    #     item.global_position = automation_tilemap.to_global(automation_tilemap.map_to_local(tile_pos))
+
 
 #################### Interaction API
 # We need to implement everything level_interface relies on since it just treats us as a interactable lol
@@ -421,32 +412,29 @@ func get_interaction_position(global_pos: Vector2) -> Vector2i:
     return automation_tilemap.local_to_map(local_pos)
 
 func can_interact(cell: Vector2i) -> bool:
-    var cell_data: TileData = automation_tilemap.get_cell_tile_data(cell)
-    if cell_data == null:
+    if not belt_tiles_set.has(cell):
         return false
     
-    # TODO: Belt item taking logic idk
-
-    if not PlayerInventorySingleton.has_item():
-        return false
-
-    return cell_data.get_custom_data("automation_id") != ""
+    var has_item = item_tile_positions.has(cell)
+    if has_item:
+        # If the cell is a belt and has an item, we can interact if the player doesn't have one.
+        return not PlayerInventorySingleton.has_item()
+    else:
+        # If the cell is a belt and doesn't have an item, we can interact if the player has one to place.
+        return PlayerInventorySingleton.has_item()
 
 func interact(cell: Vector2i):
-    if not can_interact(cell):
-        push_error("Tried to interact with a non-interactable cell: " + str(cell))
+    if not belt_tiles_set.has(cell):
         return
     
-    var cell_data: TileData = automation_tilemap.get_cell_tile_data(cell)
-    var automation_id: String = cell_data.get_custom_data("automation_id")
-    match automation_id:
-        "up_belt", "down_belt", "left_belt", "right_belt":
-            if PlayerInventorySingleton.has_item():
-                var item = PlayerInventorySingleton.remove_item()
-                register_item(item, cell)
-            else:
-                push_error("No item to place on belt? hm")
-            pass
+    var has_item = item_tile_positions.has(cell)
+    if has_item and not PlayerInventorySingleton.has_item():
+        var item = item_tile_positions[cell]
+        remove_item(item)
+        PlayerInventorySingleton.try_grab_item(item)
+    elif not has_item and PlayerInventorySingleton.has_item():
+        var item = PlayerInventorySingleton.remove_item()
+        register_item(item, cell)
 
 func get_interact_explanation() -> String:
     return "Place item on belt"
@@ -456,3 +444,56 @@ func get_interactable_name() -> String:
 
 func get_description() -> String:
     return "A conveyor belt that moves items in a set direction.\nPlace an item on the belt to move it along."
+
+
+#################### Debug drawing
+
+var debug_annotations: bool = false
+
+func _input(event):
+    if event is InputEventKey and event.pressed and not event.echo:
+        # Temporary: when pressing 0, debug draw
+        if event.keycode == KEY_0:
+            debug_annotations = not debug_annotations
+            set_process(debug_annotations)
+            queue_redraw()
+
+func _process(_delta):
+    if debug_annotations:
+        queue_redraw()
+
+func _draw():
+    if not debug_annotations:
+        return
+    
+    var tile_world_size = Vector2(automation_tilemap.tile_set.tile_size)
+
+    # Draw an arrow at every belt in blue if it's acyclic or orange if it's cyclic
+    for cell in belt_tiles:
+        var start = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(cell)))
+        var end = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(successor_map[cell])))
+        
+        var dir = (end - start).normalized()
+        start += dir * (tile_world_size.x * 0.2)
+        end -= dir * (tile_world_size.x * 0.2)
+
+        var color = Color.LIGHT_BLUE
+        if _indeg.get(cell, 0) > 0:
+            color = Color.LIGHT_GREEN
+        
+        draw_line(start, end, color, 1.0)
+        var perp = Vector2(-dir.y, dir.x) * 3
+        draw_line(end, end - dir * 5 + perp, color, 1.0)
+        draw_line(end, end - dir * 5 - perp, color, 1.0)
+    
+    var inset = Vector2.ONE * 2
+    
+    # Draw a red square around every occupied tile
+    for cell in item_tile_positions.keys():
+        var top_left = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(cell)) - tile_world_size / 2)
+        draw_rect(Rect2(top_left + inset, tile_world_size - inset * 2), Color(1, 0, 0, 0.5))
+    
+    # Draw a green square around every consumer
+    for cell in consumer_map.keys():
+        var top_left = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(cell)) - tile_world_size / 2)
+        draw_rect(Rect2(top_left + inset, tile_world_size - inset * 2), Color(0, 1, 0, 0.5))

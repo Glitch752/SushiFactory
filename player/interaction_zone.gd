@@ -18,7 +18,7 @@ func _physics_process(_delta):
     if automation_manager.can_interact(automation_interact_pos):
         if not (current_interactable is Vector2i):
             current_interactable = automation_interact_pos
-            LevelInterfaceSingleton.update_interactable(automation_manager)
+        LevelInterfaceSingleton.update_interactable(automation_manager)
     elif current_interactable is Vector2i:
         stop_interacting()
 
@@ -52,7 +52,7 @@ func _on_area_entered(area: Area2D):
             LevelInterfaceSingleton.update_interactable(current_interactable)
 
 func _on_area_exited(area: Area2D):
-    if area.is_in_group("interact_zone"):
+    if area.is_in_group("interact_zone") and not (current_interactable is Vector2i):
         if area.get_parent().get_parent() == current_interactable:
             stop_interacting()
 
