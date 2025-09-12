@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfhaoi32vn60w"]
+[gd_scene load_steps=20 format=3 uid="uid://bfhaoi32vn60w"]
 
 [ext_resource type="Script" uid="uid://ca36w64e1wcvh" path="res://scripts/day_manager_singleton.gd" id="1_8tv76"]
 [ext_resource type="Script" uid="uid://dlvmqlayss6ln" path="res://scripts/day_data.gd" id="2_viq34"]
@@ -15,15 +15,89 @@ customer_patience = 120.0
 order_difficulties = Array[int]([0])
 metadata/_custom_type_script = "uid://dlvmqlayss6ln"
 
+[sub_resource type="Resource" id="Resource_j0v3x"]
+script = ExtResource("2_viq34")
+customer_interval = 0.75
+customer_patience = 115.0
+order_difficulties = Array[int]([0, 1])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_a31cr"]
+script = ExtResource("2_viq34")
+customer_interval = 0.5
+customer_patience = 90.0
+order_difficulties = Array[int]([1])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_53pog"]
+script = ExtResource("2_viq34")
+customer_interval = 0.5
+customer_patience = 90.0
+order_difficulties = Array[int]([1, 2])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_w14ii"]
+script = ExtResource("2_viq34")
+customer_interval = 0.5
+customer_patience = 90.0
+order_difficulties = Array[int]([2, 3])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_dhw2y"]
+script = ExtResource("2_viq34")
+customer_interval = 0.3
+customer_patience = 75.0
+order_difficulties = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_enl3g"]
+script = ExtResource("2_viq34")
+customer_interval = 0.25
+customer_patience = 60.0
+order_difficulties = Array[int]([0, 1])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_ik2a3"]
+script = ExtResource("2_viq34")
+customer_interval = 0.25
+customer_patience = 60.0
+order_difficulties = Array[int]([0, 1, 2])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_w827y"]
+script = ExtResource("2_viq34")
+customer_interval = 0.25
+customer_patience = 60.0
+order_difficulties = Array[int]([1, 2, 3])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_qrv1m"]
+script = ExtResource("2_viq34")
+customer_interval = 0.15
+customer_patience = 60.0
+order_difficulties = Array[int]([0, 1])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_0373d"]
+script = ExtResource("2_viq34")
+customer_interval = 0.15
+customer_patience = 60.0
+order_difficulties = Array[int]([0, 1, 2])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
+[sub_resource type="Resource" id="Resource_ku645"]
+script = ExtResource("2_viq34")
+customer_interval = 0.15
+customer_patience = 60.0
+order_difficulties = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://dlvmqlayss6ln"
+
 [node name="DayManagerSingleton" type="Node"]
 script = ExtResource("1_8tv76")
-day_data = Array[ExtResource("2_viq34")]([SubResource("Resource_rnkol")])
+day_data = Array[ExtResource("2_viq34")]([SubResource("Resource_rnkol"), SubResource("Resource_j0v3x"), SubResource("Resource_a31cr"), SubResource("Resource_53pog"), SubResource("Resource_w14ii"), SubResource("Resource_dhw2y"), SubResource("Resource_enl3g"), SubResource("Resource_ik2a3"), SubResource("Resource_w827y"), SubResource("Resource_qrv1m"), SubResource("Resource_0373d"), SubResource("Resource_ku645")])
 possible_orders = Dictionary[int, ExtResource("3_6o47b")]({
 0: ExtResource("4_dm8jb"),
 1: ExtResource("5_j0v3x"),
 2: ExtResource("6_a31cr"),
 3: ExtResource("7_53pog")
 })
-day = null
-time_of_day = null
-day_cycle_active = null
