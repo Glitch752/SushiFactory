@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="OrderPossibilities" load_steps=6 format=3 uid="uid://d3buq6vipwtqk"]
+
+[ext_resource type="Script" uid="uid://cx3wtsk0viaog" path="res://scripts/order_possibilities.gd" id="1_rgnsi"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_2nlfw"]
+[ext_resource type="Resource" uid="uid://5m8u3i5er6yv" path="res://world/items/data/dragon_roll_item_data.tres" id="3_sls63"]
+[ext_resource type="Resource" uid="uid://dayg8sjqypvy1" path="res://world/items/data/rainbow_roll_item_data.tres" id="4_rgnsi"]
+[ext_resource type="Resource" uid="uid://cby2iuxg5t7kx" path="res://world/items/data/deluxe_chirashi_bowl_item_data.tres" id="5_2nlfw"]
+
+[resource]
+script = ExtResource("1_rgnsi")
+single_items = Array[ExtResource("2_2nlfw")]([ExtResource("3_sls63"), ExtResource("4_rgnsi"), ExtResource("5_2nlfw")])
+color = Color(0.917515, 0.681046, 0.621691, 1)
+name = "Expert"
+metadata/_custom_type_script = "uid://cx3wtsk0viaog"

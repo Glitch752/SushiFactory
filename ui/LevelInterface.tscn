@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=17 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://ui/level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
@@ -10,17 +10,22 @@
 [ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="9_xj0kr"]
 [ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="10_oftlk"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_oftlk"]
+font = ExtResource("4_lfe7y")
+font_size = 24
+font_color = Color(0.99, 0.97515, 0.8415, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_lfe7y"]
 font = ExtResource("4_lfe7y")
 font_size = 24
-font_color = Color(0.857756, 0.841198, 0.986616, 1)
+font_color = Color(0.862099, 0.846188, 0.987023, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xj0kr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xj0kr"]
 font = ExtResource("4_lfe7y")
 font_size = 24
-font_color = Color(0.912328, 0.850289, 0.778221, 1)
+font_color = Color(0.797452, 0.88977, 0.948186, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5j5is"]
 font = ExtResource("4_lfe7y")
@@ -57,6 +62,22 @@ offset_right = -16.0
 offset_bottom = 43.0
 grow_horizontal = 0
 alignment = 2
+
+[node name="ReputationDisplay" type="PanelContainer" parent="InfoDisplays"]
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+tooltip_text = "The current day."
+
+[node name="MarginContainer" type="MarginContainer" parent="InfoDisplays/ReputationDisplay"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="ReputationLabel" type="Label" parent="InfoDisplays/ReputationDisplay/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reputation: 5/5"
+label_settings = SubResource("LabelSettings_oftlk")
 
 [node name="DayNumber" type="PanelContainer" parent="InfoDisplays"]
 custom_minimum_size = Vector2(128, 48)

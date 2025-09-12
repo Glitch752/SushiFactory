@@ -27,6 +27,7 @@ EmailSystem="*res://world/interactable/computer/emails/EmailSystem.tscn"
 DishCombinationsSingleton="*res://world/interactable/dishes/DishCombinationsSingleton.tscn"
 CustomerManagerSingleton="*res://scripts/customer_manager_singleton.gd"
 DayManagerSingleton="*res://scripts/DayManagerSingleton.tscn"
+StoreStatsSingleton="*res://scripts/store_stats_singleton.gd"
 
 [display]
 

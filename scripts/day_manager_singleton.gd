@@ -8,7 +8,19 @@ const OrderDifficulty = preload("res://scripts/day_data.gd").OrderDifficulty
 @export var day_data: Array[DayData] = []
 
 ## The possible customer orders for each difficulty; just individual items for now
-@export var possible_orders: Dictionary[OrderDifficulty, ItemData] = {}
+@export var possible_orders: Dictionary[OrderDifficulty, OrderPossibilities] = {}
+
+func get_day_data(d: int) -> DayData:
+    if d - 1 < day_data.size():
+        return day_data[d - 1]
+    else:
+        return day_data[day_data.size() - 1]
+
+func get_possible_orders(difficulty: OrderDifficulty) -> OrderPossibilities:
+    if difficulty in possible_orders:
+        return possible_orders[difficulty]
+    else:
+        return null
 
 var _day: int = 0
 @export var day: int:
@@ -53,17 +65,29 @@ func format_duration(hours: float) -> String:
 
 func _process(delta):
     if day_cycle_active:
-        # 1 second real-time is 1 minute in-game time
-        time_of_day += delta * (1.0 / 60.0)
+        var previous_time = time_of_day
+
+        # 1 second real-time is 2 minutes in-game time
+        time_of_day += delta * (2.0 / 60.0)
+
+        if previous_time < 9.0 and time_of_day >= 9.0:
+            # At 9 AM, the store opens.
+            LevelInterfaceSingleton.notify_store_open()
+
+            CustomerManagerSingleton.store_opened()
 
         if time_of_day >= 17.0:
             # At 5 PM, the day cycle ends.
             time_of_day = 17.0
             day_cycle_active = false
+            LevelInterfaceSingleton.notify_store_closing()
+            CustomerManagerSingleton.store_closed()
 
 func begin_day():
     day += 1
     time_of_day = 8.0  # Start at 8 AM
     day_cycle_active = true
 
-    CustomerManagerSingleton.begin_day()
+    LevelInterfaceSingleton.notify_day_started(day)
+
+    CustomerManagerSingleton.begin_day(get_day_data(day))

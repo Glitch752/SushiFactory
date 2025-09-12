@@ -17,6 +17,12 @@ func can_add(item: ItemData) -> bool:
 
 var rng = RandomNumberGenerator.new()
 
+func has_item(item_id: String) -> bool:
+    for content in contents:
+        if content.item.id == item_id:
+            return true
+    return false
+
 func add_to_plate(item: ItemData, visual_only: bool = false) -> void:
     var item_sprite = Sprite2D.new()
 

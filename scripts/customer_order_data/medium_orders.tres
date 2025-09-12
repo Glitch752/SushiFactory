@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="OrderPossibilities" load_steps=7 format=3 uid="uid://c4p7qiqbsfy83"]
+
+[ext_resource type="Script" uid="uid://cx3wtsk0viaog" path="res://scripts/order_possibilities.gd" id="1_iuqjl"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_vybnu"]
+[ext_resource type="Resource" uid="uid://dj45kc2uvgw3p" path="res://world/items/data/salmon_nigiri_item_data.tres" id="3_iuqjl"]
+[ext_resource type="Resource" uid="uid://dgva8y3u01i30" path="res://world/items/data/cucumber_maki_item_data.tres" id="4_vybnu"]
+[ext_resource type="Resource" uid="uid://bubcawox4m6t2" path="res://world/items/data/salmon_maki_item_data.tres" id="5_uk1mf"]
+[ext_resource type="Resource" uid="uid://d0mv0ubu0el5" path="res://world/items/data/tamago_nigiri_item_data.tres" id="6_2fnef"]
+
+[resource]
+script = ExtResource("1_iuqjl")
+single_items = Array[ExtResource("2_vybnu")]([ExtResource("3_iuqjl"), ExtResource("4_vybnu"), ExtResource("5_uk1mf"), ExtResource("6_2fnef")])
+color = Color(0.462907, 0.839773, 0.612353, 1)
+name = "Medium"
+metadata/_custom_type_script = "uid://cx3wtsk0viaog"

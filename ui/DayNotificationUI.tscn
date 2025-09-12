@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bjlcr2w8r5nix" path="res://ui/day_notification_ui.gd" id="2_5jtyj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q23cf"]
-font_size = 96
+font_size = 64
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q23cf"]
 bg_color = Color(1, 1, 1, 1)
@@ -27,10 +27,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -129.0
-offset_top = 40.0
-offset_right = 129.0
-offset_bottom = 172.0
+offset_left = -400.0
+offset_top = 80.0
+offset_right = 400.0
+offset_bottom = 359.0
 grow_horizontal = 2
 
 [node name="DayTitle" type="Label" parent="VBoxContainer"]
@@ -63,13 +63,14 @@ layout_mode = 2
 
 [node name="InfoRichText" type="RichTextLabel" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(512, 75)
+custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 24
 theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
-text = "[b]Expected customer rate[/b]: [color=#ff9999]10/hr[/color]
-[b]Order difficulty[/b]: [color=#99ff88]basic[/color]"
+text = "[b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
+[b]Customer patience[/b]: [color=#ffff99]2hrs[/color]
+[b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1

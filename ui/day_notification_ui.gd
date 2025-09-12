@@ -1,11 +1,11 @@
 extends Control
 
 enum DayEvent {
-    OPENING, CLOSING
+    ARRIVAL, OPENING, CLOSING
 }
 
 @export var day: int = 1
-@export var event: DayEvent = DayEvent.OPENING
+@export var event: DayEvent = DayEvent.CLOSING
 @export var infoText: String = ""
 
 @onready var dayTitle: Label = $%DayTitle;
@@ -17,19 +17,37 @@ var startHrWidth: float
 var startInfoHeight: float
 
 func _ready():
+    var eventName = ""
+    match event:
+        DayEvent.ARRIVAL:
+            eventName = "Arrival"
+        DayEvent.OPENING:
+            eventName = "Opening"
+        DayEvent.CLOSING:
+            eventName = "Closing"
+    
+    dayTitle.text = "Day %d - %s" % [day, eventName]
+    infoRichText.text = infoText
+
     startHrWidth = hr.custom_minimum_size.x
     startInfoHeight = infoRichText.size.y
     animate()
 
-    DayManagerSingleton.time_of_day_changed.connect(func(new_time):
-        timeTitle.text = "%s - Store opens in %s" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(9.0 - new_time)]
-    )
+    DayManagerSingleton.time_of_day_changed.connect(update_time)
 
-func _input(event):
-    # Temporary: on pressing 1, reaniamte
-    if event is InputEventKey and event.pressed:
-        if event.keycode == KEY_1:
-            animate()
+func update_time(new_time: float):
+    if event == DayEvent.CLOSING:
+        timeTitle.text = "%s - Store closed" % DayManagerSingleton.format_time_of_day()
+    elif event == DayEvent.ARRIVAL:
+        timeTitle.text = "%s - Store opens in %s" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(9.0 - new_time)]
+    else:
+        timeTitle.text = "%s - Store closes in %s" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(17.0 - new_time)]
+
+# func _input(ev):
+#     # For debugging: on pressing 1, reaniamte
+#     if ev is InputEventKey and ev.pressed:
+#         if ev.keycode == KEY_1:
+#             animate()
 
 func animate():
     dayTitle.modulate.a = 0.0
@@ -77,5 +95,8 @@ func animate():
     tween.parallel().tween_property(self, "position:y", -10.0, fade_out_duration)
 
     await tween.finished
+
     hr_tween.kill()
     main_animations.kill()
+
+    queue_free()

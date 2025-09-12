@@ -57,6 +57,8 @@ var _reserved: Dictionary[Vector2i, bool] = {}
 ## Visited nodes when processing cycles. All values are true.
 var _visited_cycle: Dictionary[Vector2i, bool] = {}
 
+signal belts_updated()
+
 func _ready():
     # pre-scan belts once at startup
     rescan_belts()
@@ -72,6 +74,7 @@ func _physics_process(delta: float) -> void:
         # run that many ticks (usually 1)
         for i in range(int(ticks)):
             update_belts()
+        belts_updated.emit()
 
     update_item_interpolation(delta)
 
@@ -474,6 +477,21 @@ func take_item_from_belt(cell: Vector2i) -> void:
     var item = item_tile_positions[cell]
     remove_item(item)
     PlayerInventorySingleton.try_grab_item(item)
+
+## Take a plate with the specified item on it near the provided global position in a 3x3 area. Used for
+## customers "taking" items off the sushi belt.
+func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
+    var cell = get_interaction_cell(global_pos)
+    # Check the 3x3 area centered at cell
+    for dx in range(-1, 2):
+        for dy in range(-1, 2):
+            var check_cell = cell + Vector2i(dx, dy)
+            if item_tile_positions.has(check_cell):
+                var plate = item_tile_positions[check_cell]
+                if plate and plate.data.id == "plate" and plate.has_item(item_id):
+                    remove_item(plate)
+                    return plate
+    return null
 
 
 #################### Debug drawing

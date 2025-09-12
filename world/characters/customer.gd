@@ -4,7 +4,7 @@ extends AnimatableBody2D
 
 var previous_position: Vector2
 
-@export var animation_base_speed = 100
+@export var animation_base_speed = 80
     
 func _ready():
     $%MovementInteractionZone.add_to_group("open_doors")

@@ -1,8 +1,12 @@
 extends Node
 
-var CustomerScene = preload("res://world/characters/Customer.tscn");
+var CustomerScene = preload("res://world/characters/Customer.tscn")
+
+const AutomationManager = preload("res://scripts/automation/automation_manager.gd")
 
 signal order_added(data: OrderData)
+signal customer_satisfied()
+signal customer_angered()
 
 var customer_paths_parent: Node2D
 var y_sorting_tile_map: TileMapLayer
@@ -13,9 +17,11 @@ var entrance_path_length: float
 var exit_path: Path2D
 var exit_path_length: float
 
+var automation_manager: AutomationManager = null
+
 const FIRST_CUSTOMER_GAP = 30
 const CUSTOMER_GAP = 20
-const CUSTOMER_WALKING_SPEED = 100.0 # pixels per second
+const CUSTOMER_WALKING_SPEED = 80.0 # pixels per second
 
 const LINE_STOP_PAUSE = 0.1
 
@@ -23,6 +29,12 @@ func init() -> void:
     var level = get_tree().get_root().get_node("Level")
     if level == null:
         push_error("Could not find Level node in scene tree.")
+    
+    automation_manager = level.get_node("AutomationManager")
+    if automation_manager == null:
+        push_error("Could not find AutomationManager node in Level.")
+    
+    automation_manager.belts_updated.connect(belts_updated)
 
     customer_paths_parent = level.get_node("%CustomerPaths")
     if customer_paths_parent == null:
@@ -43,13 +55,49 @@ func init() -> void:
     entrance_path_length = entrance_path.curve.get_baked_length()
     exit_path_length = exit_path.curve.get_baked_length()
 
+var current_day_data: DayData
+
 var initialized = false
-func begin_day():
+func begin_day(day_data: DayData):
+    current_day_data = day_data
+
     if not initialized:
         init()
         initialized = true
+
+############### Customer spawning
+
+var customer_spawn_timer: float = 0.0
+var store_is_open: bool = false
+var last_day_time: float = 0.0
+
+func store_opened():
+    customer_spawn_timer = 0.0
+    store_is_open = true
+    last_day_time = DayManagerSingleton.time_of_day
+
+    # Immediately spawn a customer since otherwise players
+    # need to wait for an unreasonable amount of time on the first day
+    spawn_customer()
+
+func store_closed():
+    store_is_open = false
+
+func _process(delta):
+    if store_is_open:
+        var time_progression = DayManagerSingleton.time_of_day - last_day_time
+        if time_progression < 0:
+            time_progression = 0
+        last_day_time = DayManagerSingleton.time_of_day
+
+        customer_spawn_timer += time_progression
+        if customer_spawn_timer >= current_day_data.customer_interval:
+            customer_spawn_timer -= current_day_data.customer_interval
+            spawn_customer()
     
-    # TODO
+    process_customers(delta)
+
+############### Customer movement and orders
 
 enum CustomerState {
     ENTERING,
@@ -81,12 +129,14 @@ class CustomerData:
 func satisfy_customer(customerData: CustomerData) -> void:
     customerData.begin_leaving()
     customerData.order.dispose()
+    customer_satisfied.emit()
 
 func anger_customer(customerData: CustomerData) -> void:
     customerData.begin_leaving()
     customerData.order.dispose()
+    customer_angered.emit()
 
-    # TODO: Lose reputation or something idk
+    # TODO: an "angry" thought bubble above the customer or something
 
 var customers: Array[CustomerData] = []
 
@@ -109,19 +159,31 @@ func spawn_customer() -> void:
     y_sorting_tile_map.add_child(customer)
 
     # Temporary
-    var order = OrderData.new(45.0, PlayerInventorySingleton.load_item_data("cucumber_maki"))
+    var day_difficulties = current_day_data.order_difficulties
+    var difficulty = day_difficulties[randi() % day_difficulties.size()]
+    var item = DayManagerSingleton.get_possible_orders(difficulty).get_random_item()
+
+    var order = OrderData.new(current_day_data.customer_patience, item)
     
     var customerData = CustomerData.new(customer, order)
     customers.append(customerData)
 
     order_added.emit(order)
 
-func _process(_delta):
+func process_customers(delta):
     for customerData in customers:
         if customerData.is_waiting():
-            customerData.order.time_remaining = max(0.0, customerData.order.time_remaining - _delta)
+            customerData.order.time_remaining = max(0.0, customerData.order.time_remaining - delta)
+
             if customerData.order.time_remaining == 0.0:
                 anger_customer(customerData)
+
+func belts_updated():
+    # Check each customer to see if their order is being fulfilled
+    for customerData in customers:
+        if customerData.is_waiting() and automation_manager.take_item_on_plate_near(customerData.node.global_position, customerData.order.required_item_id):
+            print("Satisfied customer for item ", customerData.order.required_item_id)
+            satisfy_customer(customerData)
 
 func _physics_process(delta):
     var target_waiting_position = entrance_path_length
@@ -172,7 +234,7 @@ func _physics_process(delta):
             else:
                 var direction = diff / distance
                 var move_amount = min(distance, CUSTOMER_WALKING_SPEED * delta)
-                customerData.node.global_position += direction * move_amount
+                customerData.node.position += direction * move_amount
         elif customerData.state == CustomerState.LEAVING:
             # Move along the exit path until offscreen, then remove the customer
             customerData.target_progress += delta * CUSTOMER_WALKING_SPEED
