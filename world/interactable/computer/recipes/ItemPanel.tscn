@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://blv8ydpuxesd3"]
 
-[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/9_patch_stylebox_dark.tres" id="1_b5hhn"]
+[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="1_b5hhn"]
 [ext_resource type="Script" uid="uid://ehds2w4ndl6p" path="res://world/interactable/computer/recipes/item_panel.gd" id="2_cr55m"]
-[ext_resource type="StyleBox" uid="uid://bdkk47742j3ol" path="res://ui/9_patch_stylebox_white.tres" id="3_jgcfm"]
+[ext_resource type="StyleBox" uid="uid://bdkk47742j3ol" path="res://ui/stylebox/9_patch_stylebox_white.tres" id="3_jgcfm"]
 [ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="4_6t5qb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b5hhn"]

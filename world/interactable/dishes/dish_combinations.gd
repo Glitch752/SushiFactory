@@ -17,8 +17,8 @@ func get_dishes_for_machine(macine: String) -> Array[DishCombination]:
 
 ## Returns a dictionary mapping from ingredient item id to result item id for dishes that can be made with a single ingredient in the specified machine.
 ## This is useful for machines like the cutting board where you can only process one item at a time.
-func get_single_input_dishes_for(machine: String) -> Dictionary:
-    var results: Dictionary = {}
+func get_single_input_dishes_for(machine: String) -> Dictionary[String, String]:
+    var results: Dictionary[String, String] = {}
     for dish in dish_combinations:
         if dish.machine == machine and dish.ingredients.size() == 1:
             results[dish.ingredients[0].item.id] = dish.result.id

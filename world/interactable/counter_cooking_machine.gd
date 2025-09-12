@@ -25,7 +25,7 @@ var current_output: ItemData = null
 
 const COOK_TIME = 20.0
 
-var recipes: Dictionary # input item id -> output item id
+var recipes: Dictionary[String, String] # input item id -> output item id
 
 func _ready():
     recipes = DishCombinationsSingleton.get_single_input_dishes_for(machine_id)

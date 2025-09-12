@@ -39,6 +39,7 @@ atlas = ExtResource("5_bth5r")
 region = Rect2(8, 0, 8, 8)
 
 [node name="ComputerDesktop" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_4ijat")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]

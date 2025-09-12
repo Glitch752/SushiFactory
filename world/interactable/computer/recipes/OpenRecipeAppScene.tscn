@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_oxrfp"]
 [ext_resource type="Script" uid="uid://bembsmyspeqdj" path="res://world/interactable/computer/recipes/open_recipe_app_scene.gd" id="2_oxrfp"]
 [ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="3_1hr5s"]
-[ext_resource type="StyleBox" uid="uid://bdkk47742j3ol" path="res://ui/9_patch_stylebox_white.tres" id="3_k2g5w"]
+[ext_resource type="StyleBox" uid="uid://bdkk47742j3ol" path="res://ui/stylebox/9_patch_stylebox_white.tres" id="3_k2g5w"]
 [ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="3_wowg2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oxrfp"]

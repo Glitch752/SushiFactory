@@ -2,8 +2,8 @@ extends PanelContainer
 
 @export var item: ItemData
 
-var hover_panel = preload("res://ui/9_patch_stylebox_dark_hover.tres")
-var normal_panel = preload("res://ui/9_patch_stylebox_dark.tres")
+var hover_panel = preload("res://ui/stylebox/9_patch_stylebox_dark_hover.tres")
+var normal_panel = preload("res://ui/stylebox/9_patch_stylebox_dark.tres")
 
 var recipe_scene = preload("res://world/interactable/computer/recipes/OpenRecipeAppScene.tscn")
 

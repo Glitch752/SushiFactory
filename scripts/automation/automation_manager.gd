@@ -24,38 +24,38 @@ var belt_update_timer: float = 0.0
 
 ## All items currently managed/registered
 var items: Array[Node2D] = []
-## Vector2i -> Node2D - the committed positions of items (not based on interpolation)
-var item_tile_positions: Dictionary = {}
+## The committed positions of items (not based on interpolation)
+var item_tile_positions: Dictionary[Vector2i, Node2D] = {}
 
 # This all pertains to the static belt graph and is computed by rescan_belts
 
 ## A list of all belt tiles
 var belt_tiles: Array[Vector2i] = []
 # TODO: Is iterating over this dictionary faster than storing belt_tiles separately?
-## Vector2i -> true - A dictionary for a quick membership test
-var belt_tiles_set: Dictionary = {}
-## Vector2i -> Vector2i - the successor cell for each bellt (it may be a non-belt cell though since belts can feed into machines)
-var successor_map: Dictionary = {}
+## A dictionary for a quick membership test. All values are true.
+var belt_tiles_set: Dictionary[Vector2i, bool] = {}
+## The successor cell for each bellt (it may be a non-belt cell though since belts can feed into machines)
+var successor_map: Dictionary[Vector2i, Vector2i] = {}
 
 ## The registered consumers/machines
-## Vector2i -> Node - nodes that can accept items at those tiles
-var consumer_map: Dictionary = {}
+## Nodes that can accept items at those tiles
+var consumer_map: Dictionary[Vector2i, Node] = {}
 
 # All temporary structures reused every tick, just to avoid allocations
 # I'm not sure if this is significant in GDScript, but it doesn't hurt
 
-## Vector2i -> int - indegree count for Kahn's algorithm
-var _indeg: Dictionary = {}
+## Indegree count for Kahn's algorithm
+var _indeg: Dictionary[Vector2i, int] = {}
 ## Topological order of acyclic nodes for Kahn's algorithm
 var _topo: Array[Vector2i] = []
 ## The queue for Kahn's algorithm
 var _queue: Array[Vector2i] = []
-## Vector2i -> Vector2i - src -> dest
-var _will_move: Dictionary = {}
-## Vector2i -> true - destinations reserved this tick
-var _reserved: Dictionary = {}
-## Vector2i -> true - visited nodes when processing cycles
-var _visited_cycle: Dictionary = {}
+## src -> dest
+var _will_move: Dictionary[Vector2i, Vector2i] = {}
+## Destinations reserved this tick. All values are true.
+var _reserved: Dictionary[Vector2i, bool] = {}
+## Visited nodes when processing cycles. All values are true.
+var _visited_cycle: Dictionary[Vector2i, bool] = {}
 
 func _ready():
     # pre-scan belts once at startup
@@ -158,7 +158,7 @@ func remove_item(item: Node2D) -> void:
 ## Plan and commit a belt step. This doesn't interpolate positions, since that happens every update tick
 func update_belts() -> void:
     # 1. Copy current occupancy into a dictionary for quick lookup
-    var occ: Dictionary = item_tile_positions.duplicate()
+    var occ: Dictionary[Vector2i, Node2D] = item_tile_positions.duplicate()
 
     # 2. Compute indegree for the belt graph (only counts edges between belt tiles, not to consumers/sinks)
     _indeg.clear()
@@ -410,7 +410,7 @@ const InteractionData = preload("res://world/interactable/interactable.gd").Inte
 const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
 
 func get_interaction_cell(global_pos: Vector2) -> Vector2i:
-    return automation_tilemap.local_to_map(to_local(global_pos))
+    return automation_tilemap.local_to_map(automation_tilemap.to_local(global_pos))
 
 func get_cell_center(cell: Vector2i) -> Vector2:
     return automation_tilemap.to_global(automation_tilemap.map_to_local(cell))

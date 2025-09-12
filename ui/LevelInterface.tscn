@@ -6,9 +6,9 @@
 [ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="4_hpumr"]
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="4_lfe7y"]
 [ext_resource type="PackedScene" uid="uid://d4k8uvcvp373t" path="res://ui/Order.tscn" id="5_py5b0"]
-[ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/9_patch_stylebox_green.tres" id="5_xj0kr"]
+[ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="5_xj0kr"]
 [ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="9_xj0kr"]
-[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/9_patch_stylebox_dark.tres" id="10_oftlk"]
+[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="10_oftlk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lfe7y"]
 font = ExtResource("4_lfe7y")
