@@ -81,12 +81,12 @@ interactable_description = ""
 action_word = "cooking"
 action_word_past = "cooked"
 
-[node name="Sprite" type="Sprite2D" parent="InteractableContent" index="2"]
+[node name="Sprite" type="Sprite2D" parent="InteractableContent" index="1"]
 unique_name_in_owner = true
 position = Vector2(0, 11)
 texture = SubResource("PlaceholderTexture2D_0wqxd")
 
-[node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="3"]
+[node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="2"]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -12)
@@ -94,12 +94,9 @@ sprite_frames = SubResource("SpriteFrames_jc0d7")
 frame_progress = 0.904093
 speed_scale = 0.0
 
-[node name="OutputIndicator" type="Sprite2D" parent="InteractableContent" index="4"]
+[node name="OutputIndicator" type="Sprite2D" parent="InteractableContent" index="3"]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -13)
 texture = SubResource("AtlasTexture_jc0d7")
 script = ExtResource("6_b8qpw")
-
-[node name="Timer" type="Timer" parent="." index="1"]
-one_shot = true

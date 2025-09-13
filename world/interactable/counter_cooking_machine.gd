@@ -21,8 +21,7 @@ var current_output: ItemData = null
 
 @onready var sprite: Sprite2D = $%Sprite
 
-@onready var timer = $Timer
-
+## The time the machine takes to cook, in game-minutes.
 const COOK_TIME = 20.0
 
 var recipes: Dictionary[String, String] # input item id -> output item id
@@ -48,8 +47,7 @@ func interact():
         current_output = PlayerInventorySingleton.load_item_data(recipes[item_id])
 
         held_item.queue_free()
-        cooking_time_remaining = COOK_TIME
-        timer.start(cooking_time_remaining)
+        cooking_time_remaining = COOK_TIME / 60.
         set_physics_process(true)
     
     elif cooking_time_remaining == 0 and input_item_id != null and !PlayerInventorySingleton.has_item():
@@ -61,7 +59,7 @@ func interact():
 
 func _physics_process(delta):
     if input_item_id != null:
-        cooking_time_remaining = max(cooking_time_remaining - delta, 0)
+        cooking_time_remaining = max(cooking_time_remaining - DayManagerSingleton.elapsed_world_time(delta), 0)
         if cooking_time_remaining == 0:
             set_physics_process(false)
     
@@ -71,7 +69,7 @@ func _physics_process(delta):
     sprite.texture = active_texture if input_item_id != null else normal_texture
     
     if input_item_id != null and cooking_time_remaining > 0:
-        var total_time = COOK_TIME
+        var total_time = COOK_TIME / 60.
         var frame_count = progress_bar.sprite_frames.get_frame_count("default")
         progress_bar.frame = int((1.0 - cooking_time_remaining / total_time) * frame_count) % frame_count
     
@@ -91,7 +89,14 @@ func get_interaction_data() -> InteractionData:
         else:
             desc = "%s\nIt's empty." % interactable_description
     elif cooking_time_remaining > 0:
-        desc = "%s\nIt's %s %s." % [interactable_description, action_word, current_output.item_name]
+        var minutes_remaining = int(cooking_time_remaining * 60)
+
+        if minutes_remaining > 1:
+            desc = "%s\nIt's %s %s for the next %d minutes." % [interactable_description, action_word, current_output.item_name.to_lower(), minutes_remaining]
+        elif minutes_remaining == 1:
+            desc = "%s\nIt's %s %s for the next minute." % [interactable_description, action_word, current_output.item_name.to_lower()]
+        else:
+            desc = "%s\nIt's almost done %s %s." % [interactable_description, action_word, current_output.item_name.to_lower()]
     elif cooking_time_remaining == 0:
         if !PlayerInventorySingleton.has_item():
             action = InteractionAction.new("Take %s" % current_output.item_name, interact)

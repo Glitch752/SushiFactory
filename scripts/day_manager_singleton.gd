@@ -63,12 +63,18 @@ func format_duration(hours: float) -> String:
 ## If the day cycle is currently active.
 @export var day_cycle_active: bool = true
 
+## A conversion factor from real-time seconds to in-game hours.
+## 1 second real-time is 2 minutes in-game time
+const TIME_FACTOR = 2.0 / 60.0
+
+func elapsed_world_time(delta: float) -> float:
+    return delta * TIME_FACTOR
+
 func _process(delta):
     if day_cycle_active:
         var previous_time = time_of_day
 
-        # 1 second real-time is 2 minutes in-game time
-        time_of_day += delta * (2.0 / 60.0)
+        time_of_day += delta * TIME_FACTOR
 
         if previous_time < 9.0 and time_of_day >= 9.0:
             # At 9 AM, the store opens.
