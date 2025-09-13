@@ -97,7 +97,7 @@ label_settings = SubResource("LabelSettings_lfe7y")
 [node name="Time" type="PanelContainer" parent="InfoDisplays"]
 custom_minimum_size = Vector2(256, 48)
 layout_mode = 2
-tooltip_text = "The current time. The store is open from 9:00 AM to 5:00 PM."
+tooltip_text = "The current time. The restaurant is open from 9:00 AM to 5:00 PM."
 
 [node name="TimeProgress" type="ProgressBar" parent="InfoDisplays/Time"]
 unique_name_in_owner = true

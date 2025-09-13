@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw5k5v87hfin7"]
+
+[ext_resource type="Shader" uid="uid://bhd3gvbbuqjif" path="res://ui/ShaderSceneTransition.gdshader" id="1_hcgrb"]
+[ext_resource type="Script" uid="uid://oidabv47ni67" path="res://ui/shader_scene_transition.gd" id="1_w6deh"]
+[ext_resource type="Texture2D" uid="uid://blriyr5uejhx4" path="res://ui/blueNoise.png" id="2_o5kpw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o5kpw"]
+shader = ExtResource("1_hcgrb")
+shader_parameter/progress = 0.618
+shader_parameter/pixel_size = 4.0
+shader_parameter/dither_tex = ExtResource("2_o5kpw")
+shader_parameter/dither_tex_size = 32.0
+shader_parameter/edge_multiplier = 2.5
+shader_parameter/color_from = Color(0.0509804, 0.0470588, 0.0666667, 1)
+shader_parameter/shadow_color = Color(0.20288, 0.21537, 0.281355, 1)
+shader_parameter/shadow_offset = Vector2(0, 1)
+shader_parameter/direction = Vector2(1, 1)
+
+[node name="ShaderSceneTransition" type="CanvasLayer"]
+script = ExtResource("1_w6deh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_o5kpw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

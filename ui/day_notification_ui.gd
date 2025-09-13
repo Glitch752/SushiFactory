@@ -38,11 +38,11 @@ func _ready():
 
 func update_time(new_time: float):
     if event == DayEvent.CLOSING:
-        timeTitle.text = "%s - Store closed" % DayManagerSingleton.format_time_of_day()
+        timeTitle.text = "%s - Restaurant closed" % DayManagerSingleton.format_time_of_day()
     elif event == DayEvent.ARRIVAL:
         timeTitle.text = "%s - You have [color=#9999ff]%s[/color] to prepare" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(9.0 - new_time)]
     else:
-        timeTitle.text = "%s - Store closes in [color=#9999ff]%s[/color]" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(17.0 - new_time)]
+        timeTitle.text = "%s - Restaurant closes in [color=#9999ff]%s[/color]" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(17.0 - new_time)]
 
 # func _input(ev):
 #     # For debugging: on pressing 1, reaniamte

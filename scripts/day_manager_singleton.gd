@@ -77,7 +77,7 @@ func _process(delta):
         time_of_day += delta * TIME_FACTOR
 
         if previous_time < 9.0 and time_of_day >= 9.0:
-            # At 9 AM, the store opens.
+            # At 9 AM, the restaurant opens.
             LevelInterfaceSingleton.notify_store_open()
 
             CustomerManagerSingleton.store_opened()
