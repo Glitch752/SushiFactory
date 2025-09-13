@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cw5k5v87hfin7"]
+[gd_scene load_steps=7 format=3 uid="uid://cw5k5v87hfin7"]
 
 [ext_resource type="Shader" uid="uid://bhd3gvbbuqjif" path="res://ui/ShaderSceneTransition.gdshader" id="1_hcgrb"]
 [ext_resource type="Script" uid="uid://oidabv47ni67" path="res://ui/shader_scene_transition.gd" id="1_w6deh"]
 [ext_resource type="Texture2D" uid="uid://blriyr5uejhx4" path="res://ui/blueNoise.png" id="2_o5kpw"]
+[ext_resource type="AudioStream" uid="uid://dmi8wkhxqhbrf" path="res://audio/whoosh2.wav" id="4_6q5xb"]
+[ext_resource type="AudioStream" uid="uid://b3a7gu6twwr6p" path="res://audio/whoosh1.wav" id="5_xdrv3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o5kpw"]
 shader = ExtResource("1_hcgrb")
@@ -12,7 +14,7 @@ shader_parameter/dither_tex = ExtResource("2_o5kpw")
 shader_parameter/dither_tex_size = 32.0
 shader_parameter/edge_multiplier = 2.5
 shader_parameter/color_from = Color(0.06656, 0.0632, 0.08, 1)
-shader_parameter/shadow_color = Color(0.1512, 0.161, 0.21, 1)
+shader_parameter/shadow_color = Color(0.22, 0.225, 0.25, 1)
 shader_parameter/shadow_offset = Vector2(0, 0.5)
 shader_parameter/direction = Vector2(1, 1)
 
@@ -27,3 +29,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TransitionInWoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6q5xb")
+pitch_scale = 0.6
+bus = &"UI"
+
+[node name="TransitionOutWoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xdrv3")
+pitch_scale = 0.71
+bus = &"UI"

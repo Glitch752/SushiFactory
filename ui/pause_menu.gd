@@ -2,6 +2,9 @@ extends Control
 
 @onready var mat: ShaderMaterial = $ColorRect.material
 
+@onready var transitionInWoosh: AudioStreamPlayer = $TransitionInWoosh
+@onready var transitionOutWoosh: AudioStreamPlayer = $TransitionOutWoosh
+
 var paused = false
 var animating = false
 var timeScaleTween: Tween = null
@@ -40,6 +43,10 @@ func pause(duration = 0.75):
     t.tween_property(mat, "shader_parameter/progress", 0.7, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
     t.parallel().tween_property(self, "modulate:a", 1.0, duration * 0.25).set_delay(duration * 0.2)
     
+    t.parallel().tween_callback(func():
+        transitionInWoosh.play()
+    ).set_delay(0.25)
+    
     await t.finished
     get_tree().paused = true
 
@@ -65,6 +72,10 @@ func unpause(duration = 0.75):
     t.tween_property(mat, "shader_parameter/progress", 0.0, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
     t.parallel().tween_property(self, "modulate:a", 0.0, duration * 0.25).set_delay(duration * 0.5)
 
+    t.parallel().tween_callback(func():
+        transitionOutWoosh.play()
+    ).set_delay(0.25)
+    
     await t.finished
 
     animating = false

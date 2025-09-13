@@ -2,6 +2,8 @@ extends "res://world/interactable/interactable.gd"
 
 var PlateScene = preload("res://world/items/Plate.tscn");
 
+@onready var takePlateAudio = $%TakePlateAudio
+
 func can_add_to_plate(item: ItemData) -> bool:
     return item.id != "plate"
 
@@ -9,6 +11,9 @@ func take_plate():
     # Create a new plate scene
     var plate = PlayerInventorySingleton.create_item_from_scene(PlateScene)
     PlayerInventorySingleton.try_grab_item(plate)
+    
+    takePlateAudio.pitch_scale = randf_range(0.9, 1.1)
+    takePlateAudio.play()
 
 func take_plate_add():
     var plate = PlayerInventorySingleton.create_item_from_scene(PlateScene)
@@ -16,6 +21,9 @@ func take_plate_add():
     plate.add_to_plate(item.data)
     item.queue_free()
     PlayerInventorySingleton.try_grab_item(plate)
+    
+    takePlateAudio.pitch_scale = randf_range(0.9, 1.1)
+    takePlateAudio.play()
 
 func get_interaction_data() -> InteractionData:
     var action = null

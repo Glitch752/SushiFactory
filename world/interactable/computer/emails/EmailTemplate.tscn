@@ -21,6 +21,8 @@ font_size = 18
 [node name="EmailTemplate" type="PanelContainer"]
 theme_override_styles/panel = SubResource("StyleBoxFlat_chh8d")
 script = ExtResource("1_vr1mi")
+color = Color(0.208806, 0.224358, 0.250079, 1)
+colorHover = Color(0.219115, 0.235226, 0.261872, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

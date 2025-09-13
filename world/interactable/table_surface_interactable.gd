@@ -2,28 +2,34 @@ extends "res://world/interactable/interactable.gd"
 
 var current_object: Node2D = null
 
+@onready var playback: AudioStreamPlaybackPolyphonic = $%InteractionAudio.get_stream_playback()
+
 func has_plate():
     return current_object != null and current_object.data.id == "plate"
 
-func interact():
-    if !PlayerInventorySingleton.has_item() and current_object != null:
-        var object = current_object
-        current_object = null
-        
-        $InteractableContent.remove_child(object)
-        PlayerInventorySingleton.try_grab_item(object)
-        return
+func take_item():
+    if has_plate():
+        playback.play_stream(preload("res://audio/plate_take.wav"), 0, 0, randf_range(0.9, 1.1))
     
-    if PlayerInventorySingleton.has_item() and current_object == null:
-        current_object = PlayerInventorySingleton.remove_item()
-        $InteractableContent.add_child(current_object)
-        return
+    var object = current_object
+    current_object = null
     
-    if has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
-        var current_item = PlayerInventorySingleton.remove_item()
-        current_object.add_to_plate(current_item.data)
-        current_item.queue_free()
-        return
+    $InteractableContent.remove_child(object)
+    PlayerInventorySingleton.try_grab_item(object)
+
+func place_item():
+    current_object = PlayerInventorySingleton.remove_item()
+    $InteractableContent.add_child(current_object)
+
+    if has_plate():
+        playback.play_stream(preload("res://audio/plate_down.wav"), 0.1, 0, randf_range(0.9, 1.1))
+
+func add_to_plate():
+    var current_item = PlayerInventorySingleton.remove_item()
+    current_object.add_to_plate(current_item.data)
+    current_item.queue_free()
+    
+    playback.play_stream(preload("res://audio/plate_interact.wav"), 0, 0, randf_range(0.9, 1.1))
 
 func lower_start(text: String) -> String:
     if text.is_empty():
@@ -34,13 +40,13 @@ func get_interaction_data() -> InteractionData:
     var action: InteractionAction = null
     var interactable_name = "Table"
     if !PlayerInventorySingleton.has_item() and current_object != null:
-        action = InteractionAction.new("Take %s" % current_object.data.item_name, interact)
+        action = InteractionAction.new("Take %s" % current_object.data.item_name, take_item)
     elif PlayerInventorySingleton.has_item() and current_object == null:
         var held_item = PlayerInventorySingleton.held_item_data()
-        action = InteractionAction.new("Place %s" % held_item.item_name, interact)
+        action = InteractionAction.new("Place %s" % held_item.item_name, place_item)
     elif has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
         var held_item = PlayerInventorySingleton.held_item_data()
-        action = InteractionAction.new("Put %s on the plate" % held_item.item_name, interact, 0.25)
+        action = InteractionAction.new("Put %s on the plate" % held_item.item_name, add_to_plate, 0.25)
     
     var secondary_action: InteractionAction = null
     if has_plate():

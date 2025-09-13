@@ -64,6 +64,9 @@ func remove_item() -> Node2D:
     return item
 
 func load_item_data(item_id: String) -> ItemData:
+    if item_id == null:
+        push_error("Tried to load a null item!")
+        return preload("res://world/items/data/cucumber_item_data.tres")
     return load("res://world/items/data/%s_item_data.tres" % item_id)
 
 
@@ -85,8 +88,9 @@ func _unhandled_input(event):
         if event.keycode in DEBUG_ITEMS:
             var item_id = DEBUG_ITEMS[event.keycode]
             if item_id is String:
-                if item_id == "" and has_item():
-                    remove_item().queue_free()
+                if item_id == "":
+                    if has_item():
+                        remove_item().queue_free()
                     return
                 
                 var data = load_item_data(item_id)

@@ -9,8 +9,8 @@ var recipe_scene = preload("res://world/interactable/computer/recipes/OpenRecipe
 
 var dish: DishCombination
 
-const ITEM_COLOR = Color(0.5, 0.9, 0.5) # Light green
-const RAW_ITEM_COLOR = Color(0.9, 0.5, 0.9) # Light purple
+const ITEM_COLOR = preload("res://world/interactable/computer/recipes/open_recipe_app_scene.gd").ITEM_COLOR
+const RAW_ITEM_COLOR = preload("res://world/interactable/computer/recipes/open_recipe_app_scene.gd").RAW_ITEM_COLOR
 
 func _ready():
     if not item:

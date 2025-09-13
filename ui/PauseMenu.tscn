@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://gmrv4ovv1fq0"]
+[gd_scene load_steps=12 format=3 uid="uid://gmrv4ovv1fq0"]
 
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_4dg4t"]
 [ext_resource type="Script" uid="uid://dancm2u6bhbq4" path="res://ui/pause_menu.gd" id="1_c7v6e"]
 [ext_resource type="Shader" uid="uid://bhd3gvbbuqjif" path="res://ui/ShaderSceneTransition.gdshader" id="2_1q10k"]
 [ext_resource type="Texture2D" uid="uid://blriyr5uejhx4" path="res://ui/blueNoise.png" id="3_4dg4t"]
 [ext_resource type="StyleBox" uid="uid://c758r4iugw48b" path="res://ui/stylebox/9_patch_stylebox_hover.tres" id="6_afaem"]
+[ext_resource type="AudioStream" uid="uid://dmi8wkhxqhbrf" path="res://audio/whoosh2.wav" id="7_afaem"]
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="7_bsjxr"]
+[ext_resource type="AudioStream" uid="uid://b3a7gu6twwr6p" path="res://audio/whoosh1.wav" id="8_bsjxr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptdjk"]
 shader = ExtResource("2_1q10k")
@@ -94,3 +96,13 @@ text = "[b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
 [b]Customer patience[/b]: [color=#ffff99]2hrs[/color]
 [b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]"
 fit_content = true
+
+[node name="TransitionInWoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_afaem")
+pitch_scale = 0.6
+bus = &"UI"
+
+[node name="TransitionOutWoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_bsjxr")
+pitch_scale = 0.71
+bus = &"UI"

@@ -19,6 +19,14 @@ func convert_custom_colors(text: String) -> String:
     result = result.replace("[/machine]", "[/color]")
     return result
 
+## Formats an item's name with its associated color in BBCode tags.
+static func format_item_color(item: ItemData) -> String:
+    var item_dish = DishCombinationsSingleton.get_dish_by_result_id(item.id)
+    if item_dish != null:
+        return "[color=#" + ITEM_COLOR.to_html(false) + "]" + item.item_name + "[/color]"
+    else:
+        return "[color=#" + RAW_ITEM_COLOR.to_html(false) + "]" + item.item_name + "[/color]"
+
 func _ready():
     $%RecipeName.text = dish.result.item_name
     $%RecipeTexture.texture = dish.result.item_sprite
