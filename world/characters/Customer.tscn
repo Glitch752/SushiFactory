@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dawwsjq8rxe4k"]
+[gd_scene load_steps=41 format=3 uid="uid://dawwsjq8rxe4k"]
 
 [ext_resource type="Script" uid="uid://c17a3oh4vn6gl" path="res://world/characters/customer.gd" id="1_8tp7u"]
 [ext_resource type="SpriteFrames" uid="uid://cyva5vii7jkxg" path="res://world/characters/characters_0_body.tres" id="1_mi0lu"]
@@ -37,6 +37,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cogytknhkd01n" path="res://world/characters/characters_6_hair_0.tres" id="30_jme2h"]
 [ext_resource type="SpriteFrames" uid="uid://y2bxjsy5y3wt" path="res://world/characters/characters_5_hair_1.tres" id="31_bjlce"]
 [ext_resource type="SpriteFrames" uid="uid://qoj02ruq5dtd" path="res://world/characters/characters_6_hair_1.tres" id="37_yckeu"]
+[ext_resource type="AudioStream" uid="uid://c08y1fogm71n2" path="res://audio/wood_footsteps.wav" id="38_tgvec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vx3a"]
 size = Vector2(12, 19)
@@ -96,3 +97,9 @@ position = Vector2(0, -12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementInteractionZone"]
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_gcmlm")
+
+[node name="FootstepSounds" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 4)
+stream = ExtResource("38_tgvec")
+max_distance = 200.0
+bus = &"World"

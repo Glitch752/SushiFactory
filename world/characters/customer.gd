@@ -23,7 +23,7 @@ func _ready():
         $Hair0Sprite.visible = false
         $Hair1Sprite.visible = false
 
-func _physics_process(delta):
+func _physics_process(delta: float):
     # Find the direction we're moving in based on velocity
     if previous_position == null:
         previous_position = global_position
@@ -46,6 +46,25 @@ func _physics_process(delta):
         for sprite in sprites:
             sprite.stop()
             sprite.frame = 0
+    
+    play_footsteps(delta, velocity)
+
+@onready var footstepSounds = $FootstepSounds
+@onready var floorTileMap: TileMapLayer = $"../../FloorTileMap"
+var footstep_timer: float = 0.0
+func play_footsteps(delta: float, velocity: Vector2):
+    if velocity.length_squared() > 0:
+        if footstep_timer <= 0.0 and not footstepSounds.playing:
+            var floor_pitch: float = 0.0
+            if floorTileMap:
+                var foot_position = global_position + Vector2(0, 15)
+                var cell = floorTileMap.local_to_map(floorTileMap.to_local(foot_position))
+                var tile = floorTileMap.get_cell_tile_data(cell)
+                floor_pitch = tile.get_custom_data("floor_step_pitch")
+            footstepSounds.pitch_scale = randf_range(0.8, 1.2) + floor_pitch
+            footstepSounds.play()
+            footstep_timer = min(0.25, 1.0 / velocity.length() * 100)
+        footstep_timer -= delta
 
 func animate_all(anim_name: String, speed_scale: float = 1.0):
     for sprite in sprites:

@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var sprites: Array[AnimatedSprite2D] = [$LeftDoor, $RightDoor]
+@onready var openSound = $DoorOpenSound
+@onready var closeSound = $DoorCloseSound
 
 enum DoorState { Closed, Opening, Open, Closing }
 
@@ -19,6 +21,8 @@ func _on_open_area_area_entered(area: Area2D):
 
 func try_open_door():
     if state == DoorState.Closed or state == DoorState.Closing:
+        openSound.play()
+        
         state = DoorState.Opening
         for sprite in sprites:
             sprite.play("default")
@@ -43,6 +47,8 @@ func _on_open_area_area_exited(area: Area2D):
 
 func try_close_door():
     if state == DoorState.Open or state == DoorState.Opening:
+        closeSound.play()
+        
         state = DoorState.Closing
         for sprite in sprites:
             sprite.play_backwards("default")

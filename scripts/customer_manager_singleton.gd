@@ -97,6 +97,16 @@ func _process(delta):
     
     process_customers(delta)
 
+# For debugging only!
+func _unhandled_input(event):
+    # Disable in builds in case I forget :)
+    if OS.has_feature("release") or OS.has_feature("production"):
+        return
+
+    if event is InputEventKey and event.pressed and not event.echo:
+        if event.keycode == KEY_P:
+            spawn_customer()
+
 ############### Customer movement and orders
 
 enum CustomerState {
