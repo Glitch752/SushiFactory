@@ -13,9 +13,11 @@ var latest_keyboard_input_direction = Vector2.ZERO
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-func _physics_process(_delta: float) -> void:
-    get_player_input()
+func _physics_process(delta: float) -> void:
+    get_player_input(delta)
     move_and_slide()
+    
+    play_footsteps(delta)
     
     update_animation()
 
@@ -25,7 +27,7 @@ func _ready():
     
     animated_sprite.play()
 
-func get_player_input() -> void:
+func get_player_input(delta) -> void:
     var vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
     var target_velocity = vector * movement_speed
     var acceleration = 1200.0
@@ -39,7 +41,24 @@ func get_player_input() -> void:
     elif Input.is_action_just_pressed("move_down"):
         latest_keyboard_input_direction = Vector2.DOWN
 
-    velocity = velocity.move_toward(target_velocity, acceleration * get_physics_process_delta_time())
+    velocity = velocity.move_toward(target_velocity, acceleration * delta)
+
+@onready var footstepSounds = $FootstepSounds
+@onready var floorTileMap: TileMapLayer = $"../../FloorTileMap"
+var footstep_timer: float = 0.0
+func play_footsteps(delta):
+    if velocity.length_squared() > 0:
+        if footstep_timer <= 0.0 and not footstepSounds.playing:
+            var floor_pitch: float = 0.0
+            if floorTileMap:
+                var foot_position = global_position + Vector2(0, 15)
+                var cell = floorTileMap.local_to_map(floorTileMap.to_local(foot_position))
+                var tile = floorTileMap.get_cell_tile_data(cell)
+                floor_pitch = tile.get_custom_data("floor_step_pitch")
+            footstepSounds.pitch_scale = randf_range(0.8, 1.2) + floor_pitch
+            footstepSounds.play()
+            footstep_timer = min(0.25, 1.0 / velocity.length() * 100)
+        footstep_timer -= delta
 
 func update_animation() -> void:
     var effective_velocity = velocity

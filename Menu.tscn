@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://br5jostnw8e3n"]
+[gd_scene load_steps=21 format=4 uid="uid://br5jostnw8e3n"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_5yleq"]
 [ext_resource type="TileSet" uid="uid://bofref8qw03nk" path="res://world/floor.tres" id="1_cx167"]
@@ -24,6 +24,11 @@ _data = {
 point_count = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlksc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_elwp8"]
+line_spacing = -3.0
+font_size = 30
+font_color = Color(0.856067, 0.856067, 0.856067, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dolsu"]
 font_size = 50
@@ -103,6 +108,24 @@ offset_bottom = 352.0
 grow_horizontal = 2
 texture = ExtResource("3_ylpcl")
 expand_mode = 5
+
+[node name="Label" type="Label" parent="MenuItems"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -808.0
+offset_top = -95.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "All assets except some SFX are custom
+Open in a new tab if you're having issues :)"
+label_settings = SubResource("LabelSettings_elwp8")
+horizontal_alignment = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

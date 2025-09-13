@@ -34,7 +34,7 @@ font_color = Color(0.356863, 0.745098, 0.584314, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sb6wj"]
 font = ExtResource("4_hpumr")
-font_size = 20
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_7oa8n"]
 font = ExtResource("4_hpumr")
@@ -149,9 +149,9 @@ label_settings = SubResource("LabelSettings_sb6wj")
 unique_name_in_owner = true
 layout_mode = 2
 offset_left = 24.0
-offset_top = 48.0
-offset_right = 296.0
-offset_bottom = 176.0
+offset_top = 56.0
+offset_right = 300.0
+offset_bottom = 184.0
 theme = ExtResource("3_grx74")
 vertical = true
 

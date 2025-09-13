@@ -3,6 +3,10 @@ extends Node
 signal day_changed(new_day: int)
 signal time_of_day_changed(new_time_of_day: float)
 
+signal day_started(new_day: int, data: DayData, info_text: String)
+signal store_opened()
+signal store_closed()
+
 const ShaderSceneTransition = preload("res://ui/ShaderSceneTransition.tscn")
 
 const OrderDifficulty = preload("res://scripts/day_data.gd").OrderDifficulty
@@ -80,25 +84,43 @@ func _process(delta):
 
         if previous_time < 9.0 and time_of_day >= 9.0:
             # At 9 AM, the restaurant opens.
-            LevelInterfaceSingleton.notify_store_open()
-
-            CustomerManagerSingleton.store_opened()
+            store_opened.emit()
 
         if time_of_day >= 17.0:
             # At 5 PM, the day cycle ends.
             time_of_day = 17.0
             day_cycle_active = false
-            LevelInterfaceSingleton.notify_store_closing()
-            CustomerManagerSingleton.store_closed()
+            store_closed.emit()
+
+## Generates the day opening info, e.g:
+## [b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
+## [b]Customer patience[/b]: [color=#ffff99]2hrs[/color]
+## [b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]
+func generate_day_opening_info(for_day: int):
+    var data: DayData = get_day_data(for_day)
+    var customerRate = 1.0 / data.customer_interval
+    
+    var rateColor = "#ff9988" if customerRate >= 10 else "#ffff99" if customerRate >= 5 else "#99ff88"
+    var info = "[b]Expected customer rate[/b]: [color=%s]%d/hr[/color]\n" % [rateColor, customerRate]
+
+    var patienceColor = "#ff9988" if data.customer_patience <= 30.0 else "#ffff99" if data.customer_patience <= 60.0 else "#99ff88"
+    info += "[b]Customer patience[/b]: [color=%s]%sm[/color]\n" % [patienceColor, int(data.customer_patience)]
+
+    var difficulties = []
+    for diff in data.order_difficulties:
+        var possibleOrders = DayManagerSingleton.get_possible_orders(diff)
+        difficulties.append("[color=#%s]%s[/color]" % [possibleOrders.color.to_html(), possibleOrders.name.to_lower()])
+    
+    info += "[b]Order difficulties[/b]: %s" % ", ".join(difficulties)
+    
+    return info
 
 func begin_day():
     day += 1
     time_of_day = 8.0  # Start at 8 AM
     day_cycle_active = true
 
-    LevelInterfaceSingleton.notify_day_started(day)
-
-    CustomerManagerSingleton.begin_day(get_day_data(day))
+    day_started.emit(day, get_day_data(day), generate_day_opening_info(day))
 
 ## Try to end the day. The day may only end after 5 PM and if there are no customers left.
 func try_to_end_day():

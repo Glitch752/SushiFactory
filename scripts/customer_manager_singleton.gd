@@ -25,6 +25,11 @@ const CUSTOMER_WALKING_SPEED = 80.0 # pixels per second
 
 const LINE_STOP_PAUSE = 0.1
 
+func _ready():
+    DayManagerSingleton.day_started.connect(day_started)
+    DayManagerSingleton.store_opened.connect(store_opened)
+    DayManagerSingleton.store_closed.connect(store_closed)
+
 func init() -> void:
     var level = get_tree().get_root().get_node("Level")
     if level == null:
@@ -58,7 +63,7 @@ func init() -> void:
 var current_day_data: DayData
 
 var initialized = false
-func begin_day(day_data: DayData):
+func day_started(_day: int, day_data: DayData, _info_text: String):
     current_day_data = day_data
 
     if not initialized:

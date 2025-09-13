@@ -12,6 +12,11 @@ func _ready():
     
     $%ReturnButton.pressed.connect(unpause)
 
+    DayManagerSingleton.day_started.connect(day_started)
+
+func day_started(_day: int, _day_data: DayData, info_text: String):
+    $%CurrentDayStats.text = info_text
+
 func pause(duration = 0.75):
     if animating:
         return

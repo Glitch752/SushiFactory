@@ -21,9 +21,9 @@ func _ready():
     
     LevelInterfaceSingleton.interaction_data_changed.connect(update_interaction_info)
 
-    LevelInterfaceSingleton.notify_day_started_ui.connect(notify_day_started)
-    LevelInterfaceSingleton.notify_store_open_ui.connect(notify_store_open)
-    LevelInterfaceSingleton.notify_store_closing_ui.connect(notify_store_closing)
+    DayManagerSingleton.day_started.connect(notify_day_started)
+    DayManagerSingleton.store_opened.connect(notify_store_open)
+    DayManagerSingleton.store_closed.connect(notify_store_closing)
 
     update_money_display(StoreStatsSingleton.money)
     update_day_display(DayManagerSingleton.day)
@@ -130,41 +130,18 @@ func update_time_display(time_of_day: float):
 func update_reputation_display(reputation: int):
     $%ReputationLabel.text = "Reputation: %s/%s" % [str(reputation), str(StoreStatsSingleton.max_reputation)]
 
-# Generates the day opening info, e.g:
-# [b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
-# [b]Customer patience[/b]: [color=#ffff99]2hrs[/color]
-# [b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]
-func generate_day_opening_info(day: int):
-    var day_data: DayData = DayManagerSingleton.get_day_data(day)
-    var customerRate = 1.0 / day_data.customer_interval
-    
-    var rateColor = "#ff9988" if customerRate >= 10 else "#ffff99" if customerRate >= 5 else "#99ff88"
-    var info = "[b]Expected customer rate[/b]: [color=%s]%d/hr[/color]\n" % [rateColor, customerRate]
-
-    var patienceColor = "#ff9988" if day_data.customer_patience <= 30.0 else "#ffff99" if day_data.customer_patience <= 60.0 else "#99ff88"
-    info += "[b]Customer patience[/b]: [color=%s]%sm[/color]\n" % [patienceColor, int(day_data.customer_patience)]
-
-    var difficulties = []
-    for diff in day_data.order_difficulties:
-        var possibleOrders = DayManagerSingleton.get_possible_orders(diff)
-        difficulties.append("[color=#%s]%s[/color]" % [possibleOrders.color.to_html(), possibleOrders.name.to_lower()])
-    
-    info += "[b]Order difficulties[/b]: %s" % ", ".join(difficulties)
-    
-    return info
-
 func clear_existing_notifications():
     for child in get_children():
         if child.scene_file_path == DayNotificationUI.resource_path:
             child.queue_free()
 
-func notify_day_started(day: int):
+func notify_day_started(day: int, _data: DayData, info_text: String):
     clear_existing_notifications()
 
     var notif = DayNotificationUI.instantiate()
     notif.day = day
     notif.event = DayEvent.ARRIVAL
-    notif.infoText = generate_day_opening_info(day)
+    notif.infoText = info_text
 
     add_child(notif)
 

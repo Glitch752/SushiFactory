@@ -30,6 +30,7 @@ func _ready():
         $%RecipeName.label_settings.font_color = RAW_ITEM_COLOR
 
 func _on_mouse_entered():
+    UISoundManager.play_mouse_enter()
     if dish:
         add_theme_stylebox_override("panel", hover_panel)
 
@@ -39,6 +40,8 @@ func _on_mouse_exited():
 
 func _gui_input(event):
     if dish and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+        UISoundManager.play_pressed()
+
         var scene = recipe_scene.instantiate()
         scene.dish = dish
         find_parent("ComputerDesktop").open_window(item.item_name + " Recipe", scene)

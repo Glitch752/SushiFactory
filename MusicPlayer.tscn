@@ -11,6 +11,7 @@ stereo = true
 [node name="MusicPlayer" type="Node"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = SubResource("AudioStreamWAV_chhib")
 volume_db = -10.0
 autoplay = true
