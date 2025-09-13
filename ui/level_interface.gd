@@ -25,7 +25,7 @@ func _ready():
     LevelInterfaceSingleton.notify_store_open_ui.connect(notify_store_open)
     LevelInterfaceSingleton.notify_store_closing_ui.connect(notify_store_closing)
 
-    update_money_display(StoreStatsSingleton.current_money)
+    update_money_display(StoreStatsSingleton.money)
     update_day_display(DayManagerSingleton.day)
     update_time_display(DayManagerSingleton.time_of_day)
 
@@ -153,7 +153,14 @@ func generate_day_opening_info(day: int):
     
     return info
 
+func clear_existing_notifications():
+    for child in get_children():
+        if child.scene_file_path == DayNotificationUI.resource_path:
+            child.queue_free()
+
 func notify_day_started(day: int):
+    clear_existing_notifications()
+
     var notif = DayNotificationUI.instantiate()
     notif.day = day
     notif.event = DayEvent.ARRIVAL
@@ -162,6 +169,8 @@ func notify_day_started(day: int):
     add_child(notif)
 
 func notify_store_open():
+    clear_existing_notifications()
+
     var notif = DayNotificationUI.instantiate()
     notif.day = DayManagerSingleton.day
     notif.event = DayEvent.OPENING
@@ -170,6 +179,8 @@ func notify_store_open():
     add_child(notif)
 
 func notify_store_closing():
+    clear_existing_notifications()
+
     var notif = DayNotificationUI.instantiate()
     notif.day = DayManagerSingleton.day
     notif.event = DayEvent.CLOSING

@@ -78,3 +78,18 @@ theme_override_styles/hover = ExtResource("6_afaem")
 theme_override_styles/pressed = ExtResource("6_afaem")
 theme_override_styles/normal = ExtResource("7_bsjxr")
 text = "Return"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
+[b]Customer patience[/b]: [color=#ffff99]2hrs[/color]
+[b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]"
+fit_content = true

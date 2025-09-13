@@ -498,13 +498,13 @@ func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
 
 var debug_annotations: bool = false
 
-func _input(event):
-    if event is InputEventKey and event.pressed and not event.echo:
-        # Temporary: when pressing 0, debug draw
-        if event.keycode == KEY_0:
-            debug_annotations = not debug_annotations
-            set_process(debug_annotations)
-            queue_redraw()
+# func _input(event):
+#     if event is InputEventKey and event.pressed and not event.echo:
+#         # Temporary: when pressing 0, debug draw
+#         if event.keycode == KEY_0:
+#             debug_annotations = not debug_annotations
+#             set_process(debug_annotations)
+#             queue_redraw()
 
 func _process(_delta):
     if debug_annotations:

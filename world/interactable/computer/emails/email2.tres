@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EmailSendData" load_steps=4 format=3 uid="uid://dlvkfn0bfkxu2"]
+
+[ext_resource type="Script" uid="uid://ch2ksvvi46xgy" path="res://world/interactable/computer/emails/email_send_data.gd" id="1_teo5v"]
+[ext_resource type="Script" uid="uid://b6ogk2dlt4sfa" path="res://world/interactable/computer/emails/email_send_trigger.gd" id="2_ckmux"]
+
+[sub_resource type="Resource" id="Resource_6y8gq"]
+script = ExtResource("2_ckmux")
+day = 1
+time = 17.0
+metadata/_custom_type_script = "uid://b6ogk2dlt4sfa"
+
+[resource]
+script = ExtResource("1_teo5v")
+sender = "Boss"
+subject = "Great Work on Day 1!"
+body = "Hey there,
+
+[reputation=high]
+I just checked the daily report and I have to say, I'm impressed! The place is still standing, and our reputation is looking solid. Thank you.
+[/reputation]
+[reputation=medium]
+I just saw the report for the re-opening. A solid performance for your first day, especially since you were on your own. Good work keeping things running.
+[/reputation]
+[reputation=low]
+I just looked over the report. Today was a bit of a rocky start, and it looks like a few customers left unhappy. Re-openings are always tough, and it was your first day alone, so don't get too discouraged.
+[/reputation]
+
+When you're finished tidying up and are ready to call it a night, just head on out the front door; the system will lock up automatically behind you. Feel free to take as much time as you need to prep for tomorrow or rearrange things to your liking.
+
+Speaking of which, don't feel like you have to do everything by hand. I've authorized you to use the day's earnings to invest back into the kitchen. If a task is getting tedious, buy a machine to help out! Working smart is just as important as working hard. In the back corner of the kitchen, there are all the tools you'll need to re-arrange things to your liking or to create a more efficient layout, too. A good flow can make all the difference when things get busy.
+
+Now, for tomorrow: we're bringing back our simple combination dishes. This means you'll start getting orders for things that require multiple ingredients. It’s simple, really: to prepare a full dish, just place all of its required ingredients on a plate at the same time and combine them. It's all about good presentation!
+
+[reputation=high]
+Get some rest. You've earned it. Based on today, I know you'll handle tomorrow just fine.
+[/reputation]
+[reputation=medium]
+Get some rest tonight. Tomorrow will be a new challenge, but I think you're getting the hang of it.
+[/reputation]
+[reputation=low]
+Make sure you read the rest of this email carefully—the tools I'm giving you access to should help a lot. Let's aim for a much smoother day tomorrow. I know you can turn this around.
+[/reputation]
+
+Best,
+Your Boss"
+send_trigger = SubResource("Resource_6y8gq")
+metadata/_custom_type_script = "uid://ch2ksvvi46xgy"

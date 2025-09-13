@@ -11,21 +11,21 @@
 [sub_resource type="Resource" id="Resource_rnkol"]
 script = ExtResource("2_viq34")
 customer_interval = 1.0
-customer_patience = 120.0
+customer_patience = 180.0
 order_difficulties = Array[int]([0])
 metadata/_custom_type_script = "uid://dlvmqlayss6ln"
 
 [sub_resource type="Resource" id="Resource_j0v3x"]
 script = ExtResource("2_viq34")
 customer_interval = 0.75
-customer_patience = 115.0
+customer_patience = 150.0
 order_difficulties = Array[int]([0, 1])
 metadata/_custom_type_script = "uid://dlvmqlayss6ln"
 
 [sub_resource type="Resource" id="Resource_a31cr"]
 script = ExtResource("2_viq34")
 customer_interval = 0.5
-customer_patience = 90.0
+customer_patience = 120.0
 order_difficulties = Array[int]([1])
 metadata/_custom_type_script = "uid://dlvmqlayss6ln"
 

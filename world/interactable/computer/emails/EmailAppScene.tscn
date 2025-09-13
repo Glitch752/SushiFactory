@@ -41,47 +41,56 @@ custom_minimum_size = Vector2(800, 500)
 offset_right = 800.0
 offset_bottom = 500.0
 theme = ExtResource("1_crvhu")
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_iuw0s")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="Header" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+[node name="Header" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/Header"]
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/PanelContainer/MarginContainer/Header"]
 layout_mode = 2
 text = "Emails"
 label_settings = SubResource("LabelSettings_ud1m4")
 
-[node name="EmailListMargin" type="MarginContainer" parent="VBoxContainer"]
+[node name="EmailListMargin" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 
-[node name="EmailList" type="VBoxContainer" parent="VBoxContainer/EmailListMargin"]
+[node name="EmailList" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/EmailListMargin"]
 layout_mode = 2
 script = ExtResource("2_vxsc8")
 
-[node name="EmailTemplate" parent="VBoxContainer/EmailListMargin/EmailList" instance=ExtResource("3_vxsc8")]
+[node name="EmailTemplate" parent="ScrollContainer/VBoxContainer/EmailListMargin/EmailList" instance=ExtResource("3_vxsc8")]
 layout_mode = 2
 emailData = SubResource("Resource_b3jfi")
 
-[node name="EmailContent" type="MarginContainer" parent="VBoxContainer"]
+[node name="EmailContent" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -89,18 +98,18 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 script = ExtResource("6_1hs58")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/EmailContent"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/EmailContent"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/EmailContent/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EmailContent/VBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="VBoxContainer/EmailContent/VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="BackButton" type="Button" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
@@ -110,34 +119,34 @@ alignment = 0
 expand_icon = true
 script = ExtResource("8_vxsc8")
 
-[node name="ContentSubject" type="Label" parent="VBoxContainer/EmailContent/VBoxContainer"]
+[node name="ContentSubject" type="Label" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Welcome to your new position!"
 label_settings = SubResource("LabelSettings_crvhu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/EmailContent/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer"]
 layout_mode = 2
 
-[node name="ContentSender" type="Label" parent="VBoxContainer/EmailContent/VBoxContainer/HBoxContainer"]
+[node name="ContentSender" type="Label" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Boss"
 label_settings = SubResource("LabelSettings_clire")
 
-[node name="ContentSentTime" type="Label" parent="VBoxContainer/EmailContent/VBoxContainer/HBoxContainer"]
+[node name="ContentSentTime" type="Label" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Day 1, 5:00 PM"
 label_settings = SubResource("LabelSettings_crvhu")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/EmailContent/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 16
 
-[node name="Content" type="RichTextLabel" parent="VBoxContainer/EmailContent/VBoxContainer/MarginContainer"]
+[node name="Content" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -147,3 +156,7 @@ text = "Hello, new employee!
 
 Welcome to your position at our sushi restaurant. lorem ipsum dolor sit amet idk blah blah blah"
 fit_content = true
+
+[node name="Gap" type="Control" parent="ScrollContainer/VBoxContainer/EmailContent/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2

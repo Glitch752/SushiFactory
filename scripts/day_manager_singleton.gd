@@ -3,6 +3,8 @@ extends Node
 signal day_changed(new_day: int)
 signal time_of_day_changed(new_time_of_day: float)
 
+const ShaderSceneTransition = preload("res://ui/ShaderSceneTransition.tscn")
+
 const OrderDifficulty = preload("res://scripts/day_data.gd").OrderDifficulty
 
 @export var day_data: Array[DayData] = []
@@ -97,3 +99,30 @@ func begin_day():
     LevelInterfaceSingleton.notify_day_started(day)
 
     CustomerManagerSingleton.begin_day(get_day_data(day))
+
+## Try to end the day. The day may only end after 5 PM and if there are no customers left.
+func try_to_end_day():
+    if time_of_day >= 17.0 and CustomerManagerSingleton.all_customers_left():
+        day_cycle_active = false # It shouldn't be anyways
+
+        var transition = ShaderSceneTransition.instantiate()
+        get_tree().root.add_child(transition)
+        await transition.wipe_to_black()
+
+        begin_day()
+
+        await transition.wipe_from_black()
+        transition.queue_free()
+
+        return true
+    return false
+
+# For debugging only!
+func _unhandled_input(event):
+    # Disable in builds in case I forget :)
+    if OS.has_feature("release") or OS.has_feature("production"):
+        return
+
+    if event is InputEventKey and event.pressed and not event.echo:
+        if event.keycode == KEY_0:
+            time_of_day = min(time_of_day + 1.0, 17.0)

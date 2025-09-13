@@ -12,9 +12,24 @@ metadata/_custom_type_script = "uid://b6ogk2dlt4sfa"
 [resource]
 script = ExtResource("1_1slbv")
 sender = "Boss"
-subject = "Welcome to your new position!"
+subject = "Welcome to the Team & Instructions"
 body = "Hello, new employee!
 
-Welcome to your position at our sushi restaurant. lorem ipsum dolor sit amet idk blah blah blah"
+Welcome to your first day at our little sushi place. I’m currently on vacation, so I'm sorry I couldn’t be there to welcome you for your first day, but I have faith you'll do great!
+
+As you know from my brior briefings, our operating hours are 9am to 5pm, and arriving an hour early for prep is essential.
+
+Today should be relatively slow considering how new this restaurant is, so you should have some time to figure things out. Additionally, we're operating on a limited menu for now and I'll slowly be introducing new items.
+
+Your main goal is to keep our customers happy by preparing their orders and placing them on the kaiten (that's the sushi belt). You'll see orders pop up from the customers at the counter. Just prepare the requested items, place them on a plate, and send them on their way down the belt.
+
+Time is of the essence! If an order takes too long, the customer will get upset, and our reputation will take a hit. If our reputation drops to zero, we'll have to close our doors for good, and neither of us wants that.
+
+To stay ahead of the game, keep an eye on what customers are ordering. If you notice a particular dish is popular, you can pre-make a few and have them circling on the belt. That way, some customers can grab what they want without having to wait. Happy customers are the key to our success!
+
+I’ll be in touch later in the week with some more tips. For now, just do your best! If you need help on how to make items, there's an index of the recipes you need to know on the computer system.
+
+Best,
+Your Boss"
 send_trigger = SubResource("Resource_um3xp")
 metadata/_custom_type_script = "uid://ch2ksvvi46xgy"

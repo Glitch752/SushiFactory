@@ -1,24 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkbi6ndak0ypg"]
+[gd_scene load_steps=5 format=3 uid="uid://dkbi6ndak0ypg"]
 
 [ext_resource type="Script" uid="uid://d4g17yqri3h78" path="res://world/interactable/computer/emails/email_system.gd" id="1_svpol"]
 [ext_resource type="Script" uid="uid://ch2ksvvi46xgy" path="res://world/interactable/computer/emails/email_send_data.gd" id="2_xqnxf"]
 [ext_resource type="Resource" uid="uid://b4iyl4c3aqqu" path="res://world/interactable/computer/emails/email1.tres" id="3_xqnxf"]
-[ext_resource type="Script" uid="uid://b6ogk2dlt4sfa" path="res://world/interactable/computer/emails/email_send_trigger.gd" id="4_gh114"]
-
-[sub_resource type="Resource" id="Resource_6y8gq"]
-script = ExtResource("4_gh114")
-day = 1
-time = 9.0
-metadata/_custom_type_script = "uid://b6ogk2dlt4sfa"
-
-[sub_resource type="Resource" id="Resource_43xig"]
-script = ExtResource("2_xqnxf")
-sender = "Boss 2"
-subject = "new email"
-body = "idk this is a test"
-send_trigger = SubResource("Resource_6y8gq")
-metadata/_custom_type_script = "uid://ch2ksvvi46xgy"
+[ext_resource type="Resource" uid="uid://dlvkfn0bfkxu2" path="res://world/interactable/computer/emails/email2.tres" id="4_gh114"]
 
 [node name="EmailSystem" type="Node"]
 script = ExtResource("1_svpol")
-email_send_data = Array[ExtResource("2_xqnxf")]([ExtResource("3_xqnxf"), SubResource("Resource_43xig")])
+email_send_data = Array[ExtResource("2_xqnxf")]([ExtResource("3_xqnxf"), ExtResource("4_gh114")])

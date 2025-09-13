@@ -46,14 +46,7 @@ func interact():
     
     computer_ui_open = true
 
-func _unhandled_key_input(event):
-    if computer_ui_open and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-        var desktop = get_tree().current_scene.get_node_or_null("ComputerDesktop")
-        if desktop:
-            desktop.visible = false
-        computer_ui_open = false
-
-# While the ui is open, if the user clicks outside of it, close the ui
+# While the ui is open, if the user clicks outside of it or presses escape, close the ui
 func _input(event):
     if computer_ui_open and event is InputEventMouseButton and event.pressed:
         var desktop = get_tree().current_scene.get_node_or_null("ComputerDesktop")
@@ -64,6 +57,13 @@ func _input(event):
         if panel and not panel.get_global_rect().has_point(event.position):
             desktop.visible = false
             computer_ui_open = false
+    elif computer_ui_open and event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+        var desktop = get_tree().current_scene.get_node_or_null("ComputerDesktop")
+        if desktop:
+            desktop.visible = false
+        computer_ui_open = false
+        
+        get_viewport().set_input_as_handled()
 
 
 func get_interaction_data() -> InteractionData:

@@ -71,7 +71,7 @@ var customer_spawn_timer: float = 0.0
 var store_is_open: bool = false
 
 func store_opened():
-    customer_spawn_timer = 0.0
+    customer_spawn_timer = current_day_data.customer_interval / 2
     store_is_open = true
 
     # Immediately spawn a customer since otherwise players
@@ -135,17 +135,9 @@ func anger_customer(customerData: CustomerData) -> void:
 
 var customers: Array[CustomerData] = []
 
-func _input(event):
-    if event is InputEventKey and event.pressed and not event.echo:
-        # Temporary: when pressing O, spawn a customer.
-        if event.keycode == KEY_O:
-            spawn_customer()
-        elif event.keycode == KEY_P:
-            # and satisfy the first waiting in line when pressing P
-            for customerData in customers:
-                if customerData.is_waiting():
-                    satisfy_customer(customerData)
-                    break
+## Checks if all customers have left the restaurant.
+func all_customers_left() -> bool:
+    return customers.size() == 0
 
 func spawn_customer() -> void:
     var customer = CustomerScene.instantiate()

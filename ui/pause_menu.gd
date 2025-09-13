@@ -36,6 +36,8 @@ func pause(duration = 0.75):
     t.parallel().tween_property(self, "modulate:a", 1.0, duration * 0.25).set_delay(duration * 0.2)
     
     await t.finished
+    get_tree().paused = true
+
     animating = false
 
 func unpause(duration = 0.75):
@@ -44,6 +46,8 @@ func unpause(duration = 0.75):
     
     paused = false
     animating = true
+    
+    get_tree().paused = false
 
     if timeScaleTween:
         timeScaleTween.kill()
@@ -57,11 +61,14 @@ func unpause(duration = 0.75):
     t.parallel().tween_property(self, "modulate:a", 0.0, duration * 0.25).set_delay(duration * 0.5)
 
     await t.finished
-    animating = false
 
-func _shortcut_input(event):
+    animating = false
+    visible = false
+
+func _unhandled_key_input(event):
     if event.is_action_pressed("ui_cancel") and not event.is_echo():
         if not paused:
             pause()
         else:
             unpause()
+        get_viewport().set_input_as_handled()
