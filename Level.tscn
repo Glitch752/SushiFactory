@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://bjb0in362wq1m"]
+[gd_scene load_steps=47 format=4 uid="uid://bjb0in362wq1m"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_bexhn"]
 [ext_resource type="Script" uid="uid://chmu82saqdjsw" path="res://level.gd" id="1_dcckh"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://dovedfyi0x4ah" path="res://scripts/automation/automation_zones_tile_map.gd" id="25_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://bmpaies3w0yfg" path="res://world/interactable/Fryer.tscn" id="27_4vjci"]
 [ext_resource type="Script" uid="uid://bsgbtpeim8hc7" path="res://scripts/automation/automation_manager.gd" id="28_b4adj"]
+[ext_resource type="PackedScene" uid="uid://gmrv4ovv1fq0" path="res://ui/PauseMenu.tscn" id="28_q2vmi"]
 
 [sub_resource type="Curve2D" id="Curve2D_4vjci"]
 _data = {
@@ -95,6 +96,7 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_q2vmi"]
 font_size = 50
+font_color = Color(0.311736, 0.345998, 0.372787, 1)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_dcckh")
@@ -336,6 +338,8 @@ script = ExtResource("3_esphl")
 
 [node name="LevelInterface" parent="CanvasLayer" instance=ExtResource("4_wkftn")]
 scale = Vector2(1.00079, 1.00526)
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("28_q2vmi")]
 
 [node name="Label" type="Label" parent="."]
 offset_left = -105.0

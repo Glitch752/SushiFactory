@@ -16,6 +16,7 @@ var computer_ui_open: bool = false:
         if timeScaleTween:
             timeScaleTween.kill()
         timeScaleTween = create_tween()
+        timeScaleTween.set_ignore_time_scale(true)
         timeScaleTween.tween_property(Engine, "time_scale", 0.05 if value else 1.0, 0.5 if value else 0.05)
 
 func _ready():

@@ -12,9 +12,9 @@ uniform float dither_tex_size = 32.0;
 uniform float edge_multiplier = 5.0;
 
 // Color to wipe from
-uniform vec3 color_from: source_color = vec3(0.0, 0.0, 0.0);
+uniform vec4 color_from: source_color = vec4(0.0, 0.0, 0.0, 1.0);
 // The shadow color
-uniform vec3 shadow_color: source_color = vec3(0.0, 0.0, 0.0);
+uniform vec4 shadow_color: source_color = vec4(0.0, 0.0, 0.0, 1.0);
 // The offset of the shadow in logical pixels
 uniform vec2 shadow_offset = vec2(1.0, 1.0);
 
@@ -23,7 +23,7 @@ uniform vec2 direction = vec2(1.0, 0.0);
 
 float sample_dither(vec2 pixel_pos) {
     // Use texture with nearest filtering to preserve pixel look
-    return texture(dither_tex, (floor(pixel_pos / 2.0) + 0.5) / dither_tex_size).r;
+    return texture(dither_tex, (pixel_pos + 0.5) / dither_tex_size).r;
 }
 
 float ease(float t) {
@@ -55,16 +55,16 @@ void fragment() {
     float dither = sample_dither(pixel_pos) * (254. / 255.);
 
     // Shadow
-    vec2 shadow_pixel_pos = pixel_pos - shadow_offset;
+    vec2 shadow_pixel_pos =  floor(uv / SCREEN_PIXEL_SIZE / pixel_size - shadow_offset);
     vec2 shadow_uv = shadow_pixel_pos * pixel_size * SCREEN_PIXEL_SIZE + SCREEN_PIXEL_SIZE * 0.5;
     float shadow_pos = (dot(shadow_uv, dir) - min_proj) / (max_proj - min_proj);
     float shadow_edge = clamp((adjusted_progress - shadow_pos) * edge_multiplier, 0.0, 1.0);
     float shadow_dither = sample_dither(shadow_pixel_pos) * (254. / 255.);
 
     if(dither < ease(edge)) {
-        COLOR = vec4(color_from, 1.0);
+        COLOR = color_from;
     } else if(shadow_dither < ease(shadow_edge)) {
-        COLOR = vec4(shadow_color, 1.0);
+        COLOR = shadow_color;
     } else {
         COLOR = vec4(0.0, 0.0, 0.0, 0.0);
     }

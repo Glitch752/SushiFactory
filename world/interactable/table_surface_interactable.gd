@@ -40,7 +40,7 @@ func get_interaction_data() -> InteractionData:
         action = InteractionAction.new("Place %s" % held_item.item_name, interact)
     elif has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
         var held_item = PlayerInventorySingleton.held_item_data()
-        action = InteractionAction.new("Put %s on the plate" % held_item.item_name, interact)
+        action = InteractionAction.new("Put %s on the plate" % held_item.item_name, interact, 0.25)
     
     var secondary_action: InteractionAction = null
     if has_plate():

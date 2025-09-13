@@ -6,14 +6,14 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o5kpw"]
 shader = ExtResource("1_hcgrb")
-shader_parameter/progress = 0.618
-shader_parameter/pixel_size = 4.0
+shader_parameter/progress = 0.576
+shader_parameter/pixel_size = 8.0
 shader_parameter/dither_tex = ExtResource("2_o5kpw")
 shader_parameter/dither_tex_size = 32.0
 shader_parameter/edge_multiplier = 2.5
-shader_parameter/color_from = Color(0.0509804, 0.0470588, 0.0666667, 1)
-shader_parameter/shadow_color = Color(0.20288, 0.21537, 0.281355, 1)
-shader_parameter/shadow_offset = Vector2(0, 1)
+shader_parameter/color_from = Color(0.06656, 0.0632, 0.08, 1)
+shader_parameter/shadow_color = Color(0.1512, 0.161, 0.21, 1)
+shader_parameter/shadow_offset = Vector2(0, 0.5)
 shader_parameter/direction = Vector2(1, 1)
 
 [node name="ShaderSceneTransition" type="CanvasLayer"]

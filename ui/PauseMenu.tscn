@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://gmrv4ovv1fq0"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_4dg4t"]
+[ext_resource type="Script" uid="uid://dancm2u6bhbq4" path="res://ui/pause_menu.gd" id="1_c7v6e"]
+[ext_resource type="Shader" uid="uid://bhd3gvbbuqjif" path="res://ui/ShaderSceneTransition.gdshader" id="2_1q10k"]
+[ext_resource type="Texture2D" uid="uid://blriyr5uejhx4" path="res://ui/blueNoise.png" id="3_4dg4t"]
+[ext_resource type="StyleBox" uid="uid://c758r4iugw48b" path="res://ui/stylebox/9_patch_stylebox_hover.tres" id="6_afaem"]
+[ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="7_bsjxr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptdjk"]
+shader = ExtResource("2_1q10k")
+shader_parameter/progress = 0.603
+shader_parameter/pixel_size = 8.0
+shader_parameter/dither_tex = ExtResource("3_4dg4t")
+shader_parameter/dither_tex_size = 32.0
+shader_parameter/edge_multiplier = 5.0
+shader_parameter/color_from = Color(0.05376, 0.0497, 0.07, 0.623529)
+shader_parameter/shadow_color = Color(0.1782, 0.185167, 0.22, 0.470588)
+shader_parameter/shadow_offset = Vector2(0, 0.5)
+shader_parameter/direction = Vector2(5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1q10k"]
+font_size = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdrbn"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4dg4t")
+script = ExtResource("1_c7v6e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_ptdjk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_1q10k")
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 48)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fdrbn")
+theme_override_styles/hover_pressed = ExtResource("6_afaem")
+theme_override_styles/hover = ExtResource("6_afaem")
+theme_override_styles/pressed = ExtResource("6_afaem")
+theme_override_styles/normal = ExtResource("7_bsjxr")
+text = "Return"

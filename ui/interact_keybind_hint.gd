@@ -36,7 +36,10 @@ func update(action: InteractionAction):
     
     visible = true
     
-    infoText.text = action.name
+    var nameText = action.name
+    if action.time_required > 0.0:
+        nameText += " (%.1fs)" % (action.time_required - action.current_time)
+    infoText.text = nameText
     
     if action.time_required > 0.0:
         progress.visible = true
