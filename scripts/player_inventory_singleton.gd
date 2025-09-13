@@ -44,7 +44,7 @@ func try_grab_item(item: Node2D) -> bool:
         get_tree().current_scene.add_child(item)
 
     held_item = item
-    emit_signal("item_changed", held_item)
+    item_changed.emit(held_item)
     
     # Will reparent to wherever we need it
     item_scene_reparent.emit(item)
@@ -57,7 +57,7 @@ func remove_item() -> Node2D:
     var item = held_item
     
     held_item = null
-    emit_signal("item_changed", null)
+    item_changed.emit(null)
 
     item.get_parent().remove_child(item)
     
@@ -65,3 +65,36 @@ func remove_item() -> Node2D:
 
 func load_item_data(item_id: String) -> ItemData:
     return load("res://world/items/data/%s_item_data.tres" % item_id)
+
+
+# For debugging only!
+func _unhandled_input(event):
+    # Disable in builds in case I forget :)
+    if OS.has_feature("release") or OS.has_feature("production"):
+        return
+
+    var DEBUG_ITEMS = {
+        KEY_1: create_item_from_scene(preload("res://world/items/Plate.tscn")),
+        KEY_2: "cooked_rice",
+        KEY_3: "sliced_salmon",
+        KEY_4: ""
+    }
+
+    if event is InputEventKey and event.pressed and not event.echo:
+        var item = null
+        if event.keycode in DEBUG_ITEMS:
+            var item_id = DEBUG_ITEMS[event.keycode]
+            if item_id is String:
+                if item_id == "" and has_item():
+                    remove_item().queue_free()
+                    return
+                
+                var data = load_item_data(item_id)
+                item = create_item(data)
+            elif item_id is Node2D:
+                item = item_id.duplicate()
+        
+        if item != null:
+            if has_item():
+                remove_item().queue_free()
+            try_grab_item(item)

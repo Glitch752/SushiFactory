@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4k8uvcvp373t" path="res://ui/Order.tscn" id="5_py5b0"]
 [ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="5_xj0kr"]
 [ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="9_xj0kr"]
-[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="10_oftlk"]
+[ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="10_4hwu7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oftlk"]
 font = ExtResource("4_lfe7y")
@@ -47,7 +47,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 1.00577)
 theme = ExtResource("3_grx74")
 script = ExtResource("1_ta4wj")
 
@@ -134,7 +133,7 @@ theme_override_constants/margin_right = 15
 [node name="MoneyLabel" type="Label" parent="InfoDisplays/Money/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "$5"
+text = "$0"
 label_settings = SubResource("LabelSettings_5j5is")
 
 [node name="OrdersLabel" type="Label" parent="."]
@@ -268,37 +267,15 @@ scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
 
-[node name="PrimaryInteractHint" type="HBoxContainer" parent="InteractionInfo/MarginContainer/VBoxContainer"]
+[node name="PrimaryInteract" parent="InteractionInfo/MarginContainer/VBoxContainer" instance=ExtResource("10_4hwu7")]
 unique_name_in_owner = true
 layout_mode = 2
+key = "E"
+placeholderText = "Primary interact"
 
-[node name="Panel" type="PanelContainer" parent="InteractionInfo/MarginContainer/VBoxContainer/PrimaryInteractHint"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("10_oftlk")
-
-[node name="Label" type="Label" parent="InteractionInfo/MarginContainer/VBoxContainer/PrimaryInteractHint/Panel"]
-layout_mode = 2
-text = "E"
-
-[node name="Label" type="Label" parent="InteractionInfo/MarginContainer/VBoxContainer/PrimaryInteractHint"]
-layout_mode = 2
-text = "Interact"
-
-[node name="SecondaryInteractHint" type="HBoxContainer" parent="InteractionInfo/MarginContainer/VBoxContainer"]
+[node name="SecondaryInteract" parent="InteractionInfo/MarginContainer/VBoxContainer" instance=ExtResource("10_4hwu7")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Panel" type="PanelContainer" parent="InteractionInfo/MarginContainer/VBoxContainer/SecondaryInteractHint"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("10_oftlk")
-
-[node name="Label" type="Label" parent="InteractionInfo/MarginContainer/VBoxContainer/SecondaryInteractHint/Panel"]
-layout_mode = 2
-text = "Q"
-
-[node name="Label" type="Label" parent="InteractionInfo/MarginContainer/VBoxContainer/SecondaryInteractHint"]
-layout_mode = 2
-text = "Secondary interact"
 
 [connection signal="mouse_entered" from="Inventory" to="Inventory" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Inventory" to="Inventory" method="_on_mouse_exited"]

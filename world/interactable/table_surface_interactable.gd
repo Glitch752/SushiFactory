@@ -42,5 +42,11 @@ func get_interaction_data() -> InteractionData:
         var held_item = PlayerInventorySingleton.held_item_data()
         action = InteractionAction.new("Put %s on the plate" % held_item.item_name, interact)
     
+    var secondary_action: InteractionAction = null
+    if has_plate():
+        var dish = current_object.can_make_dish()
+        if dish != null:
+            secondary_action = InteractionAction.new("Make %s" % dish, current_object.make_dish, 5.0)
+    
     var desc = "An empty table." if current_object == null else "Has %s" % lower_start(current_object.get_description())
-    return InteractionData.new(interactable_name, desc, action)
+    return InteractionData.new(interactable_name, desc, action, secondary_action)

@@ -2,6 +2,8 @@ extends "res://world/items/item.gd"
 
 var plate_dishes = DishCombinationsSingleton.get_dishes_for_machine("plate")
 
+const ITEM_COLOR = preload("res://world/interactable/computer/recipes/item_panel.gd").ITEM_COLOR
+
 class ContentData:
     var item: ItemData
     var sprite: Sprite2D
@@ -11,6 +13,9 @@ class ContentData:
         self.sprite = sprite
 
 var contents: Array[ContentData] = []
+
+## If the contents of this plate will make a dish, this stores the dish combination that will be made
+var will_make_dish: DishCombination = null
 
 func can_add(item: ItemData) -> bool:
     return item.id != "plate"
@@ -60,18 +65,31 @@ func process_dishes():
                 break
         
         if all_found:
-            print("Made dish: ", dish.result.item_name)
-
-            for item in dish.ingredients:
-                for content in contents:
-                    if content.item.id == item.item.id:
-                        remove_child(content.sprite)
-                        content.sprite.queue_free()
-                        contents.erase(content)
-                        break
-
-            add_to_plate(dish.result)
+            will_make_dish = dish
             return
+    
+    will_make_dish = null
+
+# If we can make a dish, this returns the name of it. Otherwise, returns null
+func can_make_dish() -> Variant:
+    if will_make_dish != null:
+        return will_make_dish.result.item_name
+    return null
+
+func make_dish():
+    var dish = will_make_dish
+    if dish == null:
+        return
+    
+    for item in dish.ingredients:
+        for content in contents:
+            if content.item.id == item.item.id:
+                remove_child(content.sprite)
+                content.sprite.queue_free()
+                contents.erase(content)
+                break
+
+    add_to_plate(dish.result)
 
 func get_description():
     if contents.size() == 0:
@@ -80,4 +98,8 @@ func get_description():
     for itemData in contents:
         desc += "\n %s" % itemData.item.item_name
     desc += "\n[/ul]"
+
+    if will_make_dish != null:
+        desc += "\nCan make [color=%s]%s[/color]." % [ITEM_COLOR.to_html(), will_make_dish.result.item_name]
+    
     return desc

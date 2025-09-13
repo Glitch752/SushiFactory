@@ -47,22 +47,73 @@ func add_order(order: OrderData):
 
     order.node = order_instance
 
+## Interaction
+var current_interaction_data: InteractionData = null
+
+var waiting_primary_action: InteractionAction = null
+var waiting_secondary_action: InteractionAction = null
+
 func update_interaction_info(data: InteractionData):
+    current_interaction_data = data
     if data != null:
         $%InteractionInfo.visible = true
 
         $%InteractionName.text = data.name
         $%InteractionDescription.text = data.description
         
-        update_interact_hint($%PrimaryInteractHint, data.primary_action)
-        update_interact_hint($%SecondaryInteractHint, data.secondary_action)
+        $%PrimaryInteract.update(data.primary_action)
+        $%SecondaryInteract.update(data.secondary_action)
     else:
         $%InteractionInfo.visible = false
+
+func _unhandled_input(event):
+    if current_interaction_data == null:
+        return
+    
+    var primary_action = current_interaction_data.primary_action
+    var secondary_action = current_interaction_data.secondary_action
+
+    if event.is_action_pressed("interact") and primary_action != null:
+        if primary_action.time_required == 0.0:
+            primary_action.callable.call()
+        else:
+            waiting_primary_action = primary_action
+            waiting_primary_action.current_time = 0.0
+    elif event.is_action_pressed("secondary_interact") and secondary_action != null:
+        if secondary_action.time_required == 0.0:
+            secondary_action.callable.call()
+        else:
+            waiting_secondary_action = secondary_action
+            waiting_secondary_action.current_time = 0.0
+    
+    elif event.is_action_released("interact") and waiting_primary_action != null:
+        waiting_primary_action.current_time = 0.0
+        waiting_primary_action = null
+    elif event.is_action_released("secondary_interact") and waiting_secondary_action != null:
+        waiting_secondary_action.current_time = 0.0
+        waiting_secondary_action = null
+
+func _physics_process(delta):
+    if waiting_primary_action != null:
+        waiting_primary_action.current_time += delta
+        $%PrimaryInteract.update(waiting_primary_action)
+        if waiting_primary_action.current_time >= waiting_primary_action.time_required:
+            waiting_primary_action.callable.call()
+            waiting_primary_action = null
+    if waiting_secondary_action != null:
+        waiting_secondary_action.current_time += delta
+        $%SecondaryInteract.update(waiting_secondary_action)
+        if waiting_secondary_action.current_time >= waiting_secondary_action.time_required:
+            waiting_secondary_action.callable.call()
+            waiting_secondary_action = null
 
 func update_interact_hint(container: HBoxContainer, action: InteractionAction):
     if action != null:
         container.visible = true
-        container.get_node("Label").text = action.name
+        var title = action.name
+        if action.time_required != 0.0:
+            title += " (%.1fs)" % action.time_required
+        container.get_node("Label").text = title
     else:
         container.visible = false
 

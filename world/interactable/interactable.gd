@@ -5,6 +5,8 @@ class InteractionAction:
     var callable: Callable
     ## The time it takes to complete this interaction, or 0 if instant.
     var time_required: float
+    ## If this action is being waited on, the current time from 0 to time_required.
+    var current_time: float
 
     @warning_ignore("shadowed_variable")
     func _init(name: String, callable: Callable, time_required: float = 0.0):

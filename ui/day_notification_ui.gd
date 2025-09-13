@@ -10,7 +10,7 @@ enum DayEvent {
 
 @onready var dayTitle: Label = $%DayTitle;
 @onready var hr: Panel = $%HR;
-@onready var timeTitle: Label = $%TimeTitle;
+@onready var timeTitle: RichTextLabel = $%TimeTitle;
 @onready var infoRichText: RichTextLabel = $%InfoRichText;
 
 var startHrWidth: float
@@ -33,15 +33,16 @@ func _ready():
     startInfoHeight = infoRichText.size.y
     animate()
 
+    update_time(DayManagerSingleton.time_of_day)
     DayManagerSingleton.time_of_day_changed.connect(update_time)
 
 func update_time(new_time: float):
     if event == DayEvent.CLOSING:
         timeTitle.text = "%s - Store closed" % DayManagerSingleton.format_time_of_day()
     elif event == DayEvent.ARRIVAL:
-        timeTitle.text = "%s - Store opens in %s" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(9.0 - new_time)]
+        timeTitle.text = "%s - You have [color=#9999ff]%s[/color] to prepare" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(9.0 - new_time)]
     else:
-        timeTitle.text = "%s - Store closes in %s" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(17.0 - new_time)]
+        timeTitle.text = "%s - Store closes in [color=#9999ff]%s[/color]" % [DayManagerSingleton.format_time_of_day(), DayManagerSingleton.format_duration(17.0 - new_time)]
 
 # func _input(ev):
 #     # For debugging: on pressing 1, reaniamte

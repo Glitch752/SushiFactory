@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckc3r4mx3l22v"]
+
+[ext_resource type="Script" uid="uid://ds1xbwaxbginf" path="res://ui/interact_keybind_hint.gd" id="1_wqdku"]
+[ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="2_r2bo0"]
+[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="3_w747j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7oa8n"]
+
+[node name="InteractKeybindHint" type="Container"]
+script = ExtResource("1_wqdku")
+metadata/_custom_type_script = "uid://bpuyfn2rtvibk"
+
+[node name="TimedInteractProgress" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_7oa8n")
+theme_override_styles/fill = ExtResource("2_r2bo0")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="SecondaryInteractHint" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="SecondaryInteractHint"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_w747j")
+
+[node name="KeyLabel" type="Label" parent="SecondaryInteractHint/Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Q"
+
+[node name="InfoText" type="Label" parent="SecondaryInteractHint"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Secondary interact"

@@ -1,6 +1,7 @@
 extends Area2D
 
 const InteractionData = preload("res://world/interactable/interactable.gd").InteractionData
+const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
 
 @onready var player = $".."
 @onready var interaction_highlight: Sprite2D = $InteractionHighlight
@@ -21,7 +22,7 @@ func _ready():
 
 func _physics_process(_delta):
     position = player.facing * 12
-
+    
     var cell = automation_manager.get_interaction_cell(global_position)
     var automation_interact_data = automation_manager.get_interaction_data(cell)
     if automation_interact_data != null:
@@ -42,15 +43,6 @@ func _physics_process(_delta):
     interaction_highlight.visible = current_interaction_data != null
     
     LevelInterfaceSingleton.update_interactable(current_interaction_data)
-
-func _unhandled_input(event):
-    if current_interaction_data == null:
-        return
-    
-    if event.is_action_pressed("interact") and current_interaction_data.primary_action != null:
-        current_interaction_data.primary_action.callable.call()
-    elif event.is_action_pressed("secondary_interact") and current_interaction_data.secondary_action != null:
-        current_interaction_data.secondary_action.callable.call()
 
 func _on_area_entered(area: Area2D):
     if area.is_in_group("interact_zone"):
