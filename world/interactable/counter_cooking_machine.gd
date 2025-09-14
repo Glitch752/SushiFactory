@@ -6,6 +6,10 @@ var current_output: ItemData = null
 
 @export var normal_texture: Texture2D
 @export var active_texture: Texture2D
+
+@export var active_sound: AudioStream
+@export var finish_sound: AudioStream
+
 ## e.g. stove_top; must match the `machine` fields of recipes
 @export var machine_id: String
 
@@ -20,14 +24,25 @@ var current_output: ItemData = null
 @export var action_word_past: String = "cooked"
 
 @onready var sprite: Sprite2D = $%Sprite
+@onready var active_sound_node: AudioStreamPlayer2D = $%ActiveSound
+@onready var finish_sound_node: AudioStreamPlayer2D = $%FinishSound
 
 ## The time the machine takes to cook, in game-minutes.
 const COOK_TIME = 20.0
+
+## If the machine is currently active.
+var active: bool = false
 
 var recipes: Dictionary[String, String] # input item id -> output item id
 
 func _ready():
     recipes = DishCombinationsSingleton.get_single_input_dishes_for(machine_id)
+    
+    if active_sound:
+        active_sound_node.stream = active_sound
+    if finish_sound:
+        finish_sound_node.stream = finish_sound
+
     set_physics_process(false)
     super._ready()
 
@@ -64,7 +79,26 @@ func _physics_process(delta):
             set_physics_process(false)
     
     var progress_bar: AnimatedSprite2D = $%ProgressBar
-    progress_bar.visible = input_item_id != null and cooking_time_remaining > 0
+
+    var is_active = input_item_id != null and cooking_time_remaining > 0
+    if is_active and not active:
+        active = true
+        progress_bar.visible = true
+        if active_sound != null:
+            
+            active_sound_node.volume_linear = 0.0
+            active_sound_node.play()
+            create_tween()\
+                .tween_property(active_sound_node, "volume_linear", 1.0, 0.5)
+    elif not is_active and active:
+        active = false
+        progress_bar.visible = false
+        if active_sound != null:
+            var t = create_tween()
+            t.tween_property(active_sound_node, "volume_linear", 0.0, 0.5)
+            t.tween_callback(active_sound_node.stop)
+        if finish_sound != null:
+            finish_sound_node.play()
 
     sprite.texture = active_texture if input_item_id != null else normal_texture
     

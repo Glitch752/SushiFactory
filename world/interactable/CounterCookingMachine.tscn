@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://clxq0aoegothj"]
+[gd_scene load_steps=17 format=3 uid="uid://clxq0aoegothj"]
 
 [ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_mcxjx"]
 [ext_resource type="Script" uid="uid://u4rv401f2vsn" path="res://world/interactable/counter_cooking_machine.gd" id="2_pbnwo"]
+[ext_resource type="AudioStream" uid="uid://cnlah3rsshvsv" path="res://audio/ding.wav" id="3_lnxao"]
 [ext_resource type="Texture2D" uid="uid://bslpylya1nkqo" path="res://images/progressbar.png" id="4_nw88y"]
 [ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="5_nw88y"]
 [ext_resource type="Script" uid="uid://b2mwkk3333tir" path="res://scripts/hover.gd" id="6_b8qpw"]
@@ -75,6 +76,8 @@ show_behind_parent = true
 script = ExtResource("2_pbnwo")
 normal_texture = null
 active_texture = null
+active_sound = null
+finish_sound = ExtResource("3_lnxao")
 machine_id = ""
 machine_name = ""
 interactable_description = ""
@@ -100,3 +103,13 @@ visible = false
 position = Vector2(0, -13)
 texture = SubResource("AtlasTexture_jc0d7")
 script = ExtResource("6_b8qpw")
+
+[node name="ActiveSound" type="AudioStreamPlayer2D" parent="InteractableContent" index="4"]
+unique_name_in_owner = true
+max_distance = 200.0
+bus = &"UI"
+
+[node name="FinishSound" type="AudioStreamPlayer2D" parent="InteractableContent" index="5"]
+unique_name_in_owner = true
+max_distance = 200.0
+bus = &"UI"

@@ -77,7 +77,7 @@ shape = SubResource("RectangleShape2D_2brt4")
 
 [node name="FootstepSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_834sp")
-volume_db = -6.0
+volume_db = -3.0
 bus = &"World"
 
 [connection signal="area_entered" from="InteractionZone" to="InteractionZone" method="_on_area_entered"]
