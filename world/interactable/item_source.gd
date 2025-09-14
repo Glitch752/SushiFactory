@@ -9,6 +9,8 @@ extends "res://world/interactable/interactable.gd"
 
 @export var item_data: ItemData;
 
+@onready var interact_audio = $%InteractAudio
+
 func _ready():
     $InteractableContent/Sprite2D.texture = texture
     if not Engine.is_editor_hint():
@@ -17,6 +19,9 @@ func _ready():
 func interact():
     var item = PlayerInventorySingleton.create_item(item_data)
     PlayerInventorySingleton.try_grab_item(item)
+    
+    interact_audio.pitch_scale = randf_range(0.8, 1.1)
+    interact_audio.play()
 
 func get_interaction_data() -> InteractionData:
     var action: InteractionAction = null

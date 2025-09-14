@@ -10,15 +10,16 @@ signal item_scene_reparent(item: Node2D)
 var ItemScene = preload("res://world/items/item.tscn")
 
 func create_item(data: ItemData) -> Node2D:
-    var item = ItemScene.instantiate()
+    var item: Node2D
+
+    if data.custom_scene:
+        item = data.custom_scene.instantiate()
+    else:
+        item = ItemScene.instantiate()
 
     item.data = data
     item.apply_data()
 
-    return item
-
-func create_item_from_scene(scene: Resource) -> Node2D:
-    var item = scene.instantiate()
     return item
 
 func has_item() -> bool:
@@ -77,7 +78,7 @@ func _unhandled_input(event):
         return
 
     var DEBUG_ITEMS = {
-        KEY_1: create_item_from_scene(preload("res://world/items/Plate.tscn")),
+        KEY_1: "plate",
         KEY_2: "cooked_rice",
         KEY_3: "sliced_salmon",
         KEY_4: ""

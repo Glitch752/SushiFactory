@@ -10,3 +10,6 @@ class_name ItemData
 @export var item_sprite: Texture2D
 ## The description of this item.
 @export var description: String = ""
+
+## A custom scene to use for this item instead of the base Item scene. Null if not required.
+@export var custom_scene: PackedScene = null

@@ -103,3 +103,9 @@ func get_description():
         desc += "\nCan make %s." % format_item_color.call(will_make_dish.result)
     
     return desc
+
+func get_take_sound() -> AudioStream:
+    return preload("res://audio/plate_take.wav")
+
+func get_place_sound() -> AudioStream:
+    return preload("res://audio/plate_down.wav")

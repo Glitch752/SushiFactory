@@ -8,8 +8,7 @@ func has_plate():
     return current_object != null and current_object.data.id == "plate"
 
 func take_item():
-    if has_plate():
-        playback.play_stream(preload("res://audio/plate_take.wav"), 0, 0, randf_range(0.9, 1.1))
+    playback.play_stream(current_object.get_take_sound(), 0, 0, randf_range(0.9, 1.1))
     
     var object = current_object
     current_object = null
@@ -21,8 +20,7 @@ func place_item():
     current_object = PlayerInventorySingleton.remove_item()
     $InteractableContent.add_child(current_object)
 
-    if has_plate():
-        playback.play_stream(preload("res://audio/plate_down.wav"), 0.0, 0, randf_range(0.9, 1.1))
+    playback.play_stream(current_object.get_place_sound(), 0.0, 0, randf_range(0.9, 1.1))
 
 func add_to_plate():
     var current_item = PlayerInventorySingleton.remove_item()

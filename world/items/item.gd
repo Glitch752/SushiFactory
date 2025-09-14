@@ -15,3 +15,9 @@ func apply_data():
 
 func get_description() -> String:
     return data.description
+
+func get_take_sound() -> AudioStream:
+    return preload("res://audio/miscTake1.wav")
+
+func get_place_sound() -> AudioStream:
+    return preload("res://audio/miscTake2.wav")
