@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbd40o1tw7sii"]
+
+[ext_resource type="Script" uid="uid://ildwcuone24w" path="res://ui/audio/sound_manager.gd" id="1_vdb3c"]
+
+[node name="SoundManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_vdb3c")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"UI"
+
+[node name="SliderDebounce" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+ignore_time_scale = true
+
+[node name="SaveVolumeDebounce" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+ignore_time_scale = true

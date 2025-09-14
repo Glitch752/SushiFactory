@@ -36,13 +36,13 @@ func _ready():
 
 func mouse_enter():
     stylebox.bg_color = colorHover
-    UISoundManager.play_mouse_enter()
+    SoundManager.play_mouse_enter()
     
 func mouse_exit():
     stylebox.bg_color = color
 
 func _gui_input(event):
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-        UISoundManager.play_pressed()
+        SoundManager.play_pressed()
         get_viewport().set_input_as_handled()
         get_parent().open_email(emailData)

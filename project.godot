@@ -29,7 +29,7 @@ DayManagerSingleton="*res://scripts/DayManagerSingleton.tscn"
 CustomerManagerSingleton="*res://scripts/customer_manager_singleton.gd"
 StoreStatsSingleton="*res://scripts/store_stats_singleton.gd"
 MusicPlayer="*res://MusicPlayer.tscn"
-UISoundManager="*res://ui/audio/UISoundManager.tscn"
+SoundManager="*res://ui/audio/SoundManager.tscn"
 
 [display]
 

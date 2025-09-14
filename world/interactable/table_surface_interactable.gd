@@ -22,7 +22,7 @@ func place_item():
     $InteractableContent.add_child(current_object)
 
     if has_plate():
-        playback.play_stream(preload("res://audio/plate_down.wav"), 0.1, 0, randf_range(0.9, 1.1))
+        playback.play_stream(preload("res://audio/plate_down.wav"), 0.0, 0, randf_range(0.9, 1.1))
 
 func add_to_plate():
     var current_item = PlayerInventorySingleton.remove_item()
