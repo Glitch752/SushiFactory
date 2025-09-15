@@ -2,32 +2,27 @@ extends "res://world/interactable/interactable.gd"
 
 var current_object: Node2D = null
 
-@onready var playback: AudioStreamPlaybackPolyphonic = $%InteractionAudio.get_stream_playback()
-
 func has_plate():
     return current_object != null and current_object.data.id == "plate"
 
 func take_item():
-    playback.play_stream(current_object.get_take_sound(), 0, 0, randf_range(0.9, 1.1))
-    
     var object = current_object
     current_object = null
     
-    $InteractableContent.remove_child(object)
     PlayerInventorySingleton.try_grab_item(object)
 
 func place_item():
     current_object = PlayerInventorySingleton.remove_item()
     $InteractableContent.add_child(current_object)
 
-    playback.play_stream(current_object.get_place_sound(), 0.0, 0, randf_range(0.9, 1.1))
+    SoundManager.item_placed(current_object)
 
 func add_to_plate():
     var current_item = PlayerInventorySingleton.remove_item()
     current_object.add_to_plate(current_item.data)
     current_item.queue_free()
     
-    playback.play_stream(preload("res://audio/plate_interact.wav"), 0, 0, randf_range(0.9, 1.1))
+    SoundManager.play_sound_at(preload("res://audio/plate_interact.wav"), $InteractableContent.global_position, 0, randf_range(0.9, 1.1))
 
 func lower_start(text: String) -> String:
     if text.is_empty():

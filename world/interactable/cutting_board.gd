@@ -5,39 +5,56 @@ var CUT_ITEMS = DishCombinationsSingleton.get_single_input_dishes_for("cutting_b
 var cut_progress = 0
 var item = null
 
+@onready var interaction_sounds: AudioStreamPlayer2D = $%InteractionSounds
+var playback: AudioStreamPlaybackPolyphonic
+
 func has_item() -> bool:
     return item != null
 
 const CUTS_REQUIRED = 6.0
 
-func interact():
-    if !has_item():
-        var held_item = PlayerInventorySingleton.held_item_data()
-        if held_item and held_item.id in CUT_ITEMS.keys():
-            var new_item = PlayerInventorySingleton.remove_item()
-            
-            $InteractableContent.add_child(new_item)
-            item = new_item
+func _ready():
+    interaction_sounds.play()
+    playback = interaction_sounds.get_stream_playback()
+    super._ready()
 
-            cut_progress = 0
-    elif cut_progress < CUTS_REQUIRED:
-        cut_progress += 1
+func place_item():
+    var held_item = PlayerInventorySingleton.held_item_data()
+    if held_item and held_item.id in CUT_ITEMS.keys():
+        var new_item = PlayerInventorySingleton.remove_item()
+        
+        $InteractableContent.add_child(new_item)
+        item = new_item
 
-        if cut_progress == CUTS_REQUIRED:
-            var sliced_item_id = CUT_ITEMS.get(item.data.id, null)
-
-            $InteractableContent.remove_child(item)
-            item.queue_free()
-            
-            var sliced_item = PlayerInventorySingleton.create_item(PlayerInventorySingleton.load_item_data(sliced_item_id))
-            $InteractableContent.add_child(sliced_item)
-            
-            item = sliced_item
-    else:
-        PlayerInventorySingleton.try_grab_item(item)
-        item = null
-            
         cut_progress = 0
+    
+    update_progressbar()
+
+func cut_item():
+    cut_progress += 1
+    if randi() % 2 == 0:
+        playback.play_stream(preload("res://audio/slice1.wav"), 0.0, 0.0, randf_range(0.9, 1.1))
+    else:
+        playback.play_stream(preload("res://audio/slice2.wav"), 0.0, 0.0, randf_range(0.9, 1.1))
+
+    if cut_progress == CUTS_REQUIRED:
+        var sliced_item_id = CUT_ITEMS.get(item.data.id, null)
+
+        $InteractableContent.remove_child(item)
+        item.queue_free()
+        
+        var sliced_item = PlayerInventorySingleton.create_item(PlayerInventorySingleton.load_item_data(sliced_item_id))
+        $InteractableContent.add_child(sliced_item)
+        
+        item = sliced_item
+    
+    update_progressbar()
+
+func take_cut_item():
+    PlayerInventorySingleton.try_grab_item(item)
+    item = null
+        
+    cut_progress = 0
     
     update_progressbar()
 
@@ -56,14 +73,15 @@ func get_interaction_data() -> InteractionData:
     if !has_item():
         var held_item = PlayerInventorySingleton.held_item_data()
         if held_item and held_item.id in CUT_ITEMS.keys():
-            action = InteractionAction.new("Place %s" % held_item.item_name, interact)
+            action = InteractionAction.new("Place %s" % held_item.item_name, place_item)
             desc = "A cutting board.\nPlace %s on it to cut." % held_item.item_name.to_lower()
         else:
             desc = "A cutting board.\nYou can place certain items on it to cut them."
     elif cut_progress < CUTS_REQUIRED:
-        action = InteractionAction.new("Cut %s" % item.data.item_name, interact)
+        action = InteractionAction.new("Cut %s" % item.data.item_name, cut_item)
         desc = "A cutting board with %s on it.\nYou have cut it %d out of %d times." % [item.data.item_name.to_lower(), cut_progress, CUTS_REQUIRED]
-    else:
-        action = InteractionAction.new("Take %s" % item.data.item_name, interact)
+    elif !PlayerInventorySingleton.has_item():
+        action = InteractionAction.new("Take %s" % item.data.item_name, take_cut_item)
         desc = "A cutting board with %s on it.\nCutting complete." % item.data.item_name.to_lower()
+    
     return InteractionData.new(interactable_name, desc, action)

@@ -20,6 +20,7 @@ func take_plate_add():
     var item = PlayerInventorySingleton.remove_item()
     plate.add_to_plate(item.data)
     item.queue_free()
+    
     PlayerInventorySingleton.try_grab_item(plate)
     
     takePlateAudio.pitch_scale = randf_range(0.9, 1.1)

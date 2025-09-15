@@ -91,3 +91,27 @@ func play_button_down() -> void:
 
 func play_button_up() -> void:
     playback.play_stream(preload('res://audio/kenney_ui-audio/click1.ogg'), 0, -5.0, randf_range(1.1, 1.3))
+
+
+
+### Item interaction sounds
+
+func play_sound_at(stream: AudioStream, global_position: Vector2, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
+    var player = AudioStreamPlayer2D.new()
+    player.stream = stream
+    player.volume_db = volume_db
+    player.pitch_scale = pitch_scale
+    player.global_position = global_position
+
+    get_tree().current_scene.add_child(player)
+    
+    player.play()
+    player.finished.connect(player.queue_free)
+
+## Plays the suitable sound after placing an item down. Uses the item's new position, so it should be called _after_ moving the item.
+func item_placed(item: Node2D):
+    play_sound_at(item.get_place_sound(), item.global_position, 0, randf_range(0.9, 1.1))
+
+## Plays the suitable sound before picking an item up. Uses the item's old position, so it should be called _before_ moving the item.
+func item_taken(item: Node2D):
+    play_sound_at(item.get_take_sound(), item.global_position, 0, randf_range(0.9, 1.1))

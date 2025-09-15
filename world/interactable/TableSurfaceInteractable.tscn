@@ -1,18 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://nj52twa42cxf"]
+[gd_scene load_steps=3 format=3 uid="uid://nj52twa42cxf"]
 
 [ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_er8ce"]
 [ext_resource type="Script" uid="uid://bq2c17043lfwt" path="res://world/interactable/table_surface_interactable.gd" id="2_5cley"]
 
-[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_5cley"]
-
 [node name="Interactable" instance=ExtResource("1_er8ce")]
 script = ExtResource("2_5cley")
-
-[node name="InteractionAudio" type="AudioStreamPlayer2D" parent="InteractableContent" index="1"]
-unique_name_in_owner = true
-position = Vector2(0, 1)
-stream = SubResource("AudioStreamPolyphonic_5cley")
-volume_db = -2.0
-autoplay = true
-max_distance = 150.0
-bus = &"World"

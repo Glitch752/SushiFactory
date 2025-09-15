@@ -46,31 +46,27 @@ func _ready():
     set_physics_process(false)
     super._ready()
 
-func interact():
-    if input_item_id == null:
-        var held_item = PlayerInventorySingleton.remove_item()
-        if held_item == null:
-            return
-        
-        var item_id = held_item.data.id
-        if not recipes.has(item_id):
-            # Not a valid recipe, return item to inventory
-            PlayerInventorySingleton.try_grab_item(held_item)
-            return
-        
-        input_item_id = item_id
-        current_output = PlayerInventorySingleton.load_item_data(recipes[item_id])
-
-        held_item.queue_free()
-        cooking_time_remaining = COOK_TIME / 60.
-        set_physics_process(true)
+func add_item():
+    var held_item = PlayerInventorySingleton.remove_item()
+    if held_item == null:
+        return
     
-    elif cooking_time_remaining == 0 and input_item_id != null and !PlayerInventorySingleton.has_item():
-        var output_item = PlayerInventorySingleton.create_item(current_output)
-        PlayerInventorySingleton.try_grab_item(output_item)
-        input_item_id = null
-        
-        _physics_process(0)
+    var item_id = held_item.data.id
+
+    input_item_id = item_id
+    current_output = PlayerInventorySingleton.load_item_data(recipes[item_id])
+
+    held_item.queue_free()
+    cooking_time_remaining = COOK_TIME / 60.
+    set_physics_process(true)
+    
+func take_item():
+    var output_item = PlayerInventorySingleton.create_item(current_output)
+    add_child(output_item) # For sound positioning
+    PlayerInventorySingleton.try_grab_item(output_item)
+    input_item_id = null
+    
+    _physics_process(0)
 
 func _physics_process(delta):
     if input_item_id != null:
@@ -118,7 +114,7 @@ func get_interaction_data() -> InteractionData:
     if input_item_id == null:
         var held_item = PlayerInventorySingleton.held_item_data()
         if held_item and recipes.has(held_item.id):
-            action = InteractionAction.new("Add %s" % held_item.item_name, interact)
+            action = InteractionAction.new("Add %s" % held_item.item_name, add_item)
             desc = "%s\nAdd %s to start %s." % [interactable_description, held_item.item_name.to_lower(), action_word]
         else:
             desc = "%s\nIt's empty." % interactable_description
@@ -131,8 +127,8 @@ func get_interaction_data() -> InteractionData:
             desc = "%s\nIt's %s %s for the next minute." % [interactable_description, action_word, current_output.item_name.to_lower()]
         else:
             desc = "%s\nIt's almost done %s %s." % [interactable_description, action_word, current_output.item_name.to_lower()]
-    elif cooking_time_remaining == 0:
+    elif cooking_time_remaining == 0 and input_item_id != null:
         if !PlayerInventorySingleton.has_item():
-            action = InteractionAction.new("Take %s" % current_output.item_name, interact)
+            action = InteractionAction.new("Take %s" % current_output.item_name, take_item)
         desc = "%s\nThe %s is %s and ready to take." % [interactable_description, current_output.item_name, action_word_past]
     return InteractionData.new(interactable_name, desc, action)

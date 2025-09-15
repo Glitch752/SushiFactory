@@ -146,15 +146,13 @@ func register_item(item: Node2D, cell: Vector2i) -> void:
     if item.has_meta("target_pos"):
         item.remove_meta("target_pos")
 
-## Remove an item from the system (but don't free it). Should be used when machines take items (should we do this outselves?)
+## Remove an item from the system (but don't free it or remove it as a child). Should be used when machines take items (should we do this outselves?)
 func remove_item(item: Node2D) -> void:
     if item.has_meta("tile_pos"):
         var t = item.get_meta("tile_pos")
         item_tile_positions.erase(t)
         item.remove_meta("tile_pos")
     items.erase(item)
-
-    remove_child(item)
 
 #################### The Actual Simulation Wow
 
@@ -466,6 +464,8 @@ func add_item_to_belt(cell: Vector2i) -> void:
     var item = PlayerInventorySingleton.remove_item()
     register_item(item, cell)
 
+    SoundManager.item_placed(item)
+
 func take_item_from_belt(cell: Vector2i) -> void:
     if not belt_tiles_set.has(cell):
         return
@@ -480,6 +480,7 @@ func take_item_from_belt(cell: Vector2i) -> void:
 
 ## Take a plate with the specified item on it near the provided global position in a 3x3 area. Used for
 ## customers "taking" items off the sushi belt.
+## Note that this doesn't free the plate or item; it just removes it from the automation system.
 func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
     var cell = get_interaction_cell(global_pos)
     # Check the 3x3 area centered at cell
@@ -490,6 +491,7 @@ func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
                 var plate = item_tile_positions[check_cell]
                 if plate and plate.data.id == "plate" and plate.has_item(item_id):
                     remove_item(plate)
+                    SoundManager.item_taken(plate)
                     return plate
     return null
 

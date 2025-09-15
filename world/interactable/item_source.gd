@@ -18,6 +18,7 @@ func _ready():
 
 func interact():
     var item = PlayerInventorySingleton.create_item(item_data)
+    add_child(item) # For sound positioning
     PlayerInventorySingleton.try_grab_item(item)
     
     interact_audio.pitch_scale = randf_range(0.8, 1.1)

@@ -33,6 +33,11 @@ func held_item_data() -> ItemData:
         return held_item.data
     return null
 
+## Tries to grab the given item.
+## If the item is in the scene, it will be reparented to the player.
+## This will play a sound for taking the item as long as it's already in the tree.
+## Even if you just created an item, you should add it to the tree in a location that makes
+## sense so sounds play correctly.
 func try_grab_item(item: Node2D) -> bool:
     if has_item():
         # If the item isn't in the scene, we can free it
@@ -41,7 +46,11 @@ func try_grab_item(item: Node2D) -> bool:
         else:
             return false
     
-    if not item.is_inside_tree():
+    if item.is_inside_tree():
+        # It's already in the tree, so we're probably picking it up
+        SoundManager.item_taken(item)
+    else:
+        # Ensure the item is in the scene at all so we can reparent it
         get_tree().current_scene.add_child(item)
 
     held_item = item
@@ -54,7 +63,15 @@ func try_grab_item(item: Node2D) -> bool:
 
     return true
 
+## Removes the currently held item from the inventory and returns it.
+## The item is not freed, and it's removed as a child of the player.
+## Note that, unlike try_grab_item, this can't play suitable sounds since
+## we don't know where the item is going.
 func remove_item() -> Node2D:
+    if not has_item():
+        push_error("Tried to remove item when none was held!")
+        return null
+    
     var item = held_item
     
     held_item = null

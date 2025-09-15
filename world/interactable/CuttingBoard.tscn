@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwjlkol4p7ql8"]
+[gd_scene load_steps=15 format=3 uid="uid://cwjlkol4p7ql8"]
 
 [ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_mcwij"]
 [ext_resource type="Script" uid="uid://vrwyu05ebw1j" path="res://world/interactable/cutting_board.gd" id="2_gnlda"]
@@ -66,18 +66,26 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_gnlda"]
+
 [node name="CuttingBoard" instance=ExtResource("1_mcwij")]
 script = ExtResource("2_gnlda")
 
-[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="InteractableContent" index="1"]
 position = Vector2(0, -1)
 texture = SubResource("AtlasTexture_2r0tn")
 
-[node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="3"]
+[node name="ProgressBar" type="AnimatedSprite2D" parent="InteractableContent" index="2"]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_pet3a")
 speed_scale = 0.0
+
+[node name="InteractionSounds" type="AudioStreamPlayer2D" parent="InteractableContent" index="3"]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPolyphonic_gnlda")
+max_distance = 200.0
+bus = &"World"
 
 [node name="Timer" type="Timer" parent="." index="1"]

@@ -184,9 +184,12 @@ func process_customers(delta):
 func belts_updated():
     # Check each customer to see if their order is being fulfilled
     for customerData in customers:
-        if customerData.is_waiting() and automation_manager.take_item_on_plate_near(customerData.node.global_position, customerData.order.required_item_id):
-            print("Satisfied customer for item ", customerData.order.required_item_id)
-            satisfy_customer(customerData)
+        if customerData.is_waiting():
+            var plate = automation_manager.take_item_on_plate_near(customerData.node.global_position, customerData.order.required_item_id)
+            if plate:
+                plate.queue_free()
+                print("Satisfied customer for item ", customerData.order.required_item_id)
+                satisfy_customer(customerData)
 
 func _physics_process(delta):
     var target_waiting_position = entrance_path_length
