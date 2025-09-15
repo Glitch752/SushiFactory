@@ -98,7 +98,8 @@ func _unhandled_input(event):
         KEY_1: "plate",
         KEY_2: "cooked_rice",
         KEY_3: "sliced_salmon",
-        KEY_4: ""
+        KEY_4: "tamago",
+        KEY_5: ""
     }
 
     if event is InputEventKey and event.pressed and not event.echo:

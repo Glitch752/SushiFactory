@@ -134,6 +134,11 @@ class CustomerData:
     
     func is_waiting():
         return state == CustomerState.ENTERING or state == CustomerState.STOPPED
+    
+    func dispose():
+        if node and node.is_inside_tree():
+            node.queue_free()
+        order.dispose()
 
 ## Not on the CustomerData class because... GDScript is weird.
 func satisfy_customer(customerData: CustomerData) -> void:
@@ -198,7 +203,7 @@ func _physics_process(delta):
     var first_stopped_in_row = false
 
     for i in range(customers.size()):
-        var customerData = customers[i]
+        var customerData: CustomerData = customers[i]
         # TODO: Leaving customers.
         
         # holy stack of if statements
@@ -252,7 +257,7 @@ func _physics_process(delta):
             if target_progress == exit_path_length:
                 # Offscreen, remove the customer
                 remove_customers.append(customerData)
-                customerData.node.queue_free()
+                customerData.dispose()
     
     for customerData in remove_customers:
         customers.erase(customerData)

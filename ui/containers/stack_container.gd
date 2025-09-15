@@ -21,7 +21,7 @@ func _sort_children():
 func _get_minimum_size():
     var max_size = Vector2.ZERO
     for child in get_children():
-        if child is Control:
+        if child is Control and child.visible:
             var child_min_size = child.get_combined_minimum_size()
             max_size.x = max(max_size.x, child_min_size.x)
             max_size.y = max(max_size.y, child_min_size.y)

@@ -1,4 +1,6 @@
-extends PanelContainer
+@tool
+
+extends TransformContainer
 
 @export var order_text: String = "Order Text"
 @export var total_time: float = 120.0
@@ -21,10 +23,24 @@ func _ready():
     $%Countdown.max_value = total_time
     $%TextureRect.texture = order_texture
 
-    # var t = create_tween()
-    # t.tween_property(self, "
+    visual_position = Vector2(20, 0)
+    modulate.a = 0
 
-    update()
+    var t = create_tween()
+    t.tween_property(self, "visual_position", Vector2.ZERO, 0.25);
+    t.parallel().tween_property(self, "modulate:a", 1, 0.25);
+
+    if not Engine.is_editor_hint():
+        update()
+
+func remove():
+    var t = create_tween()
+    
+    t.tween_property(self, "visual_position", Vector2(20, 0), 0.25);
+    t.parallel().tween_property(self, "modulate:a", 0.0, 0.25);
+    # TODO: Interpolate height out (this didn't work when I tried it; maybe something wierd with box layout?)
+
+    t.finished.connect(queue_free)
 
 func update():
     $%Countdown.value = time_remaining

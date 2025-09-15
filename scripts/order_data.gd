@@ -26,7 +26,7 @@ func _init(total_time: float, required_item: ItemData):
 
 func dispose():
     if node and node.is_inside_tree():
-        node.queue_free()
+        node.remove()
     
     # we love ref counting memory leaks
     for connection in update_time.get_connections():
