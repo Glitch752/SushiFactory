@@ -13,7 +13,7 @@ var time_remaining: float:
         update_time.emit()
 
 # TODO: This could be more complex but meh
-var required_item_id: String
+var required_item_id: StringName
 var node: CanvasItem = null
 
 @warning_ignore("shadowed_variable")

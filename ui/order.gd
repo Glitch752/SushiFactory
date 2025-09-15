@@ -21,6 +21,9 @@ func _ready():
     $%Countdown.max_value = total_time
     $%TextureRect.texture = order_texture
 
+    # var t = create_tween()
+    # t.tween_property(self, "
+
     update()
 
 func update():

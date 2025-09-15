@@ -9,10 +9,14 @@ extends Container
 class_name StackContainer
 
 func _notification(what):
-    if what == NOTIFICATION_SORT_CHILDREN:
-        for child in get_children():
-            if child is Control:
-                fit_child_in_rect(child, Rect2(Vector2.ZERO, size))
+    match what: 
+        NOTIFICATION_SORT_CHILDREN:
+            _sort_children()
+
+func _sort_children():
+    for child in get_children():
+        if child is Control:
+            fit_child_in_rect(child, Rect2(Vector2.ZERO, size))
 
 func _get_minimum_size():
     var max_size = Vector2.ZERO

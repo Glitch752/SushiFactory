@@ -1,6 +1,7 @@
 extends "res://world/interactable/interactable.gd"
 
 var cooking_time_remaining = 0.0
+## StringName | null
 var input_item_id = null
 var current_output: ItemData = null
 
@@ -33,7 +34,7 @@ const COOK_TIME = 20.0
 ## If the machine is currently active.
 var active: bool = false
 
-var recipes: Dictionary[String, String] # input item id -> output item id
+var recipes: Dictionary[StringName, StringName] # input item id -> output item id
 
 func _ready():
     recipes = DishCombinationsSingleton.get_single_input_dishes_for(machine_id)

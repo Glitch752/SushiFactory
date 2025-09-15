@@ -18,11 +18,11 @@ var contents: Array[ContentData] = []
 var will_make_dish: DishCombination = null
 
 func can_add(item: ItemData) -> bool:
-    return item.id != "plate"
+    return item.id != &"plate"
 
 var rng = RandomNumberGenerator.new()
 
-func has_item(item_id: String) -> bool:
+func has_item(item_id: StringName) -> bool:
     for content in contents:
         if content.item.id == item_id:
             return true
@@ -50,7 +50,7 @@ func add_to_plate(item: ItemData, visual_only: bool = false) -> void:
     process_dishes()
 
 func process_dishes():
-    var found_ingredients = {}
+    var found_ingredients: Dictionary[StringName, int] = {}
     for content in contents:
         if content.item.id in found_ingredients:
             found_ingredients[content.item.id] += 1

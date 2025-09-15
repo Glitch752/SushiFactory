@@ -3,7 +3,7 @@ extends "res://world/interactable/interactable.gd"
 var current_object: Node2D = null
 
 func has_plate():
-    return current_object != null and current_object.data.id == "plate"
+    return current_object != null and current_object.data.id == &"plate"
 
 func take_item():
     var object = current_object

@@ -25,7 +25,7 @@ func create_item(data: ItemData) -> Node2D:
 func has_item() -> bool:
     return held_item != null
 
-func holding_item(id: String) -> bool:
+func holding_item(id: StringName) -> bool:
     return has_item() and held_item.data.id == id
 
 func held_item_data() -> ItemData:
@@ -81,7 +81,7 @@ func remove_item() -> Node2D:
     
     return item
 
-func load_item_data(item_id: String) -> ItemData:
+func load_item_data(item_id: StringName) -> ItemData:
     if item_id == null:
         push_error("Tried to load a null item!")
         return preload("res://world/items/data/cucumber_item_data.tres")

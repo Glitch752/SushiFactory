@@ -2,23 +2,23 @@ extends Node
 
 @export var dish_combinations: Array[DishCombination] = []
 
-func get_dish_by_result_id(result_id: String) -> DishCombination:
+func get_dish_by_result_id(result_id: StringName) -> DishCombination:
     for dish in dish_combinations:
         if dish.result.id == result_id:
             return dish
     return null
 
-func get_dishes_for_machine(macine: String) -> Array[DishCombination]:
+func get_dishes_for_machine(machine: String) -> Array[DishCombination]:
     var results: Array[DishCombination] = []
     for dish in dish_combinations:
-        if dish.machine == macine:
+        if dish.machine == machine:
             results.append(dish)
     return results
 
 ## Returns a dictionary mapping from ingredient item id to result item id for dishes that can be made with a single ingredient in the specified machine.
 ## This is useful for machines like the cutting board where you can only process one item at a time.
-func get_single_input_dishes_for(machine: String) -> Dictionary[String, String]:
-    var results: Dictionary[String, String] = {}
+func get_single_input_dishes_for(machine: String) -> Dictionary[StringName, StringName]:
+    var results: Dictionary[StringName, StringName] = {}
     for dish in dish_combinations:
         if dish.machine == machine and dish.ingredients.size() == 1:
             results[dish.ingredients[0].item.id] = dish.result.id
