@@ -5,6 +5,8 @@ var CUT_ITEMS = DishCombinationsSingleton.get_single_input_dishes_for("cutting_b
 var cut_progress = 0
 var item = null
 
+# TODO: Can this create a performance problem? I don't know how expensive constantly playing a polyphonic stream from every interactable is
+
 @onready var interaction_sounds: AudioStreamPlayer2D = $%InteractionSounds
 var playback: AudioStreamPlaybackPolyphonic
 

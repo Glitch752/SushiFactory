@@ -7,6 +7,11 @@ var ComputerDesktopScene = preload("res://world/interactable/computer/ComputerDe
 var computer_ui_open: bool = false:
     set(value):
         computer_ui_open = value
+        
+        if value:
+            $%OnSound.play()
+        else:
+            $%OffSound.play()
 
         # From the Godot documentation:
         # `Note: It's recommended to keep this property above 0.0, as the game may behave unexpectedly otherwise.`

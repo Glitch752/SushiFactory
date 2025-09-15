@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://btrh3cgarkwx2"]
+[gd_scene load_steps=10 format=3 uid="uid://btrh3cgarkwx2"]
 
 [ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_cfe5b"]
 [ext_resource type="Script" uid="uid://blq4ew5laodth" path="res://world/interactable/computer.gd" id="2_83uxb"]
 [ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="2_ukfk5"]
 [ext_resource type="Texture2D" uid="uid://nu2efi741647" path="res://images/infoicons.png" id="3_a7wyj"]
 [ext_resource type="Script" uid="uid://b2mwkk3333tir" path="res://scripts/hover.gd" id="4_83uxb"]
+[ext_resource type="AudioStream" uid="uid://cxik01jdhrohc" path="res://audio/computer_on.wav" id="6_1bq85"]
+[ext_resource type="AudioStream" uid="uid://cfoyhtxyjpk6p" path="res://audio/computer_off.wav" id="7_0u2su"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a7wyj"]
 atlas = ExtResource("2_ukfk5")
@@ -27,3 +29,19 @@ position = Vector2(0, -15)
 scale = Vector2(1.00342, 1)
 texture = SubResource("AtlasTexture_m3sid")
 script = ExtResource("4_83uxb")
+
+[node name="OnSound" type="AudioStreamPlayer2D" parent="InteractableContent" index="3"]
+unique_name_in_owner = true
+stream = ExtResource("6_1bq85")
+volume_db = -2.0
+max_distance = 150.0
+max_polyphony = 4
+bus = &"World"
+
+[node name="OffSound" type="AudioStreamPlayer2D" parent="InteractableContent" index="4"]
+unique_name_in_owner = true
+stream = ExtResource("7_0u2su")
+volume_db = -2.0
+max_distance = 150.0
+max_polyphony = 4
+bus = &"World"

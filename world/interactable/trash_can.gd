@@ -3,6 +3,8 @@ extends "res://world/interactable/interactable.gd"
 
 func interact():
     var item = PlayerInventorySingleton.remove_item()
+    add_child(item) # For sound source
+    SoundManager.item_placed(item)
     if item:
         item.queue_free()
 

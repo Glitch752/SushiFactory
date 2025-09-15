@@ -69,6 +69,7 @@ func animate():
     var main_animations = create_tween()
     main_animations.set_trans(Tween.TRANS_QUAD)
     main_animations.tween_property(dayTitle, "modulate:a", 1.0, 0.25)
+    main_animations.parallel().tween_callback($AudioStreamPlayer.play).set_delay(0.2)
 
     # We animate from 0 width to the starting minimum width by multiples of 8px because it snaps to our pixel grid
     var hr_tween = create_tween()
