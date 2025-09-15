@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 ## Speed in pixels per second.
-@export var movement_speed := 150
-@export var animation_base_speed := 100
+@export var movement_speed = 150
+@export var animation_base_speed = 100
 
 # We only have player animations for the cardinal directions, but the player
 # movement is analog. This stores the last direction that we had a cardinal
@@ -28,7 +28,7 @@ func _ready():
     animated_sprite.play()
 
 func get_player_input(delta) -> void:
-    var vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+    var vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
     var target_velocity = vector * movement_speed
     var acceleration = 1200.0
 

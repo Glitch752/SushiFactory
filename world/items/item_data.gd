@@ -3,7 +3,7 @@ extends Resource
 class_name ItemData
 
 ## The ID of this item. Used only internally for things like recipes.
-@export var id: String
+@export var id: StringName
 ## The player-visible name of this item.
 @export var item_name: String
 ## The sprite used for this item, both in the world and UI.

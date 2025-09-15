@@ -489,7 +489,7 @@ func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
             var check_cell = cell + Vector2i(dx, dy)
             if item_tile_positions.has(check_cell):
                 var plate = item_tile_positions[check_cell]
-                if plate and plate.data.id == "plate" and plate.has_item(item_id):
+                if plate and plate.data.id == &"plate" and plate.has_item(item_id):
                     remove_item(plate)
                     SoundManager.item_taken(plate)
                     return plate

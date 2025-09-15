@@ -1,9 +1,9 @@
 ## Makes an object hover up and down subtly
 extends Node2D
 
-@export var hover_height := 1.0
-@export var hover_speed := 1.5
-var base_y := 0.0
+@export var hover_height = 1.0
+@export var hover_speed = 1.5
+var base_y = 0.0
 
 func _ready():
     base_y = position.y
