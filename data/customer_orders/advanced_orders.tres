@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cx3wtsk0viaog" path="res://scripts/order_possibilities.gd" id="1_x36qj"]
 [ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="2_kwrro"]
-[ext_resource type="Resource" uid="uid://cmlcprlouf8xa" path="res://world/items/data/california_roll_item_data.tres" id="3_x36qj"]
-[ext_resource type="Resource" uid="uid://do2tnm1sebo21" path="res://world/items/data/spicy_tuna_roll_item_data.tres" id="4_kwrro"]
-[ext_resource type="Resource" uid="uid://s8px34jyxmgk" path="res://world/items/data/salmon_temaki_item_data.tres" id="5_gpd3w"]
-[ext_resource type="Resource" uid="uid://b4k3phsx0chkl" path="res://world/items/data/tuna_temaki_item_data.tres" id="6_5joo6"]
+[ext_resource type="Resource" uid="uid://cmlcprlouf8xa" path="res://data/items/california_roll_item_data.tres" id="3_x36qj"]
+[ext_resource type="Resource" uid="uid://do2tnm1sebo21" path="res://data/items/spicy_tuna_roll_item_data.tres" id="4_kwrro"]
+[ext_resource type="Resource" uid="uid://s8px34jyxmgk" path="res://data/items/salmon_temaki_item_data.tres" id="5_gpd3w"]
+[ext_resource type="Resource" uid="uid://b4k3phsx0chkl" path="res://data/items/tuna_temaki_item_data.tres" id="6_5joo6"]
 
 [resource]
 script = ExtResource("1_x36qj")

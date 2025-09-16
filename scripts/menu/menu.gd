@@ -17,7 +17,7 @@ func spawn_item():
     path_follower.rotates = false
 
     var plate = PlateScene.instantiate()
-    plate.data = preload("res://world/items/data/plate_item_data.tres")
+    plate.data = preload("res://data/items/plate_item_data.tres")
     plate.position = Vector2.ONE * 3 # yay for magic numbers
     plate.scale = Vector2.ONE * 8
 

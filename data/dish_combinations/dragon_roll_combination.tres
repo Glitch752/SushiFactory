@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="DishCombination" load_steps=14 format=3 uid="uid://bt1bnlpwb0gfg"]
 
 [ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_hf1r7"]
-[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="2_0d1ah"]
-[ext_resource type="Resource" uid="uid://5m8u3i5er6yv" path="res://world/items/data/dragon_roll_item_data.tres" id="2_5iiro"]
-[ext_resource type="Resource" uid="uid://6kmr5tuwi2wb" path="res://world/items/data/shrimp_tempura_item_data.tres" id="4_57o3c"]
-[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/nori_bundle_item_data.tres" id="4_g38o4"]
-[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="5_g38o4"]
-[ext_resource type="Resource" uid="uid://chb3ty3o3cosn" path="res://world/items/data/sliced_avocado_item_data.tres" id="6_6axjd"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/cooked_rice_item_data.tres" id="2_0d1ah"]
+[ext_resource type="Resource" uid="uid://5m8u3i5er6yv" path="res://data/items/dragon_roll_item_data.tres" id="2_5iiro"]
+[ext_resource type="Resource" uid="uid://6kmr5tuwi2wb" path="res://data/items/shrimp_tempura_item_data.tres" id="4_57o3c"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://data/items/nori_bundle_item_data.tres" id="4_g38o4"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://data/items/sliced_cucumber_item_data.tres" id="5_g38o4"]
+[ext_resource type="Resource" uid="uid://chb3ty3o3cosn" path="res://data/items/sliced_avocado_item_data.tres" id="6_6axjd"]
 [ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="6_kh86m"]
 
 [sub_resource type="Resource" id="Resource_kh86m"]

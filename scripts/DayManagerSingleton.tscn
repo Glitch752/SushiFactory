@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://ca36w64e1wcvh" path="res://scripts/day_manager_singleton.gd" id="1_8tv76"]
 [ext_resource type="Script" uid="uid://dlvmqlayss6ln" path="res://scripts/day_data.gd" id="2_viq34"]
 [ext_resource type="Script" uid="uid://cx3wtsk0viaog" path="res://scripts/order_possibilities.gd" id="3_6o47b"]
-[ext_resource type="Resource" uid="uid://diholduxt7inv" path="res://scripts/customer_order_data/basic_orders.tres" id="4_dm8jb"]
-[ext_resource type="Resource" uid="uid://c4p7qiqbsfy83" path="res://scripts/customer_order_data/medium_orders.tres" id="5_j0v3x"]
-[ext_resource type="Resource" uid="uid://cvfjnlyjtkxgr" path="res://scripts/customer_order_data/advanced_orders.tres" id="6_a31cr"]
-[ext_resource type="Resource" uid="uid://d3buq6vipwtqk" path="res://scripts/customer_order_data/expert_orders.tres" id="7_53pog"]
+[ext_resource type="Resource" uid="uid://diholduxt7inv" path="res://data/customer_orders/basic_orders.tres" id="4_dm8jb"]
+[ext_resource type="Resource" uid="uid://c4p7qiqbsfy83" path="res://data/customer_orders/medium_orders.tres" id="5_j0v3x"]
+[ext_resource type="Resource" uid="uid://cvfjnlyjtkxgr" path="res://data/customer_orders/advanced_orders.tres" id="6_a31cr"]
+[ext_resource type="Resource" uid="uid://d3buq6vipwtqk" path="res://data/customer_orders/expert_orders.tres" id="7_53pog"]
 
 [sub_resource type="Resource" id="Resource_rnkol"]
 script = ExtResource("2_viq34")

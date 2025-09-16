@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="DishCombination" load_steps=10 format=3 uid="uid://sbwaxx16kh3g"]
 
 [ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_s60w0"]
-[ext_resource type="Resource" uid="uid://dgva8y3u01i30" path="res://world/items/data/cucumber_maki_item_data.tres" id="2_s60w0"]
-[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="2_sygx7"]
-[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="3_ig7ah"]
+[ext_resource type="Resource" uid="uid://dgva8y3u01i30" path="res://data/items/cucumber_maki_item_data.tres" id="2_s60w0"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://data/items/sliced_cucumber_item_data.tres" id="2_sygx7"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/cooked_rice_item_data.tres" id="3_ig7ah"]
 [ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="3_sygx7"]
-[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/nori_bundle_item_data.tres" id="3_u8frn"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://data/items/nori_bundle_item_data.tres" id="3_u8frn"]
 
 [sub_resource type="Resource" id="Resource_s60w0"]
 script = ExtResource("1_s60w0")

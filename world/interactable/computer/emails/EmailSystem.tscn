@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d4g17yqri3h78" path="res://world/interactable/computer/emails/email_system.gd" id="1_svpol"]
 [ext_resource type="Script" uid="uid://ch2ksvvi46xgy" path="res://world/interactable/computer/emails/email_send_data.gd" id="2_xqnxf"]
-[ext_resource type="Resource" uid="uid://b4iyl4c3aqqu" path="res://world/interactable/computer/emails/email1.tres" id="3_xqnxf"]
-[ext_resource type="Resource" uid="uid://dlvkfn0bfkxu2" path="res://world/interactable/computer/emails/email2.tres" id="4_gh114"]
+[ext_resource type="Resource" uid="uid://b4iyl4c3aqqu" path="res://data/emails/email1.tres" id="3_xqnxf"]
+[ext_resource type="Resource" uid="uid://dlvkfn0bfkxu2" path="res://data/emails/email2.tres" id="4_gh114"]
 
 [node name="EmailSystem" type="Node"]
 script = ExtResource("1_svpol")

@@ -84,8 +84,8 @@ func remove_item() -> Node2D:
 func load_item_data(item_id: StringName) -> ItemData:
     if item_id == null:
         push_error("Tried to load a null item!")
-        return preload("res://world/items/data/cucumber_item_data.tres")
-    return load("res://world/items/data/%s_item_data.tres" % item_id)
+        return preload("res://data/items/cucumber_item_data.tres")
+    return load("res://data/items/%s_item_data.tres" % item_id)
 
 
 # For debugging only!

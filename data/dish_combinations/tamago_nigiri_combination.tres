@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DishCombination" load_steps=8 format=3 uid="uid://bskxfq7x242ws"]
 
 [ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_hhuwx"]
-[ext_resource type="Resource" uid="uid://bl2y6osmcngo0" path="res://world/items/data/tamago_item_data.tres" id="2_hhuwx"]
-[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="3_3x7f2"]
-[ext_resource type="Resource" uid="uid://d0mv0ubu0el5" path="res://world/items/data/tamago_nigiri_item_data.tres" id="4_hhuwx"]
+[ext_resource type="Resource" uid="uid://bl2y6osmcngo0" path="res://data/items/tamago_item_data.tres" id="2_hhuwx"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/cooked_rice_item_data.tres" id="3_3x7f2"]
+[ext_resource type="Resource" uid="uid://d0mv0ubu0el5" path="res://data/items/tamago_nigiri_item_data.tres" id="4_hhuwx"]
 [ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://world/interactable/dishes/DishCombination.gd" id="5_lxmtb"]
 
 [sub_resource type="Resource" id="Resource_2eyt1"]
