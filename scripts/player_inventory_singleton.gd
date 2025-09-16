@@ -92,9 +92,22 @@ func _unhandled_input(event):
         KEY_1: "plate",
         KEY_2: "cooked_rice",
         KEY_3: "sliced_salmon",
-        KEY_4: "tamago",
+        KEY_4: [], # cycle; set below
         KEY_5: ""
     }
+
+    # We just put all of the remaining items in the cycle
+    var ITEM_CYCLE_ITEMS = DataLoader.items.values().map(func(item: ItemData):
+        return item.id
+    )
+    for item in DEBUG_ITEMS.values():
+        if item is String:
+            ITEM_CYCLE_ITEMS.erase(item)
+        elif item is Array:
+            for subitem in item:
+                ITEM_CYCLE_ITEMS.erase(subitem)
+    
+    DEBUG_ITEMS[KEY_4] = ITEM_CYCLE_ITEMS
 
     if event is InputEventKey and event.pressed and not event.echo:
         var item = null
@@ -108,8 +121,16 @@ func _unhandled_input(event):
                 
                 var data = DataLoader.get_item(item_id)
                 item = create_item(data)
-            elif item_id is Node2D:
-                item = item_id.duplicate()
+            elif item_id is Array: # Cycle through the items
+                if has_item():
+                    var current_id = held_item.data.id
+                    var current_index = item_id.find(current_id)
+                    var next_index = (current_index + 1) % item_id.size()
+                    var data = DataLoader.get_item(item_id[next_index])
+                    item = create_item(data)
+                else:
+                    var data = DataLoader.get_item(item_id[0])
+                    item = create_item(data)
         
         if item != null:
             if has_item():

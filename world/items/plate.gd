@@ -34,7 +34,39 @@ func add_to_plate(item: ItemData, visual_only: bool = false) -> void:
     var tex = item.item_sprite.get_image()
     @warning_ignore("integer_division")
     tex.resize(tex.get_width() / 2, tex.get_height() / 2, Image.INTERPOLATE_NEAREST)
-    item_sprite.texture = ImageTexture.create_from_image(tex)
+
+    # Add an outline of dark pixels to the texture
+    # This makes white items like rice visible on the white plates. I'm not a huge fan,
+    # but it's the best solution I could come up with.
+
+    var outline_tex = Image.create(tex.get_width() + 2, tex.get_height() + 2, false, Image.FORMAT_RGBA8)
+    outline_tex.blit_rect(tex, Rect2(0, 0, tex.get_width(), tex.get_height()), Vector2(1, 1))
+
+    var outline_neighbors = [
+        # We only use the cardinal direction neighbors for outlines
+        Vector2(0, 1),
+        Vector2(1, 0),
+        # For a shadow effect instead, the first two can be commented. It doesn't look great, though.
+        Vector2(0, -1),
+        Vector2(-1, 0),
+    ]
+    for x in range(outline_tex.get_width()):
+        for y in range(outline_tex.get_height()):
+            var pixel = outline_tex.get_pixel(x, y)
+            if pixel.a == 0.0:
+                # Transparent pixel, check neighbors
+                for offset in outline_neighbors:
+                    var nx = x + int(offset.x) - 1
+                    var ny = y + int(offset.y) - 1
+                    if nx >= 0 and nx < tex.get_width() and ny >= 0 and ny < tex.get_height():
+                        var neighbor_pixel = tex.get_pixel(nx, ny)
+                        if neighbor_pixel.a > 0.0:
+                            # Neighbor is not transparent, set this pixel to a dark color
+                            outline_tex.set_pixel(x, y, Color(neighbor_pixel.r * 0.5, neighbor_pixel.g * 0.5, neighbor_pixel.b * 0.5, 1))
+                            break
+                # <---------^^^^^ break to here (I'm in an ascii art mood :D)
+
+    item_sprite.texture = ImageTexture.create_from_image(outline_tex)
 
     item_sprite.position = Vector2(rng.randi_range(-3, 3), rng.randi_range(-3, 1))
     
