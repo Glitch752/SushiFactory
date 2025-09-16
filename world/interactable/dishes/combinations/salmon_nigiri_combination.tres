@@ -22,6 +22,6 @@ metadata/_custom_type_script = "uid://dju7gp1bh43js"
 script = ExtResource("3_6psyo")
 ingredients = Array[ExtResource("1_vkxe2")]([SubResource("Resource_21mhq"), SubResource("Resource_rtuua")])
 result = ExtResource("4_41tq8")
-recipe_information = "[item]Salmon Nigiri[/item] is made with [item]sliced salmon[/item] and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Nigiri is a traditional Japanese dish consisting of a small mound of sushi rice topped with a slice of raw fish."
+recipe_information = "[item]Salmon_nigiri[/item] is made with [item]sliced_salmon[/item] and [item]cooked_rice[/item] from a [machine]rice_cooker[/machine]. Nigiri is a traditional Japanese dish consisting of a small mound of sushi rice topped with a slice of raw fish."
 machine = "plate"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

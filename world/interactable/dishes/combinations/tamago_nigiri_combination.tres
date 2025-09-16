@@ -22,6 +22,6 @@ metadata/_custom_type_script = "uid://dju7gp1bh43js"
 script = ExtResource("5_lxmtb")
 ingredients = Array[ExtResource("1_hhuwx")]([SubResource("Resource_2eyt1"), SubResource("Resource_3x7f2")])
 result = ExtResource("4_hhuwx")
-recipe_information = "[item]Tamago Nigiri[/item] is made with [item]tamago[/item] (egg omelette) from a [machine]frying pan[/machine] and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Tamago nigiri is a traditional Japanese dish consisting of a small mound of sushi rice topped with a slice of tamago."
+recipe_information = "[item]Tamago_nigiri[/item] is made with [item]tamago[/item] (egg omelette) from a [machine]frying_pan[/machine] and [item]cooked_rice[/item] from a [machine]rice_cooker[/machine]. [item]Tamago_nigiri[/item] is a traditional Japanese dish consisting of a small mound of sushi rice topped with a slice of tamago."
 machine = "plate"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

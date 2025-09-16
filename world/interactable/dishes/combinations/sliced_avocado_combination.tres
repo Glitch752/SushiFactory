@@ -15,6 +15,6 @@ metadata/_custom_type_script = "uid://dju7gp1bh43js"
 script = ExtResource("4_0dyxb")
 ingredients = Array[ExtResource("1_i41g3")]([SubResource("Resource_7rt25")])
 result = ExtResource("3_i41g3")
-recipe_information = "[item]Sliced avocado[/item] is made using a [machine]cutting board[/machine] to slice [rawitem]avocado[/rawitem]."
+recipe_information = "[item]Sliced_avocado[/item] is made using a [machine]cutting_board[/machine] to slice [item]avocado[/item]."
 machine = "cutting_board"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

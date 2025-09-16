@@ -2,7 +2,7 @@ extends Resource
 
 class_name ItemData
 
-## The ID of this item. Used only internally for things like recipes.
+## The ID of this item. Should be lowercase because capitalization is used for formatting.
 @export var id: StringName
 ## The player-visible name of this item.
 @export var item_name: String

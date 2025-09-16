@@ -43,6 +43,6 @@ func update(action: InteractionAction):
     
     if action.time_required > 0.0:
         progress.visible = true
-        progress.value = ease(action.current_time / action.time_required, 0.5)
+        progress.value = ease(action.current_time / action.time_required, -1.2)
     else:
         progress.visible = false

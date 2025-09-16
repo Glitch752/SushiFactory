@@ -14,7 +14,13 @@ func apply_data():
         name = data.item_name
 
 func get_description() -> String:
-    return data.description
+    var description = data.description
+    
+    var machines = DishCombinationsSingleton.get_machine_descriptions(data.id)
+    if machines.size() > 0:
+        description += "\n\n" + "\n".join(machines)
+    
+    return description
 
 func get_take_sound() -> AudioStream:
     return preload("res://audio/miscTake1.wav")

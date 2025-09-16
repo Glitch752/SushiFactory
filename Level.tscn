@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://bm2ligtkokn1a" path="res://world/items/data/rice_item_data.tres" id="8_4eo0i"]
 [ext_resource type="PackedScene" uid="uid://b48amfwogm8ge" path="res://world/interactable/TrashCan.tscn" id="9_86ljf"]
 [ext_resource type="Resource" uid="uid://bvucci4fj2n1m" path="res://world/items/data/salmon_item_data.tres" id="10_ofirr"]
-[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="11_dn5x0"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/nori_bundle_item_data.tres" id="11_dn5x0"]
 [ext_resource type="PackedScene" uid="uid://cwjlkol4p7ql8" path="res://world/interactable/CuttingBoard.tscn" id="12_d6u53"]
 [ext_resource type="Resource" uid="uid://d1gketbtr6jda" path="res://world/items/data/bluefin_tuna_item_data.tres" id="13_3ppgv"]
 [ext_resource type="Resource" uid="uid://dkegtyxt0ey3d" path="res://world/items/data/cucumber_item_data.tres" id="13_sypgb"]

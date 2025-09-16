@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_pcp5k"]
 [ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://world/items/data/cooked_rice_item_data.tres" id="2_8p04a"]
-[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/seaweed_bundle_item_data.tres" id="3_n37kn"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://world/items/data/nori_bundle_item_data.tres" id="3_n37kn"]
 [ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://world/items/data/sliced_cucumber_item_data.tres" id="4_teyqy"]
 [ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://world/items/data/sliced_tuna_item_data.tres" id="6_ftg0v"]
 [ext_resource type="Resource" uid="uid://ddqwxyrwx2dwk" path="res://world/items/data/shrimp_item_data.tres" id="6_pcp5k"]
@@ -57,6 +57,6 @@ metadata/_custom_type_script = "uid://dju7gp1bh43js"
 script = ExtResource("10_l53f5")
 ingredients = Array[ExtResource("1_pcp5k")]([SubResource("Resource_n37kn"), SubResource("Resource_teyqy"), SubResource("Resource_jr25j"), SubResource("Resource_ftg0v"), SubResource("Resource_evwrc"), SubResource("Resource_q0k7c"), SubResource("Resource_xwmyl")])
 result = ExtResource("9_pcp5k")
-recipe_information = "[item]Deluxe chirashi bowls[/item] are made with [item]sliced salmon[/item], [item]sliced tuna[/item], [rawitem]shrimp[/rawitem], [item]cucumber slices[/item], [item]tamago[/item] from a [machine]frying pan[/machine], [rawitem]nori[/rawitem] (seaweed), and [item]cooked rice[/item] from a [machine]rice cooker[/machine]. Chirashi bowls are traditional Japanese rice bowls topped with ingredients typically found in sushi; they're essentially deconstructed sushi."
+recipe_information = "[item]Deluxe_chirashi_bowl[/item]s are made with [item]sliced_salmon[/item], [item]sliced_tuna[/item], [item]shrimp[/item], [item]sliced_cucumber[/item], [item]tamago[/item] from a [machine]frying_pan[/machine], [item]nori_bundle[/item] (seaweed), and [item]cooked_rice[/item] from a [machine]rice_cooker[/machine]. Chirashi bowls are traditional Japanese rice bowls topped with ingredients typically found in sushi; they're essentially deconstructed sushi."
 machine = "plate"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

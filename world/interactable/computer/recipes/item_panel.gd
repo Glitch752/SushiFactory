@@ -9,9 +9,6 @@ var recipe_scene = preload("res://world/interactable/computer/recipes/OpenRecipe
 
 var dish: DishCombination
 
-const ITEM_COLOR = preload("res://world/interactable/computer/recipes/open_recipe_app_scene.gd").ITEM_COLOR
-const RAW_ITEM_COLOR = preload("res://world/interactable/computer/recipes/open_recipe_app_scene.gd").RAW_ITEM_COLOR
-
 func _ready():
     if not item:
         return # Probably an editor placeholder
@@ -25,9 +22,9 @@ func _ready():
 
     $%RecipeName.label_settings = $%RecipeName.label_settings.duplicate()
     if dish != null:
-        $%RecipeName.label_settings.font_color = ITEM_COLOR
+        $%RecipeName.label_settings.font_color = TagHighlight.ITEM_COLOR
     else:
-        $%RecipeName.label_settings.font_color = RAW_ITEM_COLOR
+        $%RecipeName.label_settings.font_color = TagHighlight.RAW_ITEM_COLOR
 
 func _on_mouse_entered():
     SoundManager.play_mouse_enter()

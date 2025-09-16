@@ -15,6 +15,6 @@ metadata/_custom_type_script = "uid://dju7gp1bh43js"
 script = ExtResource("4_i78y0")
 ingredients = Array[ExtResource("1_gx1mx")]([SubResource("Resource_7ysfd")])
 result = ExtResource("3_gx1mx")
-recipe_information = "[item]Shrimp Tempura[/item] is made with [rawitem]raw shrimp[/rawitem] using a [machine]deep fryer[/machine]. Shrimp tempura is a popular fried Japanese dish made from shrimp."
+recipe_information = "[item]Shrimp_tempura[/item] is made with [item]shrimp[/item] using a [machine]deep fryer[/machine]. Shrimp tempura is a popular fried Japanese dish made from shrimp."
 machine = "deep_fryer"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

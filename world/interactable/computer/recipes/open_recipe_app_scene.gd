@@ -5,33 +5,11 @@ extends MarginContainer
 # I have no clue why this doesn't work with preload(...)
 var ItemPanelScene = load("res://world/interactable/computer/recipes/ItemPanel.tscn")
 
-const ITEM_COLOR = Color(0.5, 0.9, 0.5) # Light green
-const RAW_ITEM_COLOR = Color(0.9, 0.5, 0.9) # Light purple
-const MACHINE_COLOR = Color(1.0, 0.7, 0.5) # Light orange
-
-func convert_custom_colors(text: String) -> String:
-    var result = text
-    result = result.replace("[item]", "[color=#" + ITEM_COLOR.to_html(false) + "]")
-    result = result.replace("[/item]", "[/color]")
-    result = result.replace("[rawitem]", "[color=#" + RAW_ITEM_COLOR.to_html(false) + "]")
-    result = result.replace("[/rawitem]", "[/color]")
-    result = result.replace("[machine]", "[color=#" + MACHINE_COLOR.to_html(false) + "]")
-    result = result.replace("[/machine]", "[/color]")
-    return result
-
-## Formats an item's name with its associated color in BBCode tags.
-static func format_item_color(item: ItemData) -> String:
-    var item_dish = DishCombinationsSingleton.get_dish_by_result_id(item.id)
-    if item_dish != null:
-        return "[color=#" + ITEM_COLOR.to_html(false) + "]" + item.item_name + "[/color]"
-    else:
-        return "[color=#" + RAW_ITEM_COLOR.to_html(false) + "]" + item.item_name + "[/color]"
-
 func _ready():
     $%RecipeName.text = dish.result.item_name
     $%RecipeTexture.texture = dish.result.item_sprite
 
-    $%Description.text = convert_custom_colors(dish.recipe_information)
+    $%Description.text = TagHighlight.convert_custom_tags(dish.recipe_information)
 
     for ingredient in dish.ingredients:
         var ingredient_entry: PanelContainer = ItemPanelScene.instantiate()

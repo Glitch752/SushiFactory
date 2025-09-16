@@ -2,8 +2,6 @@ extends "res://world/items/item.gd"
 
 var plate_dishes = DishCombinationsSingleton.get_dishes_for_machine("plate")
 
-var format_item_color = preload("res://world/interactable/computer/recipes/open_recipe_app_scene.gd").format_item_color
-
 class ContentData:
     var item: ItemData
     var sprite: Sprite2D
@@ -96,13 +94,13 @@ func get_description():
         return "An empty plate."
     var desc = "A plate with:[ul]"
     for itemData in contents:
-        desc += "\n %s" % format_item_color.call(itemData.item)
+        desc += "\n [item]%s[/item]" % itemData.item.id
     desc += "\n[/ul]"
 
     if will_make_dish != null:
-        desc += "\nCan make %s." % format_item_color.call(will_make_dish.result)
+        desc += "\nCan make [item]%s[/item]." % will_make_dish.result.id
     
-    return desc
+    return TagHighlight.convert_custom_tags(desc)
 
 func get_take_sound() -> AudioStream:
     return preload("res://audio/plate_take.wav")

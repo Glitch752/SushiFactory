@@ -15,6 +15,6 @@ metadata/_custom_type_script = "uid://dju7gp1bh43js"
 script = ExtResource("5_yh68m")
 ingredients = Array[ExtResource("1_5nr45")]([SubResource("Resource_5nr45")])
 result = ExtResource("2_h5la0")
-recipe_information = "[item]Tamago[/item] is made with an [rawitem]egg[/rawitem] using a [machine]frying pan[/machine]. Tamago is a traditional Japanese omelette made by rolling together layers of fried eggs."
+recipe_information = "[item]Tamago[/item] is made with an [item]egg[/item] using a [machine]frying_pan[/machine]. [item]Tamago[/item] is a traditional Japanese omelette made by rolling together layers of fried eggs."
 machine = "frying_pan"
 metadata/_custom_type_script = "uid://c5vkxb15dj8xn"
