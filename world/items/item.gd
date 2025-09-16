@@ -16,7 +16,7 @@ func apply_data():
 func get_description() -> String:
     var description = data.description
     
-    var machines = DishCombinationsSingleton.get_machine_descriptions(data.id)
+    var machines = DataLoader.get_machine_descriptions(data.id)
     if machines.size() > 0:
         description += "\n\n" + "\n".join(machines)
     

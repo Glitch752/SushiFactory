@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=15 format=3 uid="uid://bt1bnlpwb0gfg"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_hf1r7"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/ingredients/cooked_rice.tres" id="2_0d1ah"]
+[ext_resource type="Resource" uid="uid://5m8u3i5er6yv" path="res://data/items/dishes/dragon_roll.tres" id="2_5iiro"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://data/items/raw_ingredients/nori_bundle.tres" id="3_r2xfq"]
+[ext_resource type="Resource" uid="uid://6kmr5tuwi2wb" path="res://data/items/ingredients/shrimp_tempura.tres" id="4_57o3c"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://data/items/ingredients/sliced_cucumber.tres" id="5_g38o4"]
+[ext_resource type="Resource" uid="uid://chb3ty3o3cosn" path="res://data/items/ingredients/sliced_avocado.tres" id="6_6axjd"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="6_kh86m"]
+[ext_resource type="Resource" uid="uid://b5d54rlwha0jx" path="res://data/machines/plate.tres" id="7_efjmb"]
+
+[sub_resource type="Resource" id="Resource_kh86m"]
+script = ExtResource("1_hf1r7")
+item = ExtResource("2_0d1ah")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_xs2o1"]
+script = ExtResource("1_hf1r7")
+item = ExtResource("3_r2xfq")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_h8sqs"]
+script = ExtResource("1_hf1r7")
+item = ExtResource("4_57o3c")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_iw8ly"]
+script = ExtResource("1_hf1r7")
+item = ExtResource("5_g38o4")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_hblpc"]
+script = ExtResource("1_hf1r7")
+item = ExtResource("6_6axjd")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("6_kh86m")
+ingredients = Array[ExtResource("1_hf1r7")]([SubResource("Resource_kh86m"), SubResource("Resource_xs2o1"), SubResource("Resource_h8sqs"), SubResource("Resource_iw8ly"), SubResource("Resource_hblpc")])
+result = ExtResource("2_5iiro")
+recipe_information = "[item]Dragon_roll[/item]s are made with [item]shrimp_tempura[/item], [item]sliced_cucumber[/item], [item]sliced_avocado[/item], [item]nori_bundle[/item] (seaweed), and [item]cooked_rice[/item] from a [machine]rice_cooker[/machine]. [item]Dragon_roll[/item]s are a western sushi invention topped with avacado to resemble dragon scales."
+machine = ExtResource("7_efjmb")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

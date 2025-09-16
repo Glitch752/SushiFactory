@@ -9,11 +9,11 @@ func _ready():
     show_recipes()
 
 func show_recipes():
-    for recipe in DishCombinationsSingleton.dish_combinations:
+    for recipe in DataLoader.recipes:
         var panel = ItemPanelScene.instantiate()
         panel.item = recipe.result
 
-        if recipe.machine == "plate":
+        if recipe.machine.id == &"plate":
             $%DishesGrid.add_child(panel)
         else:
             $%IngredientsGrid.add_child(panel)

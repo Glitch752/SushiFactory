@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MachineData" load_steps=2 format=3 uid="uid://cmtxnlp6gx5ad"]
+
+[ext_resource type="Script" uid="uid://caa10ko141d4g" path="res://data/machine_data.gd" id="1_saauo"]
+
+[resource]
+script = ExtResource("1_saauo")
+id = &"deep_fryer"
+machine_name = "Deep Fryer"
+metadata/_custom_type_script = "uid://caa10ko141d4g"

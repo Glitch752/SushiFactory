@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=7 format=3 uid="uid://8jxe7m5p6yac"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_gx1mx"]
+[ext_resource type="Resource" uid="uid://ddqwxyrwx2dwk" path="res://data/items/raw_ingredients/shrimp.tres" id="2_gx1mx"]
+[ext_resource type="Resource" uid="uid://cmtxnlp6gx5ad" path="res://data/machines/deep_fryer.tres" id="3_exp38"]
+[ext_resource type="Resource" uid="uid://6kmr5tuwi2wb" path="res://data/items/ingredients/shrimp_tempura.tres" id="3_gx1mx"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="4_i78y0"]
+
+[sub_resource type="Resource" id="Resource_7ysfd"]
+script = ExtResource("1_gx1mx")
+item = ExtResource("2_gx1mx")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_i78y0")
+ingredients = Array[ExtResource("1_gx1mx")]([SubResource("Resource_7ysfd")])
+result = ExtResource("3_gx1mx")
+recipe_information = "[item]Shrimp_tempura[/item] is made with [item]shrimp[/item] using a [machine]deep_fryer[/machine]. Shrimp tempura is a popular fried Japanese dish made from shrimp."
+machine = ExtResource("3_exp38")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

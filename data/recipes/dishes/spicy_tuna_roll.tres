@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=11 format=3 uid="uid://c4l5ojfkf6hfp"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_pdaoc"]
+[ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://data/items/ingredients/sliced_tuna.tres" id="3_kp5mk"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://data/items/raw_ingredients/nori_bundle.tres" id="4_2mohd"]
+[ext_resource type="Resource" uid="uid://do2tnm1sebo21" path="res://data/items/dishes/spicy_tuna_roll.tres" id="5_kr7c2"]
+[ext_resource type="Resource" uid="uid://b5d54rlwha0jx" path="res://data/machines/plate.tres" id="5_uf27l"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/ingredients/cooked_rice.tres" id="6_rlwgi"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="8_nhjsv"]
+
+[sub_resource type="Resource" id="Resource_pdaoc"]
+script = ExtResource("1_pdaoc")
+item = ExtResource("6_rlwgi")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_paiw1"]
+script = ExtResource("1_pdaoc")
+item = ExtResource("3_kp5mk")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_3gxws"]
+script = ExtResource("1_pdaoc")
+item = ExtResource("4_2mohd")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("8_nhjsv")
+ingredients = Array[ExtResource("1_pdaoc")]([SubResource("Resource_pdaoc"), SubResource("Resource_paiw1"), SubResource("Resource_3gxws")])
+result = ExtResource("5_kr7c2")
+recipe_information = "[item]Spicy_tuna_roll[/item]s are made with [item]sliced_tuna[/item], [item]nori_bundle[/item] (seaweed), [item]cooked_rice[/item] from a [machine]rice_cooker[/machine], and spicy sauce (use your imagination). [item]Spicy_tuna_roll[/item]s are a western type of sushi typically seasoned with sasame siracha sauce."
+machine = ExtResource("5_uf27l")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

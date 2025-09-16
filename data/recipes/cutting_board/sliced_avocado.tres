@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=7 format=3 uid="uid://d222lfigwjjo5"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_i41g3"]
+[ext_resource type="Resource" uid="uid://pbakbidp0e" path="res://data/items/raw_ingredients/avocado.tres" id="2_uvtm6"]
+[ext_resource type="Resource" uid="uid://bgwigw2byv7ne" path="res://data/machines/cutting_board.tres" id="3_5v0p8"]
+[ext_resource type="Resource" uid="uid://chb3ty3o3cosn" path="res://data/items/ingredients/sliced_avocado.tres" id="3_i41g3"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="4_0dyxb"]
+
+[sub_resource type="Resource" id="Resource_7rt25"]
+script = ExtResource("1_i41g3")
+item = ExtResource("2_uvtm6")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_0dyxb")
+ingredients = Array[ExtResource("1_i41g3")]([SubResource("Resource_7rt25")])
+result = ExtResource("3_i41g3")
+recipe_information = "[item]Sliced_avocado[/item] is made using a [machine]cutting_board[/machine] to slice [item]avocado[/item]."
+machine = ExtResource("3_5v0p8")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

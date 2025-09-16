@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Sushi Factory"
 run/main_scene="uid://br5jostnw8e3n"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0.223222, 0.306852, 0.34479, 1)
 boot_splash/fullsize=false
 boot_splash/use_filter=false
@@ -26,7 +26,6 @@ TagHighlight="*res://scripts/tag_highlight.gd"
 PlayerInventorySingleton="*res://scripts/player_inventory_singleton.gd"
 LevelInterfaceSingleton="*res://ui/level_interface_singleton.gd"
 EmailSystem="*res://world/interactable/computer/emails/EmailSystem.tscn"
-DishCombinationsSingleton="*res://world/interactable/dishes/DishCombinationsSingleton.tscn"
 DayManagerSingleton="*res://scripts/DayManagerSingleton.tscn"
 CustomerManagerSingleton="*res://scripts/customer_manager_singleton.gd"
 StoreStatsSingleton="*res://scripts/store_stats_singleton.gd"
@@ -43,6 +42,12 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://data/": "orange"
+}
 
 [input]
 

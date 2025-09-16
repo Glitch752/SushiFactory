@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MachineData" load_steps=2 format=3 uid="uid://bgwigw2byv7ne"]
+
+[ext_resource type="Script" uid="uid://caa10ko141d4g" path="res://data/machine_data.gd" id="1_d7osg"]
+
+[resource]
+script = ExtResource("1_d7osg")
+id = &"cutting_board"
+machine_name = "Cutting Board"
+metadata/_custom_type_script = "uid://caa10ko141d4g"

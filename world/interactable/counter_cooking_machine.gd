@@ -11,8 +11,7 @@ var current_output: ItemData = null
 @export var active_sound: AudioStream
 @export var finish_sound: AudioStream
 
-## e.g. stove_top; must match the `machine` fields of recipes
-@export var machine_id: String
+@export var machine: MachineData
 
 ## e.g. Stove Top
 @export var machine_name: String
@@ -37,7 +36,7 @@ var active: bool = false
 var recipes: Dictionary[StringName, StringName] # input item id -> output item id
 
 func _ready():
-    recipes = DishCombinationsSingleton.get_single_input_dishes_for(machine_id)
+    recipes = DataLoader.get_single_input_recipes_for(machine)
     
     if active_sound:
         active_sound_node.stream = active_sound
@@ -55,7 +54,7 @@ func add_item():
     var item_id = held_item.data.id
 
     input_item_id = item_id
-    current_output = PlayerInventorySingleton.load_item_data(recipes[item_id])
+    current_output = DataLoader.get_item(recipes[item_id])
 
     held_item.queue_free()
     cooking_time_remaining = COOK_TIME / 60.

@@ -5,16 +5,16 @@
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_dolsu"]
 [ext_resource type="Script" uid="uid://nli2t3pwuw5m" path="res://scripts/menu/play.gd" id="1_uubjt"]
 [ext_resource type="Script" uid="uid://dv3b1k34oph1e" path="res://scripts/menu/menu.gd" id="2_dlksc"]
-[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://world/items/item_data.gd" id="3_ktlje"]
+[ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://data/item_data.gd" id="3_ktlje"]
 [ext_resource type="Texture2D" uid="uid://eehbl3msp0i5" path="res://images/title.png" id="3_ylpcl"]
-[ext_resource type="Resource" uid="uid://dayg8sjqypvy1" path="res://data/items/rainbow_roll_item_data.tres" id="4_mnkgh"]
+[ext_resource type="Resource" uid="uid://dayg8sjqypvy1" path="res://data/items/dishes/rainbow_roll.tres" id="4_mnkgh"]
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="4_n4eug"]
-[ext_resource type="Resource" uid="uid://dj45kc2uvgw3p" path="res://data/items/salmon_nigiri_item_data.tres" id="5_elwp8"]
-[ext_resource type="Resource" uid="uid://d0mv0ubu0el5" path="res://data/items/tamago_nigiri_item_data.tres" id="6_h06ok"]
-[ext_resource type="Resource" uid="uid://5m8u3i5er6yv" path="res://data/items/dragon_roll_item_data.tres" id="7_n8j1b"]
-[ext_resource type="Resource" uid="uid://cmlcprlouf8xa" path="res://data/items/california_roll_item_data.tres" id="8_2qy1q"]
-[ext_resource type="Resource" uid="uid://b4k3phsx0chkl" path="res://data/items/tuna_temaki_item_data.tres" id="9_lwhxt"]
-[ext_resource type="Resource" uid="uid://s8px34jyxmgk" path="res://data/items/salmon_temaki_item_data.tres" id="10_mnkgh"]
+[ext_resource type="Resource" uid="uid://dj45kc2uvgw3p" path="res://data/items/dishes/salmon_nigiri.tres" id="5_elwp8"]
+[ext_resource type="Resource" uid="uid://d0mv0ubu0el5" path="res://data/items/dishes/tamago_nigiri.tres" id="6_h06ok"]
+[ext_resource type="Resource" uid="uid://5m8u3i5er6yv" path="res://data/items/dishes/dragon_roll.tres" id="7_n8j1b"]
+[ext_resource type="Resource" uid="uid://cmlcprlouf8xa" path="res://data/items/dishes/california_roll.tres" id="8_2qy1q"]
+[ext_resource type="Resource" uid="uid://b4k3phsx0chkl" path="res://data/items/dishes/tuna_temaki.tres" id="9_lwhxt"]
+[ext_resource type="Resource" uid="uid://s8px34jyxmgk" path="res://data/items/dishes/salmon_temaki.tres" id="10_mnkgh"]
 [ext_resource type="StyleBox" uid="uid://c758r4iugw48b" path="res://ui/stylebox/9_patch_stylebox_hover.tres" id="13_elwp8"]
 
 [sub_resource type="Curve2D" id="Curve2D_dlksc"]
@@ -87,11 +87,11 @@ offset_top = 512.0
 offset_bottom = 557.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_dlksc")
-theme_override_styles/hover_pressed = ExtResource("13_elwp8")
-theme_override_styles/hover = ExtResource("13_elwp8")
-theme_override_styles/pressed = ExtResource("13_elwp8")
 theme_override_styles/normal = ExtResource("4_n4eug")
+theme_override_styles/pressed = ExtResource("13_elwp8")
+theme_override_styles/hover = ExtResource("13_elwp8")
+theme_override_styles/hover_pressed = ExtResource("13_elwp8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dlksc")
 text = "Play"
 script = ExtResource("1_uubjt")
 

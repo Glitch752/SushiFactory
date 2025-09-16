@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=7 format=3 uid="uid://dk258ucy47ocw"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_r54dp"]
+[ext_resource type="Resource" uid="uid://bm2ligtkokn1a" path="res://data/items/raw_ingredients/rice.tres" id="2_syni7"]
+[ext_resource type="Resource" uid="uid://bs1pcs7qhqscm" path="res://data/machines/rice_cooker.tres" id="3_4klwn"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/ingredients/cooked_rice.tres" id="3_7ylvp"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="4_6lx43"]
+
+[sub_resource type="Resource" id="Resource_21mhq"]
+script = ExtResource("1_r54dp")
+item = ExtResource("2_syni7")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_6lx43")
+ingredients = Array[ExtResource("1_r54dp")]([SubResource("Resource_21mhq")])
+result = ExtResource("3_7ylvp")
+recipe_information = "[item]Cooked_rice[/item] is made in a [machine]rice_cooker[/machine] with [item]rice[/item]."
+machine = ExtResource("3_4klwn")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

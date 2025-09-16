@@ -1,6 +1,6 @@
 extends "res://world/items/item.gd"
 
-var plate_dishes = DishCombinationsSingleton.get_dishes_for_machine("plate")
+var plate_recipes = DataLoader.get_recipes_for_machine(preload("res://data/machines/plate.tres"))
 
 class ContentData:
     var item: ItemData
@@ -12,8 +12,8 @@ class ContentData:
 
 var contents: Array[ContentData] = []
 
-## If the contents of this plate will make a dish, this stores the dish combination that will be made
-var will_make_dish: DishCombination = null
+## If the contents of this plate satisfy a recipe, this stores the recipe that will be made
+var valid_recipe: RecipeData = null
 
 func can_add(item: ItemData) -> bool:
     return item.id != &"plate"
@@ -45,9 +45,9 @@ func add_to_plate(item: ItemData, visual_only: bool = false) -> void:
 
     contents.append(ContentData.new(item, item_sprite))
 
-    process_dishes()
+    process_recipes()
 
-func process_dishes():
+func process_recipes():
     var found_ingredients: Dictionary[StringName, int] = {}
     for content in contents:
         if content.item.id in found_ingredients:
@@ -55,7 +55,7 @@ func process_dishes():
         else:
             found_ingredients.set(content.item.id, 1)
     
-    for dish in plate_dishes:
+    for dish in plate_recipes:
         var all_found = true
         for ingredient in dish.ingredients:
             if !found_ingredients.has(ingredient.item.id) or found_ingredients[ingredient.item.id] < ingredient.quantity:
@@ -63,19 +63,19 @@ func process_dishes():
                 break
         
         if all_found:
-            will_make_dish = dish
+            valid_recipe = dish
             return
     
-    will_make_dish = null
+    valid_recipe = null
 
 # If we can make a dish, this returns the name of it. Otherwise, returns null
-func can_make_dish() -> Variant:
-    if will_make_dish != null:
-        return will_make_dish.result.item_name
+func can_make_recipe() -> Variant:
+    if valid_recipe != null:
+        return valid_recipe.result.item_name
     return null
 
-func make_dish():
-    var dish = will_make_dish
+func make_recipe():
+    var dish = valid_recipe
     if dish == null:
         return
     
@@ -97,8 +97,8 @@ func get_description():
         desc += "\n [item]%s[/item]" % itemData.item.id
     desc += "\n[/ul]"
 
-    if will_make_dish != null:
-        desc += "\nCan make [item]%s[/item]." % will_make_dish.result.id
+    if valid_recipe != null:
+        desc += "\nCan make [item]%s[/item]." % valid_recipe.result.id
     
     return TagHighlight.convert_custom_tags(desc)
 

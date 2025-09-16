@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=7 format=3 uid="uid://caj38d4om6npq"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_15ryl"]
+[ext_resource type="Resource" uid="uid://d1gketbtr6jda" path="res://data/items/raw_ingredients/bluefin_tuna.tres" id="2_o44vq"]
+[ext_resource type="Resource" uid="uid://d10eu3ky0fiw3" path="res://data/items/ingredients/sliced_tuna.tres" id="3_jl4wq"]
+[ext_resource type="Resource" uid="uid://bgwigw2byv7ne" path="res://data/machines/cutting_board.tres" id="3_yhdyw"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="4_ihk2p"]
+
+[sub_resource type="Resource" id="Resource_15ryl"]
+script = ExtResource("1_15ryl")
+item = ExtResource("2_o44vq")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_ihk2p")
+ingredients = Array[ExtResource("1_15ryl")]([SubResource("Resource_15ryl")])
+result = ExtResource("3_jl4wq")
+recipe_information = "[item]Sliced_tuna[/item] is made using a [machine]cutting_board[/machine] to slice [item]bluefin_tuna[/item]."
+machine = ExtResource("3_yhdyw")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

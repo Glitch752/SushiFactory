@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=13 format=3 uid="uid://nk6tg2sjmg85"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_j3drf"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/ingredients/cooked_rice.tres" id="2_lpdgo"]
+[ext_resource type="Resource" uid="uid://s8px34jyxmgk" path="res://data/items/dishes/salmon_temaki.tres" id="2_t2ocb"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://data/items/raw_ingredients/nori_bundle.tres" id="3_osxis"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://data/items/ingredients/sliced_salmon.tres" id="4_5yw7e"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://data/items/ingredients/sliced_cucumber.tres" id="5_1xb1s"]
+[ext_resource type="Resource" uid="uid://b5d54rlwha0jx" path="res://data/machines/plate.tres" id="6_yxjhb"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="8_ill7i"]
+
+[sub_resource type="Resource" id="Resource_j3drf"]
+script = ExtResource("1_j3drf")
+item = ExtResource("2_lpdgo")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_lpdgo"]
+script = ExtResource("1_j3drf")
+item = ExtResource("3_osxis")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_a45qs"]
+script = ExtResource("1_j3drf")
+item = ExtResource("4_5yw7e")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_pe0qo"]
+script = ExtResource("1_j3drf")
+item = ExtResource("5_1xb1s")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("8_ill7i")
+ingredients = Array[ExtResource("1_j3drf")]([SubResource("Resource_j3drf"), SubResource("Resource_lpdgo"), SubResource("Resource_a45qs"), SubResource("Resource_pe0qo")])
+result = ExtResource("2_t2ocb")
+recipe_information = "[item]Salmon_temaki[/item] is made with [item]sliced_salmon[/item], [item]sliced_cucumber[/item], [item]nori_bundle[/item] (seaweed), and [item]cooked_rice[/item] from a [machine]rice_cooker[/machine]. Temaki is a sushi variant using a hand-rolled nori cone to contain rice and toppings."
+machine = ExtResource("6_yxjhb")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

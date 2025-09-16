@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=7 format=3 uid="uid://ch680fxhp1n74"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_n3d3a"]
+[ext_resource type="Resource" uid="uid://dkegtyxt0ey3d" path="res://data/items/raw_ingredients/cucumber.tres" id="2_5r1st"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://data/items/ingredients/sliced_cucumber.tres" id="3_jokxg"]
+[ext_resource type="Resource" uid="uid://bgwigw2byv7ne" path="res://data/machines/cutting_board.tres" id="3_xsi6g"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="4_xi0dh"]
+
+[sub_resource type="Resource" id="Resource_mdwu4"]
+script = ExtResource("1_n3d3a")
+item = ExtResource("2_5r1st")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_xi0dh")
+ingredients = Array[ExtResource("1_n3d3a")]([SubResource("Resource_mdwu4")])
+result = ExtResource("3_jokxg")
+recipe_information = "[item]Sliced_cucumber[/item] is made using a [machine]cutting_board[/machine] to slice [item]cucumber[/item]."
+machine = ExtResource("3_xsi6g")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

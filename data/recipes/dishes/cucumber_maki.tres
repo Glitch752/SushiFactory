@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=11 format=3 uid="uid://sbwaxx16kh3g"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_s60w0"]
+[ext_resource type="Resource" uid="uid://dgva8y3u01i30" path="res://data/items/dishes/cucumber_maki.tres" id="2_s60w0"]
+[ext_resource type="Resource" uid="uid://6d3fgsf1vlnc" path="res://data/items/ingredients/sliced_cucumber.tres" id="2_sygx7"]
+[ext_resource type="Resource" uid="uid://yaq17htj7fpe" path="res://data/items/raw_ingredients/nori_bundle.tres" id="3_aat8d"]
+[ext_resource type="Resource" uid="uid://ct03uq0bgjr72" path="res://data/items/ingredients/cooked_rice.tres" id="3_ig7ah"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="3_sygx7"]
+[ext_resource type="Resource" uid="uid://b5d54rlwha0jx" path="res://data/machines/plate.tres" id="5_7xgxw"]
+
+[sub_resource type="Resource" id="Resource_s60w0"]
+script = ExtResource("1_s60w0")
+item = ExtResource("2_sygx7")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_u8frn"]
+script = ExtResource("1_s60w0")
+item = ExtResource("3_aat8d")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[sub_resource type="Resource" id="Resource_sygx7"]
+script = ExtResource("1_s60w0")
+item = ExtResource("3_ig7ah")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("3_sygx7")
+ingredients = Array[ExtResource("1_s60w0")]([SubResource("Resource_s60w0"), SubResource("Resource_u8frn"), SubResource("Resource_sygx7")])
+result = ExtResource("2_s60w0")
+recipe_information = "[item]Cucumber_maki[/item] is made with [item]sliced_cucumber[/item], [item]nori_bundle[/item] (seaweed), and [item]cooked_rice[/item] from a [machine]rice_cooker[/machine]. Maki is a type of sushi roll made by wrapping rice and various fillings in a sheet of nori."
+machine = ExtResource("5_7xgxw")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

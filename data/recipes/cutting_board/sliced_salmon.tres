@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=7 format=3 uid="uid://cygg7pdohkw5g"]
+
+[ext_resource type="Script" uid="uid://dju7gp1bh43js" path="res://world/interactable/dishes/DishIngredient.gd" id="1_wuoj8"]
+[ext_resource type="Resource" uid="uid://bvucci4fj2n1m" path="res://data/items/raw_ingredients/salmon.tres" id="2_wuoj8"]
+[ext_resource type="Resource" uid="uid://bjkybxvq1jcrx" path="res://data/items/ingredients/sliced_salmon.tres" id="3_1muw8"]
+[ext_resource type="Resource" uid="uid://bgwigw2byv7ne" path="res://data/machines/cutting_board.tres" id="3_7ve3j"]
+[ext_resource type="Script" uid="uid://c5vkxb15dj8xn" path="res://data/recipe_data.gd" id="4_8xj5m"]
+
+[sub_resource type="Resource" id="Resource_l2s6x"]
+script = ExtResource("1_wuoj8")
+item = ExtResource("2_wuoj8")
+metadata/_custom_type_script = "uid://dju7gp1bh43js"
+
+[resource]
+script = ExtResource("4_8xj5m")
+ingredients = Array[ExtResource("1_wuoj8")]([SubResource("Resource_l2s6x")])
+result = ExtResource("3_1muw8")
+recipe_information = "[item]Sliced_salmon[/item] is made using a [machine]cutting_board[/machine] to slice [item]salmon[/item]."
+machine = ExtResource("3_7ve3j")
+metadata/_custom_type_script = "uid://c5vkxb15dj8xn"

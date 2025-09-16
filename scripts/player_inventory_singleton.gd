@@ -81,12 +81,6 @@ func remove_item() -> Node2D:
     
     return item
 
-func load_item_data(item_id: StringName) -> ItemData:
-    if item_id == null:
-        push_error("Tried to load a null item!")
-        return preload("res://data/items/cucumber_item_data.tres")
-    return load("res://data/items/%s_item_data.tres" % item_id)
-
 
 # For debugging only!
 func _unhandled_input(event):
@@ -112,7 +106,7 @@ func _unhandled_input(event):
                         remove_item().queue_free()
                     return
                 
-                var data = load_item_data(item_id)
+                var data = DataLoader.get_item(item_id)
                 item = create_item(data)
             elif item_id is Node2D:
                 item = item_id.duplicate()

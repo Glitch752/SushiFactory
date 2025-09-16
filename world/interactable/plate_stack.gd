@@ -1,6 +1,6 @@
 extends "res://world/interactable/interactable.gd"
 
-const plateData = preload("res://data/items/plate_item_data.tres");
+const plateData = preload("res://data/items/plate.tres");
 
 @onready var takePlateAudio = $%TakePlateAudio
 

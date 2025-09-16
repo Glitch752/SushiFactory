@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkejwj48qdgsd"]
+[gd_scene load_steps=6 format=3 uid="uid://bkejwj48qdgsd"]
 
 [ext_resource type="PackedScene" uid="uid://clxq0aoegothj" path="res://world/interactable/CounterCookingMachine.tscn" id="1_515tj"]
 [ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="2_515tj"]
 [ext_resource type="AudioStream" uid="uid://bcsdfxcaqmkkm" path="res://audio/riceCooking.wav" id="3_a0dn8"]
+[ext_resource type="Resource" uid="uid://bs1pcs7qhqscm" path="res://data/machines/rice_cooker.tres" id="4_a0dn8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_40s76"]
 atlas = ExtResource("2_515tj")
@@ -12,7 +13,7 @@ region = Rect2(64, 0, 16, 16)
 normal_texture = SubResource("AtlasTexture_40s76")
 active_texture = SubResource("AtlasTexture_40s76")
 active_sound = ExtResource("3_a0dn8")
-machine_id = "rice_cooker"
+machine = ExtResource("4_a0dn8")
 machine_name = "Rice Cooker"
 interactable_description = "A rice cooker."
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmpaies3w0yfg"]
+[gd_scene load_steps=6 format=3 uid="uid://bmpaies3w0yfg"]
 
 [ext_resource type="PackedScene" uid="uid://clxq0aoegothj" path="res://world/interactable/CounterCookingMachine.tscn" id="1_va8m2"]
 [ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="2_6o3cu"]
+[ext_resource type="Resource" uid="uid://cmtxnlp6gx5ad" path="res://data/machines/deep_fryer.tres" id="3_6o3cu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nmls"]
 atlas = ExtResource("2_6o3cu")
@@ -14,7 +15,7 @@ region = Rect2(480, 0, 16, 16)
 [node name="Fryer" instance=ExtResource("1_va8m2")]
 normal_texture = SubResource("AtlasTexture_8nmls")
 active_texture = SubResource("AtlasTexture_va8m2")
-machine_id = "deep_fryer"
+machine = ExtResource("3_6o3cu")
 machine_name = "Deep Fryer"
 interactable_description = "A deep fryer."
 action_word = "frying"
@@ -22,9 +23,6 @@ action_word = "frying"
 [node name="InteractableContent" parent="." index="0"]
 position = Vector2(0, -12)
 
-[node name="CollisionShape2D" parent="InteractableContent/Area2D" index="0"]
-position = Vector2(0, 1)
-
-[node name="Sprite" parent="InteractableContent" index="2"]
+[node name="Sprite" parent="InteractableContent" index="1"]
 position = Vector2(0, 3)
 texture = SubResource("AtlasTexture_8nmls")

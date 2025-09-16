@@ -1,6 +1,6 @@
 extends "res://world/interactable/interactable.gd"
 
-var CUT_ITEMS = DishCombinationsSingleton.get_single_input_dishes_for("cutting_board")
+var CUT_ITEMS = DataLoader.get_single_input_recipes_for(preload("res://data/machines/cutting_board.tres"))
 
 var cut_progress = 0
 var item = null
@@ -45,7 +45,7 @@ func cut_item():
         $InteractableContent.remove_child(item)
         item.queue_free()
         
-        var sliced_item = PlayerInventorySingleton.create_item(PlayerInventorySingleton.load_item_data(sliced_item_id))
+        var sliced_item = PlayerInventorySingleton.create_item(DataLoader.get_item(sliced_item_id))
         $InteractableContent.add_child(sliced_item)
         
         item = sliced_item
