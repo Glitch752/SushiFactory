@@ -416,6 +416,11 @@ func get_interaction_cell(global_pos: Vector2) -> Vector2i:
 func get_cell_center(cell: Vector2i) -> Vector2:
     return automation_tilemap.to_global(automation_tilemap.map_to_local(cell))
 
+func lower_start(text: String) -> String:
+    if text.is_empty():
+        return text
+    return text[0].to_lower() + text.substr(1, text.length() - 1)
+
 func get_interaction_data(cell: Vector2i) -> InteractionData:
     if not belt_tiles_set.has(cell):
         return null
@@ -447,7 +452,7 @@ func get_interaction_data(cell: Vector2i) -> InteractionData:
     
     var desc = "A belt that moves items %s." % direction
     if has_item:
-        desc += "\nCurrently has %s on it." % item_tile_positions[cell].data.item_name
+        desc += "\nCurrently has %s" % lower_start(item_tile_positions[cell].get_description())
     else:
         desc += "\nCurrently empty."
     

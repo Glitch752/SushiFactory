@@ -119,12 +119,12 @@ func _ready():
             push_error("Loaded resource is not of type RecipeData: %s" % recipe)
     
     recipes.sort_custom(func(a: RecipeData, b: RecipeData):
-        if b.priority > a.priority:
+        if a.priority > b.priority:
             return true
-        if b.priority < a.priority:
+        if a.priority < b.priority:
             return false
         # Break ties with number of ingredients (more ingredients is higher priority)
-        return b.ingredients.size() > a.ingredients.size()
+        return a.ingredients.size() > b.ingredients.size()
     )
     
     print("Loaded and sorted %d recipes" % recipes.size())

@@ -74,14 +74,14 @@ func day_started(_day: int, day_data: DayData, _info_text: String):
 
 var customer_spawn_timer: float = 0.0
 var store_is_open: bool = false
+var next_interval: float = 0.0
 
 func store_opened():
     customer_spawn_timer = current_day_data.customer_interval / 2
     store_is_open = true
 
-    # Immediately spawn a customer since otherwise players
-    # need to wait for an unreasonable amount of time on the first day
-    spawn_customer()
+    # Spawn a customer soon since otherwise players need to wait for an unreasonable amount of time on the first day
+    next_interval = current_day_data.next_customer_interval_time() / 4.0
 
 func store_closed():
     store_is_open = false
@@ -91,8 +91,10 @@ func _process(delta):
         var time_progression = DayManagerSingleton.elapsed_world_time(delta)
 
         customer_spawn_timer += time_progression
-        if customer_spawn_timer >= current_day_data.customer_interval:
-            customer_spawn_timer -= current_day_data.customer_interval
+        if customer_spawn_timer >= next_interval:
+            customer_spawn_timer -= next_interval
+            next_interval = current_day_data.next_customer_interval_time()
+            
             spawn_customer()
     
     process_customers(delta)
@@ -170,7 +172,7 @@ func spawn_customer() -> void:
     var difficulty = day_difficulties[randi() % day_difficulties.size()]
     var item = DayManagerSingleton.get_possible_orders(difficulty).get_random_item()
 
-    var order = OrderData.new(current_day_data.customer_patience / 60, item)
+    var order = OrderData.new(current_day_data.next_customer_patience(), item)
     
     var customerData = CustomerData.new(customer, order)
     customers.append(customerData)

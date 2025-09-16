@@ -127,6 +127,20 @@ Open in a new tab if you're having issues :)"
 label_settings = SubResource("LabelSettings_elwp8")
 horizontal_alignment = 2
 
+[node name="Label2" type="Label" parent="MenuItems"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -95.0
+offset_right = 808.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "Some people have reported the game crashing!
+Try another browser if you experience this."
+label_settings = SubResource("LabelSettings_elwp8")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 456.0

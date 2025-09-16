@@ -76,21 +76,23 @@ const TIME_FACTOR = 2.0 / 60.0
 func elapsed_world_time(delta: float) -> float:
     return delta * TIME_FACTOR
 
+## The previous time. Used to detect time transitions.
+var previous_time = 0.0
 func _process(delta):
     if day_cycle_active:
-        var previous_time = time_of_day
-
         time_of_day += delta * TIME_FACTOR
 
         if previous_time < 9.0 and time_of_day >= 9.0:
             # At 9 AM, the restaurant opens.
             store_opened.emit()
 
-        if time_of_day >= 17.0:
+        if previous_time < 17.0 and time_of_day >= 17.0:
             # At 5 PM, the day cycle ends.
             time_of_day = 17.0
             day_cycle_active = false
             store_closed.emit()
+        
+        previous_time = time_of_day
 
 ## Generates the day opening info, e.g:
 ## [b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
@@ -118,6 +120,7 @@ func generate_day_opening_info(for_day: int):
 func begin_day():
     day += 1
     time_of_day = 8.0  # Start at 8 AM
+    previous_time = 0.0
     day_cycle_active = true
 
     day_started.emit(day, get_day_data(day), generate_day_opening_info(day))
