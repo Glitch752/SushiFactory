@@ -76,15 +76,19 @@ func recursively_load_resources(data_type: String, type_hint: String = "") -> Ar
             # Recurse into subdirectory
             resources += recursively_load_resources("%s/%s" % [data_type, file_name.get_file()])
         else:
-            if file_name.get_extension() == "import":
-                file_name = file_name.replace(".import", "")
+            # Export builds have .remap added to the end of filenames, so strip that off if present
+            if file_name.get_extension() == "remap":
+                file_name = file_name.replace(".remap", "")
             
             if file_name.get_extension() == "tres":
-                var resource = ResourceLoader.load("res://data/%s/%s" % [data_type, file_name], type_hint)
+                print("Loading resource res://data/%s/%s" % [data_type, file_name])
+                var resource = load("res://data/%s/%s" % [data_type, file_name])
                 if resource != null:
                     resources.append(resource)
                 else:
                     push_error("Failed to load resource: %s" % file_name)
+            else:
+                print("Skipping non-resource file %s" % file_name)
         
         file_name = dir.get_next()
     

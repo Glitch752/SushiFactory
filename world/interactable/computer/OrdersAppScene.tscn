@@ -59,6 +59,9 @@ panel_override = ExtResource("4_i03w7")
 
 [node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/DaysContainer"]
 layout_mode = 2
-text = "--- Day 1 ---"
+text = "--- Day 1 ---
+
+oops work-in-progress screen :)
+orders are just on the left of the screen for now!"
 label_settings = SubResource("LabelSettings_04x87")
 horizontal_alignment = 1
