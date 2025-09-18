@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_g4vvq"]
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_ud1m4"]
-[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="3_1lpb4"]
 [ext_resource type="Texture2D" uid="uid://d0n3ibispfxgo" path="res://images/machines.png" id="3_2stqe"]
+[ext_resource type="StyleBox" uid="uid://c758r4iugw48b" path="res://ui/stylebox/9_patch_stylebox_hover.tres" id="3_gm4v1"]
 [ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="3_iuw0s"]
 [ext_resource type="StyleBox" uid="uid://gwc4l78ro66w" path="res://ui/stylebox/9_patch_stylebox_green_dark.tres" id="5_gm4v1"]
 [ext_resource type="StyleBox" uid="uid://0uceoygqslm2" path="res://ui/stylebox/9_patch_stylebox_green_darker.tres" id="6_l0au1"]
@@ -76,13 +76,13 @@ columns = 2
 [node name="TemplateShopItem" type="PanelContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("3_1lpb4")
+theme_override_styles/panel = ExtResource("3_gm4v1")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem"]
 layout_mode = 2
-theme_override_constants/margin_left = 12
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
+theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem/MarginContainer"]
@@ -105,10 +105,10 @@ label_settings = SubResource("LabelSettings_iuw0s")
 
 [node name="PurchaseButton" type="Button" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_gm4v1")
-theme_override_styles/disabled = ExtResource("6_l0au1")
-theme_override_styles/hover_pressed = ExtResource("6_l0au1")
-theme_override_styles/hover = ExtResource("5_gm4v1")
-theme_override_styles/pressed = ExtResource("6_l0au1")
 theme_override_styles/normal = ExtResource("3_iuw0s")
+theme_override_styles/pressed = ExtResource("6_l0au1")
+theme_override_styles/hover = ExtResource("5_gm4v1")
+theme_override_styles/hover_pressed = ExtResource("6_l0au1")
+theme_override_styles/disabled = ExtResource("6_l0au1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gm4v1")
 text = "Purchase"

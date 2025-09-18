@@ -8,9 +8,12 @@ extends TransformContainer
 @export var time_remaining: float = 20.0:
     set(value):
         time_remaining = clamp(value, 0, total_time)
-        update()
+        if not Engine.is_editor_hint():
+            update()
 
 @export var order_texture: Texture2D
+
+@export var panel_override: StyleBox
 
 ## Gets the color for a certain time by interpolating between green, yellow, and red.
 func get_time_color(t: float) -> Color:
@@ -22,25 +25,12 @@ func get_time_color(t: float) -> Color:
 func _ready():
     $%Countdown.max_value = total_time
     $%TextureRect.texture = order_texture
-
-    visual_position = Vector2(20, 0)
-    modulate.a = 0
-
-    var t = create_tween()
-    t.tween_property(self, "visual_position", Vector2.ZERO, 0.25);
-    t.parallel().tween_property(self, "modulate:a", 1, 0.25);
+    
+    if panel_override != null:
+        $%PanelContainer.add_theme_stylebox_override("panel", panel_override)
 
     if not Engine.is_editor_hint():
         update()
-
-func remove():
-    var t = create_tween()
-    
-    t.tween_property(self, "visual_position", Vector2(20, 0), 0.25);
-    t.parallel().tween_property(self, "modulate:a", 0.0, 0.25);
-    # TODO: Interpolate height out (this didn't work when I tried it; maybe something wierd with box layout?)
-
-    t.finished.connect(queue_free)
 
 func update():
     $%Countdown.value = time_remaining

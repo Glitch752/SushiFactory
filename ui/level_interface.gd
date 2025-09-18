@@ -32,6 +32,8 @@ func _ready():
     CustomerManagerSingleton.order_added.connect(add_order)
 
 func add_order(order: OrderData):
+    var container = TransitionContainer.new()
+
     var order_instance = OrderScene.instantiate()
     order_instance.order_text = order.order_text
     order_instance.total_time = order.total_time
@@ -40,12 +42,13 @@ func add_order(order: OrderData):
 
     order.update_time.connect(func():
         if order.node and order.node.is_inside_tree():
-            order.node.time_remaining = order.time_remaining
+            order.node.get_child(0).time_remaining = order.time_remaining
     )
 
-    order_layout.add_child(order_instance)
+    container.add_child(order_instance)
+    order_layout.add_child(container)
 
-    order.node = order_instance
+    order.node = container
 
 ## Interaction
 var current_interaction_data: InteractionData = null

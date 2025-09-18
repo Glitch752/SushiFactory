@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://diarsat5t5bgg"]
+
+[ext_resource type="Texture2D" uid="uid://ct7dv4e8jcn4g" path="res://images/construction.png" id="1_uk0xg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwa2w"]
+atlas = ExtResource("1_uk0xg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viiqw"]
+atlas = ExtResource("1_uk0xg")
+region = Rect2(32, 0, 32, 32)
+
+[node name="ConstructionCorner" type="Node2D"]
+
+[node name="Construction" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = SubResource("AtlasTexture_lwa2w")
+
+[node name="Construction2" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = SubResource("AtlasTexture_viiqw")
