@@ -11,16 +11,72 @@ const ShaderSceneTransition = preload("res://ui/ShaderSceneTransition.tscn")
 
 const OrderDifficulty = preload("res://scripts/day_data.gd").OrderDifficulty
 
-@export var day_data: Array[DayData] = []
-
 ## The possible customer orders for each difficulty; just individual items for now
 @export var possible_orders: Dictionary[OrderDifficulty, OrderPossibilities] = {}
 
-func get_day_data(d: int) -> DayData:
-    if d - 1 < day_data.size():
-        return day_data[d - 1]
-    else:
-        return day_data[day_data.size() - 1]
+var current_day_data: DayData = null
+
+const MAX_DIFFICULTY: int = OrderDifficulty.EXPERT
+const K_DIFF_PROGRESS: float = 0.15
+
+const SIGMA_MIN: float = 0.1
+const SIGMA_PEAK: float = 1.25
+const SIGMA_A: float = 0.3
+const SIGMA_B: float = 0.2
+
+const INTERVAL_MAX: float = 1.0
+const INTERVAL_MIN: float = 0.15
+const INTERVAL_LAMBDA: float = 0.2
+const INTERVAL_JITTER_RATIO = 0.15
+
+const PATIENCE_MAX: float = 180.0
+const PATIENCE_MIN: float = 45.0
+const PATIENCE_LAMBDA: float = 0.2
+const PATIENCE_JITTER_RATIO = 0.1
+
+## Generates the current day data based on an increasing difficulty over time.
+## For how the equations fit together, see this Desmos graph:
+## https://www.desmos.com/calculator/dxh9onpg1q
+func update_day_data() -> void:
+    var d = day - 1
+
+    # Convert the day to a continuous difficulty_progress in the range 0-MAX_DIFFICULTY
+    var difficulty_progress: float = min(MAX_DIFFICULTY, (MAX_DIFFICULTY + 0.5) * (1 - exp(-K_DIFF_PROGRESS * d)))
+
+    # Sigma that grows then shrinks over time so the difficulty distribution concentrates
+    # I made up this formula; it's not derived from anything lmao
+    var sigma: float = SIGMA_MIN + d * (SIGMA_PEAK - SIGMA_MIN) * (1 - exp(-SIGMA_A*d)) * exp(-SIGMA_B * pow(d, 1.5))
+
+    # Discrete gaussian difficulty weights
+    var difficulty_weights: Dictionary[OrderDifficulty, float] = {}
+    var total_weight: float = 0.0
+    for diff in OrderDifficulty.values():
+        var weight = exp(
+            -pow(float(diff) - difficulty_progress, 2) / (2 * pow(sigma, 2))
+        ) # Gaussian formula
+        difficulty_weights[diff] = weight
+        total_weight += weight
+        print(diff, ": ", weight)
+    
+    # Normalize
+    for diff in difficulty_weights.keys():
+        difficulty_weights[diff] /= total_weight
+    
+    # Interval is exponential decay toward the minimum
+    var customer_interval = INTERVAL_MIN + (INTERVAL_MAX - INTERVAL_MIN) * exp(-INTERVAL_LAMBDA * d)
+    customer_interval *= randf_range(1.0 - INTERVAL_JITTER_RATIO, 1.0 + INTERVAL_JITTER_RATIO)
+
+    # Patience is exponential decay toward the minimum
+    var customer_patience = PATIENCE_MIN + (PATIENCE_MAX - PATIENCE_MIN) * exp(-PATIENCE_LAMBDA * d)
+    customer_patience *= randf_range(1.0 - PATIENCE_JITTER_RATIO, 1.0 + PATIENCE_JITTER_RATIO)
+
+    var day_data = DayData.new()
+    day_data.customer_interval = customer_interval
+    day_data.customer_patience = round(customer_patience)
+    day_data.difficulty_probabilities = difficulty_weights
+    
+    current_day_data = day_data
+
 
 func get_possible_orders(difficulty: OrderDifficulty) -> OrderPossibilities:
     if difficulty in possible_orders:
@@ -35,6 +91,7 @@ var _day: int = 0
     set(value):
         _day = value
         day_changed.emit(_day)
+        update_day_data()
 
 ## Time of day, in hours. 0.0 to 24.0
 var _time_of_day: float = 0.0
@@ -98,20 +155,23 @@ func _process(delta):
 ## [b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]
 ## [b]Customer patience[/b]: [color=#ffff99]2hrs[/color]
 ## [b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]
-func generate_day_opening_info(for_day: int):
-    var data: DayData = get_day_data(for_day)
-    var customerRate = 1.0 / data.customer_interval
+func generate_day_opening_info():
+    var customerRate = 1.0 / current_day_data.customer_interval
     
     var rateColor = "#ff9988" if customerRate >= 10 else "#ffff99" if customerRate >= 5 else "#99ff88"
     var info = "[b]Expected customer rate[/b]: [color=%s]%d/hr[/color]\n" % [rateColor, customerRate]
 
-    var patienceColor = "#ff9988" if data.customer_patience <= 30.0 else "#ffff99" if data.customer_patience <= 60.0 else "#99ff88"
-    info += "[b]Customer patience[/b]: [color=%s]%sm[/color]\n" % [patienceColor, int(data.customer_patience)]
+    var patienceColor = "#ff9988" if current_day_data.customer_patience <= 30.0 else "#ffff99" if current_day_data.customer_patience <= 60.0 else "#99ff88"
+    info += "[b]Customer patience[/b]: [color=%s]%sm[/color]\n" % [patienceColor, round(current_day_data.customer_patience / 5) * 5]
 
     var difficulties = []
-    for diff in data.order_difficulties:
+    for diff in current_day_data.difficulty_probabilities.keys():
+        var prob = current_day_data.difficulty_probabilities[diff]
+        if prob < 0.02:
+            continue
+        
         var possibleOrders = DayManagerSingleton.get_possible_orders(diff)
-        difficulties.append("[color=#%s]%s[/color]" % [possibleOrders.color.to_html(), possibleOrders.name.to_lower()])
+        difficulties.append("[color=#%s]%s%% %s[/color]" % [possibleOrders.color.to_html(), int(prob * 100), possibleOrders.name.to_lower()])
     
     info += "[b]Order difficulties[/b]: %s" % ", ".join(difficulties)
     
@@ -123,7 +183,7 @@ func begin_day():
     previous_time = 0.0
     day_cycle_active = true
 
-    day_started.emit(day, get_day_data(day), generate_day_opening_info(day))
+    day_started.emit(day, current_day_data, generate_day_opening_info())
 
 ## Try to end the day. The day may only end after 5 PM and if there are no customers left.
 func try_to_end_day():

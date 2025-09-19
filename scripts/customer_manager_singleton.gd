@@ -173,8 +173,7 @@ func spawn_customer() -> void:
     y_sorting_tile_map.add_child(customer)
 
     # Temporary
-    var day_difficulties = current_day_data.order_difficulties
-    var difficulty = day_difficulties[randi() % day_difficulties.size()]
+    var difficulty = current_day_data.pick_random_difficulty()
     var item = DayManagerSingleton.get_possible_orders(difficulty).get_random_item()
 
     var order = OrderData.new(current_day_data.next_customer_patience(), item)

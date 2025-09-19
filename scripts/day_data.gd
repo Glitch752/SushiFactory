@@ -29,10 +29,24 @@ var customer_patience_stddev: float = 0.3
 ## Is that actually likely to happen? Not really. Mathematically, the chance is super low, but this is easy to implement so meh
 var customer_patience_min_ratio: float = 0.5
 
-## The difficulty of orders that can be spawned this day.
-## Probabilities are proportional to the number of difficulties listed.
-@export var order_difficulties: Array[OrderDifficulty] = [OrderDifficulty.BASIC]
+## The probabilities of each order difficulty appearing.
+@export var difficulty_probabilities: Dictionary[OrderDifficulty, float] = {
+    OrderDifficulty.BASIC: 1.0,
+    OrderDifficulty.MEDIUM: 0.0,
+    OrderDifficulty.ADVANCED: 0.0,
+    OrderDifficulty.EXPERT: 0.0
+}
 
+
+## Picks a difficulty based on this day's difficulty distribution.
+func pick_random_difficulty() -> OrderDifficulty:
+    var roll = randf()
+    var cumulative = 0.0
+    for diff in OrderDifficulty.values():
+        cumulative += difficulty_probabilities.get(diff, 0.0)
+        if roll <= cumulative:
+            return diff
+    return OrderDifficulty.BASIC # should never happen?
 
 
 ## Generates the next customer interval time (in GAME-HOURS) based on the day's normal distribution.

@@ -1,94 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfhaoi32vn60w"]
+[gd_scene load_steps=7 format=3 uid="uid://bfhaoi32vn60w"]
 
 [ext_resource type="Script" uid="uid://ca36w64e1wcvh" path="res://scripts/day_manager_singleton.gd" id="1_8tv76"]
-[ext_resource type="Script" uid="uid://dlvmqlayss6ln" path="res://scripts/day_data.gd" id="2_viq34"]
 [ext_resource type="Script" uid="uid://cx3wtsk0viaog" path="res://data/order_possibilities.gd" id="3_6o47b"]
 [ext_resource type="Resource" uid="uid://diholduxt7inv" path="res://data/customer_orders/basic_orders.tres" id="4_dm8jb"]
 [ext_resource type="Resource" uid="uid://c4p7qiqbsfy83" path="res://data/customer_orders/medium_orders.tres" id="5_j0v3x"]
 [ext_resource type="Resource" uid="uid://cvfjnlyjtkxgr" path="res://data/customer_orders/advanced_orders.tres" id="6_a31cr"]
 [ext_resource type="Resource" uid="uid://d3buq6vipwtqk" path="res://data/customer_orders/expert_orders.tres" id="7_53pog"]
 
-[sub_resource type="Resource" id="Resource_rnkol"]
-script = ExtResource("2_viq34")
-customer_patience = 180.0
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_j0v3x"]
-script = ExtResource("2_viq34")
-customer_patience = 150.0
-order_difficulties = Array[int]([0, 1])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_a31cr"]
-script = ExtResource("2_viq34")
-order_difficulties = Array[int]([1])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_53pog"]
-script = ExtResource("2_viq34")
-customer_patience = 90.0
-order_difficulties = Array[int]([1, 2])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_w14ii"]
-script = ExtResource("2_viq34")
-customer_interval = 0.5
-customer_patience = 90.0
-order_difficulties = Array[int]([1, 2])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_dhw2y"]
-script = ExtResource("2_viq34")
-customer_interval = 0.3
-customer_patience = 75.0
-order_difficulties = Array[int]([0, 1, 2])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_enl3g"]
-script = ExtResource("2_viq34")
-customer_interval = 0.3
-customer_patience = 60.0
-order_difficulties = Array[int]([0, 1, 2])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_ik2a3"]
-script = ExtResource("2_viq34")
-customer_interval = 0.2
-customer_patience = 60.0
-order_difficulties = Array[int]([0, 1, 2])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_w827y"]
-script = ExtResource("2_viq34")
-customer_interval = 0.25
-customer_patience = 60.0
-order_difficulties = Array[int]([1, 2, 3])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_qrv1m"]
-script = ExtResource("2_viq34")
-customer_interval = 0.15
-customer_patience = 60.0
-order_difficulties = Array[int]([0, 1])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_0373d"]
-script = ExtResource("2_viq34")
-customer_interval = 0.15
-customer_patience = 60.0
-order_difficulties = Array[int]([0, 1, 2])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
-[sub_resource type="Resource" id="Resource_ku645"]
-script = ExtResource("2_viq34")
-customer_interval = 0.15
-customer_patience = 60.0
-order_difficulties = Array[int]([0, 1, 2, 3])
-metadata/_custom_type_script = "uid://dlvmqlayss6ln"
-
 [node name="DayManagerSingleton" type="Node"]
 script = ExtResource("1_8tv76")
-day_data = Array[ExtResource("2_viq34")]([SubResource("Resource_rnkol"), SubResource("Resource_j0v3x"), SubResource("Resource_a31cr"), SubResource("Resource_53pog"), SubResource("Resource_w14ii"), SubResource("Resource_dhw2y"), SubResource("Resource_enl3g"), SubResource("Resource_ik2a3"), SubResource("Resource_w827y"), SubResource("Resource_qrv1m"), SubResource("Resource_0373d"), SubResource("Resource_ku645")])
 possible_orders = Dictionary[int, ExtResource("3_6o47b")]({
 0: ExtResource("4_dm8jb"),
 1: ExtResource("5_j0v3x"),

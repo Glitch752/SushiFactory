@@ -583,6 +583,42 @@
     "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
     "sourceSize": { "w": 16, "h": 16 },
     "duration": 100
+   },
+   {
+    "filename": "Belts-conveyor-65",
+    "frame": { "x": 16, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Belts-conveyor-66",
+    "frame": { "x": 32, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Belts-conveyor-67",
+    "frame": { "x": 48, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Belts-conveyor-68",
+    "frame": { "x": 64, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
    }
  ],
  "meta": {
@@ -597,7 +633,7 @@
    { "name": "BeltLeft", "from": 8, "to": 15, "direction": "forward", "color": "#a76d00ff" },
    { "name": "BeltUp", "from": 16, "to": 23, "direction": "forward", "color": "#8aaa00ff" },
    { "name": "BeltDown", "from": 24, "to": 31, "direction": "forward", "color": "#00aa4aff" },
-   { "name": "Belts", "from": 33, "to": 64, "direction": "forward", "color": "#000000ff" }
+   { "name": "Belts", "from": 33, "to": 68, "direction": "forward", "color": "#000000ff" }
   ]
  }
 }

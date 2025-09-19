@@ -78,7 +78,7 @@ func _on_node_added(node: Node) -> void:
         )
 
 func play_mouse_enter() -> void:
-    playback.play_stream(preload('res://audio/kenney_ui-audio/click3.ogg'), 0, -8.0, randf_range(0.9, 1.1))
+    playback.play_stream(preload('res://audio/kenney_ui-audio/click3.ogg'), 0, -15.0, randf_range(0.9, 1.1))
 
 #func mouse_exit() -> void:
     #playback.play_stream(preload('res://audio/kenney_ui-audio/click3.ogg'), 0, -8.0, randf_range(1.1, 1.3))
