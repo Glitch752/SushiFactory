@@ -1,6 +1,6 @@
 @tool
 
-extends TransformContainer
+extends MarginContainer
 
 @export var order_text: String = "Order Text"
 @export var total_time: float = 120.0

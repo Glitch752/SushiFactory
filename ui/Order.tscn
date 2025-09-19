@@ -16,14 +16,14 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfqa5"]
 bg_color = Color(0, 0, 0, 0.2)
 
-[node name="Order" type="Container"]
-offset_right = 1.71
+[node name="Order" type="MarginContainer"]
+offset_right = 276.0
 offset_bottom = 70.0
 theme = ExtResource("1_0wuek")
+theme_override_constants/margin_bottom = 8
 script = ExtResource("2_dsl5g")
 order_text = "1x Cucumber Maki"
 order_texture = SubResource("AtlasTexture_rfqa5")
-metadata/_custom_type_script = "uid://c5e3hpkep8iml"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true

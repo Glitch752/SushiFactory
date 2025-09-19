@@ -108,6 +108,11 @@ func _unhandled_input(event):
     if event is InputEventKey and event.pressed and not event.echo:
         if event.keycode == KEY_P:
             spawn_customer()
+        elif event.keycode == KEY_O:
+            for customer in customers:
+                if customer.is_waiting():
+                    satisfy_customer(customer)
+                    break
 
 ############### Customer movement and orders
 
