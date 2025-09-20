@@ -4,16 +4,16 @@ const InteractionData = preload("res://world/interactable/interactable.gd").Inte
 const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
 
 @onready var player = $".."
-@onready var interaction_highlight: Sprite2D = $InteractionHighlight
+@onready var interaction_highlight: Node2D = $InteractionHighlight
 
-@export var highlight_active_texture: Texture2D
-@export var highlight_inactive_texture: Texture2D
+@export var highlight_active_color: Color
+@export var highlight_inactive_color: Color
 
 ## null if interacting with the automation map, Node2D if interacting with an Interactable
 var current_interactable: Variant = null
 var current_interaction_data: InteractionData = null
 
-var automation_manager
+var automation_manager = null
 
 func _ready():
     automation_manager = get_node("../../%AutomationManager")
@@ -29,16 +29,19 @@ func _physics_process(_delta):
         current_interactable = null
         current_interaction_data = automation_interact_data
         interaction_highlight.global_position = automation_manager.get_cell_center(cell)
+        interaction_highlight.size = automation_manager.cell_size()
     elif current_interactable != null:
         current_interaction_data = current_interactable.get_interaction_data()
-        interaction_highlight.global_position = current_interactable.get_node("InteractableContent").global_position
+        var content = current_interactable.get_node("InteractableContent")
+        interaction_highlight.global_position = content.global_position
+        interaction_highlight.size = content.size
     else:
         current_interaction_data = null
     
     var active = false
     if current_interaction_data != null:
         active = current_interaction_data.primary_action != null or current_interaction_data.secondary_action != null
-    interaction_highlight.texture = highlight_active_texture if active else highlight_inactive_texture
+    interaction_highlight.color = highlight_active_color if active else highlight_inactive_color
     
     interaction_highlight.visible = current_interaction_data != null
     

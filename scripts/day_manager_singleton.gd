@@ -56,7 +56,6 @@ func update_day_data() -> void:
         ) # Gaussian formula
         difficulty_weights[diff] = weight
         total_weight += weight
-        print(diff, ": ", weight)
     
     # Normalize
     for diff in difficulty_weights.keys():
@@ -158,8 +157,8 @@ func _process(delta):
 func generate_day_opening_info():
     var customerRate = 1.0 / current_day_data.customer_interval
     
-    var rateColor = "#ff9988" if customerRate >= 10 else "#ffff99" if customerRate >= 5 else "#99ff88"
-    var info = "[b]Expected customer rate[/b]: [color=%s]%d/hr[/color]\n" % [rateColor, customerRate]
+    var rateColor = "#ff9988" if customerRate >= 6 else "#ffff99" if customerRate >= 3 else "#99ff88"
+    var info = "[b]Expected customer rate[/b]: [color=%s]%.1f/hr[/color]\n" % [rateColor, customerRate]
 
     var patienceColor = "#ff9988" if current_day_data.customer_patience <= 30.0 else "#ffff99" if current_day_data.customer_patience <= 60.0 else "#99ff88"
     info += "[b]Customer patience[/b]: [color=%s]%sm[/color]\n" % [patienceColor, round(current_day_data.customer_patience / 5) * 5]

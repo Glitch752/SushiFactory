@@ -2,27 +2,16 @@ extends "res://world/interactable/interactable.gd"
 
 var ComputerDesktopScene = preload("res://world/interactable/computer/ComputerDesktop.tscn")
 
-@onready var timeScaleTween = null
-
 var computer_ui_open: bool = false:
     set(value):
         computer_ui_open = value
         
         if value:
             $%OnSound.play()
+            InputTargetSingleton.activate(InputTargetSingleton.InputTarget.ComputerDesktop)
         else:
             $%OffSound.play()
-
-        # From the Godot documentation:
-        # `Note: It's recommended to keep this property above 0.0, as the game may behave unexpectedly otherwise.`
-        # I originally set this to 0, but it does in fact create some weird issues.
-        # Therefore, we run the game at 5% speed when in the computer to give players a bit of a pause.
-
-        if timeScaleTween:
-            timeScaleTween.kill()
-        timeScaleTween = create_tween()
-        timeScaleTween.set_ignore_time_scale(true)
-        timeScaleTween.tween_property(Engine, "time_scale", 0.05 if value else 1.0, 0.5 if value else 0.05)
+            InputTargetSingleton.deactivate(InputTargetSingleton.InputTarget.ComputerDesktop)
 
 func _ready():
     EmailSystem.unread_status_changed.connect(update_info_indicator)

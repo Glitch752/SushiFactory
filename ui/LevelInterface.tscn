@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=16 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://ui/level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
@@ -7,8 +7,8 @@
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="4_lfe7y"]
 [ext_resource type="PackedScene" uid="uid://d4k8uvcvp373t" path="res://ui/Order.tscn" id="5_py5b0"]
 [ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="5_xj0kr"]
+[ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="9_7oa8n"]
 [ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="9_xj0kr"]
-[ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="10_4hwu7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oftlk"]
 font = ExtResource("4_lfe7y")
@@ -35,10 +35,6 @@ font_color = Color(0.356863, 0.745098, 0.584314, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_sb6wj"]
 font = ExtResource("4_hpumr")
 font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_7oa8n"]
-font = ExtResource("4_hpumr")
-font_size = 20
 
 [node name="LevelInterface" type="Control"]
 layout_mode = 3
@@ -220,64 +216,17 @@ autowrap_mode = 0
 shortcut_keys_enabled = false
 horizontal_alignment = 2
 
-[node name="InteractionInfo" type="PanelContainer" parent="."]
+[node name="InteractionInfo" parent="." instance=ExtResource("9_7oa8n")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -56.0
+offset_left = -46.0
 offset_top = 72.0
-offset_right = -18.0
-offset_bottom = 100.0
+offset_right = -16.0
+offset_bottom = 92.0
 grow_horizontal = 0
-theme = ExtResource("3_grx74")
-script = ExtResource("9_xj0kr")
-
-[node name="MarginContainer" type="MarginContainer" parent="InteractionInfo"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="InteractionInfo/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="InteractionName" type="Label" parent="InteractionInfo/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("3_grx74")
-text = "Interactable name idk"
-label_settings = SubResource("LabelSettings_7oa8n")
-
-[node name="InteractionDescription" type="RichTextLabel" parent="InteractionInfo/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("3_grx74")
-bbcode_enabled = true
-text = "Test[ul]
-Item
-Item 2[ul]
-sublist
-[/ul]
-wow
-[/ul]"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-
-[node name="PrimaryInteract" parent="InteractionInfo/MarginContainer/VBoxContainer" instance=ExtResource("10_4hwu7")]
-unique_name_in_owner = true
-layout_mode = 2
-key = "E"
-placeholderText = "Primary interact"
-
-[node name="SecondaryInteract" parent="InteractionInfo/MarginContainer/VBoxContainer" instance=ExtResource("10_4hwu7")]
-unique_name_in_owner = true
-layout_mode = 2
 
 [connection signal="mouse_entered" from="Inventory" to="Inventory" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Inventory" to="Inventory" method="_on_mouse_exited"]

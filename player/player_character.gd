@@ -28,6 +28,10 @@ func _ready():
     animated_sprite.play()
 
 func get_player_input(delta) -> void:
+    if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.PlayerMovement):
+        velocity = Vector2.ZERO
+        return
+
     var vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
     var target_velocity = vector * movement_speed
     var acceleration = 1200.0

@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://c82m2vqfrqyrb"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_deatn"]
+[ext_resource type="Script" uid="uid://b0t3m6y2cwynk" path="res://ui/interaction_info.gd" id="2_deatn"]
+[ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="3_8yhve"]
+[ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="4_ql7gy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7oa8n"]
+font = ExtResource("3_8yhve")
+font_size = 20
+
+[node name="InteractionInfo" type="PanelContainer"]
+offset_right = 30.0
+offset_bottom = 20.0
+theme = ExtResource("1_deatn")
+script = ExtResource("2_deatn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="InteractionName" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_deatn")
+text = "Interactable name idk"
+label_settings = SubResource("LabelSettings_7oa8n")
+
+[node name="InteractionDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_deatn")
+bbcode_enabled = true
+text = "Test[ul]
+Item
+Item 2[ul]
+sublist
+[/ul]
+wow
+[/ul]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="PrimaryInteract" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_ql7gy")]
+unique_name_in_owner = true
+layout_mode = 2
+key = "E"
+placeholderText = "Primary interact"
+
+[node name="SecondaryInteract" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_ql7gy")]
+unique_name_in_owner = true
+layout_mode = 2

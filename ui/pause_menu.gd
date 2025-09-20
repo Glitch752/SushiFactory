@@ -7,7 +7,7 @@ extends Control
 
 var paused = false
 var animating = false
-var timeScaleTween: Tween = null
+var audioTween: Tween = null
 
 func _ready():
     visible = false
@@ -20,21 +20,25 @@ func _ready():
 func day_started(_day: int, _day_data: DayData, info_text: String):
     $%CurrentDayStats.text = info_text
 
+var time_scale_on_pause: float = 1.0
+
 func pause(duration = 0.75):
     if animating:
         return
     
     paused = true
     animating = true
+    InputTargetSingleton.activate(InputTargetSingleton.InputTarget.PauseMenu)
     
     var lowPass: AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioServer.get_bus_index("Music"), 0)
 
-    if timeScaleTween:
-        timeScaleTween.kill()
-    timeScaleTween = create_tween()
-    timeScaleTween.set_ignore_time_scale(true)
-    timeScaleTween.tween_property(Engine, "time_scale", 0.0, duration)
-    timeScaleTween.parallel().tween_property(lowPass, "cutoff_hz", 1800, duration)
+    time_scale_on_pause = Engine.time_scale
+
+    if audioTween:
+        audioTween.kill()
+    audioTween = create_tween()
+    audioTween.set_ignore_time_scale(true)
+    audioTween.parallel().tween_property(lowPass, "cutoff_hz", 1800, duration)
 
     mat.set_shader_parameter("direction", Vector2(6, 1))
     mat.set_shader_parameter("progress", 0.0)
@@ -61,17 +65,17 @@ func unpause(duration = 0.75):
     
     paused = false
     animating = true
+    InputTargetSingleton.deactivate(InputTargetSingleton.InputTarget.PauseMenu)
     
     get_tree().paused = false
 
     var lowPass: AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioServer.get_bus_index("Music"), 0)
     
-    if timeScaleTween:
-        timeScaleTween.kill()
-    timeScaleTween = create_tween()
-    timeScaleTween.set_ignore_time_scale(true)
-    timeScaleTween.tween_property(Engine, "time_scale", 1.0, 0.1)
-    timeScaleTween.parallel().tween_property(lowPass, "cutoff_hz", 22000, duration)
+    if audioTween:
+        audioTween.kill()
+    audioTween = create_tween()
+    audioTween.set_ignore_time_scale(true)
+    audioTween.parallel().tween_property(lowPass, "cutoff_hz", 22000, duration)
 
     var t = create_tween()
     t.set_ignore_time_scale(true)

@@ -17,7 +17,7 @@ extends Node2D
 #   For now, machines need to call `remove_item(item)` themselves when they take an item.
 # - Call rescan_belts() when the tilemap layout changes
 
-@export var automation_tilemap: TileMapLayer
+@export var automation_tilemap: WorldInteractableTilemap
 @export var belt_movement_speed: float = 3.8 # tiles per second
 
 var belt_update_timer: float = 0.0
@@ -409,6 +409,9 @@ func update_item_interpolation(delta: float) -> void:
 
 const InteractionData = preload("res://world/interactable/interactable.gd").InteractionData
 const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
+
+func cell_size() -> Vector2i:
+    return automation_tilemap.tile_set.tile_size
 
 func get_interaction_cell(global_pos: Vector2) -> Vector2i:
     return automation_tilemap.local_to_map(automation_tilemap.to_local(global_pos))

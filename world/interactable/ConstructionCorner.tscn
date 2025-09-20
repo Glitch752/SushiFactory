@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://diarsat5t5bgg"]
+
+[ext_resource type="PackedScene" uid="uid://djus2beu8ssd4" path="res://world/interactable/Interactable.tscn" id="1_1maqj"]
+[ext_resource type="Texture2D" uid="uid://ct7dv4e8jcn4g" path="res://images/construction.png" id="2_6xgga"]
+[ext_resource type="Script" uid="uid://4atmhr8golks" path="res://world/interactable/construction_corner.gd" id="2_lnl8q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1maqj"]
+size = Vector2(30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnl8q"]
+atlas = ExtResource("2_6xgga")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlh3i"]
+atlas = ExtResource("2_6xgga")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3yyh"]
+size = Vector2(30, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vybx"]
+size = Vector2(14, 13)
+
+[node name="Interactable" instance=ExtResource("1_1maqj")]
+script = ExtResource("2_lnl8q")
+
+[node name="InteractableContent" parent="." index="0"]
+position = Vector2(0, 0)
+size = Vector2i(32, 32)
+
+[node name="CollisionShape2D" parent="InteractableContent/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_1maqj")
+
+[node name="Construction" type="Sprite2D" parent="." index="1"]
+position = Vector2(0, -16)
+texture = SubResource("AtlasTexture_lnl8q")
+
+[node name="Construction2" type="Sprite2D" parent="." index="2"]
+position = Vector2(0, -1)
+texture = SubResource("AtlasTexture_tlh3i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_f3yyh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(-6, 6.5)
+shape = SubResource("RectangleShape2D_3vybx")

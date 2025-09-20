@@ -81,7 +81,7 @@ func recursively_load_resources(data_type: String, type_hint: String = "") -> Ar
                 file_name = file_name.replace(".remap", "")
             
             if file_name.get_extension() == "tres":
-                print("Loading resource res://data/%s/%s" % [data_type, file_name])
+                # print("Loading resource res://data/%s/%s" % [data_type, file_name])
                 var resource = load("res://data/%s/%s" % [data_type, file_name])
                 if resource != null:
                     resources.append(resource)

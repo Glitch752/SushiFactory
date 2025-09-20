@@ -9,7 +9,7 @@ signal customer_satisfied()
 signal customer_angered()
 
 var customer_paths_parent: Node2D
-var y_sorting_tile_map: TileMapLayer
+var y_sorting_tile_map: WorldInteractableTilemap
 
 var entrance_path: Path2D
 var entrance_path_length: float

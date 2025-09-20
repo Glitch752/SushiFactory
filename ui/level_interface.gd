@@ -58,16 +58,7 @@ var waiting_secondary_action: InteractionAction = null
 
 func update_interaction_info(data: InteractionData):
     current_interaction_data = data
-    if data != null:
-        $%InteractionInfo.visible = true
-
-        $%InteractionName.text = data.name
-        $%InteractionDescription.text = data.description
-        
-        $%PrimaryInteract.update(data.primary_action)
-        $%SecondaryInteract.update(data.secondary_action)
-    else:
-        $%InteractionInfo.visible = false
+    $%InteractionInfo.data = data
 
 func _unhandled_input(event):
     if current_interaction_data == null:

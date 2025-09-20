@@ -1,6 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv57c3nkt178l"]
+[gd_scene load_steps=7 format=3 uid="uid://dv57c3nkt178l"]
 
 [ext_resource type="Script" uid="uid://djfx02r4wcy3b" path="res://ui/construction/construction_view.gd" id="1_ujp5h"]
+[ext_resource type="Script" uid="uid://bv7wxyrmg64uc" path="res://scripts/ui_camera_2d.gd" id="2_0vto1"]
+[ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="3_0f3dd"]
+[ext_resource type="PackedScene" uid="uid://b44t6d4kdhs6n" path="res://player/InteractionHighlight.tscn" id="3_ewvdu"]
+[ext_resource type="Script" uid="uid://bkmwdobrbator" path="res://scripts/canvas_layer_up.gd" id="3_pl1os"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujp5h"]
+font_size = 61
 
 [node name="ConstructionView" type="Node2D"]
 script = ExtResource("1_ujp5h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+enabled = false
+zoom = Vector2(4, 4)
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("2_0vto1")
+metadata/_custom_type_script = "uid://bv7wxyrmg64uc"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = -1
+script = ExtResource("3_pl1os")
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 14.0
+offset_right = 152.0
+offset_bottom = 37.0
+text = "Editing mode idk"
+label_settings = SubResource("LabelSettings_ujp5h")
+
+[node name="InteractionInfo" parent="Camera2D/CanvasLayer/Control" instance=ExtResource("3_0f3dd")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -304.0
+offset_top = 16.0
+offset_right = -14.0
+offset_bottom = 280.0
+grow_horizontal = 0
+
+[node name="InteractionHighlight" parent="." instance=ExtResource("3_ewvdu")]

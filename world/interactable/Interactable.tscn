@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://djus2beu8ssd4"]
+[gd_scene load_steps=4 format=3 uid="uid://djus2beu8ssd4"]
 
 [ext_resource type="Script" uid="uid://bhpdkwsbdmvmb" path="res://world/interactable/interactable.gd" id="1_n8mfl"]
+[ext_resource type="Script" uid="uid://bsccegxc6uxmg" path="res://world/interactable/interactable_content.gd" id="2_n8mfl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iow7s"]
 size = Vector2(12, 10)
@@ -10,6 +11,7 @@ script = ExtResource("1_n8mfl")
 
 [node name="InteractableContent" type="Node2D" parent="."]
 position = Vector2(0, -11)
+script = ExtResource("2_n8mfl")
 
 [node name="Area2D" type="Area2D" parent="InteractableContent"]
 
