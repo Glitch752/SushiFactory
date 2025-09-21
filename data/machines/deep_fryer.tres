@@ -6,4 +6,5 @@
 script = ExtResource("1_saauo")
 id = &"deep_fryer"
 machine_name = "Deep Fryer"
+custom_counter_x = 1
 metadata/_custom_type_script = "uid://caa10ko141d4g"

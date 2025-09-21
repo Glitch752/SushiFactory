@@ -6,4 +6,5 @@
 script = ExtResource("1_uookw")
 id = &"frying_pan"
 machine_name = "Frying Pan"
+custom_counter_x = 0
 metadata/_custom_type_script = "uid://caa10ko141d4g"

@@ -90,13 +90,13 @@ func _unhandled_input(event):
 func _physics_process(delta):
     if waiting_primary_action != null:
         waiting_primary_action.current_time += delta
-        $%PrimaryInteract.update(waiting_primary_action)
+        $%InteractionInfo/%PrimaryInteract.update(waiting_primary_action)
         if waiting_primary_action.current_time >= waiting_primary_action.time_required:
             waiting_primary_action.callable.call()
             waiting_primary_action = null
     if waiting_secondary_action != null:
         waiting_secondary_action.current_time += delta
-        $%SecondaryInteract.update(waiting_secondary_action)
+        $%InteractionInfo/%SecondaryInteract.update(waiting_secondary_action)
         if waiting_secondary_action.current_time >= waiting_secondary_action.time_required:
             waiting_secondary_action.callable.call()
             waiting_secondary_action = null

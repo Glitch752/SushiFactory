@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv57c3nkt178l"]
+[gd_scene load_steps=6 format=3 uid="uid://dv57c3nkt178l"]
 
 [ext_resource type="Script" uid="uid://djfx02r4wcy3b" path="res://ui/construction/construction_view.gd" id="1_ujp5h"]
 [ext_resource type="Script" uid="uid://bv7wxyrmg64uc" path="res://scripts/ui_camera_2d.gd" id="2_0vto1"]
 [ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="3_0f3dd"]
 [ext_resource type="PackedScene" uid="uid://b44t6d4kdhs6n" path="res://player/InteractionHighlight.tscn" id="3_ewvdu"]
-[ext_resource type="Script" uid="uid://bkmwdobrbator" path="res://scripts/canvas_layer_up.gd" id="3_pl1os"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujp5h"]
 font_size = 26
@@ -22,8 +21,7 @@ script = ExtResource("2_0vto1")
 metadata/_custom_type_script = "uid://bv7wxyrmg64uc"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-layer = -1
-script = ExtResource("3_pl1os")
+visible = false
 
 [node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3

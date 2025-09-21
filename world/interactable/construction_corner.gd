@@ -8,6 +8,6 @@ func open_construction_view():
 func get_interaction_data() -> InteractionData:
     return InteractionData.new(
         "Construction Tools",
-        "The tools required to rennovate your restaurant space!\nInteract to enter editing mode.",
+        "The tools required to renovate your restaurant space!\nInteract to enter editing mode.",
         InteractionAction.new("Open editing mode", open_construction_view)
     )
