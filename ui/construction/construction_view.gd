@@ -57,11 +57,11 @@ func _input(event):
         get_viewport().set_input_as_handled()
     
     for dir in movement_directions.keys():
-        if Input.is_action_just_pressed(dir):
+        if Input.is_action_just_pressed_by_event(dir, event):
             targeted_tile += movement_directions[dir]
             repeat_countdown[dir] = REPEAT_INITIAL_DELAY
             get_viewport().set_input_as_handled()
-        elif Input.is_action_just_released(dir):
+        elif Input.is_action_just_released_by_event(dir, event):
             repeat_countdown.erase(dir)
             get_viewport().set_input_as_handled()
 

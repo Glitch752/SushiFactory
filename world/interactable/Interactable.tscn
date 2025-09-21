@@ -10,7 +10,7 @@ size = Vector2(12, 10)
 script = ExtResource("1_n8mfl")
 
 [node name="InteractableContent" type="Node2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -13)
 script = ExtResource("2_n8mfl")
 
 [node name="Area2D" type="Area2D" parent="InteractableContent"]

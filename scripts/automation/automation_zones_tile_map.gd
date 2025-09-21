@@ -5,9 +5,10 @@ extends TileMapLayer
 # Map from meaning to alternate tile
 var alternate_tile_ids: Dictionary[String, int] = {
     "none": 0,
-    "open": 1,
+    "counter": 1,
     "reserved": 2,
-    "counter": 3
+    "open_for_counter": 3,
+    "open": 4,
 }
 
 func _ready():
@@ -19,8 +20,6 @@ func _ready():
 @export_tool_button("Update editor constraints") var update_editor_constraints = _update_editor_constraints
 
 func _update_editor_constraints():
-    print("ahahhhhh")
-
     for pos in get_used_cells():
         var cell_data = get_cell_tile_data(pos)
         var meaning = cell_data.get_custom_data("meaning")
@@ -30,5 +29,12 @@ func _update_editor_constraints():
 
         if meaning == "reserved" and not has_counter_above:
             set_cell(pos, 0, Vector2i(0, 0), alternate_tile_ids["open"])
-        elif meaning == "open" and has_counter_above:
+            meaning = "open"
+        elif meaning != "reserved" and meaning != "counter" and has_counter_above:
             set_cell(pos, 0, Vector2i(0, 0), alternate_tile_ids["reserved"])
+            meaning = "reserved"
+        
+        if meaning == "open" and cell_data_above == null:
+            # All open cells with an empty one above have open_for_counter put above
+            set_cell(pos + Vector2i.UP, 0, Vector2i(0, 0), alternate_tile_ids["open_for_counter"])
+            meaning = "open_for_counter"
