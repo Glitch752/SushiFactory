@@ -95,7 +95,7 @@ func _process(delta):
 
 func _move_target(dir: Vector2i):
     var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile + dir)
-    if not zone_data:
+    if zone_data == null:
         return
     
     targeted_tile += dir
@@ -112,6 +112,8 @@ func show_view():
     InputTargetSingleton.activate(InputTargetSingleton.InputTarget.ConstructionMenu)
     set_process(true)
 
+    automation_objects_tilemap.show_map()
+
 func hide_view():
     visible = false
 
@@ -123,3 +125,5 @@ func hide_view():
 
     InputTargetSingleton.deactivate(InputTargetSingleton.InputTarget.ConstructionMenu)
     set_process(false)
+
+    automation_objects_tilemap.hide_map()
