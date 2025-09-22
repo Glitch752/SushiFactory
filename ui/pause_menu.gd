@@ -20,8 +20,6 @@ func _ready():
 func day_started(_day: int, _day_data: DayData, info_text: String):
     $%CurrentDayStats.text = info_text
 
-var time_scale_on_pause: float = 1.0
-
 func pause(duration = 0.75):
     if animating:
         return
@@ -31,8 +29,6 @@ func pause(duration = 0.75):
     InputTargetSingleton.activate(InputTargetSingleton.InputTarget.PauseMenu)
     
     var lowPass: AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioServer.get_bus_index("Music"), 0)
-
-    time_scale_on_pause = Engine.time_scale
 
     if audioTween:
         audioTween.kill()
@@ -63,11 +59,11 @@ func unpause(duration = 0.75):
     if animating:
         return
     
+    get_tree().paused = false
+    
     paused = false
     animating = true
     InputTargetSingleton.deactivate(InputTargetSingleton.InputTarget.PauseMenu)
-    
-    get_tree().paused = false
 
     var lowPass: AudioEffectLowPassFilter = AudioServer.get_bus_effect(AudioServer.get_bus_index("Music"), 0)
     
@@ -92,6 +88,9 @@ func unpause(duration = 0.75):
     visible = false
 
 func _unhandled_key_input(event):
+    if not InputTargetSingleton.is_any_active([InputTargetSingleton.InputTarget.PlayerMovement, InputTargetSingleton.InputTarget.PauseMenu]):
+        return
+    
     if event.is_action_pressed("ui_cancel") and not event.is_echo():
         if not paused:
             pause()

@@ -1,5 +1,8 @@
 extends Node2D
 
+const InteractionData = preload("res://world/interactable/interactable.gd").InteractionData
+const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
+
 @export var building_tilemap: WorldInteractableTilemap
 @export var automation_zones_tilemap: AutomationZonesTilemap
 @export var automation_objects_tilemap: AutomationObjectsTilemap
@@ -54,6 +57,14 @@ func _ready():
     targeted_tile = tilemap_cells[tilemap_cells.size() / 2]
 
     set_process(false)
+    
+    InteractionSingleton.interaction_data_changed.connect(update_interaction_info)
+
+func update_interaction_info(data: InteractionData):
+    if not is_visible_in_tree():
+        return
+    
+    $%InteractionInfo.data = data
 
 func _input(event):
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.ConstructionMenu):
@@ -73,13 +84,29 @@ func _input(event):
             get_viewport().set_input_as_handled()
 
 func _process(delta):
+    if abs(Engine.time_scale) < 0.001: 
+        return
+    
     delta = delta / Engine.time_scale
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.ConstructionMenu):
         return
     
     camera.position_smoothing_speed = 5 / Engine.time_scale
 
-    $%InteractionInfo.data = null # TODO
+    var highlighted_tile = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
+    var interaction_data: InteractionData = null
+    if highlighted_tile != null:
+        var interaction_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
+        var editable = interaction_zone.get_custom_data("editable")
+
+        if editable:
+            var remove_action = InteractionAction.new("Remove", _remove_targeted_tile, 0.2)
+            var rotate_action = InteractionAction.new("Rotate", _rotate_targeted_tile)
+            interaction_data = InteractionData.new("Tile test", "A tile idk", remove_action, rotate_action)
+        else:
+            interaction_data = InteractionData.new("Tile test", "A tile idk")
+        
+    InteractionSingleton.update_interactable(interaction_data)
 
     var target_position = building_tilemap.to_global(building_tilemap.map_to_local(targeted_tile))
     camera.global_position = target_position
@@ -92,6 +119,17 @@ func _process(delta):
         if repeat_countdown[dir] < 0:
             repeat_countdown[dir] += REPEAT_INTERVAL
             _move_target(movement_directions[dir])
+
+func _remove_targeted_tile():
+    automation_objects_tilemap.set_cell(targeted_tile, -1)
+    building_tilemap.update_around(targeted_tile)
+
+func _rotate_targeted_tile():
+    var tile_data = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
+    if tile_data == null:
+        return
+    
+    # TODO
 
 func _move_target(dir: Vector2i):
     var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile + dir)

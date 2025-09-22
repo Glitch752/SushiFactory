@@ -1,6 +1,7 @@
 extends Node
 
 enum InputTarget {
+    # Ordered by increasing priority
     PlayerMovement,
     ComputerDesktop,
     ConstructionMenu,
@@ -32,8 +33,14 @@ func get_active_input_target() -> InputTarget:
 
 func is_active(target: InputTarget):
     return get_active_input_target() == target
+    
+func is_any_active(targets: Array[InputTarget]):
+    return get_active_input_target() in targets
 
 func activate(target: InputTarget):
+    call_deferred("_activate", target)
+
+func _activate(target: InputTarget):
     var last_target = get_active_input_target()
     active[target] = true
     var current_target = get_active_input_target()
@@ -41,6 +48,9 @@ func activate(target: InputTarget):
         _update_time_scale(current_target)
 
 func deactivate(target: InputTarget):
+    call_deferred("_deactivate", target)
+
+func _deactivate(target: InputTarget):
     var last_target = get_active_input_target()
     active[target] = false
     var current_target = get_active_input_target()

@@ -21,6 +21,9 @@ func _ready():
         push_error("Could not find AutomationManager node.")
 
 func _physics_process(_delta):
+    if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.PlayerMovement):
+        return
+
     position = player.facing * 12
     
     var cell = automation_manager.get_interaction_cell(global_position)
@@ -45,7 +48,7 @@ func _physics_process(_delta):
     
     interaction_highlight.visible = current_interaction_data != null
     
-    LevelInterfaceSingleton.update_interactable(current_interaction_data)
+    InteractionSingleton.update_interactable(current_interaction_data)
 
 func _on_area_entered(area: Area2D):
     if area.is_in_group("interact_zone"):
