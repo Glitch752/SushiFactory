@@ -1,6 +1,13 @@
 extends Node2D
 
 @export var building_tilemap: WorldInteractableTilemap
+@export var automation_zones_tilemap: AutomationZonesTilemap
+@export var automation_objects_tilemap: AutomationObjectsTilemap
+
+@export_group("Colors", "highlight_")
+@export var highlight_existing_color: Color
+@export var highlight_valid_color: Color
+@export var highlight_invalid_color: Color
 
 @onready var camera: UiCamera2D = $Camera2D
 @onready var highlight = $InteractionHighlight
@@ -58,7 +65,7 @@ func _input(event):
     
     for dir in movement_directions.keys():
         if Input.is_action_just_pressed_by_event(dir, event):
-            targeted_tile += movement_directions[dir]
+            _move_target(movement_directions[dir])
             repeat_countdown[dir] = REPEAT_INITIAL_DELAY
             get_viewport().set_input_as_handled()
         elif Input.is_action_just_released_by_event(dir, event):
@@ -77,12 +84,21 @@ func _process(delta):
     var target_position = building_tilemap.to_global(building_tilemap.map_to_local(targeted_tile))
     camera.global_position = target_position
     highlight.global_position = target_position
+
+    highlight.color = Color.WHITE
     
     for dir in repeat_countdown.keys():
         repeat_countdown[dir] -= delta
         if repeat_countdown[dir] < 0:
             repeat_countdown[dir] += REPEAT_INTERVAL
-            targeted_tile += movement_directions[dir]
+            _move_target(movement_directions[dir])
+
+func _move_target(dir: Vector2i):
+    var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile + dir)
+    if not zone_data:
+        return
+    
+    targeted_tile += dir
 
 func show_view():
     visible = true

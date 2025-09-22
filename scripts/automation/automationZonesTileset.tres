@@ -1,0 +1,42 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://du73hm4lfemx8"]
+
+[ext_resource type="Texture2D" uid="uid://dvl6ad14wxqlc" path="res://images/editor.png" id="1_uedun"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fd3j"]
+resource_name = "Zones"
+texture = ExtResource("1_uedun")
+0:0/next_alternative_id = 6
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/modulate = Color(0.91, 0.8554, 0.7735, 1)
+0:0/1/custom_data_0 = true
+0:0/1/custom_data_2 = "counters_only"
+0:0/1/custom_data_3 = true
+0:0/2 = 2
+0:0/2/modulate = Color(1, 0.65, 0.3, 1)
+0:0/2/custom_data_0 = true
+0:0/2/custom_data_1 = true
+0:0/2/custom_data_2 = "open"
+0:0/2/custom_data_3 = true
+0:0/3 = 3
+0:0/3/modulate = Color(0.88, 0.3256, 0.3256, 1)
+0:0/3/custom_data_2 = "reserved"
+0:0/3/custom_data_3 = true
+0:0/5 = 5
+0:0/5/modulate = Color(0.41, 0.2009, 0.20438494, 1)
+0:0/5/custom_data_2 = "selectable_only"
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+
+[resource]
+custom_data_layer_0/name = "counter_buildable"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "all_buildable"
+custom_data_layer_1/type = 1
+custom_data_layer_2/name = "meaning"
+custom_data_layer_2/type = 4
+custom_data_layer_3/name = "should_update"
+custom_data_layer_3/type = 1
+sources/1 = SubResource("TileSetAtlasSource_4fd3j")

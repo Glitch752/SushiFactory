@@ -218,6 +218,10 @@ func update_belts() -> void:
             continue
 
         if k == L:
+            if L == 2:
+                # A full loop between 2 belts facing into each other shouldn't really move items, so skip it
+                continue
+
             # This is a fully occupied cycle, so we rotate all items forward by one
             var last_item = occ[cycle[L - 1]]
             for i in range(L - 1, 0, -1):
