@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv57c3nkt178l"]
+[gd_scene load_steps=8 format=3 uid="uid://dv57c3nkt178l"]
 
 [ext_resource type="Script" uid="uid://djfx02r4wcy3b" path="res://ui/construction/construction_view.gd" id="1_ujp5h"]
 [ext_resource type="Script" uid="uid://bv7wxyrmg64uc" path="res://scripts/ui_camera_2d.gd" id="2_0vto1"]
 [ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="3_0f3dd"]
 [ext_resource type="PackedScene" uid="uid://b44t6d4kdhs6n" path="res://player/InteractionHighlight.tscn" id="3_ewvdu"]
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="3_n20w7"]
+[ext_resource type="PackedScene" uid="uid://cagv7ia6tisef" path="res://ui/construction/ConstructableItem.tscn" id="5_n20w7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujp5h"]
-font_size = 24
+font_size = 22
 
 [node name="ConstructionView" type="Node2D"]
 script = ExtResource("1_ujp5h")
@@ -21,7 +23,6 @@ script = ExtResource("2_0vto1")
 metadata/_custom_type_script = "uid://bv7wxyrmg64uc"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-visible = false
 
 [node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3
@@ -30,13 +31,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_n20w7")
 
 [node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 14.0
-offset_right = 152.0
-offset_bottom = 37.0
+offset_left = 32.0
+offset_top = 120.0
+offset_right = 1043.0
+offset_bottom = 191.0
 text = "editing mode is a work in progress! there's not much here yet :)
 Importantly, you can (kind of) delete counters but not re-add them lol"
 label_settings = SubResource("LabelSettings_ujp5h")
@@ -52,5 +54,15 @@ offset_top = 16.0
 offset_right = -14.0
 offset_bottom = 0.0
 grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 56.0
+
+[node name="ConstructableItem" parent="Camera2D/CanvasLayer/Control/HBoxContainer" instance=ExtResource("5_n20w7")]
+layout_mode = 2
 
 [node name="InteractionHighlight" parent="." instance=ExtResource("3_ewvdu")]

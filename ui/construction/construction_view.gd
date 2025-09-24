@@ -102,7 +102,7 @@ func _process(delta):
         if editable:
             var remove_action = InteractionAction.new("Remove", _remove_targeted_tile, 0.2)
             var rotate_action = InteractionAction.new("Rotate", _rotate_targeted_tile)
-            interaction_data = InteractionData.new("Tile test", "A tile idk", remove_action, rotate_action)
+            interaction_data = InteractionData.new("Tile test", "A tile idk", rotate_action, remove_action)
         else:
             interaction_data = InteractionData.new("Tile test", "A tile idk")
         
@@ -110,7 +110,8 @@ func _process(delta):
 
     var target_position = building_tilemap.to_global(building_tilemap.map_to_local(targeted_tile))
     camera.global_position = target_position
-    highlight.global_position = target_position
+    # highlight.global_position = target_position
+    highlight.create_tween().set_ignore_time_scale(true).tween_property(highlight, "global_position", target_position, 0.05)
 
     highlight.color = Color.WHITE
     
@@ -129,7 +130,30 @@ func _rotate_targeted_tile():
     if tile_data == null:
         return
     
-    # TODO
+    var facing = tile_data.get_custom_data("facing")
+    var new_atlas_coords = automation_objects_tilemap.get_cell_atlas_coords(targeted_tile)
+    match facing:
+        "up":
+            # Right
+            new_atlas_coords = Vector2i(0, 3)
+        "right":
+            # Down
+            new_atlas_coords = Vector2i(0, 2)
+        "down":
+            # Left
+            new_atlas_coords = Vector2i(0, 4)
+        "left":
+            # Up
+            new_atlas_coords = Vector2i(0, 1)
+    
+    automation_objects_tilemap.set_cell(
+        targeted_tile,
+        automation_objects_tilemap.get_cell_source_id(targeted_tile),
+        new_atlas_coords,
+        automation_objects_tilemap.get_cell_alternative_tile(targeted_tile)
+    )
+    building_tilemap.update_around(targeted_tile)
+    
 
 func _move_target(dir: Vector2i):
     var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile + dir)

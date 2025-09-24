@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bjb0in362wq1m"]
+[gd_scene load_steps=51 format=4 uid="uid://bjb0in362wq1m"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_bexhn"]
 [ext_resource type="Script" uid="uid://chmu82saqdjsw" path="res://level.gd" id="1_dcckh"]
@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://bmpaies3w0yfg" path="res://world/interactable/Fryer.tscn" id="27_4vjci"]
 [ext_resource type="Script" uid="uid://bsgbtpeim8hc7" path="res://scripts/automation/automation_manager.gd" id="28_b4adj"]
 [ext_resource type="PackedScene" uid="uid://gmrv4ovv1fq0" path="res://ui/PauseMenu.tscn" id="28_q2vmi"]
-[ext_resource type="Script" uid="uid://bq2c17043lfwt" path="res://world/interactable/table_surface_interactable.gd" id="30_yr3df"]
 [ext_resource type="PackedScene" uid="uid://dv57c3nkt178l" path="res://ui/construction/ConstructionView.tscn" id="32_hkpnj"]
 [ext_resource type="TileSet" uid="uid://du73hm4lfemx8" path="res://scripts/automation/automationObjectsTileset.tres" id="32_kr1e0"]
 [ext_resource type="TileSet" uid="uid://du73hm4lfemya" path="res://scripts/automation/automationZonesTileset.tres" id="32_yr3df"]
@@ -123,7 +122,7 @@ curve = SubResource("Curve2D_qqkhr")
 [node name="BuildingTileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("automation_zones_tilemap", "automation_objects_tilemap")]
 y_sort_enabled = true
 texture_filter = 1
-tile_map_data = PackedByteArray("AAD4//z/AQAHAAEAABD4//3/AQAIAAEAABD4////AQAHAAEAABD4/wAAAQAHAAEAABD4/wEAAQAHAAEAABD4/wIAAQAHAAEAABD4/wMAAQAHAAEAABD4//r/AQAHAAEAABD4//v/AQAHAAEAABD4/wYAAQAHAAEAABD4/wcAAQAHAAEAABD4/wgAAQAHAAEAABD4/wkAAQAHAAEAABD4/woAAQAHAAEAABD4/wsAAQAHAAEAABD4/wwAAQAHAAEAABD4/w0AAQAHAAEAABD4/w4AAQAHAAEAABD4/w8AAQAIAAEAABD4/xAAAQAHAAEAABD4/xEAAQAHAAEAABD4/xIAAQAHAAEAABD5/w8AAQABAAAAAAD6/w8AAQABAAAAAAD7/w8AAQABAAAAAAD8/w8AAQABAAAAAAD9/w8AAQABAAAAAAD+/w8AAQABAAAAAAD//w8AAQABAAAAAAAAAA8AAQABAAAAAAABAA8AAQABAAAAAAACAA8AAQABAAAAAAADAA8AAQABAAAAAAAEAA8AAQABAAAAAAALAA8AAQABAAAAAAAMAA8AAQABAAAAAAANAA8AAQABAAAAAAAOAA8AAQABAAAAAAAPAA8AAQABAAAAAAAQAA8AAQABAAAAAAASAAUAAQAHAAEAAAASAAYAAQAHAAEAAAASAAcAAQAHAAEAAAASAAgAAQAHAAEAAAASAAkAAQAHAAEAAAASAAoAAQAHAAEAAAASAAsAAQAHAAEAAAASAAwAAQAHAAEAAAASAA0AAQAHAAEAAAASAA4AAQAHAAEAAAASAA8AAQAIAAEAAAASABAAAQAHAAEAAAASABEAAQAHAAEAAAASABIAAQAHAAEAAAASAPn/AQAHAAEAAAASAPr/AQAHAAEAAAASAPv/AQAHAAEAAAASAPz/AQAHAAEAAAASAP3/AQAIAAEAAAASAP7/AQAHAAEAAAASAP//AQAHAAEAAAASAAAAAQAHAAEAAAASAAEAAQAHAAEAAAASAAIAAQAHAAEAAAASAAMAAQAHAAEAAAASAAQAAQAHAAEAAAD4//n/AQAHAAEAABD4/xMAAQAHAAEAABD4/xQAAQAHAAEAABD4/xUAAQAKAAAAAAASAPX/AQAHAAEAAAASAPb/AQAHAAEAAAASAPf/AQAHAAEAAAASAPj/AQAHAAEAAAD5/xUAAQABAAAAAAD6/xUAAQABAAAAAAD7/xUAAQABAAAAAAD8/xUAAQABAAAAAAD9/xUAAQABAAAAAAD+/xUAAQABAAAAAAD//xUAAQABAAAAAAAAABUAAQABAAAAAAABABUAAQABAAAAAAACABUAAQABAAAAAAADABUAAQABAAAAAAAEABUAAQABAAAAAAAFABUAAQABAAAAAAAGABUAAQABAAAAAAAHABUAAQABAAAAAAAIABUAAQABAAAAAAAJABUAAQABAAAAAAAKABUAAQABAAAAAAALABUAAQABAAAAAAAMABUAAQABAAAAAAANABUAAQABAAAAAAAOABUAAQABAAAAAAAPABUAAQABAAAAAAAQABUAAQABAAAAAAARABUAAQABAAAAAAASABMAAQAHAAEAAAASABQAAQAHAAEAAAASABUAAQAKAAAAABAKAA8AAQACAAAAAAAFAA8AAQACAAAAABD7//3/AQABAAAAAAD8//3/AwAAAAQAAAD9//3/AQALAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAAAAAABAP3/AQANAAAAABACAP3/AQAOAAAAAAADAP3/AQANAAAAAAAEAP3/AQABAAAAAAAFAP3/AQABAAAAAAAGAP3/AQABAAAAAAAHAP3/AQANAAAAABAIAP3/AQAOAAAAAAAJAP3/AQANAAAAAAAKAP3/AQABAAAAAAALAP3/AQABAAAAAAAMAP3/AQABAAAAAAAQAP3/AQABAAAAAAARAP3/AQABAAAAAAD4//7/AQAHAAEAABD5//7/AgAAAAAAAQD5//3/AQAPAAAAAAD6//3/AQAPAAAAABD4//P/AQAHAAEAABD4//T/AQAHAAEAABD4//X/AQAHAAEAABD4//b/AQAHAAEAABD4//f/AQAHAAEAABD4//j/AQAHAAEAABASAPP/AQAHAAEAAAASAPT/AQAHAAEAAAD8//v/AwAAABsAAAD8//r/AwAAAAYAAAD8//n/AwAAAAYAAAD8//z/AwAAAAQAAAD8//j/AwAAAAYAAAD8//f/AwAAAAsAAAD9//f/AwAAAAIAAAD+//f/AwAAAAIAAAD///f/AwAAAAIAAAAAAPf/AwAAAAIAAAABAPf/AwAAAAIAAAACAPf/AwAAAAIAAAADAPf/AwAAAAIAAAAEAPf/AwAAAAIAAAAFAPf/AwAAAAIAAAAGAPf/AwAAAAIAAAAHAPf/AwAAAAIAAAAIAPf/AwAAAAIAAAAJAPf/AwAAAAIAAAAKAPf/AwAAAAIAAAALAPf/AwAAAA4AAAALAPj/AwAAAA0AAAAKAPj/AwAAAAAAAAAJAPj/AwAAAAAAAAAIAPj/AwAAAAAAAAAHAPj/AwAAAAAAAAAGAPj/AwAAAAAAAAAFAPj/AwAAAAAAAAAEAPj/AwAAAAAAAAADAPj/AwAAAAAAAAACAPj/AwAAAAAAAAABAPj/AwAAAAAAAAAAAPj/AwAAAAAAAAD///j/AwAAAAAAAAD+//j/AwAAAAAAAAD9//j/AwAAAAoAAAD9//n/AwAAAAQAAAD9//r/AwAAAAQAAAD9//v/AwAAAA0AAAD8//7/AwAAAAQAAAD8////AwAAAAQAAAD9//7/AQAQAAAAAAD+//z/AAARAAAAAAD///z/AAAdAAAAAAAAAPz/AAAdAAAAABABAPz/AAARAAAAABADAPz/AAARAAAAAAAEAPz/AAAdAAAAAAAFAPz/AAAdAAAAABAGAPz/AAARAAAAABAIAPz/AAARAAAAAAAJAPz/AAAdAAAAAAAKAPz/AAAdAAAAABALAPz/AAARAAAAABD///v/AAASAAAAAAAAAPv/AAASAAAAAAAEAPv/AAASAAAAAAAFAPv/AAASAAAAAAAJAPv/AAASAAAAAAAKAPv/AAASAAAAAAD4/+//AQAIAAAAABD4//D/AQAHAAEAABD4//H/AQAHAAEAABD5/+//AQABAAAAAAD6/+//AQAPAAAAAAD6//D/AgAAAAAAAgD7/+//AQAPAAAAABD8/+//AQABAAAAAAD9/+//AQABAAAAAAD+/+//AQABAAAAAAD//+//AQABAAAAAAAAAO//AQABAAAAAAABAO//AQABAAAAAAACAO//AQABAAAAAAADAO//AQABAAAAAAAEAO//AQABAAAAAAAFAO//AQABAAAAAAAGAO//AQABAAAAAAAHAO//AQABAAAAAAAIAO//AQABAAAAAAAJAO//AQABAAAAAAAKAO//AQABAAAAAAALAO//AQABAAAAAAAMAO//AQABAAAAAAANAO//AQABAAAAAAAOAO//AQABAAAAAAAPAO//AQABAAAAAAAQAO//AQABAAAAAAARAO//AQABAAAAAAASAO//AQAIAAAAAAASAPD/AQAHAAEAAAASAPH/AQAHAAEAAAD4//L/AQAHAAEAABASAPL/AQAHAAEAAAD+//P/AAARAAAAAAD///L/AAASAAAAAAD///P/AAAdAAAAAAD///T/AAATAAAAAAAAAPL/AAASAAAAAAAAAPP/AAAdAAAAABAAAPT/AAATAAAAAAABAPP/AAARAAAAABADAPP/AAARAAAAAAAEAPL/AAASAAAAAAAEAPP/AAAdAAAAAAAEAPT/AAATAAAAAAAFAPL/AAASAAAAAAAFAPP/AAAdAAAAABAFAPT/AAATAAAAAAAGAPP/AAARAAAAABAIAPP/AAARAAAAAAAJAPL/AAASAAAAAAAJAPP/AAAdAAAAAAAJAPT/AAATAAAAAAAKAPL/AAASAAAAAAAKAPP/AAAdAAAAABAKAPT/AAATAAAAAAALAPP/AAARAAAAABANAPP/AAARAAAAAAAOAPL/AAASAAAAABAOAPP/AAAUAAAAAAAOAPT/AAATAAAAAAAPAPP/AAARAAAAABAPAPf/AAARAAAAAAAPAPj/AAARAAAAAAAQAPb/AAASAAAAABAQAPf/AAAYAAAAAAAQAPj/AAAXAAAAAAAQAPn/AAATAAAAAAARAPf/AAARAAAAABARAPj/AAARAAAAABD8/wAAAwAAAAUAAAAOAP7/AgAAAAAAAQAOAP3/AQAPAAAAAAAPAP3/AQAPAAAAABANAP3/AQABAAAAAAD4/wUAAQAHAAEAABD4/wQAAQAHAAEAABARAA8AAQABAAAAAAD9//H/BAADAAAAAAD+//H/BAACAAAAAAARAAAABAAAAAYAAAARAAEABAAAAAYAAAARAAIABAAAAAYAAAARAAMABAACAAYAAAARAAQABAAAAAYAAAARAAUABAAAAAYAAAARAAYABAADAAYAAAARAAcABAACAAYAAAARAAgABAAAAAYAAAARAAkABAAAAAYAAAARAAoABAADAAYAAAARAAsABAAAAAYAAAARAAwABAAAAAYAAAARAA0ABAAAAAYAAAAJAAMABAADAAAAAAAKAAMABAABAAAAAAAOAAMABAABAAAAAAAPAAMABAABAAAAAAAQAAMABAAAAAAAAAD9/wMABAADAAAAAAD+/wMABAAAAAAAAAAAAAMABAAAAAAAAAACAAMABAABAAAAAAAEAAMABAACAAAAAAD5/wYABAADAAQAAAD5/wIABAAAAAQAAAD5/wMABAACAAQAAAD5/wQABAAAAAQAAAD5/wUABAAAAAQAAAD6/wMABAACAAAAAAD5/wcABAACAAQAAAD5/wgABAAAAAwAAAD5/wkABAAAAAwAAAD5/woABAADAAQAAAARAA4ABAAAAAYAAAD+////BAADAAAAAAD/////BAABAAAAAAAAAP//BAAAAAAAAAABAP//BAAAAAAAAAACAP//BAABAAAAAAADAP//BAABAAAAAAAEAP//BAABAAAAAAAFAP//BAAAAAAAAAAGAP//BAABAAAAAAAHAP//BAABAAAAAAAIAP//BAAAAAAAAAAJAP//BAAAAAAAAAAKAP//BAABAAAAAAALAP//BAAAAAAAAAAMAP//BAAAAAAAAAANAP//BAACAAAAAAAQAP//BAADAAAAAAARAP//BAABAAYAAAAJAAYABAACAAIAAAAKAAYABAAAAAIAAAALAAYABAAAAAIAAAAMAAYABAAAAAIAAAANAAYABAAAAAIAAAAOAAYABAAAAAIAAAAPAAYABAAAAAIAAAAQAAYABAAAAAIAAAD6/wYABAABAAIAAAD9/wYABAACAAIAAAD+/wYABAAAAAIAAAD//wYABAAAAAIAAAAAAAYABAAAAAoAAAABAAYABAAAAAIAAAACAAYABAAAAAIAAAADAAYABAAAAAIAAAAEAAYABAABAAIAAAALAAMABAABAAAAAAAMAAMABAABAAAAAAANAAMABAAAAAAAAAD//wMABAAAAAgAAAABAAMABAAAAAgAAAADAAMABAABAAgAAAD6/wcABAACAAAAAAAEAAcABAACAAAAAAADAAcABAAAAAAAAAD//wcABAABAAAAAAD+/wcABAABAAAAAAD9/wcABAADAAAAAAAJAAcABAADAAAAAAAKAAcABAAAAAAAAAALAAcABAABAAAAAAANAAcABAABAAAAAAAOAAcABAAAAAAAAAAPAAcABAABAAgAAAAQAAcABAABAAAAAAABAAcABAAAAAAAAAAAAAcABAAAAAgAAAACAAcABAABAAAAAAAMAAcABAABAAAAAAD6/woABAABAAIAAAD9/woABAACAAIAAAD+/woABAAAAAIAAAD//woABAAAAAIAAAAAAAoABAAAAAIAAAABAAoABAAAAAIAAAACAAoABAAAAAIAAAADAAoABAAAAAIAAAAEAAoABAABAAIAAAAJAAoABAACAAIAAAAKAAoABAAAAAIAAAALAAoABAAAAAIAAAAMAAoABAAAAAIAAAANAAoABAAAAAIAAAAOAAoABAAAAAIAAAAPAAoABAAAAAIAAAAQAAoABAAAAAIAAAA=")
+tile_map_data = PackedByteArray("AAD4//z/AQAHAAEAABD4//3/AQAIAAEAABD4////AQAHAAEAABD4/wAAAQAHAAEAABD4/wEAAQAHAAEAABD4/wIAAQAHAAEAABD4/wMAAQAHAAEAABD4//r/AQAHAAEAABD4//v/AQAHAAEAABD4/wYAAQAHAAEAABD4/wcAAQAHAAEAABD4/wgAAQAHAAEAABD4/wkAAQAHAAEAABD4/woAAQAHAAEAABD4/wsAAQAHAAEAABD4/wwAAQAHAAEAABD4/w0AAQAHAAEAABD4/w4AAQAHAAEAABD4/w8AAQAIAAEAABD4/xAAAQAHAAEAABD4/xEAAQAHAAEAABD4/xIAAQAHAAEAABD5/w8AAQABAAAAAAD6/w8AAQABAAAAAAD7/w8AAQABAAAAAAD8/w8AAQABAAAAAAD9/w8AAQABAAAAAAD+/w8AAQABAAAAAAD//w8AAQABAAAAAAAAAA8AAQABAAAAAAABAA8AAQABAAAAAAACAA8AAQABAAAAAAADAA8AAQABAAAAAAAEAA8AAQABAAAAAAALAA8AAQABAAAAAAAMAA8AAQABAAAAAAANAA8AAQABAAAAAAAOAA8AAQABAAAAAAAPAA8AAQABAAAAAAAQAA8AAQABAAAAAAASAAUAAQAHAAEAAAASAAYAAQAHAAEAAAASAAcAAQAHAAEAAAASAAgAAQAHAAEAAAASAAkAAQAHAAEAAAASAAoAAQAHAAEAAAASAAsAAQAHAAEAAAASAAwAAQAHAAEAAAASAA0AAQAHAAEAAAASAA4AAQAHAAEAAAASAA8AAQAIAAEAAAASABAAAQAHAAEAAAASABEAAQAHAAEAAAASABIAAQAHAAEAAAASAPn/AQAHAAEAAAASAPr/AQAHAAEAAAASAPv/AQAHAAEAAAASAPz/AQAHAAEAAAASAP3/AQAIAAEAAAASAP7/AQAHAAEAAAASAP//AQAHAAEAAAASAAAAAQAHAAEAAAASAAEAAQAHAAEAAAASAAIAAQAHAAEAAAASAAMAAQAHAAEAAAASAAQAAQAHAAEAAAD4//n/AQAHAAEAABD4/xMAAQAHAAEAABD4/xQAAQAHAAEAABD4/xUAAQAKAAAAAAASAPX/AQAHAAEAAAASAPb/AQAHAAEAAAASAPf/AQAHAAEAAAASAPj/AQAHAAEAAAD5/xUAAQABAAAAAAD6/xUAAQABAAAAAAD7/xUAAQABAAAAAAD8/xUAAQABAAAAAAD9/xUAAQABAAAAAAD+/xUAAQABAAAAAAD//xUAAQABAAAAAAAAABUAAQABAAAAAAABABUAAQABAAAAAAACABUAAQABAAAAAAADABUAAQABAAAAAAAEABUAAQABAAAAAAAFABUAAQABAAAAAAAGABUAAQABAAAAAAAHABUAAQABAAAAAAAIABUAAQABAAAAAAAJABUAAQABAAAAAAAKABUAAQABAAAAAAALABUAAQABAAAAAAAMABUAAQABAAAAAAANABUAAQABAAAAAAAOABUAAQABAAAAAAAPABUAAQABAAAAAAAQABUAAQABAAAAAAARABUAAQABAAAAAAASABMAAQAHAAEAAAASABQAAQAHAAEAAAASABUAAQAKAAAAABAKAA8AAQACAAAAAAAFAA8AAQACAAAAABD7//3/AQABAAAAAAD9//3/AQALAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAAAAP3/AQABAAAAAAABAP3/AQANAAAAABACAP3/AQAOAAAAAAADAP3/AQANAAAAAAAEAP3/AQABAAAAAAAFAP3/AQABAAAAAAAGAP3/AQABAAAAAAAHAP3/AQANAAAAABAIAP3/AQAOAAAAAAAJAP3/AQANAAAAAAAKAP3/AQABAAAAAAALAP3/AQABAAAAAAAMAP3/AQABAAAAAAAQAP3/AQABAAAAAAARAP3/AQABAAAAAAD4//7/AQAHAAEAABD5//7/AgAAAAAAAQD5//3/AQAPAAAAAAD6//3/AQAPAAAAABD4//P/AQAHAAEAABD4//T/AQAHAAEAABD4//X/AQAHAAEAABD4//b/AQAHAAEAABD4//f/AQAHAAEAABD4//j/AQAHAAEAABASAPP/AQAHAAEAAAASAPT/AQAHAAEAAAD9//7/AQAQAAAAAAD+//z/AAARAAAAAAD///z/AAAdAAAAAAAAAPz/AAAdAAAAABABAPz/AAARAAAAABADAPz/AAARAAAAAAAEAPz/AAAdAAAAAAAFAPz/AAAdAAAAABAGAPz/AAARAAAAABAIAPz/AAARAAAAAAAJAPz/AAAdAAAAAAAKAPz/AAAdAAAAABALAPz/AAARAAAAABD///v/AAASAAAAAAAAAPv/AAASAAAAAAAEAPv/AAASAAAAAAAFAPv/AAASAAAAAAAJAPv/AAASAAAAAAAKAPv/AAASAAAAAAD4/+//AQAIAAAAABD4//D/AQAHAAEAABD4//H/AQAHAAEAABD5/+//AQABAAAAAAD6/+//AQAPAAAAAAD6//D/AgAAAAAAAgD7/+//AQAPAAAAABD8/+//AQABAAAAAAD9/+//AQABAAAAAAD+/+//AQABAAAAAAD//+//AQABAAAAAAAAAO//AQABAAAAAAABAO//AQABAAAAAAACAO//AQABAAAAAAADAO//AQABAAAAAAAEAO//AQABAAAAAAAFAO//AQABAAAAAAAGAO//AQABAAAAAAAHAO//AQABAAAAAAAIAO//AQABAAAAAAAJAO//AQABAAAAAAAKAO//AQABAAAAAAALAO//AQABAAAAAAAMAO//AQABAAAAAAANAO//AQABAAAAAAAOAO//AQABAAAAAAAPAO//AQABAAAAAAAQAO//AQABAAAAAAARAO//AQABAAAAAAASAO//AQAIAAAAAAASAPD/AQAHAAEAAAASAPH/AQAHAAEAAAD4//L/AQAHAAEAABASAPL/AQAHAAEAAAD+//P/AAARAAAAAAD///L/AAASAAAAAAD///P/AAAdAAAAAAD///T/AAATAAAAAAAAAPL/AAASAAAAAAAAAPP/AAAdAAAAABAAAPT/AAATAAAAAAABAPP/AAARAAAAABADAPP/AAARAAAAAAAEAPL/AAASAAAAAAAEAPP/AAAdAAAAAAAEAPT/AAATAAAAAAAFAPL/AAASAAAAAAAFAPP/AAAdAAAAABAFAPT/AAATAAAAAAAGAPP/AAARAAAAABAIAPP/AAARAAAAAAAJAPL/AAASAAAAAAAJAPP/AAAdAAAAAAAJAPT/AAATAAAAAAAKAPL/AAASAAAAAAAKAPP/AAAdAAAAABAKAPT/AAATAAAAAAALAPP/AAARAAAAABANAPP/AAARAAAAAAAOAPL/AAASAAAAABAOAPP/AAAUAAAAAAAOAPT/AAATAAAAAAAPAPP/AAARAAAAABAPAPf/AAARAAAAAAAPAPj/AAARAAAAAAAQAPb/AAASAAAAABAQAPf/AAAYAAAAAAAQAPj/AAAXAAAAAAAQAPn/AAATAAAAAAARAPf/AAARAAAAABARAPj/AAARAAAAABAOAP7/AgAAAAAAAQAOAP3/AQAPAAAAAAAPAP3/AQAPAAAAABANAP3/AQABAAAAAAD4/wUAAQAHAAEAABD4/wQAAQAHAAEAABARAA8AAQABAAAAAAD9//H/BAADAAAAAAD+//H/BAACAAAAAAARAAAABAAAAAYAAAARAAEABAAAAAYAAAARAAIABAAAAAYAAAARAAMABAACAAYAAAARAAQABAAAAAYAAAARAAUABAAAAAYAAAARAAYABAADAAYAAAARAAcABAACAAYAAAARAAgABAAAAAYAAAARAAkABAAAAAYAAAARAAoABAADAAYAAAARAAsABAAAAAYAAAARAAwABAAAAAYAAAARAA0ABAAAAAYAAAAJAAMABAADAAAAAAAKAAMABAABAAAAAAAOAAMABAABAAAAAAAPAAMABAABAAAAAAAQAAMABAAAAAAAAAD9/wMABAADAAAAAAD+/wMABAAAAAAAAAAAAAMABAAAAAAAAAACAAMABAABAAAAAAAEAAMABAACAAAAAAD5/wYABAADAAQAAAD5/wIABAAAAAQAAAD5/wMABAACAAQAAAD5/wQABAAAAAQAAAD5/wUABAAAAAQAAAD6/wMABAACAAAAAAD5/wcABAACAAQAAAD5/wgABAAAAAwAAAD5/wkABAAAAAwAAAD5/woABAADAAQAAAARAA4ABAAAAAYAAAD+////BAADAAAAAAD/////BAABAAAAAAAAAP//BAAAAAAAAAABAP//BAAAAAAAAAACAP//BAABAAAAAAADAP//BAABAAAAAAAEAP//BAABAAAAAAAFAP//BAAAAAAAAAAGAP//BAABAAAAAAAHAP//BAABAAAAAAAIAP//BAAAAAAAAAAJAP//BAAAAAAAAAAKAP//BAABAAAAAAALAP//BAAAAAAAAAAMAP//BAAAAAAAAAANAP//BAACAAAAAAAQAP//BAADAAAAAAARAP//BAABAAYAAAAJAAYABAACAAIAAAAKAAYABAAAAAIAAAALAAYABAAAAAIAAAAMAAYABAAAAAIAAAANAAYABAAAAAIAAAAOAAYABAAAAAIAAAAPAAYABAAAAAIAAAAQAAYABAAAAAIAAAD6/wYABAABAAIAAAD9/wYABAACAAIAAAD+/wYABAAAAAIAAAD//wYABAAAAAIAAAAAAAYABAAAAAoAAAABAAYABAAAAAIAAAACAAYABAAAAAIAAAADAAYABAAAAAIAAAAEAAYABAABAAIAAAALAAMABAABAAAAAAAMAAMABAABAAAAAAANAAMABAAAAAAAAAD//wMABAAAAAgAAAABAAMABAAAAAgAAAADAAMABAABAAgAAAD6/wcABAACAAAAAAAEAAcABAACAAAAAAADAAcABAAAAAAAAAD//wcABAABAAAAAAD+/wcABAABAAAAAAD9/wcABAADAAAAAAAJAAcABAADAAAAAAAKAAcABAAAAAAAAAALAAcABAABAAAAAAANAAcABAABAAAAAAAOAAcABAAAAAAAAAAPAAcABAABAAgAAAAQAAcABAABAAAAAAABAAcABAAAAAAAAAAAAAcABAAAAAgAAAACAAcABAABAAAAAAAMAAcABAABAAAAAAD6/woABAABAAIAAAD9/woABAACAAIAAAD+/woABAAAAAIAAAD//woABAAAAAIAAAAAAAoABAAAAAIAAAABAAoABAAAAAIAAAACAAoABAAAAAIAAAADAAoABAAAAAIAAAAEAAoABAABAAIAAAAJAAoABAACAAIAAAAKAAoABAAAAAIAAAALAAoABAAAAAIAAAAMAAoABAAAAAIAAAANAAoABAAAAAIAAAAOAAoABAAAAAIAAAAPAAoABAAAAAIAAAAQAAoABAAAAAIAAAD8/wAAAwAAAAUAAAD8////AwAAAAQAAAD8//7/AwAAAAQAAAD8//3/AwAAAAQAAAD8//z/AwAAAAQAAAD8//v/AwAAABsAAAD8//r/AwAAAAYAAAD8//n/AwAAAAYAAAD8//j/AwAAAAYAAAD8//f/AwAAAAsAAAD9//f/AwAAAAIAAAD+//f/AwAAAAIAAAD///f/AwAAAAIAAAAAAPf/AwAAAAIAAAABAPf/AwAAAAIAAAACAPf/AwAAAAIAAAADAPf/AwAAAAIAAAAEAPf/AwAAAAIAAAAFAPf/AwAAAAIAAAAGAPf/AwAAAAIAAAAHAPf/AwAAAAIAAAAIAPf/AwAAAAIAAAAJAPf/AwAAAAIAAAAKAPf/AwAAAAIAAAALAPf/AwAAAA4AAAALAPj/AwAAAA0AAAAKAPj/AwAAAAAAAAAJAPj/AwAAAAAAAAAIAPj/AwAAAAAAAAAHAPj/AwAAAAAAAAAGAPj/AwAAAAAAAAAFAPj/AwAAAAAAAAAEAPj/AwAAAAAAAAADAPj/AwAAAAAAAAACAPj/AwAAAAAAAAABAPj/AwAAAAAAAAAAAPj/AwAAAAAAAAD///j/AwAAAAAAAAD+//j/AwAAAAAAAAD9//j/AwAAAAoAAAD9//n/AwAAAAQAAAD9//r/AwAAAAQAAAD9//v/AwAAAA0AAAA=")
 tile_set = ExtResource("1_bexhn")
 script = ExtResource("8_33gbk")
 automation_zones_tilemap = NodePath("../AutomationZonesTileMap")
@@ -147,6 +146,10 @@ script = ExtResource("3_esphl")
 [node name="LevelInterface" parent="BuildingTileMap/PlayerCharacter/Camera2D/CanvasLayer" instance=ExtResource("4_wkftn")]
 scale = Vector2(1.00079, 1.00526)
 
+[node name="ConstructionCorner" parent="BuildingTileMap" node_paths=PackedStringArray("construction_view") instance=ExtResource("25_lwa2w")]
+position = Vector2(-96, 225)
+construction_view = NodePath("../../ConstructionView")
+
 [node name="WorldInteractables" type="Node2D" parent="BuildingTileMap"]
 y_sort_enabled = true
 position = Vector2(0, 11)
@@ -156,168 +159,6 @@ position = Vector2(56, -5)
 
 [node name="Plates" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("3_2nifc")]
 position = Vector2(40, -5)
-
-[node name="Counter" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(72, -5)
-
-[node name="Counter15" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 41)
-
-[node name="Counter16" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 72)
-
-[node name="Counter38" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(8, -5)
-
-[node name="Counter44" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-23, -5)
-
-[node name="Counter39" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(24, -5)
-
-[node name="Counter17" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-88, 59)
-
-[node name="Counter42" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-40, 59)
-
-[node name="Counter43" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(184, -5)
-
-[node name="Counter45" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(8, 59)
-
-[node name="Counter50" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(152, 59)
-
-[node name="Counter52" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(104, -5)
-
-[node name="Counter55" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(232, 59)
-
-[node name="Counter56" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(248, 59)
-
-[node name="Counter57" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(264, 59)
-
-[node name="Counter58" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(232, 109)
-
-[node name="Counter59" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(248, 109)
-
-[node name="Counter60" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(264, 109)
-
-[node name="Counter61" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(184, 109)
-
-[node name="Counter62" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(200, 109)
-
-[node name="Counter63" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(216, 109)
-
-[node name="Counter65" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(152, 109)
-
-[node name="Counter66" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(168, 109)
-
-[node name="Counter82" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(232, 123)
-
-[node name="Counter83" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 136)
-
-[node name="Counter84" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(264, 123)
-
-[node name="Counter85" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(184, 123)
-
-[node name="Counter86" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(200, 123)
-
-[node name="Counter87" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(216, 123)
-
-[node name="Counter88" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(152, 123)
-
-[node name="Counter89" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(168, 123)
-
-[node name="Counter64" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(72, 109)
-
-[node name="Counter67" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(40, 109)
-
-[node name="Counter68" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(56, 109)
-
-[node name="Counter69" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(24, 109)
-
-[node name="Counter70" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-8, 109)
-
-[node name="Counter72" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-24, 109)
-
-[node name="Counter73" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-88, 109)
-
-[node name="Counter75" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-88, 123)
-
-[node name="Counter74" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-40, 109)
-
-[node name="Counter47" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(40, 59)
-
-[node name="Counter18" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 88)
-
-[node name="Counter23" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 168)
-
-[node name="Counter25" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 8)
-
-[node name="Counter26" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 24)
-
-[node name="Counter27" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 40)
-
-[node name="Counter29" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 72)
-
-[node name="Counter30" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 88)
-
-[node name="Counter34" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 152)
-
-[node name="Counter40" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 200)
-
-[node name="Counter41" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 216)
-
-[node name="Counter46" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 232)
-
-[node name="Counter35" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 168)
-
-[node name="Counter36" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 184)
 
 [node name="RiceSource" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("6_m3clv")]
 position = Vector2(168, 59)
@@ -366,15 +207,15 @@ texture = SubResource("AtlasTexture_s0cgv")
 item_data = ExtResource("17_105nu")
 
 [node name="EggSource" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("6_m3clv")]
-position = Vector2(-25, 59)
+position = Vector2(-24, 59)
 texture = SubResource("AtlasTexture_3ppgv")
 item_data = ExtResource("18_s0cgv")
 
 [node name="Computer" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("16_5qkpu")]
-position = Vector2(-7, -5)
+position = Vector2(-8, -5)
 
 [node name="Computer2" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("16_5qkpu")]
-position = Vector2(-37, -230)
+position = Vector2(-40, -229)
 
 [node name="Stovetop" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("18_viiqw")]
 position = Vector2(-8, 59)
@@ -385,35 +226,14 @@ position = Vector2(24, 59)
 [node name="Stovetop3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("18_viiqw")]
 position = Vector2(8, 109)
 
-[node name="Counter71" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(72, 123)
-
-[node name="Counter76" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(40, 123)
-
-[node name="Counter77" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(56, 123)
-
-[node name="Counter78" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(24, 123)
-
-[node name="Counter79" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-8, 123)
-
-[node name="Counter80" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-24, 123)
-
-[node name="Counter81" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-40, 123)
-
 [node name="Stovetop6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("18_viiqw")]
 position = Vector2(8, 123)
 
 [node name="Stovetop4" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("18_viiqw")]
-position = Vector2(-104, 152)
+position = Vector2(-104, 157)
 
 [node name="Stovetop5" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("18_viiqw")]
-position = Vector2(-104, 136)
+position = Vector2(-104, 141)
 
 [node name="Fryer" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("27_4vjci")]
 show_behind_parent = false
@@ -438,108 +258,263 @@ position = Vector2(200, 59)
 [node name="RiceCooker3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("23_q2vmi")]
 position = Vector2(216, 59)
 
-[node name="ConstructionCorner" parent="BuildingTileMap/WorldInteractables" node_paths=PackedStringArray("construction_view") instance=ExtResource("25_lwa2w")]
-position = Vector2(-96, 214)
-construction_view = NodePath("../../../ConstructionView")
+[node name="!Counter_17_0" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 13)
 
-[node name="Interactable" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 56)
+[node name="!Counter_17_1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 29)
 
-[node name="!Counter_17_6" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 104)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_2" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 45)
 
-[node name="!Counter_17_7" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, 120)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 61)
 
-[node name="!Counter_-7_6" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 104)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_4" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 77)
 
-[node name="!Counter_-7_3" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 56)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_5" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 93)
 
-[node name="!Counter_-7_7" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-104, 120)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 109)
 
-[node name="!Counter_17_-1" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(280, -8)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 125)
 
-[node name="!Counter_-2_-15" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
-position = Vector2(-24, -232)
-script = ExtResource("30_yr3df")
+[node name="!Counter_17_8" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 141)
 
-[node name="!Counter_-6_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_17_9" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 157)
+
+[node name="!Counter_17_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 173)
+
+[node name="!Counter_17_11" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 189)
+
+[node name="!Counter_17_12" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 205)
+
+[node name="!Counter_17_13" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 221)
+
+[node name="!Counter_9_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(152, 59)
+
+[node name="!Counter_14_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(232, 59)
+
+[node name="!Counter_15_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(248, 59)
+
+[node name="!Counter_16_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(264, 59)
+
+[node name="!Counter_-3_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-40, 59)
+
+[node name="!Counter_0_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(8, 59)
+
+[node name="!Counter_2_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(40, 59)
+
+[node name="!Counter_-7_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 109)
+
+[node name="!Counter_-7_2" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 45)
+
+[node name="!Counter_-7_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 61)
+
+[node name="!Counter_-7_4" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 77)
+
+[node name="!Counter_-7_5" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 93)
+
+[node name="!Counter_-6_3" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-88, 59)
+
+[node name="!Counter_-7_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 125)
+
+[node name="!Counter_-7_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-104, 173)
+
+[node name="!Counter_17_14" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, 237)
+
+[node name="!Counter_-2_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-24, -5)
+
+[node name="!Counter_0_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(8, -5)
+
+[node name="!Counter_1_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(24, -5)
+
+[node name="!Counter_4_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(72, -5)
+
+[node name="!Counter_6_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(104, -5)
+
+[node name="!Counter_11_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(184, -5)
+
+[node name="!Counter_17_-1" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(280, -3)
+
+[node name="!Counter_-2_-15" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-24, -229)
+
+[node name="!Counter_-6_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-88, 123)
+
+[node name="!Counter_-3_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-40, 123)
+
+[node name="!Counter_-2_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-24, 123)
+
+[node name="!Counter_-1_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-8, 123)
+
+[node name="!Counter_1_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(24, 123)
+
+[node name="!Counter_2_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(40, 123)
+
+[node name="!Counter_3_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(56, 123)
+
+[node name="!Counter_4_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(72, 123)
+
+[node name="!Counter_9_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(152, 123)
+
+[node name="!Counter_10_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(168, 123)
+
+[node name="!Counter_11_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(184, 123)
+
+[node name="!Counter_12_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(200, 123)
+
+[node name="!Counter_13_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(216, 123)
+
+[node name="!Counter_14_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(232, 123)
+
+[node name="!Counter_16_7" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(264, 123)
+
+[node name="!Counter_-6_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-88, 109)
+
+[node name="!Counter_-3_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-40, 109)
+
+[node name="!Counter_-2_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-24, 109)
+
+[node name="!Counter_-1_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(-8, 109)
+
+[node name="!Counter_1_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(24, 109)
+
+[node name="!Counter_2_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(40, 109)
+
+[node name="!Counter_3_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(56, 109)
+
+[node name="!Counter_4_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(72, 109)
+
+[node name="!Counter_9_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(152, 109)
+
+[node name="!Counter_10_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(168, 109)
+
+[node name="!Counter_11_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(184, 109)
+
+[node name="!Counter_12_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(200, 109)
+
+[node name="!Counter_13_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(216, 109)
+
+[node name="!Counter_14_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(232, 109)
+
+[node name="!Counter_15_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(248, 109)
+
+[node name="!Counter_16_6" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+position = Vector2(264, 109)
+
+[node name="!Counter_-6_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(-88, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_-3_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_-3_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(-40, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_-2_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_-2_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(-24, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_-1_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_-1_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(-8, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_0_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_0_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(8, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_1_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_1_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(24, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_2_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_2_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(40, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_3_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_3_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(56, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_4_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_4_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(72, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_9_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_9_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(152, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_10_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_10_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(168, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_11_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_11_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(184, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_12_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_12_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(200, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_13_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_13_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(216, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_14_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_14_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(232, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_15_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_15_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(248, 173)
-script = ExtResource("30_yr3df")
 
-[node name="!Counter_16_10" type="Node2D" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
+[node name="!Counter_16_10" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("5_q4iis")]
 position = Vector2(264, 173)
-script = ExtResource("30_yr3df")
 
 [node name="AutomationZonesTileMap" type="TileMapLayer" parent="."]
 visible = false
@@ -551,7 +526,6 @@ script = ExtResource("25_q2vmi")
 metadata/_custom_type_script = "uid://dovedfyi0x4ah"
 
 [node name="AutomationObjectsTileMap" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AAARAAAAAAAAAAQAAQARAAEAAAAAAAQAAQARAAIAAAAAAAQAAQARAAMAAAAAAAQAAQARAAQAAAAAAAQAAQARAAUAAAAAAAQAAQARAAYAAAAAAAQAAQARAAcAAAAAAAQAAQARAAgAAAAAAAQAAQARAAkAAAAAAAQAAQARAAoAAAAAAAQAAQARAAsAAAAAAAQAAQARAAwAAAAAAAQAAQARAA0AAAAAAAQAAQAJAAMAAAAAAAIAAQAKAAMAAAAAAAIAAQALAAMAAAAAAAIAAQAMAAMAAAAAAAIAAQANAAMAAAAAAAIAAQAOAAMAAAAAAAIAAQAPAAMAAAAAAAIAAQAQAAMAAAAAAAIAAQD9/wMAAAAAAAIAAQD+/wMAAAAAAAIAAQD//wMAAAAAAAIAAQAAAAMAAAAAAAIAAQABAAMAAAAAAAIAAQACAAMAAAAAAAIAAQADAAMAAAAAAAIAAQAEAAMAAAAAAAIAAQD5/wYAAAAAAAMAAQD5/wIAAAAAAAMAAQD5/wMAAAAAAAMAAQD5/wQAAAAAAAMAAQD5/wUAAAAAAAMAAQD6/wMAAAAAAAIAAQD5/wcAAAAAAAMAAQD5/wgAAAAAAAMAAQD5/wkAAAAAAAMAAQD5/woAAAAAAAMAAQARAA4AAAAAAAQAAQD+////AAAAAAIAAQD/////AAAAAAIAAQAAAP//AAAAAAIAAQABAP//AAAAAAIAAQACAP//AAAAAAIAAQADAP//AAAAAAIAAQAEAP//AAAAAAIAAQAFAP//AAAAAAIAAQAGAP//AAAAAAIAAQAHAP//AAAAAAIAAQAKAP//AAAAAAIAAQALAP//AAAAAAIAAQAMAP//AAAAAAIAAQANAP//AAAAAAIAAQAQAP//AAAAAAIAAQARAP//AAAAAAQAAQD8/wAAAAAAAAEAAwD8////AAAAAAEAAwD8//7/AAAAAAEAAwD8//3/AAAAAAEAAwD8//z/AAAAAAEAAwD8//v/AAAAAAMAAgD9//v/AAAAAAEAAwD9//r/AAAAAAEAAwD9//n/AAAAAAEAAwD9//j/AAAAAAMAAgD+//j/AAAAAAMAAgD///j/AAAAAAMAAgAAAPj/AAAAAAMAAgABAPj/AAAAAAMAAgACAPj/AAAAAAMAAgADAPj/AAAAAAMAAgAEAPj/AAAAAAMAAgAFAPj/AAAAAAMAAgAGAPj/AAAAAAMAAgAHAPj/AAAAAAMAAgAIAPj/AAAAAAMAAgAJAPj/AAAAAAMAAgAKAPj/AAAAAAMAAgALAPj/AAAAAAEAAwALAPf/AAAAAAQAAgAKAPf/AAAAAAQAAgAJAPf/AAAAAAQAAgAIAPf/AAAAAAQAAgAHAPf/AAAAAAQAAgAGAPf/AAAAAAQAAgAFAPf/AAAAAAQAAgAEAPf/AAAAAAQAAgADAPf/AAAAAAQAAgACAPf/AAAAAAQAAgABAPf/AAAAAAQAAgAAAPf/AAAAAAQAAgD///f/AAAAAAQAAgD+//f/AAAAAAQAAgD9//f/AAAAAAQAAgD8//f/AAAAAAIAAgD8//j/AAAAAAIAAgD8//n/AAAAAAIAAgD8//r/AAAAAAIAAgAIAP//AAAAAAIAAQAJAP//AAAAAAIAAQD9//H/AAAAAAIAAQD+//H/AAAAAAIAAQD6/wcAAAAAAAIAAQD9/wcAAAAAAAIAAQD+/wcAAAAAAAIAAQD//wcAAAAAAAIAAQAAAAcAAAAAAAIAAQABAAcAAAAAAAIAAQACAAcAAAAAAAIAAQADAAcAAAAAAAIAAQAEAAcAAAAAAAIAAQAJAAcAAAAAAAIAAQAKAAcAAAAAAAIAAQALAAcAAAAAAAIAAQAMAAcAAAAAAAIAAQANAAcAAAAAAAIAAQAOAAcAAAAAAAIAAQAPAAcAAAAAAAIAAQAQAAcAAAAAAAIAAQD6/wYAAAAAAAEAAQD9/wYAAAAAAAEAAQD+/wYAAAAAAAEAAQD//wYAAAAAAAEAAQAAAAYAAAAAAAEAAQABAAYAAAAAAAEAAQACAAYAAAAAAAEAAQADAAYAAAAAAAEAAQAEAAYAAAAAAAEAAQAJAAYAAAAAAAEAAQAKAAYAAAAAAAEAAQALAAYAAAAAAAEAAQAMAAYAAAAAAAEAAQANAAYAAAAAAAEAAQAOAAYAAAAAAAEAAQAPAAYAAAAAAAEAAQAQAAYAAAAAAAEAAQD6/woAAAAAAAEAAQD9/woAAAAAAAEAAQD+/woAAAAAAAEAAQD//woAAAAAAAEAAQAAAAoAAAAAAAEAAQABAAoAAAAAAAEAAQACAAoAAAAAAAEAAQADAAoAAAAAAAEAAQAEAAoAAAAAAAEAAQAJAAoAAAAAAAEAAQAKAAoAAAAAAAEAAQALAAoAAAAAAAEAAQAMAAoAAAAAAAEAAQANAAoAAAAAAAEAAQAOAAoAAAAAAAEAAQAPAAoAAAAAAAEAAQAQAAoAAAAAAAEAAQA=")
 tile_set = ExtResource("32_kr1e0")
 occlusion_enabled = false
