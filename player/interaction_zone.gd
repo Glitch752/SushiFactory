@@ -31,22 +31,21 @@ func _physics_process(_delta):
     if automation_interact_data != null:
         current_interactable = null
         current_interaction_data = automation_interact_data
-        interaction_highlight.global_position = automation_manager.get_cell_center(cell)
+        interaction_highlight.interp_to(automation_manager.get_cell_center(cell))
         interaction_highlight.size = automation_manager.cell_size()
     elif current_interactable != null:
         current_interaction_data = current_interactable.get_interaction_data()
         var content = current_interactable.get_node("InteractableContent")
-        interaction_highlight.global_position = content.global_position
+        interaction_highlight.interp_to(content.global_position)
         interaction_highlight.size = content.size
     else:
         current_interaction_data = null
+        interaction_highlight.interp_to(null)
     
     var active = false
     if current_interaction_data != null:
         active = current_interaction_data.primary_action != null or current_interaction_data.secondary_action != null
-    interaction_highlight.color = highlight_active_color if active else highlight_inactive_color
-    
-    interaction_highlight.visible = current_interaction_data != null
+    interaction_highlight.color_target = highlight_active_color if active else highlight_inactive_color
     
     InteractionSingleton.update_interactable(current_interaction_data)
 

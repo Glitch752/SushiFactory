@@ -22,3 +22,27 @@ func _update_size():
     var positions = [s*Vector2(1, -1), s*Vector2(1, 1), s*Vector2(-1, 1), s*Vector2(-1, -1)]
     for idx in range(positions.size()):
         get_child(idx).position = positions[idx]
+
+var interp_tween = null
+var color_target: Color
+
+## global_target: Vector2 | null
+## to_color: Color | null
+func interp_to(global_target: Variant, to_color: Variant = null, duration = 0.04):
+    if not global_target:
+        visible = false
+        return
+    
+    if visible:
+        if interp_tween != null:
+            interp_tween.kill()
+            interp_tween = null
+        
+        interp_tween = create_tween()
+        interp_tween.set_ignore_time_scale(true)
+        interp_tween.tween_property(self, "global_position", global_target, duration)
+        color_target = to_color if to_color else color_target
+        interp_tween.parallel().tween_property(self, "color", color_target, duration)
+    else:
+        global_position = global_target
+    visible = true

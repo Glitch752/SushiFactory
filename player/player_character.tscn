@@ -52,6 +52,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ni121")
 
 [node name="InteractionHighlight" parent="InteractionZone" instance=ExtResource("5_rjqbx")]
+top_level = true
 
 [node name="CarriedItem" type="Node2D" parent="."]
 script = ExtResource("5_2brt4")

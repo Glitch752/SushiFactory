@@ -95,6 +95,8 @@ func _process(delta):
 
     var highlighted_tile = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
     var interaction_data: InteractionData = null
+    var color
+
     if highlighted_tile != null:
         var interaction_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
         var editable = interaction_zone.get_custom_data("editable")
@@ -103,17 +105,23 @@ func _process(delta):
             var remove_action = InteractionAction.new("Remove", _remove_targeted_tile, 0.2)
             var rotate_action = InteractionAction.new("Rotate", _rotate_targeted_tile)
             interaction_data = InteractionData.new("Tile test", "A tile idk", rotate_action, remove_action)
+            color = highlight_existing_color
         else:
             interaction_data = InteractionData.new("Tile test", "A tile idk")
-        
+            color = highlight_invalid_color
+    else:
+        var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
+        if zone_data != null and zone_data.get_custom_data("editable"):
+            # todo: place tiles
+            color = highlight_valid_color
+        else:
+            color = highlight_invalid_color
+    
     InteractionSingleton.update_interactable(interaction_data)
 
     var target_position = building_tilemap.to_global(building_tilemap.map_to_local(targeted_tile))
     camera.global_position = target_position
-    # highlight.global_position = target_position
-    highlight.create_tween().set_ignore_time_scale(true).tween_property(highlight, "global_position", target_position, 0.05)
-
-    highlight.color = Color.WHITE
+    highlight.interp_to(target_position, color)
     
     for dir in repeat_countdown.keys():
         repeat_countdown[dir] -= delta

@@ -7,8 +7,8 @@
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="4_lfe7y"]
 [ext_resource type="PackedScene" uid="uid://d4k8uvcvp373t" path="res://ui/Order.tscn" id="5_py5b0"]
 [ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="5_xj0kr"]
+[ext_resource type="Script" uid="uid://c5e3hpkep8iml" path="res://ui/containers/transform_container.gd" id="8_7oa8n"]
 [ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="9_7oa8n"]
-[ext_resource type="Script" uid="uid://c3lqjh572wxjl" path="res://scripts/hide_control.gd" id="9_xj0kr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oftlk"]
 font = ExtResource("4_lfe7y")
@@ -184,28 +184,34 @@ offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemDescription" type="PanelContainer" parent="Inventory"]
+[node name="ItemDescription" type="Container" parent="Inventory"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = -0.545894
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = -0.545894
+anchor_bottom = 1.0
 offset_left = -40.0
-offset_bottom = 40.0
+offset_top = -136.0
+offset_right = 9.1552734e-05
+offset_bottom = -96.00001
 grow_horizontal = 0
 grow_vertical = 0
-script = ExtResource("9_xj0kr")
+script = ExtResource("8_7oa8n")
+metadata/_custom_type_script = "uid://c5e3hpkep8iml"
+
+[node name="DescriptionPanel" type="PanelContainer" parent="Inventory/ItemDescription"]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Inventory/ItemDescription"]
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/ItemDescription/DescriptionPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="ItemDescriptionLabel" type="RichTextLabel" parent="Inventory/ItemDescription/MarginContainer"]
+[node name="ItemDescriptionLabel" type="RichTextLabel" parent="Inventory/ItemDescription/DescriptionPanel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_grx74")
