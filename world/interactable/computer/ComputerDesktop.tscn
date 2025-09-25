@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btal74mucv6b0"]
+[gd_scene load_steps=20 format=3 uid="uid://btal74mucv6b0"]
 
 [ext_resource type="Script" uid="uid://bpxxda7d2j770" path="res://world/interactable/computer/computer_desktop.gd" id="1_4ijat"]
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://clkxj4bqb5lex" path="res://world/interactable/computer/desktop_time.gd" id="5_ky8ly"]
 [ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/emails/unread_email_indicator.gd" id="6_eahm3"]
 [ext_resource type="PackedScene" uid="uid://boax4x7k0evpy" path="res://world/interactable/computer/OrdersAppScene.tscn" id="6_h8s41"]
+[ext_resource type="Script" uid="uid://c5e3hpkep8iml" path="res://ui/containers/transform_container.gd" id="11_t7jio"]
+[ext_resource type="Texture2D" uid="uid://m8sre02k4u" path="res://images/cursors.png" id="12_le26q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_220wo"]
 bg_color = Color(0.231373, 0.431373, 0.647059, 1)
@@ -42,6 +44,10 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_eahm3"]
 atlas = ExtResource("5_bth5r")
 region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylhih"]
+atlas = ExtResource("12_le26q")
+region = Rect2(0, 0, 16, 16)
 
 [node name="ComputerDesktop" type="CanvasLayer"]
 process_mode = 3
@@ -177,3 +183,16 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "5:30 PM"
 script = ExtResource("5_ky8ly")
+
+[node name="Cursor" type="Container" parent="AspectRatioContainer/Panel"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("11_t7jio")
+metadata/_custom_type_script = "uid://c5e3hpkep8iml"
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Panel/Cursor"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ylhih")

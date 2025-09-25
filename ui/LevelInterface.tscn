@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=19 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://ui/level_interface.gd" id="1_ta4wj"]
-[ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://player/inventory_ui.gd" id="1_u453c"]
+[ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://ui/inventory/inventory_ui.gd" id="1_u453c"]
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="3_grx74"]
 [ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="4_hpumr"]
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="4_lfe7y"]
@@ -9,6 +9,9 @@
 [ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="5_xj0kr"]
 [ext_resource type="Script" uid="uid://c5e3hpkep8iml" path="res://ui/containers/transform_container.gd" id="8_7oa8n"]
 [ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="9_7oa8n"]
+[ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="9_oftlk"]
+[ext_resource type="PackedScene" uid="uid://8yqq8xpoyy31" path="res://ui/inventory/InventorySlot.tscn" id="10_4hwu7"]
+[ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="11_w37h7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oftlk"]
 font = ExtResource("4_lfe7y")
@@ -41,6 +44,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_grx74")
@@ -51,10 +58,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -456.0
-offset_top = 16.0
-offset_right = -16.0
-offset_bottom = 43.0
+offset_left = -782.0
+offset_bottom = 48.0
 grow_horizontal = 0
 alignment = 2
 
@@ -134,20 +139,17 @@ label_settings = SubResource("LabelSettings_5j5is")
 
 [node name="OrdersLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 96.0
-offset_bottom = 43.0
+offset_right = 86.0
+offset_bottom = 33.0
 text = "Orders"
 label_settings = SubResource("LabelSettings_sb6wj")
 
 [node name="OrderLayout" type="BoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 24.0
-offset_top = 56.0
-offset_right = 300.0
-offset_bottom = 184.0
+offset_top = 40.0
+offset_right = 276.0
+offset_bottom = 168.0
 theme = ExtResource("3_grx74")
 theme_override_constants/separation = 0
 vertical = true
@@ -155,48 +157,35 @@ vertical = true
 [node name="Order" parent="OrderLayout" instance=ExtResource("5_py5b0")]
 layout_mode = 2
 
-[node name="Inventory" type="Panel" parent="."]
+[node name="PauseHint" parent="." instance=ExtResource("9_oftlk")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -35.0
+offset_right = 416.0
+grow_vertical = 0
+key = "`"
+placeholderText = "Pause (+to disable these hints)"
+is_necessary = true
+
+[node name="Inventory" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -112.0
-offset_top = -104.0
-offset_right = -16.0
-offset_bottom = -16.0
+offset_left = -96.0
+offset_top = -96.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1, 0.999195)
-theme = ExtResource("3_grx74")
 script = ExtResource("1_u453c")
 
-[node name="TextureRect" type="TextureRect" parent="Inventory"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 12.0
-offset_right = -16.0
-offset_bottom = -12.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="ItemDescription" type="Container" parent="Inventory"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -136.0
-offset_right = 9.1552734e-05
-offset_bottom = -96.00001
-grow_horizontal = 0
-grow_vertical = 0
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
 script = ExtResource("8_7oa8n")
 metadata/_custom_type_script = "uid://c5e3hpkep8iml"
 
@@ -222,17 +211,34 @@ autowrap_mode = 0
 shortcut_keys_enabled = false
 horizontal_alignment = 2
 
+[node name="OuterLayout" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+
+[node name="SwitchSlotHint" parent="Inventory/OuterLayout" instance=ExtResource("9_oftlk")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+key = "R"
+placeholderText = "Switch slots"
+direction = 3
+is_necessary = true
+
+[node name="Slots" type="HBoxContainer" parent="Inventory/OuterLayout"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InventorySlot" parent="Inventory/OuterLayout/Slots" instance=ExtResource("10_4hwu7")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("11_w37h7")
+selected = true
+
 [node name="InteractionInfo" parent="." instance=ExtResource("9_7oa8n")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -46.0
-offset_top = 72.0
-offset_right = -16.0
-offset_bottom = 92.0
+offset_left = -30.0
+offset_top = 56.0
+offset_right = 0.0
 grow_horizontal = 0
-
-[connection signal="mouse_entered" from="Inventory" to="Inventory" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Inventory" to="Inventory" method="_on_mouse_exited"]

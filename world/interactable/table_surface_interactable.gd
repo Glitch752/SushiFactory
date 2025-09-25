@@ -24,22 +24,32 @@ func add_to_plate():
     
     SoundManager.play_sound_at(preload("res://audio/plate_interact.wav"), $InteractableContent.global_position, 0, randf_range(0.9, 1.1))
 
+func move_to_held_plate():
+    var plate = PlayerInventorySingleton.held_item
+    assert(plate != null and plate.data.id == &"plate" and current_object and plate.can_add(current_object.data))
+
+    plate.add_to_plate(current_object.data)
+    current_object.queue_free()
+
+    SoundManager.play_sound_at(preload("res://audio/plate_interact.wav"), $InteractableContent.global_position, 0, randf_range(0.9, 1.1))
+
 func lower_start(text: String) -> String:
     if text.is_empty():
         return text
     return text[0].to_lower() + text.substr(1, text.length() - 1)
 
 func get_interaction_data() -> InteractionData:
+    var held_item = PlayerInventorySingleton.held_item_data()
     var action: InteractionAction = null
     var interactable_name = "Table"
-    if !PlayerInventorySingleton.has_item() and current_object != null:
+    if held_item == null and current_object != null:
         action = InteractionAction.new("Take %s" % current_object.data.item_name, take_item)
-    elif PlayerInventorySingleton.has_item() and current_object == null:
-        var held_item = PlayerInventorySingleton.held_item_data()
+    elif held_item and current_object == null:
         action = InteractionAction.new("Place %s" % held_item.item_name, place_item)
-    elif has_plate() and PlayerInventorySingleton.held_item and current_object.can_add(PlayerInventorySingleton.held_item_data()):
-        var held_item = PlayerInventorySingleton.held_item_data()
+    elif has_plate() and held_item and current_object.can_add(held_item):
         action = InteractionAction.new("Put %s on the plate" % held_item.item_name, add_to_plate, 0.25)
+    elif held_item and current_object and held_item.id == &"plate" and PlayerInventorySingleton.held_item.can_add(current_object.data):
+        action = InteractionAction.new("Put %s on the plate" % current_object.data.item_name, move_to_held_plate, 0.25)
     
     var secondary_action: InteractionAction = null
     if has_plate():

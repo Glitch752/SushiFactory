@@ -5,6 +5,7 @@ func _ready():
 
 func _item_scene_reparent(item: Node2D):
     item.reparent($".")
+    item.position = Vector2.ZERO
 
 func _process(_delta):
     var facing = $"..".facing

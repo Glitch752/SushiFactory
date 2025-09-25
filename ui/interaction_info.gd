@@ -9,6 +9,8 @@ var data: InteractionData:
 
 func _ready():
     visible = false
+    $%PrimaryInteract.visible = false
+    $%SecondaryInteract.visible = false
 
 func _update():
     if data != null:

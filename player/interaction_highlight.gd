@@ -45,4 +45,6 @@ func interp_to(global_target: Variant, to_color: Variant = null, duration = 0.04
         interp_tween.parallel().tween_property(self, "color", color_target, duration)
     else:
         global_position = global_target
+        color = to_color if to_color else color_target
+    
     visible = true

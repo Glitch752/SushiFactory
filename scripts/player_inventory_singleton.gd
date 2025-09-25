@@ -1,9 +1,28 @@
 extends Node
 
-@export var held_item: Node2D = null
+var held_item_index: int = 0
+var inventory_items: Array[Node2D] = []
 
-signal item_changed(item: Node2D)
+var held_item:
+    get:
+        return inventory_items[held_item_index]
+    set(value):
+        inventory_items[held_item_index] = value
+
+const SLOT_COUNT = 1
+
+func _ready():
+    for i in SLOT_COUNT:
+        inventory_items.append(null)
+    print(inventory_items)
+
+func all_inventory_items() -> Array[Node2D]:
+    return inventory_items
+
+signal items_changed(items: Array[Node2D], held_item_index: int)
+
 ## Should only be connected to by the object that wants to hold our current item, e.g. the player's carried item manager.
+## Must reset the position of the item after reparenting.
 ## This probably isn't the best way to structure this, but meh
 signal item_scene_reparent(item: Node2D)
 
@@ -33,6 +52,22 @@ func held_item_data() -> ItemData:
         return held_item.data
     return null
 
+func switch_slot(dir: int):
+    # If we currently have an item -- meaning it's parented to wherever -- send it to the aether (i'm running on like 4hrs of sleep help me)
+    if has_item():
+        ## Don't free the item! Just remove it.
+        held_item.get_parent().remove_child(held_item)
+
+    held_item_index = (held_item_index + dir) % SLOT_COUNT
+    items_changed.emit(inventory_items, held_item_index)
+    
+    if held_item != null:
+        # Ensure the item is inside the tree
+        if not held_item.is_inside_tree():
+            get_tree().current_scene.add_child(held_item)
+        
+        item_scene_reparent.emit(held_item)
+
 ## Tries to grab the given item.
 ## If the item is in the scene, it will be reparented to the player.
 ## This will play a sound for taking the item as long as it's already in the tree.
@@ -54,7 +89,7 @@ func try_grab_item(item: Node2D) -> bool:
         get_tree().current_scene.add_child(item)
 
     held_item = item
-    item_changed.emit(held_item)
+    items_changed.emit(inventory_items, held_item_index)
     
     # Will reparent to wherever we need it
     item_scene_reparent.emit(item)
@@ -75,7 +110,7 @@ func remove_item() -> Node2D:
     var item = held_item
     
     held_item = null
-    item_changed.emit(null)
+    items_changed.emit(inventory_items, held_item_index)
 
     item.get_parent().remove_child(item)
     

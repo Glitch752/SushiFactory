@@ -76,6 +76,19 @@ func take_add_swap():
 
     PlayerInventorySingleton.try_grab_item(output_item)
 
+func take_plate_add():
+    var output_item = PlayerInventorySingleton.create_item(current_output)
+    
+    var plate = PlayerInventorySingleton.held_item
+    assert(plate != null and plate.data.id == &"plate")
+
+    plate.add_to_plate(output_item.data)
+    output_item.queue_free()
+    
+    input_item_id = null
+    
+    _physics_process(0)
+
 func _physics_process(delta):
     if input_item_id != null:
         cooking_time_remaining = max(cooking_time_remaining - DayManagerSingleton.elapsed_world_time(delta), 0)
@@ -141,5 +154,7 @@ func get_interaction_data() -> InteractionData:
             action = InteractionAction.new("Take %s" % current_output.item_name, take_item)
         elif recipes.has(held_item.id):
             action = InteractionAction.new("Take %s and add %s" % [current_output.item_name, held_item.item_name], take_add_swap)
+        elif held_item.id == &"plate":
+            action = InteractionAction.new("Take %s and add to plate" % current_output.item_name, take_plate_add, 0.25)
         desc = "%s\nThe %s is %s and ready to take." % [interactable_description, current_output.item_name, action_word_past]
     return InteractionData.new(interactable_name, desc, action)

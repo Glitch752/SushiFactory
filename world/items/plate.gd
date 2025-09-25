@@ -121,12 +121,15 @@ func make_recipe():
 
     add_to_plate(dish.result)
 
+static func upper_start(s: String):
+    return s[0].to_upper() + s.substr(1)
+
 func get_description():
     if contents.size() == 0:
         return "An empty plate."
     var desc = "A plate with:[ul]"
     for itemData in contents:
-        desc += "\n [item]%s[/item]" % itemData.item.id
+        desc += "\n [item]%s[/item]" % upper_start(itemData.item.id)
     desc += "\n[/ul]"
 
     if valid_recipe != null:

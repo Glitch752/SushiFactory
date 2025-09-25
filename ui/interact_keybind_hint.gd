@@ -2,6 +2,8 @@
 
 extends StackContainer
 
+# TODO: Make this dynamic based on what device is currently connected
+
 const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
 
 @export var key: String = "Q":
@@ -17,6 +19,14 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
 @onready var infoText: Label = $%InfoText
 @onready var progress: ProgressBar = $%TimedInteractProgress
 
+@export var direction: LayoutDirection = LayoutDirection.LAYOUT_DIRECTION_LTR:
+    set(val):
+        direction = val
+        update_defaults()
+
+## If this hint isn't necessary, it won't be shown when hints are disabled in the pause menu.
+@export var is_necessary: bool = true
+
 func _ready():
     update_defaults()
 
@@ -24,9 +34,8 @@ func update_defaults():
     $%KeyLabel.text = key
     $%InfoText.text = placeholderText
     $%TimedInteractProgress.visible = false
-
-    if not Engine.is_editor_hint():
-        visible = false
+    
+    $%Layout.layout_direction = direction
 
 func update(action: InteractionAction):
     if action == null:
