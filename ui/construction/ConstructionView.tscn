@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv57c3nkt178l"]
+[gd_scene load_steps=13 format=3 uid="uid://dv57c3nkt178l"]
 
 [ext_resource type="Script" uid="uid://djfx02r4wcy3b" path="res://ui/construction/construction_view.gd" id="1_ujp5h"]
 [ext_resource type="Script" uid="uid://bv7wxyrmg64uc" path="res://scripts/ui_camera_2d.gd" id="2_0vto1"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cagv7ia6tisef" path="res://ui/construction/ConstructableItem.tscn" id="5_n20w7"]
 [ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="7_6jdl2"]
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="7_cq8yb"]
-[ext_resource type="StyleBox" uid="uid://c758r4iugw48b" path="res://ui/stylebox/9_patch_stylebox_hover.tres" id="9_tojc5"]
+[ext_resource type="PackedScene" uid="uid://dgfypjqngpdob" path="res://ui/construction/EditorSymbolSprite.tscn" id="11_otkal"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujp5h"]
 font_size = 22
@@ -17,10 +17,6 @@ font_size = 22
 [sub_resource type="AtlasTexture" id="AtlasTexture_isu10"]
 atlas = ExtResource("7_6jdl2")
 region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jdl2"]
-atlas = ExtResource("7_6jdl2")
-region = Rect2(16, 0, 16, 16)
 
 [node name="ConstructionView" type="Node2D"]
 script = ExtResource("1_ujp5h")
@@ -83,25 +79,24 @@ key = "`"
 placeholderText = "Exit"
 is_necessary = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control"]
+[node name="OuterContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 56.0
 offset_bottom = 56.0
 
-[node name="ConstructableItem" parent="Camera2D/CanvasLayer/Control/HBoxContainer" instance=ExtResource("5_n20w7")]
+[node name="ConstructableList" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/OuterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConstructableItem" parent="Camera2D/CanvasLayer/Control/OuterContainer/ConstructableList" instance=ExtResource("5_n20w7")]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_cq8yb")
 selected = true
 texture = SubResource("AtlasTexture_isu10")
 
-[node name="ConstructableItem2" parent="Camera2D/CanvasLayer/Control/HBoxContainer" instance=ExtResource("5_n20w7")]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("9_tojc5")
-texture = SubResource("AtlasTexture_6jdl2")
-
-[node name="InteractKeybindHint" parent="Camera2D/CanvasLayer/Control/HBoxContainer" instance=ExtResource("5_isu10")]
+[node name="InteractKeybindHint" parent="Camera2D/CanvasLayer/Control/OuterContainer" instance=ExtResource("5_isu10")]
 layout_mode = 2
 size_flags_vertical = 4
 key = "R"
@@ -109,3 +104,5 @@ placeholderText = "Switch item"
 is_necessary = true
 
 [node name="InteractionHighlight" parent="." instance=ExtResource("3_ewvdu")]
+
+[node name="EditorSymbolSprite" parent="InteractionHighlight" instance=ExtResource("11_otkal")]

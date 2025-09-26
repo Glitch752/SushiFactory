@@ -13,7 +13,8 @@ extends Node2D
         _update_size()
 
 func _update_color():
-    for child in get_children():
+    for idx in range(4):
+        var child = get_child(idx)
         (child as Polygon2D).color = color
 
 func _update_size():

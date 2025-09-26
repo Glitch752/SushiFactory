@@ -82,6 +82,9 @@ func _input(event):
         elif Input.is_action_just_released_by_event(dir, event):
             repeat_countdown.erase(dir)
             get_viewport().set_input_as_handled()
+    
+    # if event.is_action_pressed("cycle_right"):
+
 
 func _process(delta):
     if abs(Engine.time_scale) < 0.001: 
@@ -104,7 +107,7 @@ func _process(delta):
         if editable:
             var remove_action = InteractionAction.new("Remove", _remove_targeted_tile, 0.2)
             var rotate_action = InteractionAction.new("Rotate", _rotate_targeted_tile)
-            interaction_data = InteractionData.new("Tile test", "A tile idk", rotate_action, remove_action)
+            interaction_data = InteractionData.new("Counter", "A counter. Manual machines\nmay be placed on top of it.", rotate_action, remove_action)
             color = highlight_existing_color
         else:
             interaction_data = InteractionData.new("Tile test", "A tile idk")

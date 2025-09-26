@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b7y7ep53sha8h"]
+
+[ext_resource type="Script" uid="uid://di8w5xlfuk8kb" path="res://data/constructables/belt.gd" id="1_ahkly"]
+
+[resource]
+script = ExtResource("1_ahkly")
+id = &"belt"
+name = "Conveyor Belt"
+description = "A belt which can move items in a specific direction.
+Links with other belts facing into it."
+metadata/_custom_type_script = "uid://77xhmwgf5tdj"

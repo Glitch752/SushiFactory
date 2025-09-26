@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxhyekwsi0xou"]
+
+[ext_resource type="Script" uid="uid://bjf6efd3yv0oq" path="res://data/constructables/counter.gd" id="1_rwagu"]
+
+[resource]
+script = ExtResource("1_rwagu")
+id = &"counter"
+name = "Counter"
+description = "A counter. Additional objects may be added to this by "
+metadata/_custom_type_script = "uid://77xhmwgf5tdj"

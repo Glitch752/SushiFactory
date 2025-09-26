@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgfypjqngpdob"]
+
+[ext_resource type="Texture2D" uid="uid://dvl6ad14wxqlc" path="res://images/editor.png" id="1_h6dwc"]
+[ext_resource type="Script" uid="uid://cu6nci8t4bso3" path="res://ui/construction/editor_symbol_sprite.gd" id="1_lj8fj"]
+
+[node name="EditorSymbolSprite" type="Node2D"]
+script = ExtResource("1_lj8fj")
+
+[node name="AutomationObjectSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_h6dwc")

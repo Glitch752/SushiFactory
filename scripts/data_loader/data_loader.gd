@@ -61,7 +61,7 @@ func get_single_input_recipes_for(machine: MachineData) -> Dictionary[StringName
 ##################### Actual resource loading
 
 ## Recursively loads all resources under data/[data_type]/**/*.tres
-func recursively_load_resources(data_type: String, type_hint: String = "") -> Array[Resource]:
+func recursively_load_resources(data_type: String, _type_hint: String = "") -> Array[Resource]:
     var resources: Array[Resource] = []
     var dir = DirAccess.open("res://data/%s" % data_type)
     if dir == null:
