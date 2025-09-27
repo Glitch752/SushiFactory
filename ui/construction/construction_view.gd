@@ -111,7 +111,7 @@ func _process(delta):
             interaction_data = InteractionData.new("Counter", "A counter. Manual machines\nmay be placed on top of it.", rotate_action, remove_action)
             color = highlight_existing_color
         else:
-            interaction_data = InteractionData.new("Tile test", "A tile idk")
+            interaction_data = InteractionData.new("Tile", "A non-editable tile")
             color = highlight_invalid_color
     else:
         var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile)

@@ -91,7 +91,7 @@ func _unhandled_key_input(event):
     if not InputTargetSingleton.is_any_active([InputTargetSingleton.InputTarget.PlayerMovement, InputTargetSingleton.InputTarget.PauseMenu]):
         return
     
-    if event.is_action_pressed("ui_cancel") and not event.is_echo():
+    if event.is_action_pressed("pause") and not event.is_echo():
         if not paused:
             pause()
         else:

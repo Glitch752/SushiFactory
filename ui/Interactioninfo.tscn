@@ -53,9 +53,10 @@ shortcut_keys_enabled = false
 [node name="PrimaryInteract" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_ql7gy")]
 unique_name_in_owner = true
 layout_mode = 2
-action = 0
+action = "interact"
 placeholderText = "Primary interact"
 
 [node name="SecondaryInteract" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_ql7gy")]
 unique_name_in_owner = true
 layout_mode = 2
+action = "secondary_interact"

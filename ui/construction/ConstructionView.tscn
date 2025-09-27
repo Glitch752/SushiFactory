@@ -75,8 +75,9 @@ offset_right = 204.0
 offset_bottom = -13.0
 grow_vertical = 0
 size_flags_vertical = 4
-action = 10
+action = "pause"
 placeholderText = "Exit"
+is_necessary = false
 
 [node name="OuterContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control"]
 layout_mode = 0
@@ -97,9 +98,10 @@ texture = SubResource("AtlasTexture_isu10")
 
 [node name="InteractKeybindHint" parent="Camera2D/CanvasLayer/Control/OuterContainer" instance=ExtResource("5_isu10")]
 layout_mode = 2
-size_flags_vertical = 4
-action = 6
+size_flags_vertical = 0
+action = "rotate_right"
 placeholderText = "Switch right"
+is_necessary = false
 
 [node name="InteractionHighlight" parent="." instance=ExtResource("3_ewvdu")]
 

@@ -13,13 +13,79 @@ const CUSTOM_KEYCODE_REPLACEMENTS: Dictionary[String, String] = {
     "Escape": "Esc"
 }
 
+const SONY_JOY_BUTTON_MAP: Dictionary[JoyButton, String] = {
+    JoyButton.JOY_BUTTON_A: "✕",
+    JoyButton.JOY_BUTTON_B: "○",
+    JoyButton.JOY_BUTTON_X: "□",
+    JoyButton.JOY_BUTTON_Y: "△",
+    JoyButton.JOY_BUTTON_BACK: "Select",
+    JoyButton.JOY_BUTTON_START: "Start",
+    JoyButton.JOY_BUTTON_MISC1: "PS"
+}
+const XBOX_JOY_BUTTON_MAP: Dictionary[JoyButton, String] = {
+    JoyButton.JOY_BUTTON_A: "A",
+    JoyButton.JOY_BUTTON_B: "B",
+    JoyButton.JOY_BUTTON_X: "X",
+    JoyButton.JOY_BUTTON_Y: "Y",
+    JoyButton.JOY_BUTTON_BACK: "Back",
+    JoyButton.JOY_BUTTON_START: "Menu",
+    JoyButton.JOY_BUTTON_MISC1: "Share"
+}
+const NINTENDO_JOY_BUTTON_MAP: Dictionary[JoyButton, String] = {
+    JoyButton.JOY_BUTTON_A: "B",
+    JoyButton.JOY_BUTTON_B: "A",
+    JoyButton.JOY_BUTTON_X: "Y",
+    JoyButton.JOY_BUTTON_Y: "X",
+    JoyButton.JOY_BUTTON_BACK: "-",
+    JoyButton.JOY_BUTTON_START: "+",
+    JoyButton.JOY_BUTTON_MISC1: "Capture"
+}
+
+const FALLBACK_JOY_BUTTON_MAP: Dictionary[JoyButton, String] = {
+    JoyButton.JOY_BUTTON_GUIDE: "Guide",
+    JoyButton.JOY_BUTTON_LEFT_STICK: "L◉",
+    JoyButton.JOY_BUTTON_RIGHT_STICK: "R◉",
+    JoyButton.JOY_BUTTON_LEFT_SHOULDER: "L1",
+    JoyButton.JOY_BUTTON_RIGHT_SHOULDER: "R1",
+    JoyButton.JOY_BUTTON_DPAD_UP: "D↑",
+    JoyButton.JOY_BUTTON_DPAD_DOWN: "D↓",
+    JoyButton.JOY_BUTTON_DPAD_LEFT: "D←",
+    JoyButton.JOY_BUTTON_DPAD_RIGHT: "D→",
+    JoyButton.JOY_BUTTON_PADDLE1: "P1",
+    JoyButton.JOY_BUTTON_PADDLE2: "P2",
+    JoyButton.JOY_BUTTON_PADDLE3: "P3",
+    JoyButton.JOY_BUTTON_PADDLE4: "P4",
+    JoyButton.JOY_BUTTON_TOUCHPAD: "Touch"
+}
+
+func get_joypad_name(button_id: JoyButton) -> String:
+    var joypad_type = "xbox"
+    
+    var joypad_id = Input.get_connected_joypads().get(0)
+    if joypad_id:
+        var n = Input.get_joy_name(joypad_id).to_lower()
+        if n.find("sony") != -1 or n.find("playstation") != -1 or n.find("ps4") != -1 or n.find("ps5") != -1:
+            joypad_type = "sony"
+        elif n.find("nintendo") != -1 or n.find("switch") != -1:
+            joypad_type = "nintendo"
+        # Fall back to xbox
+
+    var fallback = FALLBACK_JOY_BUTTON_MAP.get(button_id, "Button%d" % button_id)
+    if joypad_type == "sony":
+        return SONY_JOY_BUTTON_MAP.get(button_id, fallback)
+    elif joypad_type == "nintendo":
+        return NINTENDO_JOY_BUTTON_MAP.get(button_id, fallback)
+    else:
+        return XBOX_JOY_BUTTON_MAP.get(button_id, fallback)
+
+
 static func customize_keycode(keycode: String) -> String:
     for oldKey in CUSTOM_KEYCODE_REPLACEMENTS.keys():
         keycode = keycode.replace(oldKey, CUSTOM_KEYCODE_REPLACEMENTS[oldKey])
     return keycode
 
 @warning_ignore("enum_variable_without_default")
-@export var action: InputAction:
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION, "") var action: String = "":
     set(val):
         action = val
         update_defaults()
@@ -28,7 +94,7 @@ static func customize_keycode(keycode: String) -> String:
         placeholderText = val
         update_defaults()
 
-func get_input_properties() -> Array[Dictionary]:
+func get_input_properties() -> Dictionary[String, Dictionary]:
     # We need to use ProjectSettings here because InputMap returns the editor's internal actions.
     # From the documentation:
     # > Note: When used in the editor (e.g. a tool script or EditorPlugin),
@@ -41,14 +107,18 @@ func get_input_properties() -> Array[Dictionary]:
         return (a["name"] as String).casecmp_to(b["name"]) < 0
     )
 
-    return input_properties
+    var input_property_map: Dictionary[String, Dictionary]
+    for pi in input_properties:
+        input_property_map[pi["name"].get_slice("/", 1)] = pi
+
+    return input_property_map
 
 func _validate_property(property: Dictionary):
     if property.name == "action":
         var actions = ""
         
-        for pi in get_input_properties():
-            var actionName = pi.name.substr(pi.name.find("/") + 1)
+        var input_properties = get_input_properties()
+        for actionName in input_properties.keys():
             actions += actionName + ","
         property.hint_string = actions.substr(0, actions.length() - 1)
 
@@ -67,6 +137,8 @@ func _validate_property(property: Dictionary):
 func _ready():
     update_defaults()
 
+    Input.joy_connection_changed.connect(update_defaults)
+
 func update_defaults():
     if !is_node_ready():
         return
@@ -76,11 +148,14 @@ func update_defaults():
         $%KeyLabel.text = "ERR"
     else:
         var action_data = ProjectSettings[action_property["name"]]
+        var joypads = Input.get_connected_joypads()
+        var has_joypad_connected = joypads.size() > 0
+
         var suitable_event_shortnames = action_data["events"].filter(func(ev: Variant):
             if ev is InputEventKey:
-                return true
+                return !has_joypad_connected
             elif ev is InputEventJoypadButton:
-                return true
+                return has_joypad_connected
             else:
                 return false
         ).map(func(ev: InputEvent):
@@ -89,11 +164,10 @@ func update_defaults():
                 keystr += OS.get_keycode_string(DisplayServer.keyboard_get_keycode_from_physical(ev.physical_keycode))
                 return customize_keycode(keystr)
             elif ev is InputEventJoypadButton:
-                return str((ev as InputEventJoypadButton).button_index)
+                return get_joypad_name((ev as InputEventJoypadButton).button_index)
             else:
                 return "idk"
         )
-        print(suitable_event_shortnames)
 
         if len(suitable_event_shortnames) == 0:
             $%KeyLabel.text = "NONE"
@@ -105,21 +179,21 @@ func update_defaults():
     
     $%Layout.layout_direction = direction
 
-func update(action: InteractionAction):
-    if action == null:
+func update(interact_action: InteractionAction):
+    if interact_action == null:
         visible = false
         progress.visible = false
         return
     
     visible = true
     
-    var nameText = action.name
-    if action.time_required > 0.0:
-        nameText += " (%.1fs)" % (action.time_required - action.current_time)
+    var nameText = interact_action.name
+    if interact_action.time_required > 0.0:
+        nameText += " (%.1fs)" % (interact_action.time_required - interact_action.current_time)
     infoText.text = nameText
     
-    if action.time_required > 0.0:
+    if interact_action.time_required > 0.0:
         progress.visible = true
-        progress.value = ease(action.current_time / action.time_required, -1.2)
+        progress.value = ease(interact_action.current_time / interact_action.time_required, -1.2)
     else:
         progress.visible = false

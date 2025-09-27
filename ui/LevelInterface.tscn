@@ -165,9 +165,9 @@ anchor_bottom = 1.0
 offset_top = -35.0
 offset_right = 416.0
 grow_vertical = 0
-key = "`"
-placeholderText = "Pause (+to disable these hints)"
-is_necessary = true
+action = "pause"
+placeholderText = "Pause (or disable these hints)"
+is_necessary = false
 
 [node name="Inventory" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -218,10 +218,10 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
-key = "R"
+action = "rotate_right"
 placeholderText = "Switch slots"
 direction = 3
-is_necessary = true
+is_necessary = false
 
 [node name="Slots" type="HBoxContainer" parent="Inventory/OuterLayout"]
 unique_name_in_owner = true

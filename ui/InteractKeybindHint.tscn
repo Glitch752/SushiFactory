@@ -8,7 +8,6 @@
 
 [node name="InteractKeybindHint" type="Container"]
 script = ExtResource("1_wqdku")
-action = 7
 metadata/_custom_type_script = "uid://bpuyfn2rtvibk"
 
 [node name="TimedInteractProgress" type="ProgressBar" parent="."]
@@ -34,7 +33,7 @@ theme_override_styles/panel = ExtResource("3_w747j")
 [node name="KeyLabel" type="Label" parent="Layout/Panel"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Q"
+text = "ERR"
 
 [node name="InfoText" type="Label" parent="Layout"]
 unique_name_in_owner = true
