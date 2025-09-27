@@ -14,7 +14,6 @@ const SLOT_COUNT = 1
 func _ready():
     for i in SLOT_COUNT:
         inventory_items.append(null)
-    print(inventory_items)
 
 func all_inventory_items() -> Array[Node2D]:
     return inventory_items

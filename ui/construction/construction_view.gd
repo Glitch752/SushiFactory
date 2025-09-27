@@ -16,6 +16,7 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
 @onready var highlight = $InteractionHighlight
 
 var targeted_tile: Vector2i = Vector2i.ZERO
+var target_direction: String = "up"
 
 # For key repeat logic. We use custom repeating instead of normal input repeats since that's OS-specific and pretty unreliable from my experience
 var repeat_countdown: Dictionary[StringName, float] = {}

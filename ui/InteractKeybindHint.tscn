@@ -8,7 +8,7 @@
 
 [node name="InteractKeybindHint" type="Container"]
 script = ExtResource("1_wqdku")
-is_necessary = null
+action = 7
 metadata/_custom_type_script = "uid://bpuyfn2rtvibk"
 
 [node name="TimedInteractProgress" type="ProgressBar" parent="."]

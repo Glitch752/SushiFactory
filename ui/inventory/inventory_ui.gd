@@ -38,11 +38,11 @@ func _unhandled_input(event):
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.PlayerMovement):
         return
 
-    if event.is_action_pressed("cycle_right"):
+    if event.is_action_pressed("rotate_right"):
         PlayerInventorySingleton.switch_slot(1)
         # I haven't found anything that sounds good lol
         # SoundManager.play_sound(preload("res://audio/ui/cycle_slot.wav"), 0, randf_range(0.9, 1.1))
-    elif event.is_action_pressed("cycle_left"):
+    elif event.is_action_pressed("rotate_left"):
         PlayerInventorySingleton.switch_slot(-1)
         # SoundManager.play_sound(preload("res://audio/ui/cycle_slot.wav"), 0, randf_range(0.9, 1.1))
 
