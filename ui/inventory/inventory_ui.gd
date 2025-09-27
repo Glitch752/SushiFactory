@@ -24,7 +24,7 @@ func _ready():
         i += 1
     
     if start_items.size() == 1:
-        $%SwitchSlotHint.visible = false
+        $%SwitchSlotHint.force_hide = true
 
 func _items_changed(items: Array[Node2D], held_item_index: int):
     var i = 0

@@ -167,6 +167,7 @@ offset_right = 416.0
 grow_vertical = 0
 action = "pause"
 placeholderText = "Pause (or disable these hints)"
+force_hide = null
 is_necessary = false
 
 [node name="Inventory" type="VBoxContainer" parent="."]
@@ -220,6 +221,7 @@ layout_mode = 2
 size_flags_vertical = 8
 action = "rotate_right"
 placeholderText = "Switch slots"
+force_hide = null
 direction = 3
 is_necessary = false
 

@@ -1,7 +1,8 @@
 extends CheckBox
 
 func _ready():
-    toggled.connect(_update_ui)
+    button_pressed = InputSettingsSingleton.show_bind_hints
 
-func _update_ui(on: bool):
-    pass
+    toggled.connect(func(on):
+        InputSettingsSingleton.show_bind_hints = on
+    )

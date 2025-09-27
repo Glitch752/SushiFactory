@@ -6,6 +6,21 @@ extends StackContainer
 
 const InteractionAction = preload("res://world/interactable/interactable.gd").InteractionAction
 
+@warning_ignore("enum_variable_without_default")
+@export_custom(PROPERTY_HINT_ENUM_SUGGESTION, "") var action: String = "":
+    set(val):
+        action = val
+        update_defaults()
+@export var placeholderText: String = "Secondary interact":
+    set(val):
+        placeholderText = val
+        update_defaults()
+
+@export var force_hide: bool = false:
+    set(val):
+        force_hide = val
+        update_defaults()
+
 enum InputAction {}
 
 const CUSTOM_KEYCODE_REPLACEMENTS: Dictionary[String, String] = {
@@ -78,21 +93,10 @@ func get_joypad_name(button_id: JoyButton) -> String:
     else:
         return XBOX_JOY_BUTTON_MAP.get(button_id, fallback)
 
-
 static func customize_keycode(keycode: String) -> String:
     for oldKey in CUSTOM_KEYCODE_REPLACEMENTS.keys():
         keycode = keycode.replace(oldKey, CUSTOM_KEYCODE_REPLACEMENTS[oldKey])
     return keycode
-
-@warning_ignore("enum_variable_without_default")
-@export_custom(PROPERTY_HINT_ENUM_SUGGESTION, "") var action: String = "":
-    set(val):
-        action = val
-        update_defaults()
-@export var placeholderText: String = "Secondary interact":
-    set(val):
-        placeholderText = val
-        update_defaults()
 
 func get_input_properties() -> Dictionary[String, Dictionary]:
     # We need to use ProjectSettings here because InputMap returns the editor's internal actions.
@@ -138,10 +142,15 @@ func _ready():
     update_defaults()
 
     Input.joy_connection_changed.connect(update_defaults)
+    InputSettingsSingleton.settings_changed.connect(update_defaults)
 
 func update_defaults():
     if !is_node_ready():
         return
+    
+    visible = (not force_hide) and (InputSettingsSingleton.show_bind_hints or is_necessary)
+    if not visible:
+        return # No point in updating
     
     var action_property = get_input_properties().get(action)
     if action_property == null:

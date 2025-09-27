@@ -32,6 +32,7 @@ StoreStatsSingleton="*res://scripts/store_stats_singleton.gd"
 MusicPlayer="*res://MusicPlayer.tscn"
 SoundManager="*res://ui/audio/SoundManager.tscn"
 InputTargetSingleton="*res://scripts/input_target_singleton.gd"
+InputSettingsSingleton="*res://scripts/input_settings_singleton.gd"
 
 [display]
 

@@ -6,8 +6,11 @@
 texture = ExtResource("1_npb3i")
 0:0/0 = 0
 0:0/0/custom_data_0 = 2.0
+1:0/next_alternative_id = 2
 1:0/0 = 0
 1:0/0/custom_data_0 = -0.5
+1:0/1 = 1
+1:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
 3:0/0 = 0
 3:0/0/custom_data_0 = 2.0
