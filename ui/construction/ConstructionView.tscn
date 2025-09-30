@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dv57c3nkt178l"]
+[gd_scene load_steps=14 format=3 uid="uid://dv57c3nkt178l"]
 
 [ext_resource type="Script" uid="uid://djfx02r4wcy3b" path="res://ui/construction/construction_view.gd" id="1_ujp5h"]
 [ext_resource type="Script" uid="uid://bv7wxyrmg64uc" path="res://scripts/ui_camera_2d.gd" id="2_0vto1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="3_n20w7"]
 [ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="5_isu10"]
 [ext_resource type="PackedScene" uid="uid://cagv7ia6tisef" path="res://ui/construction/ConstructableItem.tscn" id="5_n20w7"]
+[ext_resource type="Script" uid="uid://btktasnuvbyj0" path="res://ui/construction/constructable_list.gd" id="6_otkal"]
 [ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="7_6jdl2"]
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="7_cq8yb"]
 [ext_resource type="PackedScene" uid="uid://dgfypjqngpdob" path="res://ui/construction/EditorSymbolSprite.tscn" id="11_otkal"]
@@ -31,6 +32,7 @@ script = ExtResource("2_0vto1")
 metadata/_custom_type_script = "uid://bv7wxyrmg64uc"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+visible = false
 
 [node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3
@@ -77,6 +79,7 @@ grow_vertical = 0
 size_flags_vertical = 4
 action = "pause"
 placeholderText = "Exit"
+force_hide = null
 is_necessary = false
 
 [node name="OuterContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control"]
@@ -89,6 +92,7 @@ offset_bottom = 56.0
 [node name="ConstructableList" type="HBoxContainer" parent="Camera2D/CanvasLayer/Control/OuterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("6_otkal")
 
 [node name="ConstructableItem" parent="Camera2D/CanvasLayer/Control/OuterContainer/ConstructableList" instance=ExtResource("5_n20w7")]
 layout_mode = 2
@@ -101,9 +105,11 @@ layout_mode = 2
 size_flags_vertical = 0
 action = "rotate_right"
 placeholderText = "Switch right"
+force_hide = null
 is_necessary = false
 
 [node name="InteractionHighlight" parent="." instance=ExtResource("3_ewvdu")]
 
 [node name="EditorSymbolSprite" parent="InteractionHighlight" instance=ExtResource("11_otkal")]
+unique_name_in_owner = true
 show_behind_parent = true

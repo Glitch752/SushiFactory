@@ -20,6 +20,7 @@ func _update_panel():
 
 func _ready():
     _update_texture()
+    _update_panel()
 
 func _update_texture():
     $%TextureRect.texture = texture

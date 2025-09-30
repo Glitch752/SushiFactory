@@ -1,10 +1,16 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxhyekwsi0xou"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cxhyekwsi0xou"]
 
 [ext_resource type="Script" uid="uid://bjf6efd3yv0oq" path="res://data/constructables/counter.gd" id="1_rwagu"]
+[ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="2_2w1jw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x6wa"]
+atlas = ExtResource("2_2w1jw")
+region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_rwagu")
 id = &"counter"
 name = "Counter"
-description = "A counter. Additional objects may be added to this by "
+description = "A counter. Additional objects may be added to this by placing them on top."
+texture = SubResource("AtlasTexture_8x6wa")
 metadata/_custom_type_script = "uid://77xhmwgf5tdj"

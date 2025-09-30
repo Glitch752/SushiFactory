@@ -142,7 +142,8 @@ func _ready():
     update_defaults()
 
     Input.joy_connection_changed.connect(update_defaults)
-    InputSettingsSingleton.settings_changed.connect(update_defaults)
+    if not Engine.is_editor_hint():
+        InputSettingsSingleton.settings_changed.connect(update_defaults)
 
 func update_defaults():
     if !is_node_ready():

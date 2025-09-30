@@ -16,10 +16,11 @@ extends Node2D
     set(val):
         if val != shown:
             var t = create_tween()
+            t.set_ignore_time_scale(true)
             if shown:
-                t.tween_property(self, "modulate:a", 1.0, 0.2)
+                t.tween_property(self, "modulate:a", 1.0, 0.05)
             else:
-                t.tween_property(self, "modulate:a", 0, 0.2)
+                t.tween_property(self, "modulate:a", 0, 0.05)
         shown = val
 
 @onready var sprite: Sprite2D = $AutomationObjectSprite

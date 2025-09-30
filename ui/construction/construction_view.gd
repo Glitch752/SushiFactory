@@ -14,9 +14,12 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
 
 @onready var camera: UiCamera2D = $Camera2D
 @onready var highlight = $InteractionHighlight
+@onready var constructable_list = $%ConstructableList
 
 var targeted_tile: Vector2i = Vector2i.ZERO
 var target_direction: String = "up"
+
+var constructable_index: int = 0
 
 # For key repeat logic. We use custom repeating instead of normal input repeats since that's OS-specific and pretty unreliable from my experience
 var repeat_countdown: Dictionary[StringName, float] = {}
@@ -71,7 +74,7 @@ func _input(event):
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.ConstructionMenu):
         return
     
-    if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+    if event.is_action_pressed("pause"):
         hide_view()
         get_viewport().set_input_as_handled()
     
@@ -84,7 +87,14 @@ func _input(event):
             repeat_countdown.erase(dir)
             get_viewport().set_input_as_handled()
     
-    # if event.is_action_pressed("cycle_right"):
+    if event.is_action_pressed("rotate_right"):
+        constructable_index = (constructable_index + 1) % DataLoader.constructables.size()
+        constructable_list.selected = constructable_index
+        get_viewport().set_input_as_handled()
+    elif event.is_action_pressed("rotate_left"):
+        constructable_index = (constructable_index - 1 + DataLoader.constructables.size()) % DataLoader.constructables.size()
+        constructable_list.selected = constructable_index
+        get_viewport().set_input_as_handled()
 
 
 func _process(delta):
@@ -101,6 +111,7 @@ func _process(delta):
     var interaction_data: InteractionData = null
     var color
 
+    var placing = false
     if highlighted_tile != null:
         var interaction_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
         var editable = interaction_zone.get_custom_data("editable")
@@ -118,6 +129,7 @@ func _process(delta):
         if zone_data != null and zone_data.get_custom_data("editable"):
             # todo: place tiles
             color = highlight_valid_color
+            placing = true
         else:
             color = highlight_invalid_color
     
@@ -125,7 +137,9 @@ func _process(delta):
 
     var target_position = building_tilemap.to_global(building_tilemap.map_to_local(targeted_tile))
     camera.global_position = target_position
+
     highlight.interp_to(target_position, color)
+    $%EditorSymbolSprite.shown = !placing
     
     for dir in repeat_countdown.keys():
         repeat_countdown[dir] -= delta

@@ -1,6 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b7y7ep53sha8h"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://b7y7ep53sha8h"]
 
 [ext_resource type="Script" uid="uid://di8w5xlfuk8kb" path="res://data/constructables/belt.gd" id="1_ahkly"]
+[ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="2_7tgnh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8m5a"]
+atlas = ExtResource("2_7tgnh")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_ahkly")
@@ -8,4 +13,5 @@ id = &"belt"
 name = "Conveyor Belt"
 description = "A belt which can move items in a specific direction.
 Links with other belts facing into it."
+texture = SubResource("AtlasTexture_t8m5a")
 metadata/_custom_type_script = "uid://77xhmwgf5tdj"

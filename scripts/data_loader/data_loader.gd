@@ -1,5 +1,7 @@
 extends Node
 
+## Loads data. wow.
+
 ##################### Data
 
 ## A map from item ID to data.
@@ -10,6 +12,10 @@ var machines: Dictionary[StringName, MachineData] = {}
 
 ## A list of recipes. Sorted by priority, so higher priority recipes are first in the array.
 var recipes: Array[RecipeData] = []
+
+## A list of "constructables", which are objects used in the construction view. They're not all handled the same,
+## but there's some shared information like name/description so we also use resources for them.
+var constructables: Array[ConstructableData] = []
 
 ##################### Basic getters
 
@@ -132,3 +138,12 @@ func _ready():
     )
     
     print("Loaded and sorted %d recipes" % recipes.size())
+
+    var loaded_constructables = recursively_load_resources("constructables", "ConstructableData")
+    for constructable in loaded_constructables:
+        if constructable is ConstructableData:
+            constructables.append(constructable)
+        else:
+            push_error("Loaded resource is not of type ConstructableData: %s" % constructable)
+    
+    print("Loaded %d constructables" % constructables.size())
