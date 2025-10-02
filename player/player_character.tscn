@@ -17,12 +17,13 @@ size = Vector2(4, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2brt4"]
 size = Vector2(14, 13)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="PlayerCharacter" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 motion_mode = 1
 script = ExtResource("1_6ahhe")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_6ahhe")
 

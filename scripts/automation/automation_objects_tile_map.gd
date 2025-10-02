@@ -14,3 +14,7 @@ func show_map():
 
 func hide_map():
     visible = false
+
+func is_counter_at(global_pos: Vector2):
+    var data = get_cell_tile_data(local_to_map(to_local(global_pos)))
+    return data and data.get_custom_data("is_counter_like")

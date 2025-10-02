@@ -13,15 +13,16 @@ z_index = -1
 script = ExtResource("1_bqffe")
 
 [node name="LeftDoor" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
 sprite_frames = ExtResource("1_lfbsc")
 
 [node name="RightDoor" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, 0)
+position = Vector2(16, -16)
 scale = Vector2(-1, 1)
 sprite_frames = ExtResource("1_lfbsc")
 
 [node name="OpenArea" type="Area2D" parent="."]
-position = Vector2(-8, 24)
+position = Vector2(-8, 8)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenArea"]
@@ -30,14 +31,14 @@ position = Vector2(16, -17.25)
 shape = SubResource("RectangleShape2D_lfbsc")
 
 [node name="DoorOpenSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(8, 11)
+position = Vector2(8, -5)
 stream = ExtResource("3_1nscb")
 volume_db = 4.0
 max_distance = 300.0
 bus = &"World"
 
 [node name="DoorCloseSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(8, 11)
+position = Vector2(8, -5)
 stream = ExtResource("4_ubc7h")
 volume_db = 4.0
 max_distance = 300.0

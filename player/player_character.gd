@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var movement_speed = 150
 @export var animation_base_speed = 100
 
+@export var automation_objects_tilemap: AutomationObjectsTilemap
+
 # We only have player animations for the cardinal directions, but the player
 # movement is analog. This stores the last direction that we had a cardinal
 # direction input for.
