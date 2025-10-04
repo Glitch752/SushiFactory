@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://baly8m8dmbonq"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_f08ws"]
+[ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="2_5f0id"]
+[ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="3_iymkv"]
+[ext_resource type="Script" uid="uid://btktasnuvbyj0" path="res://ui/construction/constructable_list.gd" id="4_kl3ds"]
+[ext_resource type="PackedScene" uid="uid://cagv7ia6tisef" path="res://ui/construction/ConstructableItem.tscn" id="5_3iixh"]
+[ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="6_0rdtb"]
+[ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="7_xjisp"]
+[ext_resource type="PackedScene" uid="uid://bvvox74aqqptw" path="res://ui/AutohideTooltip.tscn" id="8_5f0id"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujp5h"]
+font_size = 22
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isu10"]
+atlas = ExtResource("7_xjisp")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f08ws")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 32.0
+offset_top = 120.0
+offset_right = 1043.0
+offset_bottom = 191.0
+text = "editing mode is a work in progress! there's not much here yet :)
+Importantly, you can (kind of) delete counters but not re-add them lol"
+label_settings = SubResource("LabelSettings_ujp5h")
+
+[node name="InteractionInfo" parent="." instance=ExtResource("2_5f0id")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -30.0
+offset_top = 16.0
+offset_right = -14.0
+offset_bottom = 0.0
+grow_horizontal = 0
+
+[node name="ExitHint" parent="." instance=ExtResource("3_iymkv")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 204.0
+offset_bottom = -13.0
+grow_vertical = 0
+size_flags_vertical = 4
+action = "pause"
+placeholderText = "Exit"
+is_necessary = false
+
+[node name="ConstructableView" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 292.0
+offset_bottom = 96.0
+script = ExtResource("4_kl3ds")
+
+[node name="OuterContainer" type="HBoxContainer" parent="ConstructableView"]
+layout_mode = 2
+
+[node name="ItemList" type="HBoxContainer" parent="ConstructableView/OuterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConstructableItem" parent="ConstructableView/OuterContainer/ItemList" instance=ExtResource("5_3iixh")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_0rdtb")
+selected = true
+texture = SubResource("AtlasTexture_isu10")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConstructableView/OuterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InteractKeybindHint" parent="ConstructableView/OuterContainer/VBoxContainer" instance=ExtResource("3_iymkv")]
+layout_mode = 2
+size_flags_vertical = 0
+action = "rotate_right"
+placeholderText = "Switch right"
+is_necessary = false
+
+[node name="InteractKeybindHint2" parent="ConstructableView/OuterContainer/VBoxContainer" instance=ExtResource("3_iymkv")]
+layout_mode = 2
+size_flags_vertical = 0
+action = "rotate_left"
+placeholderText = "Switch left"
+is_necessary = false
+
+[node name="ConstructableDescription" parent="ConstructableView" instance=ExtResource("8_5f0id")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+transition_dir = Vector2(0, 10)

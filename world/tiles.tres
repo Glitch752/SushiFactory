@@ -135,9 +135,7 @@ texture = ExtResource("2_lxhs4")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_lxhs4"]
 scenes/1/scene = ExtResource("3_exwl2")
-scenes/1/display_placeholder = ExtResource("3_exwl2")
 scenes/2/scene = ExtResource("4_ufnak")
-scenes/2/display_placeholder = ExtResource("4_ufnak")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0gcj1"]
 resource_name = "Conveyors"

@@ -13,6 +13,6 @@ script = ExtResource("1_pox5d")
 id = "plate"
 item_name = "Plate"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "A plate. Used to create meals and present food to customers."
+description = "Used to create meals and present food to customers."
 custom_scene = ExtResource("1_5uiqr")
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

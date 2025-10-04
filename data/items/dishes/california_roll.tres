@@ -9,8 +9,7 @@ region = Rect2(192, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_tlg52")
-id = "california_roll"
 item_name = "California Roll"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "A california sushi roll containing imitation crab."
+description = "Contains imitation crab."
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

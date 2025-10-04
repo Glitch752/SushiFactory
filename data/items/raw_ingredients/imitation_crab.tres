@@ -9,8 +9,8 @@ region = Rect2(368, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_vxuuo")
-id = "imitation_crab"
 item_name = "Imitation Crab"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "Sticks of imitation crab."
+description = "Sticks of processed fish meat.
+I can't believe it's not crab!"
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

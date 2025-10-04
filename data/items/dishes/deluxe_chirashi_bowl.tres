@@ -9,8 +9,7 @@ region = Rect2(288, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_7a6r1")
-id = "deluxe_chirashi_bowl"
 item_name = "Deluxe Chirashi Bowl"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "A complex chirashi bowl; essentially deconstructed sushi."
+description = "Essentially deconstructed sushi."
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

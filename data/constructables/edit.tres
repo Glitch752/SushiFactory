@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bsobxtnu8yiad"]
+
+[ext_resource type="Script" uid="uid://b2blu8v57pyqr" path="res://data/constructables/edit.gd" id="1_w3fvx"]
+[ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="2_w3fvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bick0"]
+atlas = ExtResource("2_w3fvx")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_w3fvx")
+highlight_existing_color = Color(0.96862745, 0.9529412, 0.6313726, 1)
+highlight_valid_color = Color(0.6305, 0.97, 0.67010844, 1)
+highlight_invalid_color = Color(0.63, 0.40949997, 0.40949997, 1)
+id = &"edit"
+name = "Edit"
+description = "Rotate or remove existing objects."
+texture = SubResource("AtlasTexture_bick0")
+priority = 10
+metadata/_custom_type_script = "uid://77xhmwgf5tdj"

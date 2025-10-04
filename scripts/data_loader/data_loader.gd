@@ -145,5 +145,9 @@ func _ready():
             constructables.append(constructable)
         else:
             push_error("Loaded resource is not of type ConstructableData: %s" % constructable)
+
+    constructables.sort_custom(func(a: ConstructableData, b: ConstructableData):
+        return a.priority > b.priority
+    )
     
     print("Loaded %d constructables" % constructables.size())

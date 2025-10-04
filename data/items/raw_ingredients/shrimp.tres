@@ -12,5 +12,4 @@ script = ExtResource("2_dpkwv")
 id = "shrimp"
 item_name = "Raw Shrimp"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "Raw shrimp."
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

@@ -9,8 +9,8 @@ region = Rect2(224, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_ob0n7")
-id = "dragon_roll"
 item_name = "Dragon Roll"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "A dragon sushi roll, containing shrimp tempura and topped with avocado to resemble dragon scales."
+description = "Contains shrimp tempura and topped
+with avocado to resemble dragon scales."
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

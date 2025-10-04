@@ -12,16 +12,13 @@ extends Node2D
         meaning = val
         _update_sprite()
 
-@export var shown: bool = true:
+@export var opacity: float = 1.0:
     set(val):
-        if val != shown:
+        if val != opacity:
             var t = create_tween()
             t.set_ignore_time_scale(true)
-            if shown:
-                t.tween_property(self, "modulate:a", 1.0, 0.05)
-            else:
-                t.tween_property(self, "modulate:a", 0, 0.05)
-        shown = val
+            t.tween_property(self, "modulate:a", val, 0.1)
+        opacity = val
 
 @onready var sprite: Sprite2D = $AutomationObjectSprite
 
@@ -89,6 +86,9 @@ func _ready():
 
 func _update_sprite():
     if sprite == null:
+        return
+    
+    if meaning == &"":
         return
     
     var tile_data = automation_object_tiles.get(meaning, null)

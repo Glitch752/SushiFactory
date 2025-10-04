@@ -2,6 +2,8 @@ extends VBoxContainer
 
 @onready var slot_container = $%Slots
 
+var previous_held_item: Node2D = null
+
 func _ready():
     PlayerInventorySingleton.items_changed.connect(_items_changed)
     
@@ -33,6 +35,12 @@ func _items_changed(items: Array[Node2D], held_item_index: int):
         slot_ui.selected = held_item_index == i
         
         i += 1
+    
+    var held_item = items[held_item_index]
+    if held_item:
+        $ItemDescription.description = "[b]%s[/b]\n%s" % [held_item.data.item_name, held_item.get_description()]
+    else:
+        $ItemDescription.description = ""
 
 func _unhandled_input(event):
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.PlayerMovement):

@@ -7,9 +7,9 @@
 [ext_resource type="FontFile" uid="uid://cwoqt2bg7q6fi" path="res://ui/RobotoMono-Regular.ttf" id="4_lfe7y"]
 [ext_resource type="PackedScene" uid="uid://d4k8uvcvp373t" path="res://ui/Order.tscn" id="5_py5b0"]
 [ext_resource type="StyleBox" uid="uid://becn8jxbdeah2" path="res://ui/stylebox/9_patch_stylebox_green.tres" id="5_xj0kr"]
-[ext_resource type="Script" uid="uid://c5e3hpkep8iml" path="res://ui/containers/transform_container.gd" id="8_7oa8n"]
 [ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="9_7oa8n"]
 [ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="9_oftlk"]
+[ext_resource type="PackedScene" uid="uid://bvvox74aqqptw" path="res://ui/AutohideTooltip.tscn" id="9_w37h7"]
 [ext_resource type="PackedScene" uid="uid://8yqq8xpoyy31" path="res://ui/inventory/InventorySlot.tscn" id="10_4hwu7"]
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="11_w37h7"]
 
@@ -167,7 +167,6 @@ offset_right = 416.0
 grow_vertical = 0
 action = "pause"
 placeholderText = "Pause (or disable these hints)"
-force_hide = null
 is_necessary = false
 
 [node name="Inventory" type="VBoxContainer" parent="."]
@@ -183,37 +182,14 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("1_u453c")
 
-[node name="ItemDescription" type="Container" parent="Inventory"]
-visible = false
+[node name="ItemDescription" parent="Inventory" instance=ExtResource("9_w37h7")]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-size_flags_horizontal = 8
-script = ExtResource("8_7oa8n")
-metadata/_custom_type_script = "uid://c5e3hpkep8iml"
-
-[node name="DescriptionPanel" type="PanelContainer" parent="Inventory/ItemDescription"]
-layout_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="Inventory/ItemDescription/DescriptionPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 10
-
-[node name="ItemDescriptionLabel" type="RichTextLabel" parent="Inventory/ItemDescription/DescriptionPanel/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("3_grx74")
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-shortcut_keys_enabled = false
-horizontal_alignment = 2
+transition_dir = Vector2(0, -10)
 
 [node name="OuterLayout" type="HBoxContainer" parent="Inventory"]
 layout_mode = 2
+size_flags_horizontal = 8
 
 [node name="SwitchSlotHint" parent="Inventory/OuterLayout" instance=ExtResource("9_oftlk")]
 unique_name_in_owner = true
@@ -221,7 +197,6 @@ layout_mode = 2
 size_flags_vertical = 8
 action = "rotate_right"
 placeholderText = "Switch slots"
-force_hide = null
 direction = 3
 is_necessary = false
 

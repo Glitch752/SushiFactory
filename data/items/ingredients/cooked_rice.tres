@@ -9,8 +9,6 @@ region = Rect2(32, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_s346o")
-id = "cooked_rice"
 item_name = "Cooked Rice"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "Cooked rice"
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

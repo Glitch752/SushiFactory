@@ -14,7 +14,7 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
 
 @onready var camera: UiCamera2D = $Camera2D
 @onready var highlight = $InteractionHighlight
-@onready var constructable_list = $%ConstructableList
+@onready var constructable_list = $%ConstructionInterface/%ConstructableView
 
 var targeted_tile: Vector2i = Vector2i.ZERO
 var target_direction: String = "up"
@@ -68,7 +68,7 @@ func update_interaction_info(data: InteractionData):
     if not is_visible_in_tree():
         return
     
-    $%InteractionInfo.data = data
+    $%ConstructionInterface/%InteractionInfo.data = data
 
 func _input(event):
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.ConstructionMenu):
@@ -87,12 +87,12 @@ func _input(event):
             repeat_countdown.erase(dir)
             get_viewport().set_input_as_handled()
     
-    if event.is_action_pressed("rotate_right"):
-        constructable_index = (constructable_index + 1) % DataLoader.constructables.size()
+    if event.is_action_pressed("rotate_left"):
+        constructable_index = (constructable_index - 1 + DataLoader.constructables.size()) % DataLoader.constructables.size()
         constructable_list.selected = constructable_index
         get_viewport().set_input_as_handled()
-    elif event.is_action_pressed("rotate_left"):
-        constructable_index = (constructable_index - 1 + DataLoader.constructables.size()) % DataLoader.constructables.size()
+    elif event.is_action_pressed("rotate_right"):
+        constructable_index = (constructable_index + 1) % DataLoader.constructables.size()
         constructable_list.selected = constructable_index
         get_viewport().set_input_as_handled()
 
@@ -108,38 +108,27 @@ func _process(delta):
     camera.position_smoothing_speed = 5 / Engine.time_scale
 
     var highlighted_tile = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
-    var interaction_data: InteractionData = null
-    var color
+    var highlight_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
+        
+    var context = ConstructableData.SillyConstructionContext.new()
+    context.rotate_targeted_tile = _rotate_targeted_tile
+    context.remove_targeted_tile = _remove_targeted_tile
+    context.highlighted_tile = highlighted_tile
+    context.highlight_zone = highlight_zone
 
-    var placing = false
-    if highlighted_tile != null:
-        var interaction_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
-        var editable = interaction_zone.get_custom_data("editable")
 
-        if editable:
-            var remove_action = InteractionAction.new("Remove", _remove_targeted_tile, 0.2)
-            var rotate_action = InteractionAction.new("Rotate", _rotate_targeted_tile)
-            interaction_data = InteractionData.new("Counter", "A counter. Manual machines\nmay be placed on top of it.", rotate_action, remove_action)
-            color = highlight_existing_color
-        else:
-            interaction_data = InteractionData.new("Tile", "A non-editable tile")
-            color = highlight_invalid_color
-    else:
-        var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
-        if zone_data != null and zone_data.get_custom_data("editable"):
-            # todo: place tiles
-            color = highlight_valid_color
-            placing = true
-        else:
-            color = highlight_invalid_color
+    var interaction: ConstructableData.ConstructableInteraction = DataLoader.constructables[constructable_index].get_interaction(context)
     
-    InteractionSingleton.update_interactable(interaction_data)
+
+    InteractionSingleton.update_interactable(interaction.interaction)
 
     var target_position = building_tilemap.to_global(building_tilemap.map_to_local(targeted_tile))
     camera.global_position = target_position
 
-    highlight.interp_to(target_position, color)
-    $%EditorSymbolSprite.shown = !placing
+    highlight.interp_to(target_position, interaction.color)
+
+    $%EditorSymbolSprite.opacity = interaction.editor_symbol_opacity
+    $%EditorSymbolSprite.facing = target_direction
     
     for dir in repeat_countdown.keys():
         repeat_countdown[dir] -= delta

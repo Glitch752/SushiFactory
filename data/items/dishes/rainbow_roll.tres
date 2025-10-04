@@ -9,8 +9,7 @@ region = Rect2(272, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_f30g4")
-id = "rainbow_roll"
 item_name = "Rainbow Roll"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "A rainbow sushi roll, containing mixed colorful fish and vegetables."
+description = "Contains mixed colorful fish and vegetables."
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

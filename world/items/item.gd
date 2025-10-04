@@ -15,10 +15,12 @@ func apply_data():
 
 func get_description() -> String:
     var description = data.description
+    if not description.is_empty():
+        description += "\n"
     
     var machines = DataLoader.get_machine_descriptions(data.id)
     if machines.size() > 0:
-        description += "\n\n" + "\n".join(machines)
+        description += "\n" + "\n".join(machines)
     
     return description
 

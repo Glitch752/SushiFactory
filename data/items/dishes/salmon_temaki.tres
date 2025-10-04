@@ -9,8 +9,7 @@ region = Rect2(256, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_snr01")
-id = "salmon_temaki"
 item_name = "Salmon Temaki"
 item_sprite = SubResource("AtlasTexture_m0wf6")
-description = "A finished salmon temaki (hand roll)."
+description = "A finished hand roll."
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

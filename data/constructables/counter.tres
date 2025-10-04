@@ -11,6 +11,7 @@ region = Rect2(16, 0, 16, 16)
 script = ExtResource("1_rwagu")
 id = &"counter"
 name = "Counter"
-description = "A counter. Additional objects may be added to this by placing them on top."
+description = "A counter. Additional objects may
+be added by placing them on top."
 texture = SubResource("AtlasTexture_8x6wa")
 metadata/_custom_type_script = "uid://77xhmwgf5tdj"

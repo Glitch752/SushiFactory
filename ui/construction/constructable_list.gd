@@ -1,6 +1,8 @@
-extends HBoxContainer
+extends VBoxContainer
 
 const CONSTRUCTABLE_ITEM = preload("res://ui/construction/ConstructableItem.tscn")
+
+@onready var item_list: HBoxContainer = $%ItemList
 
 @export var selected: int = 0:
     set(val):
@@ -8,11 +10,14 @@ const CONSTRUCTABLE_ITEM = preload("res://ui/construction/ConstructableItem.tscn
         _update_selected()
 
 func _update_selected():
-    for i in get_child_count():
-        get_child(i).selected = i == selected
+    for i in item_list.get_child_count():
+        item_list.get_child(i).selected = i == selected
+    
+    var selectedConstructable = DataLoader.constructables[selected]
+    $%ConstructableDescription.description = "[b]%s[/b]\n%s" % [selectedConstructable.name, selectedConstructable.description]
 
 func _ready():
-    for child in get_children(): # Editor placeholders
+    for child in item_list.get_children(): # Editor placeholders
         child.queue_free()
     
     for i in DataLoader.constructables.size():
@@ -22,4 +27,4 @@ func _ready():
         node.texture = constructable.texture
         node.selected = i == selected
         
-        add_child(node)
+        item_list.add_child(node)
