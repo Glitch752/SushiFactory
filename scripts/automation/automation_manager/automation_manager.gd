@@ -297,11 +297,9 @@ func update_belts() -> void:
                     # consumer refused -> cannot move
                     # pass
             else:
-                # There isn't a consumer here, so this is an output/drop
-                # Allow exactly one item to fall out
-                if not _reserved.has(v):
-                    _reserved[v] = true
-                    _will_move[u] = v
+                # There isn't a consumer here, so this is the end of a belt.
+                # We could drop items, but that feels pretty bad, so we just refuse the move
+                pass
 
     # 6. Apply acyclic moves simultaneously
     # We mutate occ and item_tile_positions accordingly and set target_pos on items for interpolation
