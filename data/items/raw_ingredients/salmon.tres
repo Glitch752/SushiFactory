@@ -9,7 +9,7 @@ region = Rect2(63.1, 0, 17.1, 16)
 
 [resource]
 script = ExtResource("2_lq7wa")
-id = &"raw_salmon"
+id = &"salmon"
 item_name = "Raw Salmon"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"
