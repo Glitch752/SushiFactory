@@ -3,13 +3,26 @@ extends ConstructableData
 @export var meaning: StringName = &""
 
 func can_build(context: SillyConstructionContext) -> bool:
-    return context.highlight_zone.get_custom_data("machines_buildable") and context.highlight_object == null
+    var counter_check = context.get_object_relative.call(Vector2i.UP)
+    return (
+        context.highlight_zone.get_custom_data("machines_buildable") and
+        context.highlight_object == null and
+        not (counter_check and counter_check.get_custom_data("meaning") == &"counter")
+    )
+func can_overwrite(context: SillyConstructionContext) -> bool:
+    return context.highlight_object and context.highlight_object.get_custom_data("meaning") == meaning
 
 func get_interaction(context: SillyConstructionContext) -> Variant:
     var interaction = ConstructableInteraction.new()
     interaction.editor_symbol_meaning = meaning
 
-    if can_build(context):
+    if can_overwrite(context):
+        interaction.color = context.colors.highlight_existing
+
+        var place_action = InteractionAction.new("Overwrite", context.place_symbol_at_target, 0.2)
+        var rotate_action = InteractionAction.new("Rotate", context.rotate_highlight)
+        interaction.interaction = InteractionData.new("Place %s" % name, "", rotate_action, place_action)
+    elif can_build(context):
         interaction.color = context.colors.highlight_valid
         
         var place_action = InteractionAction.new("Place", context.place_symbol_at_target, 0.2)

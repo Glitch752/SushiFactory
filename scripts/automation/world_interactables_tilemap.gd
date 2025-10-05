@@ -7,6 +7,8 @@ class_name WorldInteractableTilemap
 @export var automation_zones_tilemap: AutomationZonesTilemap
 @export var automation_objects_tilemap: AutomationObjectsTilemap
 
+@export var automation_manager: AutomationManager
+
 @onready var interactables: Node2D = $WorldInteractables
 
 @export_group("Tools", "tool_")
@@ -121,6 +123,9 @@ func update_around(cell: Vector2i):
         var cell_data = automation_objects_tilemap.get_cell_tile_data(n)
         if cell_data != null:
             _update_cell(n, cell_data)
+    
+    # Update the automation manager
+    automation_manager.rescan_belts()
 
 const CounterAutotile = preload("res://scripts/automation/counter_autotile.gd")
 const BeltAutotile = preload("res://scripts/automation/belt_autotile.gd")

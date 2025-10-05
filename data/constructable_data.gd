@@ -31,6 +31,9 @@ class SillyConstructionContext:
     var rotate_highlight: Callable
     var place_symbol_at_target: Callable
 
+    ## func(relative_pos: Vector2i) -> TileData
+    var get_object_relative: Callable
+
     var highlight_object: TileData
     var highlight_zone: TileData
 

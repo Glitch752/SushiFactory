@@ -69,9 +69,6 @@ class AsepriteData(TypedDict):
     frames: list[AsepriteFrame]
     meta: AsepriteMeta
 
-# The tag of the "normal" frames (which have animations added to them, with one per output row)
-NORMAL_FRAMES_TAG = "Belts"
-
 @dataclass
 class ProcessedFrameTags:
     start: int
@@ -83,7 +80,7 @@ def get_animation_frame_count(frame_tags: list[AsepriteFrameTags]) -> int:
     "Get the number of frames in each animation frame set. All sets must be the same length."
     first_tag: AsepriteFrameTags | None = None
     for tag in frame_tags:
-        if tag["name"] == NORMAL_FRAMES_TAG or not tag["name"].startswith("Belt"):
+        if not tag["name"].startswith("_Belt"):
             continue
         
         if first_tag is None:
@@ -103,7 +100,7 @@ def get_animation_frames(frames: list[AsepriteFrame], img: Image.Image, frame_ta
     animation_frame_set: dict[str, ProcessedFrameTags] = {}
     
     for tag in frame_tags:
-        if tag["name"] == NORMAL_FRAMES_TAG or not tag["name"].startswith("Belt"):
+        if not tag["name"].startswith("_Belt"):
             continue
         
         color = tag["color"]
@@ -127,39 +124,39 @@ def get_animation_frames(frames: list[AsepriteFrame], img: Image.Image, frame_ta
     return animation_frame_set
 
 
-def get_normal_frame_count(frame_tags: list[AsepriteFrameTags]) -> int:
-    "Get the number of normal frames under the tag NORMAL_FRAMES_TAG"
-    normal_tag: AsepriteFrameTags | None = None
-    for tag in frame_tags:
-        if tag["name"] == NORMAL_FRAMES_TAG:
-            normal_tag = tag
-            break
-    
-    if normal_tag is None:
-        raise ValueError(f"No tag named {NORMAL_FRAMES_TAG} found")
-    
-    return normal_tag["to"] - normal_tag["from"] + 1
+def get_normal_tags(frame_tags: list[AsepriteFrameTags]) -> list[AsepriteFrameTags]:
+    "Get all tags that don't start with _Belt"
+    return [tag for tag in frame_tags if not tag["name"].startswith("_Belt")]
 
+def get_normal_frame_count(frame_tags: list[AsepriteFrameTags]) -> int:
+    "Get the number of normal frames under non-background tags."
+    
+    normal_tags = get_normal_tags(frame_tags)
+    if len(normal_tags) == 0:
+        raise ValueError("No normal tags found")
+    
+    count = 0
+    for tag in normal_tags:
+        count += tag["to"] - tag["from"] + 1
+    return count
+    
 def get_normal_frames(frames: list[AsepriteFrame], img: Image.Image, frame_tags: list[AsepriteFrameTags]) -> list[Image.Image]:
     "Get all the normal frames under the tag NORMAL_FRAMES_TAG"
     
     normal_frames: list[Image.Image] = []
-    normal_tag: AsepriteFrameTags | None = None
-    for tag in frame_tags:
-        if tag["name"] == NORMAL_FRAMES_TAG:
-            normal_tag = tag
-            break
     
-    if normal_tag is None:
-        raise ValueError(f"No tag named {NORMAL_FRAMES_TAG} found")
+    normal_tags = get_normal_tags(frame_tags)
+    if len(normal_tags) == 0:
+        raise ValueError(f"No normal tags found")
 
-    for i in range(normal_tag["from"], normal_tag["to"] + 1):
-        normal_frames.append(img.crop((
-            frames[i]["frame"]["x"],
-            frames[i]["frame"]["y"],
-            frames[i]["frame"]["x"] + frames[i]["frame"]["w"],
-            frames[i]["frame"]["y"] + frames[i]["frame"]["h"],
-        )))
+    for tag in normal_tags:
+        for i in range(tag["from"], tag["to"] + 1):
+            normal_frames.append(img.crop((
+                frames[i]["frame"]["x"],
+                frames[i]["frame"]["y"],
+                frames[i]["frame"]["x"] + frames[i]["frame"]["w"],
+                frames[i]["frame"]["y"] + frames[i]["frame"]["h"],
+            )))
     
     return normal_frames
 
@@ -231,7 +228,6 @@ def postprocess_conveyor_sprite(input_image_path: str, input_json_path: str, out
         combination_x = animation_frames_count * frame_width * i
         
         layer_combination_img = preprocess_combine_layers(img, layers, data["frames"], combination)
-        layer_combination_img.save(f"preprocess{i}.png")
         
         animation_frame_set = get_animation_frames(filtered_frames, layer_combination_img, data["meta"]["frameTags"])
         print(f"Extracted {len(animation_frame_set)} animation frame types")

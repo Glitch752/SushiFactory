@@ -53,6 +53,10 @@ func _physics_process(delta):
             waiting_secondary_action = null
 
 func update_interactable(data: InteractionData):
+    if data == null:
+        clear_interactable()
+        return
+
     if waiting_primary_action != null:
         data.primary_action = waiting_primary_action
     if waiting_secondary_action != null:
@@ -62,5 +66,7 @@ func update_interactable(data: InteractionData):
     interaction_data_changed.emit(data)
 
 func clear_interactable():
+    waiting_primary_action = null
+    waiting_secondary_action = null
     current_interaction_data = null
     interaction_data_changed.emit(null)

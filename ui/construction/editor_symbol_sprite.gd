@@ -4,11 +4,17 @@ extends Node2D
 
 @export var facing: String:
     set(val):
+        if facing == val:
+            return
+        
         facing = val
         _update_sprite()
 
 @export var meaning: StringName:
     set(val):
+        if meaning == val:
+            return
+        
         meaning = val
         _update_sprite()
 
@@ -116,7 +122,7 @@ func _ready():
 func _update_sprite():
     if sprite == null:
         return
-    
+
     if meaning == &"":
         return
     
@@ -132,6 +138,9 @@ func _update_sprite():
     
     sprite.texture = dir_data.texture
 
+    if modulate.a == 0:
+        sprite.modulate = Color.TRANSPARENT
+    
     var t = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
     t.set_ignore_time_scale(true)
-    t.tween_property(sprite, "modulate", dir_data.color, 0.1)
+    t.tween_property(sprite, "modulate", dir_data.color, 0.05)

@@ -25,6 +25,12 @@ func get_item(id: StringName) -> ItemData:
 func get_machine(id: StringName) -> MachineData:
     return machines.get(id, null)
 
+func get_constructable_with_meaning(meaning: StringName):
+    for constructable in constructables:
+        if "meaning" in constructable and constructable.meaning == meaning:
+            return constructable
+    return null
+
 
 ##################### Recipes
 

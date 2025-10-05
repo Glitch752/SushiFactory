@@ -11,8 +11,8 @@ const UP_BELT_COMBINATIONS: Dictionary[int, Vector2i] = {
     0b010: Vector2i(0, 13), # Right-up corner
     0b011: Vector2i(0, 21), # T-junction (left and right into up)
     0b100: Vector2i(0, 4 ), # Straight up
-    0b101: Vector2i(0, 22), # Left and back into up
-    0b110: Vector2i(0, 25), # Right and back into up
+    0b101: Vector2i(0, 25), # Left and back into up
+    0b110: Vector2i(0, 22), # Right and back into up
     0b111: Vector2i(0, 28), # 4-way (left, right, and down into up)
 }
 const DOWN_BELT_COMBINATIONS: Dictionary[int, Vector2i] = {

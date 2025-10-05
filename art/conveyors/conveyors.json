@@ -1,6 +1,6 @@
 { "frames": [
    {
-    "filename": "BeltRight-conveyor-0|Directions(?)",
+    "filename": "_BeltRight-conveyor-0|Directions(?)",
     "frame": { "x": 0, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -9,7 +9,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-1|Directions(?)",
+    "filename": "_BeltRight-conveyor-1|Directions(?)",
     "frame": { "x": 16, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -18,7 +18,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-2|Directions(?)",
+    "filename": "_BeltRight-conveyor-2|Directions(?)",
     "frame": { "x": 32, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -27,7 +27,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-3|Directions(?)",
+    "filename": "_BeltRight-conveyor-3|Directions(?)",
     "frame": { "x": 48, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -36,7 +36,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-4|Directions(?)",
+    "filename": "_BeltRight-conveyor-4|Directions(?)",
     "frame": { "x": 64, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -45,7 +45,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-5|Directions(?)",
+    "filename": "_BeltRight-conveyor-5|Directions(?)",
     "frame": { "x": 80, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -54,7 +54,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-6|Directions(?)",
+    "filename": "_BeltRight-conveyor-6|Directions(?)",
     "frame": { "x": 96, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -63,7 +63,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-7|Directions(?)",
+    "filename": "_BeltRight-conveyor-7|Directions(?)",
     "frame": { "x": 112, "y": 0, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -72,7 +72,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-8|Directions(?)",
+    "filename": "_BeltLeft-conveyor-8|Directions(?)",
     "frame": { "x": 0, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -81,7 +81,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-9|Directions(?)",
+    "filename": "_BeltLeft-conveyor-9|Directions(?)",
     "frame": { "x": 16, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -90,7 +90,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-10|Directions(?)",
+    "filename": "_BeltLeft-conveyor-10|Directions(?)",
     "frame": { "x": 32, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -99,7 +99,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-11|Directions(?)",
+    "filename": "_BeltLeft-conveyor-11|Directions(?)",
     "frame": { "x": 48, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -108,7 +108,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-12|Directions(?)",
+    "filename": "_BeltLeft-conveyor-12|Directions(?)",
     "frame": { "x": 64, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -117,7 +117,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-13|Directions(?)",
+    "filename": "_BeltLeft-conveyor-13|Directions(?)",
     "frame": { "x": 80, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -126,7 +126,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-14|Directions(?)",
+    "filename": "_BeltLeft-conveyor-14|Directions(?)",
     "frame": { "x": 96, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -135,7 +135,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-15|Directions(?)",
+    "filename": "_BeltLeft-conveyor-15|Directions(?)",
     "frame": { "x": 112, "y": 16, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -144,7 +144,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-16|Directions(?)",
+    "filename": "_BeltUp-conveyor-16|Directions(?)",
     "frame": { "x": 0, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -153,7 +153,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-17|Directions(?)",
+    "filename": "_BeltUp-conveyor-17|Directions(?)",
     "frame": { "x": 16, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -162,7 +162,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-18|Directions(?)",
+    "filename": "_BeltUp-conveyor-18|Directions(?)",
     "frame": { "x": 32, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -171,7 +171,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-19|Directions(?)",
+    "filename": "_BeltUp-conveyor-19|Directions(?)",
     "frame": { "x": 48, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -180,7 +180,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-20|Directions(?)",
+    "filename": "_BeltUp-conveyor-20|Directions(?)",
     "frame": { "x": 64, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -189,7 +189,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-21|Directions(?)",
+    "filename": "_BeltUp-conveyor-21|Directions(?)",
     "frame": { "x": 80, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -198,7 +198,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-22|Directions(?)",
+    "filename": "_BeltUp-conveyor-22|Directions(?)",
     "frame": { "x": 96, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -207,7 +207,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-23|Directions(?)",
+    "filename": "_BeltUp-conveyor-23|Directions(?)",
     "frame": { "x": 112, "y": 32, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -216,7 +216,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-24|Directions(?)",
+    "filename": "_BeltDown-conveyor-24|Directions(?)",
     "frame": { "x": 0, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -225,7 +225,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-25|Directions(?)",
+    "filename": "_BeltDown-conveyor-25|Directions(?)",
     "frame": { "x": 16, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -234,7 +234,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-26|Directions(?)",
+    "filename": "_BeltDown-conveyor-26|Directions(?)",
     "frame": { "x": 32, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -243,7 +243,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-27|Directions(?)",
+    "filename": "_BeltDown-conveyor-27|Directions(?)",
     "frame": { "x": 48, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -252,7 +252,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-28|Directions(?)",
+    "filename": "_BeltDown-conveyor-28|Directions(?)",
     "frame": { "x": 64, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -261,7 +261,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-29|Directions(?)",
+    "filename": "_BeltDown-conveyor-29|Directions(?)",
     "frame": { "x": 80, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -270,7 +270,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-30|Directions(?)",
+    "filename": "_BeltDown-conveyor-30|Directions(?)",
     "frame": { "x": 96, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -279,7 +279,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-31|Directions(?)",
+    "filename": "_BeltDown-conveyor-31|Directions(?)",
     "frame": { "x": 112, "y": 48, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -297,7 +297,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-33|Directions(?)",
+    "filename": "Straight-conveyor-33|Directions(?)",
     "frame": { "x": 16, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -306,7 +306,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-34|Directions(?)",
+    "filename": "Straight-conveyor-34|Directions(?)",
     "frame": { "x": 32, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -315,7 +315,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-35|Directions(?)",
+    "filename": "Straight-conveyor-35|Directions(?)",
     "frame": { "x": 48, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -324,7 +324,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-36|Directions(?)",
+    "filename": "Straight-conveyor-36|Directions(?)",
     "frame": { "x": 64, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -333,7 +333,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-37|Directions(?)",
+    "filename": "Straight-conveyor-37|Directions(?)",
     "frame": { "x": 80, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -342,7 +342,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-38|Directions(?)",
+    "filename": "Straight-conveyor-38|Directions(?)",
     "frame": { "x": 96, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -351,7 +351,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-39|Directions(?)",
+    "filename": "Straight-conveyor-39|Directions(?)",
     "frame": { "x": 112, "y": 64, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -360,7 +360,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-40|Directions(?)",
+    "filename": "Straight-conveyor-40|Directions(?)",
     "frame": { "x": 0, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -369,7 +369,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-41|Directions(?)",
+    "filename": "Corner-conveyor-41|Directions(?)",
     "frame": { "x": 16, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -378,7 +378,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-42|Directions(?)",
+    "filename": "Corner-conveyor-42|Directions(?)",
     "frame": { "x": 32, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -387,7 +387,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-43|Directions(?)",
+    "filename": "Corner-conveyor-43|Directions(?)",
     "frame": { "x": 48, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -396,7 +396,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-44|Directions(?)",
+    "filename": "Corner-conveyor-44|Directions(?)",
     "frame": { "x": 64, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -405,7 +405,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-45|Directions(?)",
+    "filename": "Corner-conveyor-45|Directions(?)",
     "frame": { "x": 80, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -414,7 +414,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-46|Directions(?)",
+    "filename": "Corner-conveyor-46|Directions(?)",
     "frame": { "x": 96, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -423,7 +423,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-47|Directions(?)",
+    "filename": "Corner-conveyor-47|Directions(?)",
     "frame": { "x": 112, "y": 80, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -432,7 +432,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-48|Directions(?)",
+    "filename": "Corner-conveyor-48|Directions(?)",
     "frame": { "x": 0, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -441,7 +441,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-49|Directions(?)",
+    "filename": "T-conveyor-49|Directions(?)",
     "frame": { "x": 16, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -450,7 +450,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-50|Directions(?)",
+    "filename": "T-conveyor-50|Directions(?)",
     "frame": { "x": 32, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -459,7 +459,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-51|Directions(?)",
+    "filename": "T-conveyor-51|Directions(?)",
     "frame": { "x": 48, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -468,7 +468,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-52|Directions(?)",
+    "filename": "T-conveyor-52|Directions(?)",
     "frame": { "x": 64, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -477,7 +477,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-53|Directions(?)",
+    "filename": "T-conveyor-53|Directions(?)",
     "frame": { "x": 80, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -486,7 +486,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-54|Directions(?)",
+    "filename": "T-conveyor-54|Directions(?)",
     "frame": { "x": 96, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -495,7 +495,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-55|Directions(?)",
+    "filename": "T-conveyor-55|Directions(?)",
     "frame": { "x": 112, "y": 96, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -504,7 +504,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-56|Directions(?)",
+    "filename": "T-conveyor-56|Directions(?)",
     "frame": { "x": 0, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -513,7 +513,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-57|Directions(?)",
+    "filename": "T-conveyor-57|Directions(?)",
     "frame": { "x": 16, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -522,7 +522,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-58|Directions(?)",
+    "filename": "T-conveyor-58|Directions(?)",
     "frame": { "x": 32, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -531,7 +531,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-59|Directions(?)",
+    "filename": "T-conveyor-59|Directions(?)",
     "frame": { "x": 48, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -540,7 +540,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-60|Directions(?)",
+    "filename": "T-conveyor-60|Directions(?)",
     "frame": { "x": 64, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -549,7 +549,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-61|Directions(?)",
+    "filename": "Cross-conveyor-61|Directions(?)",
     "frame": { "x": 80, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -558,7 +558,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-62|Directions(?)",
+    "filename": "Cross-conveyor-62|Directions(?)",
     "frame": { "x": 96, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -567,7 +567,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-63|Directions(?)",
+    "filename": "Cross-conveyor-63|Directions(?)",
     "frame": { "x": 112, "y": 112, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -576,7 +576,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-64|Directions(?)",
+    "filename": "Cross-conveyor-64|Directions(?)",
     "frame": { "x": 0, "y": 128, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -585,7 +585,43 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-0|Belts",
+    "filename": "Underground-conveyor-65|Directions(?)",
+    "frame": { "x": 16, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-66|Directions(?)",
+    "frame": { "x": 32, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-67|Directions(?)",
+    "frame": { "x": 48, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-68|Directions(?)",
+    "frame": { "x": 64, "y": 128, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "_BeltRight-conveyor-0|Belts",
     "frame": { "x": 0, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -594,7 +630,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-1|Belts",
+    "filename": "_BeltRight-conveyor-1|Belts",
     "frame": { "x": 16, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -603,7 +639,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-2|Belts",
+    "filename": "_BeltRight-conveyor-2|Belts",
     "frame": { "x": 32, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -612,7 +648,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-3|Belts",
+    "filename": "_BeltRight-conveyor-3|Belts",
     "frame": { "x": 48, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -621,7 +657,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-4|Belts",
+    "filename": "_BeltRight-conveyor-4|Belts",
     "frame": { "x": 64, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -630,7 +666,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-5|Belts",
+    "filename": "_BeltRight-conveyor-5|Belts",
     "frame": { "x": 80, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -639,7 +675,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-6|Belts",
+    "filename": "_BeltRight-conveyor-6|Belts",
     "frame": { "x": 96, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -648,7 +684,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-7|Belts",
+    "filename": "_BeltRight-conveyor-7|Belts",
     "frame": { "x": 112, "y": 144, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -657,7 +693,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-8|Belts",
+    "filename": "_BeltLeft-conveyor-8|Belts",
     "frame": { "x": 0, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -666,7 +702,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-9|Belts",
+    "filename": "_BeltLeft-conveyor-9|Belts",
     "frame": { "x": 16, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -675,7 +711,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-10|Belts",
+    "filename": "_BeltLeft-conveyor-10|Belts",
     "frame": { "x": 32, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -684,7 +720,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-11|Belts",
+    "filename": "_BeltLeft-conveyor-11|Belts",
     "frame": { "x": 48, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -693,7 +729,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-12|Belts",
+    "filename": "_BeltLeft-conveyor-12|Belts",
     "frame": { "x": 64, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -702,7 +738,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-13|Belts",
+    "filename": "_BeltLeft-conveyor-13|Belts",
     "frame": { "x": 80, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -711,7 +747,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-14|Belts",
+    "filename": "_BeltLeft-conveyor-14|Belts",
     "frame": { "x": 96, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -720,7 +756,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-15|Belts",
+    "filename": "_BeltLeft-conveyor-15|Belts",
     "frame": { "x": 112, "y": 160, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -729,7 +765,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-16|Belts",
+    "filename": "_BeltUp-conveyor-16|Belts",
     "frame": { "x": 0, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -738,7 +774,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-17|Belts",
+    "filename": "_BeltUp-conveyor-17|Belts",
     "frame": { "x": 16, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -747,7 +783,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-18|Belts",
+    "filename": "_BeltUp-conveyor-18|Belts",
     "frame": { "x": 32, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -756,7 +792,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-19|Belts",
+    "filename": "_BeltUp-conveyor-19|Belts",
     "frame": { "x": 48, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -765,7 +801,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-20|Belts",
+    "filename": "_BeltUp-conveyor-20|Belts",
     "frame": { "x": 64, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -774,7 +810,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-21|Belts",
+    "filename": "_BeltUp-conveyor-21|Belts",
     "frame": { "x": 80, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -783,7 +819,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-22|Belts",
+    "filename": "_BeltUp-conveyor-22|Belts",
     "frame": { "x": 96, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -792,7 +828,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-23|Belts",
+    "filename": "_BeltUp-conveyor-23|Belts",
     "frame": { "x": 112, "y": 176, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -801,7 +837,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-24|Belts",
+    "filename": "_BeltDown-conveyor-24|Belts",
     "frame": { "x": 0, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -810,7 +846,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-25|Belts",
+    "filename": "_BeltDown-conveyor-25|Belts",
     "frame": { "x": 16, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -819,7 +855,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-26|Belts",
+    "filename": "_BeltDown-conveyor-26|Belts",
     "frame": { "x": 32, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -828,7 +864,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-27|Belts",
+    "filename": "_BeltDown-conveyor-27|Belts",
     "frame": { "x": 48, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -837,7 +873,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-28|Belts",
+    "filename": "_BeltDown-conveyor-28|Belts",
     "frame": { "x": 64, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -846,7 +882,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-29|Belts",
+    "filename": "_BeltDown-conveyor-29|Belts",
     "frame": { "x": 80, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -855,7 +891,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-30|Belts",
+    "filename": "_BeltDown-conveyor-30|Belts",
     "frame": { "x": 96, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -864,7 +900,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-31|Belts",
+    "filename": "_BeltDown-conveyor-31|Belts",
     "frame": { "x": 112, "y": 192, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -882,7 +918,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-33|Belts",
+    "filename": "Straight-conveyor-33|Belts",
     "frame": { "x": 16, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -891,7 +927,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-34|Belts",
+    "filename": "Straight-conveyor-34|Belts",
     "frame": { "x": 32, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -900,7 +936,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-35|Belts",
+    "filename": "Straight-conveyor-35|Belts",
     "frame": { "x": 48, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -909,7 +945,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-36|Belts",
+    "filename": "Straight-conveyor-36|Belts",
     "frame": { "x": 64, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -918,7 +954,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-37|Belts",
+    "filename": "Straight-conveyor-37|Belts",
     "frame": { "x": 80, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -927,7 +963,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-38|Belts",
+    "filename": "Straight-conveyor-38|Belts",
     "frame": { "x": 96, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -936,7 +972,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-39|Belts",
+    "filename": "Straight-conveyor-39|Belts",
     "frame": { "x": 112, "y": 208, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -945,7 +981,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-40|Belts",
+    "filename": "Straight-conveyor-40|Belts",
     "frame": { "x": 0, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -954,7 +990,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-41|Belts",
+    "filename": "Corner-conveyor-41|Belts",
     "frame": { "x": 16, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -963,7 +999,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-42|Belts",
+    "filename": "Corner-conveyor-42|Belts",
     "frame": { "x": 32, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -972,7 +1008,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-43|Belts",
+    "filename": "Corner-conveyor-43|Belts",
     "frame": { "x": 48, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -981,7 +1017,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-44|Belts",
+    "filename": "Corner-conveyor-44|Belts",
     "frame": { "x": 64, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -990,7 +1026,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-45|Belts",
+    "filename": "Corner-conveyor-45|Belts",
     "frame": { "x": 80, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -999,7 +1035,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-46|Belts",
+    "filename": "Corner-conveyor-46|Belts",
     "frame": { "x": 96, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1008,7 +1044,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-47|Belts",
+    "filename": "Corner-conveyor-47|Belts",
     "frame": { "x": 112, "y": 224, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1017,7 +1053,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-48|Belts",
+    "filename": "Corner-conveyor-48|Belts",
     "frame": { "x": 0, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1026,7 +1062,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-49|Belts",
+    "filename": "T-conveyor-49|Belts",
     "frame": { "x": 16, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1035,7 +1071,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-50|Belts",
+    "filename": "T-conveyor-50|Belts",
     "frame": { "x": 32, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1044,7 +1080,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-51|Belts",
+    "filename": "T-conveyor-51|Belts",
     "frame": { "x": 48, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1053,7 +1089,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-52|Belts",
+    "filename": "T-conveyor-52|Belts",
     "frame": { "x": 64, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1062,7 +1098,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-53|Belts",
+    "filename": "T-conveyor-53|Belts",
     "frame": { "x": 80, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1071,7 +1107,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-54|Belts",
+    "filename": "T-conveyor-54|Belts",
     "frame": { "x": 96, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1080,7 +1116,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-55|Belts",
+    "filename": "T-conveyor-55|Belts",
     "frame": { "x": 112, "y": 240, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1089,7 +1125,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-56|Belts",
+    "filename": "T-conveyor-56|Belts",
     "frame": { "x": 0, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1098,7 +1134,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-57|Belts",
+    "filename": "T-conveyor-57|Belts",
     "frame": { "x": 16, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1107,7 +1143,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-58|Belts",
+    "filename": "T-conveyor-58|Belts",
     "frame": { "x": 32, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1116,7 +1152,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-59|Belts",
+    "filename": "T-conveyor-59|Belts",
     "frame": { "x": 48, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1125,7 +1161,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-60|Belts",
+    "filename": "T-conveyor-60|Belts",
     "frame": { "x": 64, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1134,7 +1170,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-61|Belts",
+    "filename": "Cross-conveyor-61|Belts",
     "frame": { "x": 80, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1143,7 +1179,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-62|Belts",
+    "filename": "Cross-conveyor-62|Belts",
     "frame": { "x": 96, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1152,7 +1188,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-63|Belts",
+    "filename": "Cross-conveyor-63|Belts",
     "frame": { "x": 112, "y": 256, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1161,7 +1197,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-64|Belts",
+    "filename": "Cross-conveyor-64|Belts",
     "frame": { "x": 0, "y": 272, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1170,7 +1206,43 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-0|BeltEndOverlay",
+    "filename": "Underground-conveyor-65|Belts",
+    "frame": { "x": 16, "y": 272, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-66|Belts",
+    "frame": { "x": 32, "y": 272, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-67|Belts",
+    "frame": { "x": 48, "y": 272, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-68|Belts",
+    "frame": { "x": 64, "y": 272, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "_BeltRight-conveyor-0|BeltEndOverlay",
     "frame": { "x": 0, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1179,7 +1251,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-1|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-1|BeltEndOverlay",
     "frame": { "x": 16, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1188,7 +1260,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-2|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-2|BeltEndOverlay",
     "frame": { "x": 32, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1197,7 +1269,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-3|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-3|BeltEndOverlay",
     "frame": { "x": 48, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1206,7 +1278,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-4|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-4|BeltEndOverlay",
     "frame": { "x": 64, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1215,7 +1287,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-5|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-5|BeltEndOverlay",
     "frame": { "x": 80, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1224,7 +1296,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-6|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-6|BeltEndOverlay",
     "frame": { "x": 96, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1233,7 +1305,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltRight-conveyor-7|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-7|BeltEndOverlay",
     "frame": { "x": 112, "y": 288, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1242,7 +1314,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-8|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-8|BeltEndOverlay",
     "frame": { "x": 0, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1251,7 +1323,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-9|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-9|BeltEndOverlay",
     "frame": { "x": 16, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1260,7 +1332,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-10|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-10|BeltEndOverlay",
     "frame": { "x": 32, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1269,7 +1341,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-11|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-11|BeltEndOverlay",
     "frame": { "x": 48, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1278,7 +1350,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-12|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-12|BeltEndOverlay",
     "frame": { "x": 64, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1287,7 +1359,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-13|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-13|BeltEndOverlay",
     "frame": { "x": 80, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1296,7 +1368,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-14|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-14|BeltEndOverlay",
     "frame": { "x": 96, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1305,7 +1377,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltLeft-conveyor-15|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-15|BeltEndOverlay",
     "frame": { "x": 112, "y": 304, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1314,7 +1386,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-16|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-16|BeltEndOverlay",
     "frame": { "x": 0, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1323,7 +1395,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-17|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-17|BeltEndOverlay",
     "frame": { "x": 16, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1332,7 +1404,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-18|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-18|BeltEndOverlay",
     "frame": { "x": 32, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1341,7 +1413,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-19|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-19|BeltEndOverlay",
     "frame": { "x": 48, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1350,7 +1422,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-20|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-20|BeltEndOverlay",
     "frame": { "x": 64, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1359,7 +1431,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-21|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-21|BeltEndOverlay",
     "frame": { "x": 80, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1368,7 +1440,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-22|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-22|BeltEndOverlay",
     "frame": { "x": 96, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1377,7 +1449,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltUp-conveyor-23|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-23|BeltEndOverlay",
     "frame": { "x": 112, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1386,7 +1458,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-24|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-24|BeltEndOverlay",
     "frame": { "x": 0, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1395,7 +1467,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-25|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-25|BeltEndOverlay",
     "frame": { "x": 16, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1404,7 +1476,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-26|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-26|BeltEndOverlay",
     "frame": { "x": 32, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1413,7 +1485,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-27|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-27|BeltEndOverlay",
     "frame": { "x": 48, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1422,7 +1494,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-28|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-28|BeltEndOverlay",
     "frame": { "x": 64, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1431,7 +1503,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-29|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-29|BeltEndOverlay",
     "frame": { "x": 80, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1440,7 +1512,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-30|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-30|BeltEndOverlay",
     "frame": { "x": 96, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1449,7 +1521,7 @@
     "duration": 100
    },
    {
-    "filename": "BeltDown-conveyor-31|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-31|BeltEndOverlay",
     "frame": { "x": 112, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1467,7 +1539,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-33|BeltEndOverlay",
+    "filename": "Straight-conveyor-33|BeltEndOverlay",
     "frame": { "x": 16, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1476,7 +1548,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-34|BeltEndOverlay",
+    "filename": "Straight-conveyor-34|BeltEndOverlay",
     "frame": { "x": 32, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1485,7 +1557,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-35|BeltEndOverlay",
+    "filename": "Straight-conveyor-35|BeltEndOverlay",
     "frame": { "x": 48, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1494,7 +1566,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-36|BeltEndOverlay",
+    "filename": "Straight-conveyor-36|BeltEndOverlay",
     "frame": { "x": 64, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1503,7 +1575,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-37|BeltEndOverlay",
+    "filename": "Straight-conveyor-37|BeltEndOverlay",
     "frame": { "x": 80, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1512,7 +1584,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-38|BeltEndOverlay",
+    "filename": "Straight-conveyor-38|BeltEndOverlay",
     "frame": { "x": 96, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1521,7 +1593,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-39|BeltEndOverlay",
+    "filename": "Straight-conveyor-39|BeltEndOverlay",
     "frame": { "x": 112, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1530,7 +1602,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-40|BeltEndOverlay",
+    "filename": "Straight-conveyor-40|BeltEndOverlay",
     "frame": { "x": 0, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1539,7 +1611,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-41|BeltEndOverlay",
+    "filename": "Corner-conveyor-41|BeltEndOverlay",
     "frame": { "x": 16, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1548,7 +1620,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-42|BeltEndOverlay",
+    "filename": "Corner-conveyor-42|BeltEndOverlay",
     "frame": { "x": 32, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1557,7 +1629,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-43|BeltEndOverlay",
+    "filename": "Corner-conveyor-43|BeltEndOverlay",
     "frame": { "x": 48, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1566,7 +1638,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-44|BeltEndOverlay",
+    "filename": "Corner-conveyor-44|BeltEndOverlay",
     "frame": { "x": 64, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1575,7 +1647,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-45|BeltEndOverlay",
+    "filename": "Corner-conveyor-45|BeltEndOverlay",
     "frame": { "x": 80, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1584,7 +1656,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-46|BeltEndOverlay",
+    "filename": "Corner-conveyor-46|BeltEndOverlay",
     "frame": { "x": 96, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1593,7 +1665,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-47|BeltEndOverlay",
+    "filename": "Corner-conveyor-47|BeltEndOverlay",
     "frame": { "x": 112, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1602,7 +1674,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-48|BeltEndOverlay",
+    "filename": "Corner-conveyor-48|BeltEndOverlay",
     "frame": { "x": 0, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1611,7 +1683,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-49|BeltEndOverlay",
+    "filename": "T-conveyor-49|BeltEndOverlay",
     "frame": { "x": 16, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1620,7 +1692,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-50|BeltEndOverlay",
+    "filename": "T-conveyor-50|BeltEndOverlay",
     "frame": { "x": 32, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1629,7 +1701,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-51|BeltEndOverlay",
+    "filename": "T-conveyor-51|BeltEndOverlay",
     "frame": { "x": 48, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1638,7 +1710,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-52|BeltEndOverlay",
+    "filename": "T-conveyor-52|BeltEndOverlay",
     "frame": { "x": 64, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1647,7 +1719,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-53|BeltEndOverlay",
+    "filename": "T-conveyor-53|BeltEndOverlay",
     "frame": { "x": 80, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1656,7 +1728,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-54|BeltEndOverlay",
+    "filename": "T-conveyor-54|BeltEndOverlay",
     "frame": { "x": 96, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1665,7 +1737,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-55|BeltEndOverlay",
+    "filename": "T-conveyor-55|BeltEndOverlay",
     "frame": { "x": 112, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1674,7 +1746,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-56|BeltEndOverlay",
+    "filename": "T-conveyor-56|BeltEndOverlay",
     "frame": { "x": 0, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1683,7 +1755,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-57|BeltEndOverlay",
+    "filename": "T-conveyor-57|BeltEndOverlay",
     "frame": { "x": 16, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1692,7 +1764,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-58|BeltEndOverlay",
+    "filename": "T-conveyor-58|BeltEndOverlay",
     "frame": { "x": 32, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1701,7 +1773,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-59|BeltEndOverlay",
+    "filename": "T-conveyor-59|BeltEndOverlay",
     "frame": { "x": 48, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1710,7 +1782,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-60|BeltEndOverlay",
+    "filename": "T-conveyor-60|BeltEndOverlay",
     "frame": { "x": 64, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1719,7 +1791,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-61|BeltEndOverlay",
+    "filename": "Cross-conveyor-61|BeltEndOverlay",
     "frame": { "x": 80, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1728,7 +1800,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-62|BeltEndOverlay",
+    "filename": "Cross-conveyor-62|BeltEndOverlay",
     "frame": { "x": 96, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1737,7 +1809,7 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-63|BeltEndOverlay",
+    "filename": "Cross-conveyor-63|BeltEndOverlay",
     "frame": { "x": 112, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1746,8 +1818,44 @@
     "duration": 100
    },
    {
-    "filename": "Belts-conveyor-64|BeltEndOverlay",
+    "filename": "Cross-conveyor-64|BeltEndOverlay",
     "frame": { "x": 0, "y": 416, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-65|BeltEndOverlay",
+    "frame": { "x": 16, "y": 416, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-66|BeltEndOverlay",
+    "frame": { "x": 32, "y": 416, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-67|BeltEndOverlay",
+    "frame": { "x": 48, "y": 416, "w": 16, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+    "sourceSize": { "w": 16, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Underground-conveyor-68|BeltEndOverlay",
+    "frame": { "x": 64, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
     "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
@@ -1763,11 +1871,15 @@
   "size": { "w": 128, "h": 432 },
   "scale": "1",
   "frameTags": [
-   { "name": "BeltRight", "from": 0, "to": 7, "direction": "forward", "color": "#a70505ff" },
-   { "name": "BeltLeft", "from": 8, "to": 15, "direction": "forward", "color": "#a76d00ff" },
-   { "name": "BeltUp", "from": 16, "to": 23, "direction": "forward", "color": "#8aaa00ff" },
-   { "name": "BeltDown", "from": 24, "to": 31, "direction": "forward", "color": "#00aa4aff" },
-   { "name": "Belts", "from": 33, "to": 64, "direction": "forward", "color": "#000000ff" }
+   { "name": "_BeltRight", "from": 0, "to": 7, "direction": "forward", "color": "#a70505ff" },
+   { "name": "_BeltLeft", "from": 8, "to": 15, "direction": "forward", "color": "#a76d00ff" },
+   { "name": "_BeltUp", "from": 16, "to": 23, "direction": "forward", "color": "#8aaa00ff" },
+   { "name": "_BeltDown", "from": 24, "to": 31, "direction": "forward", "color": "#00aa4aff" },
+   { "name": "Straight", "from": 33, "to": 40, "direction": "forward", "color": "#000000ff" },
+   { "name": "Corner", "from": 41, "to": 48, "direction": "forward", "color": "#000000ff" },
+   { "name": "T", "from": 49, "to": 60, "direction": "forward", "color": "#000000ff" },
+   { "name": "Cross", "from": 61, "to": 64, "direction": "forward", "color": "#000000ff" },
+   { "name": "Underground", "from": 65, "to": 68, "direction": "forward", "color": "#000000ff" }
   ],
   "layers": [
    { "name": "Directions(?)", "opacity": 255, "blendMode": "normal" },

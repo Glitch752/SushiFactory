@@ -112,6 +112,8 @@ func _process(delta):
     context.remove_targeted_tile = _remove_targeted_tile
     context.rotate_highlight = _rotate_highlight
     context.place_symbol_at_target = _place_symbol_at_target
+    context.get_object_relative = func(relative_pos: Vector2i) -> TileData:
+        return automation_objects_tilemap.get_cell_tile_data(targeted_tile + relative_pos)
 
     context.highlight_object = highlight_object
     context.highlight_zone = highlight_zone
@@ -142,7 +144,8 @@ func _process(delta):
 func _place_symbol_at_target():
     var tile_data = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
     if tile_data != null:
-        return
+        # If there's already a tile here, it must be the same type
+        assert(tile_data.get_custom_data("meaning") == $%EditorSymbolSprite.meaning)
     
     automation_objects_tilemap.set_cell(
         targeted_tile,

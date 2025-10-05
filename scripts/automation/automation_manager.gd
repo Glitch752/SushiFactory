@@ -1,4 +1,4 @@
-extends Node2D
+class_name AutomationManager extends Node2D
 
 # Alright, this one is definitely the most complex part of the project so it justifies some better documentation.
 # This class manages "the automation system" as a whole, which includes item movement on belts and into machines.
