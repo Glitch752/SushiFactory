@@ -9,7 +9,7 @@ region = Rect2(304, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_f86pc")
-id = "tamago"
+id = &"tamago"
 item_name = "Tamago"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "A layered, fried tamago omlette."

@@ -9,7 +9,7 @@ region = Rect2(432, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_dpkwv")
-id = "shrimp"
+id = &"shrimp"
 item_name = "Raw Shrimp"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

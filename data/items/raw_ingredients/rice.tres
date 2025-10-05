@@ -9,6 +9,7 @@ region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_ckpuc")
+id = &"raw_rice"
 item_name = "Raw Rice"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "Uncooked."

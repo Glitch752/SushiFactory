@@ -9,7 +9,7 @@ region = Rect2(320, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_cump5")
-id = "egg"
+id = &"egg"
 item_name = "Egg"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "Egg."

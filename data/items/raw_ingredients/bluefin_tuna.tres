@@ -9,6 +9,7 @@ region = Rect2(416, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_e3l2j")
+id = &"bluefin_tuna"
 item_name = "Bluefin Tuna"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 metadata/_custom_type_script = "uid://bhg3uiavjqpp1"

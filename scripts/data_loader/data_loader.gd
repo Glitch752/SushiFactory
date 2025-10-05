@@ -107,6 +107,7 @@ func _ready():
     for item in loaded_items:
         if item is ItemData:
             items[item.id] = item
+            item.validate()
         else:
             push_error("Loaded resource is not of type ItemData: %s" % item)
     

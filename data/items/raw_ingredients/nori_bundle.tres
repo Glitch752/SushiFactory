@@ -9,7 +9,7 @@ region = Rect2(144, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_l87cd")
-id = "nori_bundle"
+id = &"nori_bundle"
 item_name = "Nori Bundle"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "A bundle of nori seaweed."

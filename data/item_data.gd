@@ -13,3 +13,11 @@ class_name ItemData
 
 ## A custom scene to use for this item instead of the base Item scene. Null if not required.
 @export var custom_scene: PackedScene = null
+
+func validate():
+    if id == "":
+        push_error("ItemData %s must have a non-empty ID" % resource_path)
+    if item_name == "":
+        push_error("ItemData %s must have a non-empty name" % resource_path)
+    if item_sprite == null:
+        push_error("ItemData %s must have a sprite" % resource_path)

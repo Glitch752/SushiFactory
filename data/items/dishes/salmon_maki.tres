@@ -9,6 +9,7 @@ region = Rect2(160, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_sb333")
+id = &"salmon_maki"
 item_name = "Salmon Maki"
 item_sprite = SubResource("AtlasTexture_m0wf6")
 description = "Finished salmon maki."
