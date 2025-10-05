@@ -156,6 +156,20 @@ func _place_symbol_at_target():
     
     building_tilemap.update_around(targeted_tile)
 
+    # TEMPORARY
+    if $%EditorSymbolSprite.meaning == "counter":
+        var instance = preload("res://world/interactable/TableSurfaceInteractable.tscn").instantiate()
+
+        instance.name = "!Counter_%d_%d" % [targeted_tile.x, targeted_tile.y]
+        building_tilemap.interactables.add_child(instance)
+        instance.position = building_tilemap.map_to_local(targeted_tile) + Vector2(0, 3)
+        building_tilemap.interactable_map[targeted_tile] = instance
+
+        building_tilemap._correct_interactables()
+
+        print("rahhh")
+        pass
+
 func _rotate_highlight():
     match target_direction:
         "up":
@@ -170,6 +184,12 @@ func _rotate_highlight():
 func _remove_targeted_tile():
     automation_objects_tilemap.set_cell(targeted_tile, -1)
     building_tilemap.update_around(targeted_tile)
+
+    # If there's an interactable on this tile, remove it too
+    var interactable = building_tilemap.interactable_map.get(targeted_tile, null)
+    if interactable != null:
+        interactable.queue_free()
+        building_tilemap.interactable_map.erase(targeted_tile)
 
 func _rotate_targeted_tile():
     var tile_data = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
