@@ -6,6 +6,7 @@ class_name WorldInteractableTilemap
 
 @export var automation_zones_tilemap: AutomationZonesTilemap
 @export var automation_objects_tilemap: AutomationObjectsTilemap
+@export var automation_underlayer_tilemap: TileMapLayer
 
 @export var automation_manager: AutomationManager
 
@@ -101,6 +102,7 @@ func _rebuild_tiles():
             continue
         
         set_cell(cell, -1)
+        automation_underlayer_tilemap.set_cell(cell, -1)
         var cell_data = automation_objects_tilemap.get_cell_tile_data(cell)
         if cell_data != null:
             _update_cell(cell, cell_data)
@@ -119,22 +121,40 @@ func update_around(cell: Vector2i):
             continue
         
         set_cell(cell, -1)
+        automation_underlayer_tilemap.set_cell(cell, -1)
 
         var cell_data = automation_objects_tilemap.get_cell_tile_data(n)
         if cell_data != null:
             _update_cell(n, cell_data)
     
     # Update the automation manager
-    automation_manager.rescan_belts()
+    automation_manager.rescan()
 
 const CounterAutotile = preload("res://scripts/automation/counter_autotile.gd")
 const BeltAutotile = preload("res://scripts/automation/belt_autotile.gd")
 
 func _update_cell(cell: Vector2i, cell_data: TileData) -> void:
     var meaning = cell_data.get_custom_data("meaning")
+    
+    var ctx = AutotileContext.new()
+    ctx.cell = cell
+    ctx.cell_data = cell_data
+
+    var interactable = interactable_map.get(cell)
+    ctx.interactable = interactable
+
+    ctx._get_cell_tile_data = automation_objects_tilemap.get_cell_tile_data
+    ctx._set_cell = set_cell
+    ctx._set_underlayer_cell = automation_underlayer_tilemap.set_cell
+
     match meaning:
         "counter":
-            var interactable = interactable_map.get(cell)
-            CounterAutotile.update_counter(cell, cell_data, interactable, automation_objects_tilemap.get_cell_tile_data, set_cell)
+            CounterAutotile.update_counter(ctx)
         "belt":
-            BeltAutotile.update_belt(cell, cell_data, automation_objects_tilemap.get_cell_tile_data, set_cell)
+            BeltAutotile.update_belt(ctx)
+        "underground_entrance":
+            BeltAutotile.update_underground_entrance(ctx)
+        "underground_exit":
+            BeltAutotile.update_underground_exit(ctx)
+        _:
+            push_warning("Unknown automation object meaning: %s" % meaning)

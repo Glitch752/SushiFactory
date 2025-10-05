@@ -2,8 +2,6 @@ extends Node
 
 var CustomerScene = preload("res://world/characters/Customer.tscn")
 
-const AutomationManager = preload("res://scripts/automation/automation_manager.gd")
-
 signal order_added(data: OrderData)
 signal customer_satisfied()
 signal customer_angered()

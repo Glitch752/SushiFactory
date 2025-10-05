@@ -55,7 +55,7 @@ func _ready():
     camera.limit_bottom = int(max_y + margin.y)
 
     @warning_ignore("integer_division")
-    targeted_tile = tilemap_cells[tilemap_cells.size() / 2]
+    targeted_tile = building_tilemap.local_to_map(building_tilemap.to_local(Vector2(min_x, min_y) + Vector2(max_x, max_y) / 2))
 
     set_process(false)
     
@@ -202,8 +202,10 @@ func _rotate_targeted_tile():
     
 
 func _move_target(dir: Vector2i):
-    var zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile + dir)
-    if zone_data == null:
+    var current_zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
+    
+    var next_zone_data = automation_zones_tilemap.get_cell_tile_data(targeted_tile + dir)
+    if current_zone_data != null and next_zone_data == null:
         return
     
     targeted_tile += dir

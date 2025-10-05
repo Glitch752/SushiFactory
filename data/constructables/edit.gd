@@ -12,14 +12,17 @@ func get_interaction(context: SillyConstructionContext):
 
         var highlightMeaning = context.highlight_object.get_custom_data("meaning")
         var constructable = DataLoader.get_constructable_with_meaning(highlightMeaning)
+        
+        var constructable_name = constructable.name if constructable else "Tile"
+        var constructable_description = constructable.description if constructable else "An unknown constructable"
 
         if editable:
             var remove_action = InteractionAction.new("Remove", context.remove_targeted_tile, 0.2)
             var rotate_action = InteractionAction.new("Rotate", context.rotate_targeted_tile)
-            interaction.interaction = InteractionData.new(constructable.name, constructable.description, rotate_action, remove_action)
+            interaction.interaction = InteractionData.new(constructable_name, constructable_description, rotate_action, remove_action)
             interaction.color = context.colors.highlight_existing
         else:
-            interaction.interaction = InteractionData.new(constructable.name, "%s\n\n[color=#f77]This tile isn't editable.[/color]" % constructable.description)
+            interaction.interaction = InteractionData.new(constructable_name, "%s\n\n[color=#f77]This tile isn't editable.[/color]" % constructable_description)
             interaction.color = context.colors.highlight_invalid
     else:
         if zone and zone.get_custom_data("editable"):

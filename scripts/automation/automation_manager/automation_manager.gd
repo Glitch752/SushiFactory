@@ -10,14 +10,13 @@ class_name AutomationManager extends Node2D
 # Usage required outside this class:
 # - The player and some other entities expect the automation manager to be on a Node2D in the current level with a unique name of "AutomationManager".
 #   There's probably a way to avoid this, like using singletons? This is easiest, though.
-# - automation_tilemap must point to the tilemap that contains belt tiles
 # - Call register_item(item_node, cell) to add items to the system
 # - Consumers register themselves with register_consumer(cell, node) and implement `func try_accept_item(item: Node2D) -> bool`
 #   which must return true if the machine accepts the item and take ownership/handle of it (e.g. queue it, reparent it, whatever).
 #   For now, machines need to call `remove_item(item)` themselves when they take an item.
-# - Call rescan_belts() when the tilemap layout changes
+# - Call rescan() when the tilemap layout changes
 
-@export var automation_tilemap: WorldInteractableTilemap
+@export var automation_tilemap: AutomationObjectsTilemap
 @export var belt_movement_speed: float = 3.8 # tiles per second
 
 var belt_update_timer: float = 0.0
@@ -27,7 +26,7 @@ var items: Array[Node2D] = []
 ## The committed positions of items (not based on interpolation)
 var item_tile_positions: Dictionary[Vector2i, Node2D] = {}
 
-# This all pertains to the static belt graph and is computed by rescan_belts
+# This all pertains to the static belt graph and is computed by rescan
 
 ## A list of all belt tiles
 var belt_tiles: Array[Vector2i] = []
@@ -61,7 +60,7 @@ signal belts_updated()
 
 func _ready():
     # pre-scan belts once at startup
-    rescan_belts()
+    rescan()
     set_process(false)
 
 func _physics_process(delta: float) -> void:
@@ -83,44 +82,8 @@ func _physics_process(delta: float) -> void:
 ## Rebuild the belt graph from the tilemap.
 ## This is intentionally an explicit action since it's pretty slow. Call it after editing the tilemap at runtime.
 ##   TODO: I kind of hate this interface? I mean, we scan belts but not machines which isn't ideal. This was easiest for now, though.
-func rescan_belts() -> void:
-    belt_tiles.clear()
-    belt_tiles_set.clear()
-    successor_map.clear()
-
-    var used_cells = []
-    used_cells = automation_tilemap.get_used_cells()
-
-    # Build belt tile list and successsors
-    for cell in used_cells:
-        var cell_data = automation_tilemap.get_cell_tile_data(cell)
-        if cell_data == null:
-            continue
-        var automation_id: String = ""
-
-        automation_id = cell_data.get_custom_data("automation_id")
-
-        var dir = Vector2i.ZERO
-        if automation_id == "left_belt":
-            dir = Vector2i.LEFT
-        elif automation_id == "right_belt":
-            dir = Vector2i.RIGHT
-        elif automation_id == "up_belt":
-            dir = Vector2i.UP
-        elif automation_id == "down_belt":
-            dir = Vector2i.DOWN
-        else:
-            continue
-
-        var next_cell = cell + dir
-        belt_tiles.append(cell)
-        belt_tiles_set[cell] = true
-        successor_map[cell] = next_cell
-
-    # pre-allocate indegree structure (not strictly needed but a bit nicer)
-    _indeg.clear()
-    for cell in belt_tiles:
-        _indeg[cell] = 0
+func rescan() -> void:
+    preload("./scanner.gd").scan(self)
 
 ## Register a node (machine/consumer) that sits at tile `cell`.
 ## The node must implement `func try_accept_item(item: Node2D) -> bool`
@@ -512,13 +475,13 @@ func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
 
 var debug_annotations: bool = false
 
-# func _input(event):
-#     if event is InputEventKey and event.pressed and not event.echo:
-#         # Temporary: when pressing 0, debug draw
-#         if event.keycode == KEY_0:
-#             debug_annotations = not debug_annotations
-#             set_process(debug_annotations)
-#             queue_redraw()
+func _input(event):
+    if event is InputEventKey and event.pressed and not event.echo:
+        # Temporary: when pressing 0, debug draw
+        if event.keycode == KEY_0:
+            debug_annotations = not debug_annotations
+            set_process(debug_annotations)
+            queue_redraw()
 
 func _process(_delta):
     if debug_annotations:
@@ -532,14 +495,21 @@ func _draw():
 
     # Draw an arrow at every belt in blue if it's acyclic or orange if it's cyclic
     for cell in belt_tiles:
+        var successor = successor_map.get(cell)
         var start = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(cell)))
-        var end = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(successor_map[cell])))
+        var end = start + Vector2.UP # Looks funky for invalid successors but whatever
+        
+        var color = Color.LIGHT_BLUE
+        
+        if not successor:
+            color = Color.RED
+        else:
+            end = to_local(automation_tilemap.to_global(automation_tilemap.map_to_local(successor)))
         
         var dir = (end - start).normalized()
         start += dir * (tile_world_size.x * 0.2)
         end -= dir * (tile_world_size.x * 0.2)
 
-        var color = Color.LIGHT_BLUE
         if _indeg.get(cell, 0) > 0:
             color = Color.LIGHT_GREEN
         
