@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://blglo3faygf1b"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://blglo3faygf1b"]
 
 [ext_resource type="Texture2D" uid="uid://psqmgi7n1t7b" path="res://images/tilemap.png" id="1_1y4r8"]
 [ext_resource type="Texture2D" uid="uid://na36kje3t0eg" path="res://images/walls.png" id="2_lxhs4"]
 [ext_resource type="PackedScene" uid="uid://dyah001bhgw03" path="res://world/doors/KitchenDoor.tscn" id="3_exwl2"]
 [ext_resource type="PackedScene" uid="uid://5ug8k1f3asut" path="res://world/doors/WoodenDoor.tscn" id="4_ufnak"]
 [ext_resource type="Texture2D" uid="uid://78lkq3f6hl4n" path="res://images/counters.png" id="6_0gcj1"]
+[ext_resource type="Texture2D" uid="uid://c7ljw1fob8ioy" path="res://images/conveyorOverlay.png" id="6_1wq8o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt0c5"]
 resource_name = "Collidables"
@@ -240,6 +241,34 @@ texture = ExtResource("6_0gcj1")
 4:0/0/texture_origin = Vector2i(0, -8)
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5, 8, -5, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yn2cy"]
+resource_name = "Conveyor overlay"
+texture = ExtResource("6_1wq8o")
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 8)
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 8)
+3:0/size_in_atlas = Vector2i(1, 2)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 8)
+4:0/size_in_atlas = Vector2i(1, 2)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 8)
+5:0/size_in_atlas = Vector2i(1, 2)
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, 8)
+6:0/size_in_atlas = Vector2i(1, 2)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, 8)
+7:0/size_in_atlas = Vector2i(1, 2)
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(0, 8)
+
 [resource]
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "automation_id"
@@ -248,3 +277,4 @@ sources/0 = SubResource("TileSetAtlasSource_bt0c5")
 sources/1 = SubResource("TileSetAtlasSource_exwl2")
 sources/2 = SubResource("TileSetScenesCollectionSource_lxhs4")
 sources/4 = SubResource("TileSetAtlasSource_1wq8o")
+sources/5 = SubResource("TileSetAtlasSource_yn2cy")

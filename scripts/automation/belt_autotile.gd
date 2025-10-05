@@ -1,4 +1,5 @@
 const BELT_TILE_SOURCE_ID = 0
+const BELT_OVERLAY_SOURCE_ID = 5
 
 # TODO: There's some weird autotiling interaction between underground belt starts and belts after them since underground belts are considered "linkable" on their "front" even though that doesn't make sense
 # ...and neither does that explanation? future me will figure it out
@@ -124,6 +125,19 @@ const EXIT_UNDERGROUND_BELTS: Dictionary[String, Vector2i] = {
     "down": Vector2i(0, 37)
 }
 
+const ENTRANCE_UNDERGROUND_BELT_OVERLAYS: Dictionary[String, Vector2i] = {
+    "right": Vector2i(0, 0),
+    "left": Vector2i(2, 0),
+    "up": Vector2i(4, 0),
+    "down": Vector2i(7, 0)
+}
+const EXIT_UNDERGROUND_BELT_OVERLAYS: Dictionary[String, Vector2i] = {
+    "right": Vector2i(3, 0),
+    "left": Vector2i(1, 0),
+    "up": Vector2i(6, 0),
+    "down": Vector2i(5, 0)
+}
+
 const FRONT_DIRECTIONS: Dictionary[String, Vector2i] = {
     "up": Vector2i.UP,
     "down": Vector2i.DOWN,
@@ -138,7 +152,9 @@ static func update_underground_entrance(ctx: AutotileContext):
     if not back_data or not back_data.get_custom_data("connects_to_belt"):
         atlas_pos.x += BELT_ANIMATION_FRAMES
     ctx.set_underlayer_cell(ctx.cell, BELT_TILE_SOURCE_ID, atlas_pos)
-    ctx.set_cell(ctx.cell, )
+
+    var overlay_atlas_pos = ENTRANCE_UNDERGROUND_BELT_OVERLAYS[direction]
+    ctx.set_cell(ctx.cell, BELT_OVERLAY_SOURCE_ID, overlay_atlas_pos, 0)
     
 static func update_underground_exit(ctx: AutotileContext):
     var direction: String = ctx.cell_data.get_custom_data("facing")
@@ -147,3 +163,6 @@ static func update_underground_exit(ctx: AutotileContext):
     if not front_data or not front_data.get_custom_data("connects_to_belt"):
         atlas_pos.x += BELT_ANIMATION_FRAMES
     ctx.set_underlayer_cell(ctx.cell, BELT_TILE_SOURCE_ID, atlas_pos)
+
+    var overlay_atlas_pos = EXIT_UNDERGROUND_BELT_OVERLAYS[direction]
+    ctx.set_cell(ctx.cell, BELT_OVERLAY_SOURCE_ID, overlay_atlas_pos, 0)
