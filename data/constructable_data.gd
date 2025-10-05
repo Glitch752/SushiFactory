@@ -28,9 +28,13 @@ class ConstructableInteraction:
 class SillyConstructionContext:
     var rotate_targeted_tile: Callable
     var remove_targeted_tile: Callable
+    var rotate_highlight: Callable
+    var place_symbol_at_target: Callable
 
-    var highlighted_tile: TileData
+    var highlight_object: TileData
     var highlight_zone: TileData
+
+    var colors: ConstructionColors
 
 func get_interaction(_context: SillyConstructionContext) -> Variant:
     return ConstructableInteraction.none()

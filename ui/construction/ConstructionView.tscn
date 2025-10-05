@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv57c3nkt178l"]
+[gd_scene load_steps=8 format=3 uid="uid://dv57c3nkt178l"]
 
 [ext_resource type="Script" uid="uid://djfx02r4wcy3b" path="res://ui/construction/construction_view.gd" id="1_ujp5h"]
 [ext_resource type="Script" uid="uid://bv7wxyrmg64uc" path="res://scripts/ui_camera_2d.gd" id="2_0vto1"]
+[ext_resource type="Script" uid="uid://2xeri7uxwywy" path="res://ui/construction/construction_colors.gd" id="2_n20w7"]
 [ext_resource type="PackedScene" uid="uid://b44t6d4kdhs6n" path="res://player/InteractionHighlight.tscn" id="3_ewvdu"]
 [ext_resource type="PackedScene" uid="uid://baly8m8dmbonq" path="res://ui/construction/ConstructionInterface.tscn" id="3_pl1os"]
 [ext_resource type="PackedScene" uid="uid://dgfypjqngpdob" path="res://ui/construction/EditorSymbolSprite.tscn" id="11_otkal"]
 
+[sub_resource type="Resource" id="Resource_isu10"]
+script = ExtResource("2_n20w7")
+highlight_existing = Color(0.96862745, 0.9529412, 0.6313726, 1)
+highlight_valid = Color(0.6305, 0.97, 0.67010844, 1)
+highlight_invalid = Color(0.63, 0.40949997, 0.40949997, 1)
+metadata/_custom_type_script = "uid://2xeri7uxwywy"
+
 [node name="ConstructionView" type="Node2D"]
 script = ExtResource("1_ujp5h")
+colors = SubResource("Resource_isu10")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true

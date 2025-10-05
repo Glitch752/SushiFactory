@@ -548,9 +548,6 @@ visible = false
 building_tilemap = NodePath("../BuildingTileMap")
 automation_zones_tilemap = NodePath("../AutomationZonesTileMap")
 automation_objects_tilemap = NodePath("../AutomationObjectsTileMap")
-highlight_existing_color = Color(0.96862745, 0.9529412, 0.6313726, 1)
-highlight_valid_color = Color(0.6305, 0.97, 0.7097167, 1)
-highlight_invalid_color = Color(0.3, 0.25200003, 0.25200003, 1)
 
 [node name="Label2" type="Label" parent="."]
 visible = false

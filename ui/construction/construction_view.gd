@@ -7,14 +7,11 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
 @export var automation_zones_tilemap: AutomationZonesTilemap
 @export var automation_objects_tilemap: AutomationObjectsTilemap
 
-@export_group("Colors", "highlight_")
-@export var highlight_existing_color: Color
-@export var highlight_valid_color: Color
-@export var highlight_invalid_color: Color
-
 @onready var camera: UiCamera2D = $Camera2D
 @onready var highlight = $InteractionHighlight
 @onready var constructable_list = $%ConstructionInterface/%ConstructableView
+
+@export var colors: ConstructionColors
 
 var targeted_tile: Vector2i = Vector2i.ZERO
 var target_direction: String = "up"
@@ -107,14 +104,19 @@ func _process(delta):
     
     camera.position_smoothing_speed = 5 / Engine.time_scale
 
-    var highlighted_tile = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
+    var highlight_object = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
     var highlight_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
         
     var context = ConstructableData.SillyConstructionContext.new()
     context.rotate_targeted_tile = _rotate_targeted_tile
     context.remove_targeted_tile = _remove_targeted_tile
-    context.highlighted_tile = highlighted_tile
+    context.rotate_highlight = _rotate_highlight
+    context.place_symbol_at_target = _place_symbol_at_target
+
+    context.highlight_object = highlight_object
     context.highlight_zone = highlight_zone
+    
+    context.colors = colors
 
 
     var interaction: ConstructableData.ConstructableInteraction = DataLoader.constructables[constructable_index].get_interaction(context)
@@ -127,6 +129,7 @@ func _process(delta):
 
     highlight.interp_to(target_position, interaction.color)
 
+    $%EditorSymbolSprite.meaning = interaction.editor_symbol_meaning
     $%EditorSymbolSprite.opacity = interaction.editor_symbol_opacity
     $%EditorSymbolSprite.facing = target_direction
     
@@ -135,6 +138,31 @@ func _process(delta):
         if repeat_countdown[dir] < 0:
             repeat_countdown[dir] += REPEAT_INTERVAL
             _move_target(movement_directions[dir])
+
+func _place_symbol_at_target():
+    var tile_data = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
+    if tile_data != null:
+        return
+    
+    automation_objects_tilemap.set_cell(
+        targeted_tile,
+        0,
+        $%EditorSymbolSprite.get_atlas_coords(),
+        $%EditorSymbolSprite.get_alternate_index()
+    )
+    
+    building_tilemap.update_around(targeted_tile)
+
+func _rotate_highlight():
+    match target_direction:
+        "up":
+            target_direction = "right"
+        "right":
+            target_direction = "down"
+        "down":
+            target_direction = "left"
+        "left":
+            target_direction = "up"
 
 func _remove_targeted_tile():
     automation_objects_tilemap.set_cell(targeted_tile, -1)

@@ -154,7 +154,8 @@ func _unhandled_input(event):
                     return
                 
                 var data = DataLoader.get_item(item_id)
-                item = create_item(data)
+                if data:
+                    item = create_item(data)
             elif item_id is Array: # Cycle through the items
                 if has_item():
                     var current_id = held_item.data.id

@@ -26,12 +26,16 @@ const AUTOMATION_OBJECTS_TILESET: TileSet = preload("res://scripts/automation/au
 
 class AutomationObjectTileDataDirection:
     var color: Color
+    var atlas_coords: Vector2i
+    var alternate_id: int
     var texture: Texture2D
 
     @warning_ignore("shadowed_variable")
-    func _init(color: Color, texture: Texture):
+    func _init(color: Color, texture: Texture, atlas_coords: Vector2i, alternate_id: int):
         self.color = color
         self.texture = texture
+        self.atlas_coords = atlas_coords
+        self.alternate_id = alternate_id
     
     func _to_string():
         return "Dir(color=%s)" % color
@@ -39,7 +43,7 @@ class AutomationObjectTileDataDirection:
 class AutomationObjectTileData:
     var meaning: StringName
 
-    var directions: Dictionary[String, AutomationObjectTileDataDirection]
+    var directions: Dictionary[String, AutomationObjectTileDataDirection] = {}
 
     @warning_ignore("shadowed_variable")
     func _init(meaning: StringName):
@@ -55,6 +59,34 @@ class AutomationObjectTileData:
         return "TileData(meaning=%s, directions=%s)" % [meaning, directions]
 
 var automation_object_tiles: Dictionary[StringName, AutomationObjectTileData] = {}
+
+func get_atlas_coords() -> Vector2i:
+    if meaning == &"":
+        return Vector2i(-1, -1)
+    
+    var tile_data = automation_object_tiles.get(meaning, null)
+    if tile_data == null:
+        return Vector2i(-1, -1)
+    
+    var dir_data = tile_data.get_dir(facing)
+    if dir_data == null:
+        return Vector2i(-1, -1)
+    
+    return dir_data.atlas_coords
+
+func get_alternate_index() -> int:
+    if meaning == &"":
+        return -1
+    
+    var tile_data = automation_object_tiles.get(meaning, null)
+    if tile_data == null:
+        return -1
+    
+    var dir_data = tile_data.get_dir(facing)
+    if dir_data == null:
+        return -1
+    
+    return dir_data.alternate_id
 
 func _ready():
     var source_id = 0
@@ -77,10 +109,7 @@ func _ready():
             var image = source.texture.get_image().get_region(region)
             var texture = ImageTexture.create_from_image(image)
 
-            automation_object_tiles[tile_meaning].add(tile_facing, AutomationObjectTileDataDirection.new(
-                tile_data.modulate,
-                texture
-            ))
+            automation_object_tiles[tile_meaning].add(tile_facing, AutomationObjectTileDataDirection.new(tile_data.modulate, texture, pos, alt_id))
     
     _update_sprite()
 
@@ -102,4 +131,7 @@ func _update_sprite():
         return
     
     sprite.texture = dir_data.texture
-    sprite.modulate = dir_data.color
+
+    var t = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+    t.set_ignore_time_scale(true)
+    t.tween_property(sprite, "modulate", dir_data.color, 0.1)
