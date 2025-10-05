@@ -362,6 +362,8 @@ func update_item_interpolation(delta: float) -> void:
         var new_pos = item.global_position.move_toward(target_pos, step)
         item.global_position = new_pos
 
+        # TODO: Handle interpolation for underground belts... no clue how though
+
     # # FOR DEBUGGING: use the tile_pos instead to show discrete positions
     # for item in items.duplicate():
     #     if not item.has_meta("tile_pos"):
@@ -474,6 +476,10 @@ func take_item_on_plate_near(global_pos: Vector2, item_id: String) -> Node2D:
 var debug_annotations: bool = false
 
 func _input(event):
+    # Disable in builds in case I forget :)
+    if OS.has_feature("release") or OS.has_feature("production"):
+        return
+
     if event is InputEventKey and event.pressed and not event.echo:
         # Temporary: when pressing 0, debug draw
         if event.keycode == KEY_0:
