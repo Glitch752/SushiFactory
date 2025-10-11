@@ -368,9 +368,14 @@ func update_item_interpolation(delta: float) -> void:
         
         var target_pos: Vector2 = item.get_meta("target_pos")
 
+        var effective_step = step
         if item.has_meta("underground_jump"):
+            var exit_distance_scale = 0.4
+
             var jump_dist = item.get_meta("underground_jump")
             var new_jump = jump_dist - step / tile_world_size.x
+
+            item.z_index = 0
 
             if jump_dist <= 0: # transition out on exit underground
                 if new_jump < -1:
@@ -379,18 +384,20 @@ func update_item_interpolation(delta: float) -> void:
                 else:
                     item.set_meta("underground_jump", new_jump)
                     item.scale = Vector2.ONE * pow(-jump_dist, 1.5)
+                    effective_step *= exit_distance_scale * 2
             
             else: # transition in on entrance underground
                 if new_jump <= 0:
                     # jump and transition out
                     var dir = (target_pos - item.global_position).normalized()
-                    item.global_position = target_pos - dir * Vector2(tile_world_size) / 2.0
-                else:
-                    item.scale = Vector2.ONE * pow(jump_dist * 2, 1.5)
+                    item.global_position = target_pos - dir * Vector2(tile_world_size) * exit_distance_scale
+                    item.scale = Vector2.ZERO
                 item.set_meta("underground_jump", new_jump)
+                effective_step = 0
+                item.scale = Vector2.ONE * pow(jump_dist * 2, 0.9)
         
         # move_toward handles small steps, so we don't need to special case snapping
-        var new_pos = item.global_position.move_toward(target_pos, step)
+        var new_pos = item.global_position.move_toward(target_pos, effective_step)
         item.global_position = new_pos
 
     # # FOR DEBUGGING: use the tile_pos instead to show discrete positions
