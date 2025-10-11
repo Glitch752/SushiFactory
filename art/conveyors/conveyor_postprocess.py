@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from PIL import Image
 import sys
 import json
-from typing import Optional, TypedDict, cast
+from typing import NamedTuple, Optional, TypedDict, cast
 
 class Size(TypedDict):
     w: int
@@ -76,6 +76,10 @@ class ProcessedFrameTags:
     color: str
     frames: list[Image.Image]
 
+class LayerResult(NamedTuple):
+    img: Image.Image
+    overlay: Image.Image
+
 def get_animation_frame_count(frame_tags: list[AsepriteFrameTags]) -> int:
     "Get the number of frames in each animation frame set. All sets must be the same length."
     first_tag: AsepriteFrameTags | None = None
@@ -94,7 +98,7 @@ def get_animation_frame_count(frame_tags: list[AsepriteFrameTags]) -> int:
     
     return first_tag["to"] - first_tag["from"] + 1
 
-def get_animation_frames(frames: list[AsepriteFrame], img: Image.Image, frame_tags: list[AsepriteFrameTags]) -> dict[str, ProcessedFrameTags]:
+def get_animation_frames(frames: list[AsepriteFrame], layers: LayerResult, frame_tags: list[AsepriteFrameTags]) -> dict[str, ProcessedFrameTags]:
     "Map from color to frame tags, where the color is formatted as #rrggbbaa with alpha as ff in all the tags used."
     
     animation_frame_set: dict[str, ProcessedFrameTags] = {}
@@ -112,7 +116,8 @@ def get_animation_frames(frames: list[AsepriteFrame], img: Image.Image, frame_ta
             end=tag["to"],
             color=color,
             frames=[
-                img.crop((
+                # meh we just don't care about alpha blending for animation frames
+                layers.img.crop((
                     frames[i]["frame"]["x"],
                     frames[i]["frame"]["y"],
                     frames[i]["frame"]["x"] + frames[i]["frame"]["w"],
@@ -140,10 +145,10 @@ def get_normal_frame_count(frame_tags: list[AsepriteFrameTags]) -> int:
         count += tag["to"] - tag["from"] + 1
     return count
     
-def get_normal_frames(frames: list[AsepriteFrame], img: Image.Image, frame_tags: list[AsepriteFrameTags]) -> list[Image.Image]:
+def get_normal_frames(frames: list[AsepriteFrame], img: LayerResult, frame_tags: list[AsepriteFrameTags]) -> list[LayerResult]:
     "Get all the normal frames under the tag NORMAL_FRAMES_TAG"
     
-    normal_frames: list[Image.Image] = []
+    normal_frames: list[LayerResult] = []
     
     normal_tags = get_normal_tags(frame_tags)
     if len(normal_tags) == 0:
@@ -151,17 +156,19 @@ def get_normal_frames(frames: list[AsepriteFrame], img: Image.Image, frame_tags:
 
     for tag in normal_tags:
         for i in range(tag["from"], tag["to"] + 1):
-            normal_frames.append(img.crop((
+            crop = (
                 frames[i]["frame"]["x"],
                 frames[i]["frame"]["y"],
                 frames[i]["frame"]["x"] + frames[i]["frame"]["w"],
                 frames[i]["frame"]["y"] + frames[i]["frame"]["h"],
-            )))
+            )
+            normal_frames.append(LayerResult(img.img.crop(crop), img.overlay.crop(crop)))
     
     return normal_frames
 
-def preprocess_combine_layers(img: Image.Image, layers: list[AsepriteLayer], frames: list[AsepriteFrame], layer_combination: set[str]) -> Image.Image:
+def preprocess_combine_layers(img: Image.Image, layers: list[AsepriteLayer], frames: list[AsepriteFrame], layer_combination: set[str]) -> LayerResult:
     out_img = Image.new("RGBA", (img.size[0], img.size[1] // len(layers)), (0, 0, 0, 0))
+    out_overlay = Image.new("RGBA", (img.size[0], img.size[1] // len(layers)), (0, 0, 0, 0))
     
     # For every frame, combine the visible layers. Put the result at the same position as the first occurance of each layer
     # There's a bit of custom logic here, then, too: pixels of exactly (255, 0, 0, 128) are used to indicate a "mask" which
@@ -196,11 +203,24 @@ def preprocess_combine_layers(img: Image.Image, layers: list[AsepriteLayer], fra
                 new_y = frame["frame"]["y"] % out_img.size[1] + y
                 if pixel == (255, 0, 0, 128):
                     out_img.putpixel((new_x, new_y), (0, 0, 0, 0))
-                elif pixel[3] > 0:
-                    # This doesn't do alpha blending, but whatever
+                elif pixel[3] == 255:
                     out_img.putpixel((new_x, new_y), pixel)
+                elif pixel[3] > 0:
+                    out_overlay.putpixel((new_x, new_y), pixel)
     
-    return out_img
+    return LayerResult(out_img, out_overlay)
+
+def alpha_blend(base: tuple[int, int, int, int], overlay: tuple[int, int, int, int]) -> tuple[int, int, int, int]:
+    "simple alpha blending of two colors. Doesn't accout for partial alpha in the base."
+    if base[3] == 0:
+        return overlay
+    
+    alpha = overlay[3] / 255.0
+    inv_alpha = 1.0 - alpha
+    r = int(overlay[0] * alpha + base[0] * inv_alpha)
+    g = int(overlay[1] * alpha + base[1] * inv_alpha)
+    b = int(overlay[2] * alpha + base[2] * inv_alpha)
+    return (r, g, b, 255)
 
 def postprocess_conveyor_sprite(input_image_path: str, input_json_path: str, output_path: str, frame_width=16, frame_height=16):
     img = Image.open(input_image_path).convert("RGBA")
@@ -234,21 +254,22 @@ def postprocess_conveyor_sprite(input_image_path: str, input_json_path: str, out
         
         normal_frame_set = get_normal_frames(filtered_frames, layer_combination_img, data["meta"]["frameTags"])
         print(f"Extracted {len(normal_frame_set)} normal frames")
-        
+    
         for (row, normal_frame) in enumerate(normal_frame_set):
             for x in range(frame_width):
                 for y in range(frame_height):
-                    pixel = cast(tuple[int, int, int], normal_frame.getpixel((x, y)))
+                    pixel = cast(tuple[int, int, int, int], normal_frame.img.getpixel((x, y)))
+                    overlay_pixel = cast(tuple[int, int, int, int], normal_frame.overlay.getpixel((x, y)))
                     hex_color = f"#{pixel[0]:02x}{pixel[1]:02x}{pixel[2]:02x}ff"
                     
                     if hex_color in animation_frame_set:
                         anim_frames = animation_frame_set[hex_color].frames
                         for anim_frame_index in range(animation_frames_count):
-                            anim_pixel = cast(tuple[int, int, int], anim_frames[anim_frame_index].getpixel((x, y)))
-                            out_img.putpixel((combination_x + anim_frame_index * frame_width + x, row * frame_height + y), anim_pixel)
+                            anim_pixel = cast(tuple[int, int, int, int], anim_frames[anim_frame_index].getpixel((x, y)))
+                            out_img.putpixel((combination_x + anim_frame_index * frame_width + x, row * frame_height + y), alpha_blend(anim_pixel, overlay_pixel))
                     else:
                         for anim_frame_index in range(animation_frames_count):
-                            out_img.putpixel((combination_x + anim_frame_index * frame_width + x, row * frame_height + y), pixel)
+                            out_img.putpixel((combination_x + anim_frame_index * frame_width + x, row * frame_height + y), alpha_blend(pixel, overlay_pixel))
 
     out_img.save(output_path)
 

@@ -1314,7 +1314,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-0|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-0|Overlay",
     "frame": { "x": 0, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1323,7 +1323,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-1|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-1|Overlay",
     "frame": { "x": 16, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1332,7 +1332,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-2|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-2|Overlay",
     "frame": { "x": 32, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1341,7 +1341,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-3|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-3|Overlay",
     "frame": { "x": 48, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1350,7 +1350,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-4|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-4|Overlay",
     "frame": { "x": 64, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1359,7 +1359,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-5|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-5|Overlay",
     "frame": { "x": 80, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1368,7 +1368,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-6|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-6|Overlay",
     "frame": { "x": 96, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1377,7 +1377,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltRight-conveyor-7|BeltEndOverlay",
+    "filename": "_BeltRight-conveyor-7|Overlay",
     "frame": { "x": 112, "y": 320, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1386,7 +1386,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-8|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-8|Overlay",
     "frame": { "x": 0, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1395,7 +1395,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-9|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-9|Overlay",
     "frame": { "x": 16, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1404,7 +1404,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-10|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-10|Overlay",
     "frame": { "x": 32, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1413,7 +1413,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-11|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-11|Overlay",
     "frame": { "x": 48, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1422,7 +1422,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-12|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-12|Overlay",
     "frame": { "x": 64, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1431,7 +1431,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-13|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-13|Overlay",
     "frame": { "x": 80, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1440,7 +1440,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-14|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-14|Overlay",
     "frame": { "x": 96, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1449,7 +1449,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltLeft-conveyor-15|BeltEndOverlay",
+    "filename": "_BeltLeft-conveyor-15|Overlay",
     "frame": { "x": 112, "y": 336, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1458,7 +1458,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-16|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-16|Overlay",
     "frame": { "x": 0, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1467,7 +1467,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-17|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-17|Overlay",
     "frame": { "x": 16, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1476,7 +1476,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-18|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-18|Overlay",
     "frame": { "x": 32, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1485,7 +1485,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-19|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-19|Overlay",
     "frame": { "x": 48, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1494,7 +1494,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-20|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-20|Overlay",
     "frame": { "x": 64, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1503,7 +1503,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-21|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-21|Overlay",
     "frame": { "x": 80, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1512,7 +1512,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-22|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-22|Overlay",
     "frame": { "x": 96, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1521,7 +1521,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltUp-conveyor-23|BeltEndOverlay",
+    "filename": "_BeltUp-conveyor-23|Overlay",
     "frame": { "x": 112, "y": 352, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1530,7 +1530,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-24|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-24|Overlay",
     "frame": { "x": 0, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1539,7 +1539,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-25|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-25|Overlay",
     "frame": { "x": 16, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1548,7 +1548,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-26|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-26|Overlay",
     "frame": { "x": 32, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1557,7 +1557,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-27|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-27|Overlay",
     "frame": { "x": 48, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1566,7 +1566,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-28|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-28|Overlay",
     "frame": { "x": 64, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1575,7 +1575,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-29|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-29|Overlay",
     "frame": { "x": 80, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1584,7 +1584,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-30|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-30|Overlay",
     "frame": { "x": 96, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1593,7 +1593,7 @@
     "duration": 100
    },
    {
-    "filename": "_BeltDown-conveyor-31|BeltEndOverlay",
+    "filename": "_BeltDown-conveyor-31|Overlay",
     "frame": { "x": 112, "y": 368, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1602,7 +1602,7 @@
     "duration": 100
    },
    {
-    "filename": "-conveyor-32|BeltEndOverlay",
+    "filename": "-conveyor-32|Overlay",
     "frame": { "x": 0, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1611,7 +1611,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-33|BeltEndOverlay",
+    "filename": "Straight-conveyor-33|Overlay",
     "frame": { "x": 16, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1620,7 +1620,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-34|BeltEndOverlay",
+    "filename": "Straight-conveyor-34|Overlay",
     "frame": { "x": 32, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1629,7 +1629,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-35|BeltEndOverlay",
+    "filename": "Straight-conveyor-35|Overlay",
     "frame": { "x": 48, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1638,7 +1638,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-36|BeltEndOverlay",
+    "filename": "Straight-conveyor-36|Overlay",
     "frame": { "x": 64, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1647,7 +1647,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-37|BeltEndOverlay",
+    "filename": "Straight-conveyor-37|Overlay",
     "frame": { "x": 80, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1656,7 +1656,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-38|BeltEndOverlay",
+    "filename": "Straight-conveyor-38|Overlay",
     "frame": { "x": 96, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1665,7 +1665,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-39|BeltEndOverlay",
+    "filename": "Straight-conveyor-39|Overlay",
     "frame": { "x": 112, "y": 384, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1674,7 +1674,7 @@
     "duration": 100
    },
    {
-    "filename": "Straight-conveyor-40|BeltEndOverlay",
+    "filename": "Straight-conveyor-40|Overlay",
     "frame": { "x": 0, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1683,7 +1683,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-41|BeltEndOverlay",
+    "filename": "Corner-conveyor-41|Overlay",
     "frame": { "x": 16, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1692,7 +1692,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-42|BeltEndOverlay",
+    "filename": "Corner-conveyor-42|Overlay",
     "frame": { "x": 32, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1701,7 +1701,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-43|BeltEndOverlay",
+    "filename": "Corner-conveyor-43|Overlay",
     "frame": { "x": 48, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1710,7 +1710,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-44|BeltEndOverlay",
+    "filename": "Corner-conveyor-44|Overlay",
     "frame": { "x": 64, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1719,7 +1719,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-45|BeltEndOverlay",
+    "filename": "Corner-conveyor-45|Overlay",
     "frame": { "x": 80, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1728,7 +1728,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-46|BeltEndOverlay",
+    "filename": "Corner-conveyor-46|Overlay",
     "frame": { "x": 96, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1737,7 +1737,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-47|BeltEndOverlay",
+    "filename": "Corner-conveyor-47|Overlay",
     "frame": { "x": 112, "y": 400, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1746,7 +1746,7 @@
     "duration": 100
    },
    {
-    "filename": "Corner-conveyor-48|BeltEndOverlay",
+    "filename": "Corner-conveyor-48|Overlay",
     "frame": { "x": 0, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1755,7 +1755,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-49|BeltEndOverlay",
+    "filename": "T-conveyor-49|Overlay",
     "frame": { "x": 16, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1764,7 +1764,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-50|BeltEndOverlay",
+    "filename": "T-conveyor-50|Overlay",
     "frame": { "x": 32, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1773,7 +1773,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-51|BeltEndOverlay",
+    "filename": "T-conveyor-51|Overlay",
     "frame": { "x": 48, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1782,7 +1782,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-52|BeltEndOverlay",
+    "filename": "T-conveyor-52|Overlay",
     "frame": { "x": 64, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1791,7 +1791,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-53|BeltEndOverlay",
+    "filename": "T-conveyor-53|Overlay",
     "frame": { "x": 80, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1800,7 +1800,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-54|BeltEndOverlay",
+    "filename": "T-conveyor-54|Overlay",
     "frame": { "x": 96, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1809,7 +1809,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-55|BeltEndOverlay",
+    "filename": "T-conveyor-55|Overlay",
     "frame": { "x": 112, "y": 416, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1818,7 +1818,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-56|BeltEndOverlay",
+    "filename": "T-conveyor-56|Overlay",
     "frame": { "x": 0, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1827,7 +1827,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-57|BeltEndOverlay",
+    "filename": "T-conveyor-57|Overlay",
     "frame": { "x": 16, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1836,7 +1836,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-58|BeltEndOverlay",
+    "filename": "T-conveyor-58|Overlay",
     "frame": { "x": 32, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1845,7 +1845,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-59|BeltEndOverlay",
+    "filename": "T-conveyor-59|Overlay",
     "frame": { "x": 48, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1854,7 +1854,7 @@
     "duration": 100
    },
    {
-    "filename": "T-conveyor-60|BeltEndOverlay",
+    "filename": "T-conveyor-60|Overlay",
     "frame": { "x": 64, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1863,7 +1863,7 @@
     "duration": 100
    },
    {
-    "filename": "Cross-conveyor-61|BeltEndOverlay",
+    "filename": "Cross-conveyor-61|Overlay",
     "frame": { "x": 80, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1872,7 +1872,7 @@
     "duration": 100
    },
    {
-    "filename": "Cross-conveyor-62|BeltEndOverlay",
+    "filename": "Cross-conveyor-62|Overlay",
     "frame": { "x": 96, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1881,7 +1881,7 @@
     "duration": 100
    },
    {
-    "filename": "Cross-conveyor-63|BeltEndOverlay",
+    "filename": "Cross-conveyor-63|Overlay",
     "frame": { "x": 112, "y": 432, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1890,7 +1890,7 @@
     "duration": 100
    },
    {
-    "filename": "Cross-conveyor-64|BeltEndOverlay",
+    "filename": "Cross-conveyor-64|Overlay",
     "frame": { "x": 0, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1899,7 +1899,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-65|BeltEndOverlay",
+    "filename": "Underground-conveyor-65|Overlay",
     "frame": { "x": 16, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1908,7 +1908,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-66|BeltEndOverlay",
+    "filename": "Underground-conveyor-66|Overlay",
     "frame": { "x": 32, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1917,7 +1917,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-67|BeltEndOverlay",
+    "filename": "Underground-conveyor-67|Overlay",
     "frame": { "x": 48, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1926,7 +1926,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-68|BeltEndOverlay",
+    "filename": "Underground-conveyor-68|Overlay",
     "frame": { "x": 64, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1935,7 +1935,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-69|BeltEndOverlay",
+    "filename": "Underground-conveyor-69|Overlay",
     "frame": { "x": 80, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1944,7 +1944,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-70|BeltEndOverlay",
+    "filename": "Underground-conveyor-70|Overlay",
     "frame": { "x": 96, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1953,7 +1953,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-71|BeltEndOverlay",
+    "filename": "Underground-conveyor-71|Overlay",
     "frame": { "x": 112, "y": 448, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1962,7 +1962,7 @@
     "duration": 100
    },
    {
-    "filename": "Underground-conveyor-72|BeltEndOverlay",
+    "filename": "Underground-conveyor-72|Overlay",
     "frame": { "x": 0, "y": 464, "w": 16, "h": 16 },
     "rotated": false,
     "trimmed": false,
@@ -1992,7 +1992,7 @@
   "layers": [
    { "name": "Directions(?)", "opacity": 255, "blendMode": "normal" },
    { "name": "Belts", "opacity": 255, "blendMode": "normal" },
-   { "name": "BeltEndOverlay", "opacity": 255, "blendMode": "normal", "color": "#4d3332ff" }
+   { "name": "Overlay", "opacity": 255, "blendMode": "normal" }
   ]
  }
 }

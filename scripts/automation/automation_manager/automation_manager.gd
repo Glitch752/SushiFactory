@@ -346,7 +346,7 @@ func update_belts() -> void:
                 # The consumer is responsible for reparenting / queue_free / etc
             else:
                 # No consumer: drop item off the belt
-                # TODO: Better behavior here to prevent infinite items from stacking up on the ground
+                # TODO: Better behavior here to not just delete items
                 item_tile_positions.erase(src)
                 items.erase(item)
                 occ.erase(src)
@@ -378,12 +378,12 @@ func update_item_interpolation(delta: float) -> void:
             item.z_index = 0
 
             if jump_dist <= 0: # transition out on exit underground
-                if new_jump < -1:
+                if new_jump < -0.9:
                     item.remove_meta("underground_jump")
                     item.scale = Vector2.ONE
                 else:
                     item.set_meta("underground_jump", new_jump)
-                    item.scale = Vector2.ONE * pow(-jump_dist, 1.5)
+                    item.scale = Vector2.ONE * pow(-jump_dist / 0.9, 0.5)
                     effective_step *= exit_distance_scale * 2
             
             else: # transition in on entrance underground
