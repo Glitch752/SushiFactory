@@ -68,10 +68,10 @@ static func update_belt(ctx: AutotileContext):
     var left_data: TileData = ctx.get_cell_tile_data(pos + Vector2i.LEFT)
     var right_data: TileData = ctx.get_cell_tile_data(pos + Vector2i.RIGHT)
 
-    var top_belt = up_data != null and up_data.get_custom_data("connects_to_belt")
-    var bottom_belt = bottom_data != null and bottom_data.get_custom_data("connects_to_belt")
-    var left_belt = left_data != null and left_data.get_custom_data("connects_to_belt")
-    var right_belt = right_data != null and right_data.get_custom_data("connects_to_belt")
+    var top_belt = up_data != null and up_data.get_custom_data("belt_links_down")
+    var bottom_belt = bottom_data != null and bottom_data.get_custom_data("belt_links_up")
+    var left_belt = left_data != null and left_data.get_custom_data("belt_links_right")
+    var right_belt = right_data != null and right_data.get_custom_data("belt_links_left")
 
     var top_facing_into = top_belt and up_data.get_custom_data("facing") == "down"
     var bottom_facing_into = bottom_belt and bottom_data.get_custom_data("facing") == "up"
@@ -144,23 +144,31 @@ const FRONT_DIRECTIONS: Dictionary[String, Vector2i] = {
     "right": Vector2i.RIGHT,
     "left": Vector2i.LEFT
 }
+const LINK_DIRECTION_DATA: Dictionary[Vector2i, String] = {
+    Vector2i.UP: "belt_links_up",
+    Vector2i.DOWN: "belt_links_down",
+    Vector2i.RIGHT: "belt_links_right",
+    Vector2i.LEFT: "belt_links_left"
+}
 
 static func update_underground_entrance(ctx: AutotileContext):
     var direction: String = ctx.cell_data.get_custom_data("facing")
     var atlas_pos = ENTRANCE_UNDERGROUND_BELTS[direction]
-    var back_data = ctx.get_cell_tile_data(ctx.cell - FRONT_DIRECTIONS[direction])
-    if not back_data or not back_data.get_custom_data("connects_to_belt"):
+    var back_dir = -FRONT_DIRECTIONS[direction]
+    var back_data = ctx.get_cell_tile_data(ctx.cell + back_dir)
+    if not back_data or not back_data.get_custom_data(LINK_DIRECTION_DATA[back_dir]):
         atlas_pos.x += BELT_ANIMATION_FRAMES
     ctx.set_underlayer_cell(ctx.cell, BELT_TILE_SOURCE_ID, atlas_pos)
 
     var overlay_atlas_pos = ENTRANCE_UNDERGROUND_BELT_OVERLAYS[direction]
     ctx.set_cell(ctx.cell, BELT_OVERLAY_SOURCE_ID, overlay_atlas_pos, 0)
-    
+
 static func update_underground_exit(ctx: AutotileContext):
     var direction: String = ctx.cell_data.get_custom_data("facing")
     var atlas_pos = EXIT_UNDERGROUND_BELTS[direction]
-    var front_data = ctx.get_cell_tile_data(ctx.cell + FRONT_DIRECTIONS[direction])
-    if not front_data or not front_data.get_custom_data("connects_to_belt"):
+    var front_dir = FRONT_DIRECTIONS[direction]
+    var front_data = ctx.get_cell_tile_data(ctx.cell + front_dir)
+    if not front_data or not front_data.get_custom_data(LINK_DIRECTION_DATA[front_dir]):
         atlas_pos.x += BELT_ANIMATION_FRAMES
     ctx.set_underlayer_cell(ctx.cell, BELT_TILE_SOURCE_ID, atlas_pos)
 
