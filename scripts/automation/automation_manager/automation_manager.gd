@@ -375,8 +375,6 @@ func update_item_interpolation(delta: float) -> void:
             var jump_dist = item.get_meta("underground_jump")
             var new_jump = jump_dist - step / tile_world_size.x
 
-            item.z_index = 0
-
             if jump_dist <= 0: # transition out on exit underground
                 if new_jump < -0.9:
                     item.remove_meta("underground_jump")

@@ -106,7 +106,7 @@ func _process(delta):
 
     var highlight_object = automation_objects_tilemap.get_cell_tile_data(targeted_tile)
     var highlight_zone = automation_zones_tilemap.get_cell_tile_data(targeted_tile)
-        
+    
     var context = ConstructableData.SillyConstructionContext.new()
     context.rotate_targeted_tile = _rotate_targeted_tile
     context.remove_targeted_tile = _remove_targeted_tile
