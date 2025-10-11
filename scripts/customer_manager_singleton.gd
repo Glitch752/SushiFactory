@@ -75,6 +75,10 @@ var store_is_open: bool = false
 var next_interval: float = 0.0
 
 func store_opened():
+    if not current_day_data:
+        push_error("No day data for customer manager")
+        return
+    
     customer_spawn_timer = current_day_data.customer_interval / 2
     store_is_open = true
 
