@@ -11,6 +11,7 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
 
 func _ready():
     StoreStatsSingleton.money_changed.connect(update_money_display)
+    StoreStatsSingleton.reputation_changed.connect(update_reputation_display)
 
     DayManagerSingleton.day_changed.connect(update_day_display)
     DayManagerSingleton.time_of_day_changed.connect(update_time_display)
@@ -57,7 +58,7 @@ func update_interaction_info(data: InteractionData):
     $%InteractionInfo.data = data
 
 func update_money_display(money: int):
-    $%MoneyLabel.text = "$" + str(money)
+    $%MoneyLabel.text = "¥" + str(money)
 
 func update_day_display(day: int):
     $%DayLabel.text = "Day " + str(day)

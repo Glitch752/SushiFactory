@@ -12,4 +12,5 @@ script = ExtResource("1_x36qj")
 single_items = Array[ExtResource("2_kwrro")]([ExtResource("3_x36qj"), ExtResource("4_kwrro"), ExtResource("5_gpd3w"), ExtResource("6_5joo6")])
 color = Color(0.848039, 0.734206, 0.447327, 1)
 name = "Advanced"
+pay = 2700
 metadata/_custom_type_script = "uid://cx3wtsk0viaog"

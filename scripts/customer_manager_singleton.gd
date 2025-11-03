@@ -153,6 +153,9 @@ class CustomerData:
 func satisfy_customer(customerData: CustomerData) -> void:
     customerData.begin_leaving()
     customerData.order.dispose()
+
+    # TODO: tip based on how quick the player was
+    # Japan has no tipping culture but... whatever
     customer_satisfied.emit()
 
 func anger_customer(customerData: CustomerData) -> void:

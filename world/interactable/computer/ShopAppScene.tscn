@@ -90,7 +90,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Item to purchase idk"
+text = "Rice cooker"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 128)
@@ -100,7 +100,7 @@ stretch_mode = 5
 
 [node name="Label2" type="Label" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "$30,000"
+text = "¥30,000"
 label_settings = SubResource("LabelSettings_iuw0s")
 
 [node name="PurchaseButton" type="Button" parent="VBoxContainer/MarginContainer/ScrollContainer/GridContainer/TemplateShopItem/MarginContainer/VBoxContainer"]
