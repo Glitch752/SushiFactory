@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://clkxj4bqb5lex" path="res://world/interactable/computer/desktop_time.gd" id="5_ky8ly"]
 [ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/emails/unread_email_indicator.gd" id="6_eahm3"]
 [ext_resource type="PackedScene" uid="uid://boax4x7k0evpy" path="res://world/interactable/computer/OrdersAppScene.tscn" id="6_h8s41"]
-[ext_resource type="Script" uid="uid://c5e3hpkep8iml" path="res://ui/containers/transform_container.gd" id="11_t7jio"]
+[ext_resource type="Script" uid="uid://bnh5odd4rwumx" path="res://world/interactable/computer/cursor_emulator.gd" id="11_t7jio"]
 [ext_resource type="Texture2D" uid="uid://m8sre02k4u" path="res://images/cursors.png" id="12_le26q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_220wo"]
@@ -70,6 +70,7 @@ ratio = 1.7778
 
 [node name="Panel" type="Panel" parent="AspectRatioContainer"]
 unique_name_in_owner = true
+clip_children = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_220wo")
 
@@ -80,10 +81,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="FlowContainer" type="FlowContainer" parent="AspectRatioContainer/Panel/MarginContainer"]
 layout_mode = 2
@@ -92,7 +93,7 @@ theme_override_constants/v_separation = 16
 vertical = true
 
 [node name="AmazingButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(64, 92)
 layout_mode = 2
 text = "Amazing"
 icon = SubResource("AtlasTexture_220wo")
@@ -105,7 +106,7 @@ app_scene = ExtResource("3_5qwym")
 window_title = "Amazing"
 
 [node name="RecipesButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(64, 92)
 layout_mode = 2
 text = "Recipes"
 icon = SubResource("AtlasTexture_cbafg")
@@ -118,7 +119,7 @@ app_scene = ExtResource("4_cbafg")
 window_title = "Recipes"
 
 [node name="OrdersButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(64, 92)
 layout_mode = 2
 text = "Orders"
 icon = SubResource("AtlasTexture_4ijat")
@@ -135,7 +136,7 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
 [node name="EmailButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer/Control"]
-custom_minimum_size = Vector2(64, 80)
+custom_minimum_size = Vector2(64, 92)
 layout_mode = 1
 offset_right = 75.0
 offset_bottom = 80.0
@@ -150,11 +151,12 @@ app_scene = ExtResource("4_5amdb")
 window_title = "Email"
 
 [node name="UnreadEmailIndicator" type="TextureRect" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer/Control"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
-offset_left = 49.0654
-offset_top = -1.0
-offset_right = 73.0654
-offset_bottom = 23.0
+offset_left = 49.06537
+offset_top = -5.0
+offset_right = 81.06537
+offset_bottom = 27.0
 texture = SubResource("AtlasTexture_eahm3")
 script = ExtResource("6_eahm3")
 
@@ -184,15 +186,26 @@ layout_mode = 2
 text = "5:30 PM"
 script = ExtResource("5_ky8ly")
 
+[node name="Windows" type="Control" parent="AspectRatioContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="Cursor" type="Container" parent="AspectRatioContainer/Panel"]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("11_t7jio")
 metadata/_custom_type_script = "uid://c5e3hpkep8iml"
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Panel/Cursor"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("AtlasTexture_ylhih")

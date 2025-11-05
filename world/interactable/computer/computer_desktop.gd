@@ -6,7 +6,7 @@ var cascade_offset = Vector2(50, 20)
 const MAXIMUM_WINDOWS = 20
 
 func open_window(window_title: String, app_scene_instance: Node) -> void:
-    var mainPanel = $%Panel
+    var mainPanel = $%Windows
 
     var window = window_scene.instantiate()
     window.window_title = window_title
