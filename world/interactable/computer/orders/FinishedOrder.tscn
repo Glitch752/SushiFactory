@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://bblkc8idyqey7"]
+
+[ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_iwr7b"]
+[ext_resource type="Script" uid="uid://ifipv62leoss" path="res://world/interactable/computer/orders/finished_order.gd" id="2_iwr7b"]
+[ext_resource type="Texture2D" uid="uid://cwps3akwx0brn" path="res://images/objects.png" id="3_1eq8g"]
+[ext_resource type="Script" uid="uid://bpuyfn2rtvibk" path="res://ui/containers/stack_container.gd" id="4_nqrag"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfe7y"]
+atlas = ExtResource("3_1eq8g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqa5"]
+atlas = ExtResource("3_1eq8g")
+region = Rect2(96, 0, 16, 16)
+
+[node name="Order" type="MarginContainer"]
+offset_right = 276.0
+offset_bottom = 70.0
+theme = ExtResource("1_iwr7b")
+script = ExtResource("2_iwr7b")
+positive_profit_color = Color(0.356863, 0.745098, 0.584314, 1)
+zero_profit_color = Color(0.75, 0.614, 0.49499997, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="IconAspect" type="Container" parent="PanelContainer/MarginContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+script = ExtResource("4_nqrag")
+metadata/_custom_type_script = "uid://bpuyfn2rtvibk"
+
+[node name="PlateRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/IconAspect"]
+visible = false
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+texture = SubResource("AtlasTexture_lfe7y")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/IconAspect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_rfqa5")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 10
+
+[node name="ItemName" type="RichTextLabel" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Order Text[/b]
+[color=#ff5500ff]20h remaining[/color]"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 10
+
+[node name="ItemProfit" type="RichTextLabel" parent="PanelContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#bf9d7eff]+¥0[/color]
+[color=#ff9999]-1 reputation[/color]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1

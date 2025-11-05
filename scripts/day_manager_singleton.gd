@@ -112,7 +112,7 @@ func format_time_of_day() -> String:
     
     return "%02d:%02d %s" % [hours, minutes, suffix]
 
-func format_duration(hours: float) -> String:
+static func format_duration(hours: float) -> String:
     var h = int(hours)
     var m = int((hours - h) * 60)
     if h > 0 and m > 0:

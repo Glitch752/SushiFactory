@@ -3,7 +3,7 @@ extends Node
 var CustomerScene = preload("res://world/characters/Customer.tscn")
 
 signal order_added(data: OrderData)
-signal customer_satisfied()
+signal customer_satisfied(difficulty: OrderPossibilities)
 signal customer_angered()
 
 var customer_paths_parent: Node2D
@@ -132,10 +132,13 @@ class CustomerData:
     var target_progress: float = 0.0
     var stop_timer: float = 0.0
 
+    var original_difficulty: OrderPossibilities
+
     @warning_ignore("shadowed_variable")
-    func _init(node: Node2D, order: OrderData):
+    func _init(node: Node2D, order: OrderData, original_difficulty: OrderPossibilities):
         self.node = node
         self.order = order
+        self.original_difficulty = original_difficulty
     
     func begin_leaving():
         state = CustomerState.WALKING_TO_LEAVE_LINE
@@ -156,7 +159,7 @@ func satisfy_customer(customerData: CustomerData) -> void:
 
     # TODO: tip based on how quick the player was
     # Japan has no tipping culture but... whatever
-    customer_satisfied.emit()
+    customer_satisfied.emit(customerData.original_difficulty)
 
 func anger_customer(customerData: CustomerData) -> void:
     customerData.begin_leaving()
@@ -186,11 +189,12 @@ func spawn_customer() -> void:
 
     # Temporary
     var difficulty = current_day_data.pick_random_difficulty()
-    var item = DayManagerSingleton.get_possible_orders(difficulty).get_random_item()
+    var order_possibilities = DayManagerSingleton.get_possible_orders(difficulty)
+    var item = order_possibilities.get_random_item()
 
     var order = OrderData.new(current_day_data.next_customer_patience(), item)
     
-    var customerData = CustomerData.new(customer, order)
+    var customerData = CustomerData.new(customer, order, order_possibilities)
     customers.append(customerData)
 
     order_added.emit(order)
