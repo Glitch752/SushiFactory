@@ -24,6 +24,8 @@ func pause(duration = 0.75):
     if animating:
         return
     
+    $%ReturnButton.grab_focus.call_deferred()
+    
     paused = true
     animating = true
     InputTargetSingleton.activate(InputTargetSingleton.InputTarget.PauseMenu)

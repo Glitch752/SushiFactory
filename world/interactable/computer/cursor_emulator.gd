@@ -1,5 +1,3 @@
-@tool
-
 extends TransformContainer
 
 var cursor_velocity: Vector2 = Vector2.ZERO

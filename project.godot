@@ -33,6 +33,7 @@ MusicPlayer="*res://MusicPlayer.tscn"
 SoundManager="*res://ui/audio/SoundManager.tscn"
 InputTargetSingleton="*res://scripts/input_target_singleton.gd"
 InputSettingsSingleton="*res://scripts/input_settings_singleton.gd"
+LocalizationSingleton="*res://scripts/localization_singleton.gd"
 
 [display]
 
@@ -43,12 +44,14 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/resource_translation/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://addons/": "purple",
 "res://data/": "orange",
+"res://localization/": "red",
 "res://world/interactable/": "teal"
 }
 

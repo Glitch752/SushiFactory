@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://br5jostnw8e3n"]
+[gd_scene load_steps=24 format=4 uid="uid://br5jostnw8e3n"]
 
 [ext_resource type="TileSet" uid="uid://blglo3faygf1b" path="res://world/tiles.tres" id="1_5yleq"]
 [ext_resource type="TileSet" uid="uid://bofref8qw03nk" path="res://world/floor.tres" id="1_cx167"]
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_dolsu"]
-[ext_resource type="Script" uid="uid://nli2t3pwuw5m" path="res://scripts/menu/play.gd" id="1_uubjt"]
 [ext_resource type="Script" uid="uid://dv3b1k34oph1e" path="res://scripts/menu/menu.gd" id="2_dlksc"]
 [ext_resource type="Script" uid="uid://bhg3uiavjqpp1" path="res://data/item_data.gd" id="3_ktlje"]
 [ext_resource type="Texture2D" uid="uid://eehbl3msp0i5" path="res://images/title.png" id="3_ylpcl"]
@@ -17,6 +16,9 @@
 [ext_resource type="Resource" uid="uid://s8px34jyxmgk" path="res://data/items/dishes/salmon_temaki.tres" id="10_mnkgh"]
 [ext_resource type="TileSet" uid="uid://djhoqnq1m7ccr" path="res://world/automation_underlayer_tiles.tres" id="12_h06ok"]
 [ext_resource type="StyleBox" uid="uid://c758r4iugw48b" path="res://ui/stylebox/9_patch_stylebox_hover.tres" id="13_elwp8"]
+[ext_resource type="Script" uid="uid://bx5uhiyqqw13q" path="res://scripts/menu/play_en.gd" id="16_2qy1q"]
+[ext_resource type="StyleBox" uid="uid://b3j8r1u3k3k2k" path="res://ui/stylebox/9_patch_stylebox_outline.tres" id="16_lwhxt"]
+[ext_resource type="Script" uid="uid://cq8f3ktgsifiq" path="res://scripts/menu/play_jp.gd" id="17_2qy1q"]
 [ext_resource type="Script" uid="uid://cbchu37yjndy5" path="res://scripts/hide_in_build.gd" id="18_n8j1b"]
 
 [sub_resource type="Curve2D" id="Curve2D_dlksc"]
@@ -24,8 +26,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -776, 688, 0, 0, 0, 0, 2400, 688)
 }
 point_count = 2
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dlksc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_elwp8"]
 line_spacing = -3.0
@@ -78,24 +78,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="MenuItems"]
-custom_minimum_size = Vector2(256, 46)
+[node name="Buttons" type="HBoxContainer" parent="MenuItems"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -256.0
-offset_top = 512.0
-offset_bottom = 557.0
+offset_left = -520.0
+offset_top = 504.0
+offset_right = 8.0
+offset_bottom = 550.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
+theme_override_constants/separation = 16
+
+[node name="EnglishPlay" type="Button" parent="MenuItems/Buttons"]
+custom_minimum_size = Vector2(256, 46)
+layout_mode = 2
+focus_neighbor_right = NodePath("../JPPlay")
+focus_next = NodePath("../JPPlay")
 theme_override_styles/normal = ExtResource("4_n4eug")
 theme_override_styles/pressed = ExtResource("13_elwp8")
 theme_override_styles/hover = ExtResource("13_elwp8")
 theme_override_styles/hover_pressed = ExtResource("13_elwp8")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_dlksc")
-text = "Play"
-script = ExtResource("1_uubjt")
+theme_override_styles/focus = ExtResource("16_lwhxt")
+text = "Play (EN)"
+script = ExtResource("16_2qy1q")
+
+[node name="JPPlay" type="Button" parent="MenuItems/Buttons"]
+custom_minimum_size = Vector2(256, 46)
+layout_mode = 2
+focus_neighbor_left = NodePath("../EnglishPlay")
+focus_previous = NodePath("../EnglishPlay")
+theme_override_styles/normal = ExtResource("4_n4eug")
+theme_override_styles/pressed = ExtResource("13_elwp8")
+theme_override_styles/hover = ExtResource("13_elwp8")
+theme_override_styles/hover_pressed = ExtResource("13_elwp8")
+theme_override_styles/focus = ExtResource("16_lwhxt")
+text = "Play (JP)"
+script = ExtResource("17_2qy1q")
 
 [node name="TextureRect" type="TextureRect" parent="MenuItems"]
 custom_minimum_size = Vector2(1024, 0)
@@ -166,4 +186,7 @@ label_settings = SubResource("LabelSettings_dolsu")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="pressed" from="MenuItems/Button" to="MenuItems/Button" method="_on_pressed"]
+[connection signal="focus_entered" from="MenuItems/Buttons/EnglishPlay" to="MenuItems/Buttons/EnglishPlay" method="_on_focus_entered"]
+[connection signal="pressed" from="MenuItems/Buttons/EnglishPlay" to="MenuItems/Buttons/EnglishPlay" method="_on_pressed"]
+[connection signal="focus_entered" from="MenuItems/Buttons/JPPlay" to="MenuItems/Buttons/JPPlay" method="_on_focus_entered"]
+[connection signal="pressed" from="MenuItems/Buttons/JPPlay" to="MenuItems/Buttons/JPPlay" method="_on_pressed"]
