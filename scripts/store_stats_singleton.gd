@@ -1,11 +1,12 @@
 extends Node
 
-
 func _ready() -> void:
     DayManagerSingleton.day_started.connect(_day_started)
     CustomerManagerSingleton.customer_angered.connect(anger_customer)
     CustomerManagerSingleton.customer_satisfied.connect(satisfy_customer)
 
+
+## Money
 
 signal money_changed(new_money: int)
 ## This is in Yen! 1 usd ~= 150 yen.
@@ -14,6 +15,8 @@ signal money_changed(new_money: int)
         money = value
         money_changed.emit(value)
 
+
+## Reputation
 
 var max_reputation: int = 5
 
@@ -26,6 +29,9 @@ signal reputation_changed(new_reputation: int)
         if reputation <= 0:
             # TODO: lose screen
             print("you lose or something")
+
+
+## Logic
 
 func _day_started() -> void:
     if reputation < max_reputation:
@@ -42,3 +48,8 @@ func satisfy_customer(difficulty: OrderPossibilities) -> void:
 
 func pay_for_dish(difficulty: OrderPossibilities):
     money += difficulty.pay
+
+
+func _play_reset() -> void:
+    money = 0
+    reputation = max_reputation

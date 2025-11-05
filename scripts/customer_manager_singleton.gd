@@ -167,6 +167,13 @@ func anger_customer(customerData: CustomerData) -> void:
 
 var customers: Array[CustomerData] = []
 
+## Reset logic
+
+func _play_reset():
+    for c in customers:
+        c.node.queue_free()
+    customers.clear()
+
 ## Checks if all customers have left the restaurant.
 func all_customers_left() -> bool:
     return customers.size() == 0
@@ -215,7 +222,6 @@ func _physics_process(delta):
 
     for i in range(customers.size()):
         var customerData: CustomerData = customers[i]
-        # TODO: Leaving customers.
         
         # holy stack of if statements
         if customerData.state == CustomerState.ENTERING or customerData.state == CustomerState.STOPPED:

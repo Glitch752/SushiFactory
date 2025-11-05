@@ -15,6 +15,10 @@ func _ready():
     for i in SLOT_COUNT:
         inventory_items.append(null)
 
+func _play_reset() -> void:
+    inventory_items.clear()
+    _ready()
+
 func all_inventory_items() -> Array[Node2D]:
     return inventory_items
 
