@@ -9,8 +9,15 @@
 import polib
 import re
 
-# from openai import OpenAI
-# client = OpenAI()
+from openai import OpenAI
+client = OpenAI()
+
+def log_completion_result(prompt: str, response: str, filename: str = "completions.txt"):
+    with open(filename, "a", encoding="utf-8") as f:
+        f.write("=== PROMPT ===\n")
+        f.write(prompt + "\n")
+        f.write("=== RESPONSE ===\n")
+        f.write(response + "\n\n")
 
 def mask_tags(text: str) -> tuple[str, list[str]]:
     """
@@ -75,9 +82,6 @@ def unmask_tags(text: str, mapping: list[str]) -> str:
 
     pattern = re.compile(r'__([0-9]+)_[A-Z0-9_-]+__')
     
-    print("----------------------------")
-    print(text)
-    
     # Repeatedly find and replace. We can't use `.sub` once... for some reason??
     while True:
         new_text = pattern.sub(replacement, text, 1)
@@ -85,38 +89,41 @@ def unmask_tags(text: str, mapping: list[str]) -> str:
             break
         text = new_text
     
-    print(text)
     return text
 
 def translate_text(text: str, tl_desc: str, target_language: str):
     # Example call to GPT or translation API (this is a mock function)
     
-    # response = client.chat.completions.create(
-    #     model="gpt-4-turbo",
-    #     messages=[
-    #         {"role": "system", "content": f"You are a translation engine that translates text to {target_language} while preserving tags like __1_ITEM_MEANING__ and format specifiers. You do not respond with anything except the translated text."},
-    #         {"role": "user", "content": f"The following text is \"{tl_desc}\". Translate the following text to {target_language}:\n\n{text}"}
-    #     ]
-    # )
+    print(f"Translating {text}")
     
-    # translated = response.choices[0].message.content.strip()
+    response = client.chat.completions.create(
+        model="gpt-5-mini",
+        messages=[
+            {"role": "system", "content": f"You are a translation engine that translates text to {target_language} while preserving tags like __1_ITEM_MEANING__ and format specifiers. You do not respond with anything except the translated text."},
+            {"role": "user", "content": f"The following text is \"{tl_desc}\". Translate the following text to {target_language}:\n\n{text}"}
+        ]
+    )
+    
+    translated = response.choices[0].message.content.strip()
 
-    # return translated
-    
-    # Mock translation: replace non-tag words unlike __1_DO_NOT_CHANGE__ with dashes
-    def mock_translate_word(word: str) -> str:
-        if re.match(r'__\d+_[A-Z0-9_]+__', word):
-            return word
-        elif re.match(r'\s+|%.', word):
-            return word
-        else:
-            return '-' * len(word)
-    
-    translated = ''.join(mock_translate_word(w) for w in re.findall(r'\S+|\s+', text))
-    
-    # Temporary before I blow through $100 of API credits
-    # return f"[Translated as a \"{tl_desc}\" to {target_language}]: {translated}"
+    print(f"Translated to: {translated}")
+
     return translated
+    
+    # # Mock translation: replace non-tag words unlike __1_DO_NOT_CHANGE__ with dashes
+    # def mock_translate_word(word: str) -> str:
+    #     if re.match(r'__\d+_[A-Z0-9_]+__', word):
+    #         return word
+    #     elif re.match(r'\s+|%.', word):
+    #         return word
+    #     else:
+    #         return '-' * len(word)
+    
+    # translated = ''.join(mock_translate_word(w) for w in re.findall(r'\S+|\s+', text))
+    
+    # # Temporary before I blow through $100 of API credits
+    # # return f"[Translated as a \"{tl_desc}\" to {target_language}]: {translated}"
+    # return translated
 
 def create_po_file(translations: dict[str, tuple[str, str]], language: str):
     po = polib.POFile()

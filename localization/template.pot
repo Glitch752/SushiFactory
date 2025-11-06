@@ -645,22 +645,18 @@ msgid ""
 "Try another browser if you experience this."
 msgstr ""
 
-#: Menu.tscn
-msgid "Hi! I see you there :)"
-msgstr ""
-
-#: Menu.tscn
-msgid ""
-"I promise there's nothing\n"
-"over here :3"
-msgstr ""
-
 #: ui/PauseMenu.tscn
 msgid "Paused"
 msgstr ""
 
 #: ui/PauseMenu.tscn
 msgid "Resume"
+msgstr ""
+
+#. TRANSLATORS: Exit open menu
+#: ui/PauseMenu.tscn
+#: localization/interactable_fixes.tlstrings
+msgid "Exit"
 msgstr ""
 
 #: ui/PauseMenu.tscn
@@ -917,11 +913,6 @@ msgstr ""
 #. TRANSLATORS: Change active slot rightward
 #: localization/interactable_fixes.tlstrings
 msgid "Switch left"
-msgstr ""
-
-#. TRANSLATORS: Exit open menu
-#: localization/interactable_fixes.tlstrings
-msgid "Exit"
 msgstr ""
 
 #: world/interactable/cutting_board.gd

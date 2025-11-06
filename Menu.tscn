@@ -167,6 +167,7 @@ Try another browser if you experience this."
 label_settings = SubResource("LabelSettings_elwp8")
 
 [node name="Label" type="Label" parent="."]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 456.0
 offset_top = 2968.0
@@ -176,6 +177,7 @@ text = "Hi! I see you there :)"
 label_settings = SubResource("LabelSettings_dolsu")
 
 [node name="Label2" type="Label" parent="."]
+auto_translate_mode = 2
 layout_mode = 0
 offset_left = 7000.0
 offset_top = 432.0
