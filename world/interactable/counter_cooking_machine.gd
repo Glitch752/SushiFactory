@@ -14,14 +14,22 @@ var current_output: ItemData = null
 @export var machine: MachineData
 
 ## e.g. Stove Top
-@export var machine_name: String
+@export var machine_name: String:
+    get:
+        return tr(machine_name)
 ## e.g. A stove top with a frying pan.
-@export var interactable_description: String
+@export var interactable_description: String:
+    get:
+        return tr(interactable_description)
 
 ## e.g. cooking, frying, etc
-@export var action_word: String = "cooking"
+@export var action_word: String = "cooking":
+    get:
+        return tr(action_word)
 ## e.g. cooked, fried, etc
-@export var action_word_past: String = "cooked"
+@export var action_word_past: String = "cooked":
+    get:
+        return tr(action_word_past)
 
 @onready var sprite: Sprite2D = $%Sprite
 @onready var active_sound_node: AudioStreamPlayer2D = $%ActiveSound
@@ -135,26 +143,48 @@ func get_interaction_data() -> InteractionData:
     if input_item_id == null:
         var held_item = PlayerInventorySingleton.held_item_data()
         if held_item and recipes.has(held_item.id):
-            action = InteractionAction.new("Add %s" % held_item.item_name, add_item)
-            desc = "%s\nAdd %s to start %s." % [interactable_description, held_item.item_name.to_lower(), action_word]
+            action = InteractionAction.new(
+                tr("Add %s", "Add item %s to a machine") % held_item.item_name, add_item
+            )
+            desc = interactable_description + "\n" + (
+                tr("Add {input_item} to start {action_word}.")
+                    .format({ "input_item": held_item.item_name.to_lower(), "action_word": action_word })
+            )
         else:
-            desc = "%s\nIt's empty." % interactable_description
+            desc = interactable_description + "\n" + tr("It's empty.")
     elif cooking_time_remaining > 0:
         var minutes_remaining = int(cooking_time_remaining * 60)
 
         if minutes_remaining > 1:
-            desc = "%s\nIt's %s %s for the next %d minutes." % [interactable_description, action_word, current_output.item_name.to_lower(), minutes_remaining]
+            desc = interactable_description + "\n" + (
+                tr("It's {action_word} {output_item} for the next {minutes} minutes.")
+                    .format({ "action_word": action_word, "output_item": current_output.item_name.to_lower(), "minutes": minutes_remaining })
+            )
         elif minutes_remaining == 1:
-            desc = "%s\nIt's %s %s for the next minute." % [interactable_description, action_word, current_output.item_name.to_lower()]
+            desc = interactable_description + "\n" + (
+                tr("It's {action_word} {output_item} for the next minute.")
+                    .format({ "action_word": action_word, "output_item": current_output.item_name.to_lower() })
+            )
         else:
-            desc = "%s\nIt's almost done %s %s." % [interactable_description, action_word, current_output.item_name.to_lower()]
+            desc = interactable_description + "\n" + (
+                tr("It's almost done {action_word} {output_item}.")
+                    .format({ "action_word": action_word, "output_item": current_output.item_name.to_lower() })
+            )
     elif cooking_time_remaining == 0 and input_item_id != null:
         var held_item = PlayerInventorySingleton.held_item_data()
         if held_item == null:
-            action = InteractionAction.new("Take %s" % current_output.item_name, take_item)
+            action = InteractionAction.new(tr(
+                "Take %s", "Take item %s from a machine"
+            ) % current_output.item_name, take_item)
         elif recipes.has(held_item.id):
-            action = InteractionAction.new("Take %s and add %s" % [current_output.item_name, held_item.item_name], take_add_swap)
+            action = InteractionAction.new(tr(
+                "Take {removed_item} and add {added_item}"
+            ).format({ "removed_item": current_output.item_name, "added_item": held_item.item_name }), take_add_swap)
         elif held_item.id == &"plate":
-            action = InteractionAction.new("Take %s and add to plate" % current_output.item_name, take_plate_add, 0.25)
-        desc = "%s\nThe %s is %s and ready to take." % [interactable_description, current_output.item_name, action_word_past]
+            action = InteractionAction.new(tr(
+                "Take %s and add to plate"
+            ) % current_output.item_name, take_plate_add, 0.25)
+        desc = interactable_description + "\n" + tr(
+            "The {item} is {action_word_past} and ready to take."
+        ).format({ "item": current_output.item_name, "action_word_past": action_word_past })
     return InteractionData.new(interactable_name, desc, action)

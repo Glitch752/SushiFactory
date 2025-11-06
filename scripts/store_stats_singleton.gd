@@ -33,7 +33,8 @@ signal reputation_changed(new_reputation: int)
 
 ## Logic
 
-func _day_started() -> void:
+@warning_ignore("unused_parameter")
+func _day_started(new_day: int, data: DayData, info_text: String) -> void:
     if reputation < max_reputation:
         reputation += 1
 

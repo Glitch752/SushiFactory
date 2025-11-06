@@ -24,9 +24,9 @@ var current_cursor_type: CursorType = CursorType.Arrow
 
 var controlled_by_analog: bool = false
 
-const CURSOR_MOVEMENT_SPEED: float = 20000.
+const CURSOR_MOVEMENT_SPEED: float = 1000
 ## Really high acceleration; makes small movements easier
-const CURSOR_ACCELERATION: float = 10_000_000
+const CURSOR_ACCELERATION: float = 500_000
 
 func _ready():
     pass
@@ -43,12 +43,15 @@ func is_in(node: Control, point: Vector2):
 func _process(delta: float) -> void:
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.ComputerDesktop):
         return
+    
+    var real_delta = delta / Engine.time_scale
+    print(Engine.time_scale)
 
     var analog = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-    cursor_velocity = cursor_velocity.move_toward(analog * CURSOR_MOVEMENT_SPEED, CURSOR_ACCELERATION * delta)
+    cursor_velocity = cursor_velocity.move_toward(analog * CURSOR_MOVEMENT_SPEED, CURSOR_ACCELERATION * real_delta)
 
     if not cursor_velocity.is_zero_approx():
-        emulate_mouse_motion(cursor_velocity, delta)
+        emulate_mouse_motion(cursor_velocity, real_delta)
 
 func _input(event: InputEvent) -> void:
     if not InputTargetSingleton.is_active(InputTargetSingleton.InputTarget.ComputerDesktop):

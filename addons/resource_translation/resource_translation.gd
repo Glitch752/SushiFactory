@@ -44,9 +44,23 @@ func recursively_load_resources(subpath: String = "", _type_hint: String = "") -
 func generate_pot_files() -> void:
     var resources = recursively_load_resources()
 
-    # Update the project's internationalization/locale/translations_pot_files to the resources
-    # Maybe we'll eventually want to maintain entries that aren't under data/, but this works fine for now
-    ProjectSettings.set_setting("internationalization/locale/translations_pot_files", resources)
+    # Preserve any existing POT files that aren't under res://data and merge them with the newly discovered resources.
+    var existing = ProjectSettings.get_setting("internationalization/locale/translations_pot_files", [])
+    var merged: Array = []
+
+    for p in resources:
+        merged.append(p)
+
+    for p in existing:
+        if typeof(p) != TYPE_STRING:
+            continue
+        if p.begins_with("res://data"):
+            continue
+        if merged.has(p):
+            continue
+        merged.append(p)
+
+    ProjectSettings.set_setting("internationalization/locale/translations_pot_files", merged)
     ProjectSettings.save()
 
     print_rich("[color=green]Successfully updated internationalization settings![/color]")

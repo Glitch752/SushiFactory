@@ -41,15 +41,23 @@ func lower_start(text: String) -> String:
 func get_interaction_data() -> InteractionData:
     var held_item = PlayerInventorySingleton.held_item_data()
     var action: InteractionAction = null
-    var interactable_name = "Table"
+    var interactable_name = tr("Table", "A counter")
     if held_item == null and current_object != null:
-        action = InteractionAction.new("Take %s" % current_object.data.item_name, take_item)
+        action = InteractionAction.new(
+            tr("Take %s", "Take item %s from a table") % current_object.data.item_name, take_item
+        )
     elif held_item and current_object == null:
-        action = InteractionAction.new("Place %s" % held_item.item_name, place_item)
+        action = InteractionAction.new(
+            tr("Place %s", "Place item %s on a table") % held_item.item_name, place_item
+        )
     elif has_plate() and held_item and current_object.can_add(held_item):
-        action = InteractionAction.new("Put %s on the plate" % held_item.item_name, add_to_plate, 0.25)
+        action = InteractionAction.new(
+            tr("Put %s on the plate") % held_item.item_name, add_to_plate, 0.25
+        )
     elif held_item and current_object and held_item.id == &"plate" and PlayerInventorySingleton.held_item.can_add(current_object.data):
-        action = InteractionAction.new("Put %s on the plate" % current_object.data.item_name, move_to_held_plate, 0.25)
+        action = InteractionAction.new(
+            tr("Put %s on the plate") % current_object.data.item_name, move_to_held_plate, 0.25
+        )
     
     var secondary_action: InteractionAction = null
     if has_plate():
@@ -57,5 +65,8 @@ func get_interaction_data() -> InteractionData:
         if dish != null:
             secondary_action = InteractionAction.new("Make %s" % dish, current_object.make_recipe, 2.5)
     
-    var desc = "An empty table." if current_object == null else "Has %s\n%s" % [current_object.data.item_name.to_lower(), current_object.get_description()]
+    var desc = \
+        tr("An empty table.") if current_object == null else \
+        (tr("Has %s", "A table has item %s") % current_object.data.item_name.to_lower()) +\
+            "\n" + current_object.get_description()
     return InteractionData.new(interactable_name, desc, action, secondary_action)

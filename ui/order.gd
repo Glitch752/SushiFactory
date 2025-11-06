@@ -39,4 +39,8 @@ func update():
     background_stylebox.bg_color = color.darkened(0.5)
     $%Countdown.add_theme_stylebox_override("fill", background_stylebox)
 
-    $%ItemName.text = "[b]%s[/b]\n[color=#%s]%s remaining[/color]" % [order_text, color.to_html(), DayManagerSingleton.format_duration(time_remaining)]
+    $%ItemName.text = "[b]%s[/b]\n[color=#%s]%s remaining[/color]" % [
+        order_text,
+        color.to_html(),
+        preload("res://scripts/day_manager_singleton.gd").format_duration(time_remaining)
+    ]

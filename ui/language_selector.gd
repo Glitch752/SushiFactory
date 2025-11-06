@@ -5,19 +5,18 @@ func _on_en_lang_button_pressed() -> void:
     LocalizationSingleton.set_lang("en")
     update_lang_buttons()
 
-    $ENLangButton.grab_focus()
+    $JPLangButton.grab_focus.call_deferred()
 
 func _on_jp_lang_button_pressed() -> void:
     LocalizationSingleton.set_lang("jp")
     update_lang_buttons()
 
-    $JPLangButton.grab_focus()
+    $ENLangButton.grab_focus.call_deferred()
 
 func update_lang_buttons():
     var lang = LocalizationSingleton.get_lang()
-    print(lang)
 
-    $ENLangButton.disabled = lang == "en_US"
+    $ENLangButton.disabled = lang == "en"
     $JPLangButton.disabled = lang == "jp"
 
     $ENLangButton.focus_mode = FocusMode.FOCUS_NONE if $ENLangButton.disabled else FocusMode.FOCUS_ALL

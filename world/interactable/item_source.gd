@@ -26,8 +26,8 @@ func interact():
 
 func get_interaction_data() -> InteractionData:
     var action: InteractionAction = null
-    var interactable_name = item_data.item_name + " Source"
-    var desc = "A source of %s. You can pick one up here." % item_data.item_name.to_lower()
+    var interactable_name = tr("{item} Source").format({ "item": item_data.item_name })
+    var desc = tr("A source of %s. You can pick one up here.") % item_data.item_name.to_lower()
     if !PlayerInventorySingleton.has_item():
-        action = InteractionAction.new("Pick Up %s" % item_data.item_name, interact)
+        action = InteractionAction.new(tr("Pick Up {item}").format({ "item": item_data.item_name }), interact)
     return InteractionData.new(interactable_name, desc, action)

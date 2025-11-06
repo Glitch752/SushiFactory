@@ -60,6 +60,27 @@
 # res://data/constructables/counter.tres
 # res://data/constructables/edit.tres
 # res://data/constructables/underground_belt.tres
+# res://Level.tscn
+# res://Menu.tscn
+# res://ui/PauseMenu.tscn
+# res://world/interactable/item_source.gd
+# res://world/interactable/Computer.tscn
+# res://world/interactable/ConstructionCorner.tscn
+# res://world/interactable/CounterCookingMachine.tscn
+# res://world/interactable/CuttingBoard.tscn
+# res://world/interactable/Fryer.tscn
+# res://world/interactable/Interactable.tscn
+# res://world/interactable/ItemSource.tscn
+# res://world/interactable/PlateStack.tscn
+# res://world/interactable/RiceCooker.tscn
+# res://world/interactable/Stovetop.tscn
+# res://world/interactable/TableSurfaceInteractable.tscn
+# res://world/interactable/TrashCan.tscn
+# res://world/interactable/trash_can.gd
+# res://world/interactable/table_surface_interactable.gd
+# res://ui/LevelInterface.tscn
+# res://ui/Order.tscn
+# res://scripts/data_loader/data_loader.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -150,7 +171,7 @@ msgid ""
 "\n"
 "Speaking of which, don't feel like you have to do everything by hand. I've authorized you to use the day's earnings to invest back into the kitchen. If a task is getting tedious, buy a machine to help out! Working smart is just as important as working hard. In the back corner of the kitchen, there are all the tools you'll need to re-arrange things to your liking or to create a more efficient layout, too. A good flow can make all the difference when things get busy.\n"
 "\n"
-"Now, for tomorrow: we're bringing back our simple combination dishes. This means you'll start getting orders for things that require multiple ingredients. It’s simple, really: to prepare a full dish, just place all of its required ingredients on a plate at the same time and combine them. It's all about good presentation!\n"
+"Now, for tomorrow: we're bringing back our simple combination dishes. This means you'll start getting orders for things that require multiple ingredients. It's simple, really: to prepare a full dish, just place all of its required ingredients on a plate at the same time and combine them. It's all about good presentation!\n"
 "\n"
 "[reputation=high]\n"
 "Get some rest. You've earned it. Based on today, I know you'll handle tomorrow just fine.\n"
@@ -589,4 +610,175 @@ msgstr ""
 msgid ""
 "A pair of belts linked underground.\n"
 "Can be used to cross two belts."
+msgstr ""
+
+#: Level.tscn
+msgid "Outside environment art coming soon :)"
+msgstr ""
+
+#: Menu.tscn
+msgid "Play (EN)"
+msgstr ""
+
+#: Menu.tscn
+msgid "Play (JP)"
+msgstr ""
+
+#: Menu.tscn
+msgid ""
+"All assets except some SFX are custom\n"
+"Open in a new tab if you're having issues :)"
+msgstr ""
+
+#: Menu.tscn
+msgid ""
+"Some people have reported the game crashing!\n"
+"Try another browser if you experience this."
+msgstr ""
+
+#: Menu.tscn
+msgid "Hi! I see you there :)"
+msgstr ""
+
+#: Menu.tscn
+msgid ""
+"I promise there's nothing\n"
+"over here :3"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid "Paused"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid "Resume"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid "English"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid "JP"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid "Options"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid ""
+"[b]Expected customer rate[/b]: [color=#ffff99]10/hr[/color]\n"
+"[b]Customer patience[/b]: [color=#ffff99]2hrs[/color]\n"
+"[b]Order difficulties[/b]: [color=#99ff88]basic[/color], [color=#ff9988]advanced[/color]"
+msgstr ""
+
+#: ui/PauseMenu.tscn
+msgid "Enable control bind hints"
+msgstr ""
+
+#: world/interactable/item_source.gd
+msgid "{item} Source"
+msgstr ""
+
+#: world/interactable/item_source.gd
+msgid "A source of %s. You can pick one up here."
+msgstr ""
+
+#: world/interactable/item_source.gd
+msgid "Pick Up {item}"
+msgstr ""
+
+#: world/interactable/trash_can.gd
+msgid "Trash Can"
+msgstr ""
+
+#: world/interactable/trash_can.gd
+msgid "A trash can. You can throw away items here."
+msgstr ""
+
+#: world/interactable/trash_can.gd
+msgid "Throw Away %s"
+msgstr ""
+
+#: world/interactable/trash_can.gd
+msgid "A trash can. Throw away the %s here."
+msgstr ""
+
+#: world/interactable/table_surface_interactable.gd
+msgctxt "A counter"
+msgid "Table"
+msgstr ""
+
+#: world/interactable/table_surface_interactable.gd
+msgctxt "Take item %s from a table"
+msgid "Take %s"
+msgstr ""
+
+#: world/interactable/table_surface_interactable.gd
+msgctxt "Place item %s on a table"
+msgid "Place %s"
+msgstr ""
+
+#: world/interactable/table_surface_interactable.gd
+msgid "Put %s on the plate"
+msgstr ""
+
+#: world/interactable/table_surface_interactable.gd
+msgid "An empty table."
+msgstr ""
+
+#: world/interactable/table_surface_interactable.gd
+msgctxt "A table has item %s"
+msgid "Has %s"
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "The current day."
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "Reputation: 5/5"
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "Day 5"
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "The current time. The restaurant is open from 9:00 AM to 5:00 PM."
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "5:33 PM"
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "Your balance. "
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "¥0"
+msgstr ""
+
+#: ui/LevelInterface.tscn
+msgid "Orders"
+msgstr ""
+
+#: ui/Order.tscn
+msgid "1x Cucumber Maki"
+msgstr ""
+
+#: ui/Order.tscn
+msgid ""
+"[b]1x Cucumber Maki[/b]\n"
+"[color=red]10s remaining[/color]"
+msgstr ""
+
+#: scripts/data_loader/data_loader.gd
+msgid "[color=#ddd]Ingredient of [item]%s[/item][/color]"
+msgstr ""
+
+#: scripts/data_loader/data_loader.gd
+msgid "[color=#ddd]Makes [item]%s[/item] using [machine]%s[/machine][/color]"
 msgstr ""
