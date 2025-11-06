@@ -81,6 +81,7 @@
 # res://ui/LevelInterface.tscn
 # res://ui/Order.tscn
 # res://scripts/data_loader/data_loader.gd
+# res://world/interactable/counter_cooking_machine.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -715,6 +716,11 @@ msgctxt "Take item %s from a table"
 msgid "Take %s"
 msgstr ""
 
+#: world/interactable/counter_cooking_machine.gd
+msgctxt "Take item %s from a machine"
+msgid "Take %s"
+msgstr ""
+
 #: world/interactable/table_surface_interactable.gd
 msgctxt "Place item %s on a table"
 msgid "Place %s"
@@ -776,9 +782,46 @@ msgid ""
 msgstr ""
 
 #: scripts/data_loader/data_loader.gd
-msgid "[color=#ddd]Ingredient of [item]%s[/item][/color]"
+msgid "[color=#ddd]Ingredient of [item]{recipe_result}[/item][/color]"
 msgstr ""
 
 #: scripts/data_loader/data_loader.gd
-msgid "[color=#ddd]Makes [item]%s[/item] using [machine]%s[/machine][/color]"
+msgid "[color=#ddd]Makes [item]{recipe_result}[/item] using [machine]{recipe_machine}[/machine][/color]"
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgctxt "Add item %s to a machine"
+msgid "Add %s"
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "Add {input_item} to start {action_word}."
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "It's empty."
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "It's {action_word} {output_item} for the next {minutes} minutes."
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "It's {action_word} {output_item} for the next minute."
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "It's almost done {action_word} {output_item}."
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "Take {removed_item} and add {added_item}"
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "Take %s and add to plate"
+msgstr ""
+
+#: world/interactable/counter_cooking_machine.gd
+msgid "The {item} is {action_word_past} and ready to take."
 msgstr ""

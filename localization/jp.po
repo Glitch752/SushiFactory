@@ -611,7 +611,7 @@ msgctxt "A counter"
 msgid "Table"
 msgstr "-----"
 
-msgctxt "Take item %s from a table"
+msgctxt "Take item %s from a machine"
 msgid "Take %s"
 msgstr "---- %s"
 
@@ -663,8 +663,40 @@ msgstr ""
 "[b]1x -------- -----------------\n"
 "[color=red]10s --------------------------"
 
-msgid "[color=#ddd]Ingredient of [item]%s[/item][/color]"
-msgstr "[color=#ddd]Ingredient -- [item]%s[/item]"
+msgid "[color=#ddd]Ingredient of [item]{recipe_result}[/item][/color]"
+msgstr "[color=#ddd]Ingredient -- [item]{recipe_result}[/item]"
 
-msgid "[color=#ddd]Makes [item]%s[/item] using [machine]%s[/machine][/color]"
-msgstr "[color=#ddd]Makes [item]%s[/item] ----- [machine]%s[/machine]"
+msgid ""
+"[color=#ddd]Makes [item]{recipe_result}[/item] using "
+"[machine]{recipe_machine}[/machine][/color]"
+msgstr ""
+"[color=#ddd]Makes [item]{recipe_result}[/item] ----- "
+"[machine]{recipe_machine}[/machine]"
+
+msgctxt "Add item %s to a machine"
+msgid "Add %s"
+msgstr "--- %s"
+
+msgid "Add {input_item} to start {action_word}."
+msgstr "--- ------------ -- ----- --------------"
+
+msgid "It's empty."
+msgstr "---- ------"
+
+msgid "It's {action_word} {output_item} for the next {minutes} minutes."
+msgstr "---- ------------- ------------- --- --- ---- --------- --------"
+
+msgid "It's {action_word} {output_item} for the next minute."
+msgstr "---- ------------- ------------- --- --- ---- -------"
+
+msgid "It's almost done {action_word} {output_item}."
+msgstr "---- ------ ---- ------------- --------------"
+
+msgid "Take {removed_item} and add {added_item}"
+msgstr "---- -------------- --- --- ------------"
+
+msgid "Take %s and add to plate"
+msgstr "---- %s --- --- -- -----"
+
+msgid "The {item} is {action_word_past} and ready to take."
+msgstr "--- ------ -- ------------------ --- ----- -- -----"

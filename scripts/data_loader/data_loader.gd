@@ -55,11 +55,13 @@ func get_machine_descriptions(item_id: StringName) -> Array[String]:
         if recipe.has_ingredient_with_id(item_id):
             if recipe.machine.id == &"plate":
                 results.append(TagHighlight.convert_custom_tags(
-                    tr("[color=#ddd]Ingredient of [item]%s[/item][/color]") % recipe.result.id
+                    tr("[color=#ddd]Ingredient of [item]{recipe_result}[/item][/color]")
+                        .format({ "recipe_result": recipe.result.id })
                 ))
             else:
                 results.append(TagHighlight.convert_custom_tags(
-                    tr("[color=#ddd]Makes [item]%s[/item] using [machine]%s[/machine][/color]") % [recipe.result.id, recipe.machine.id]
+                    tr("[color=#ddd]Makes [item]{recipe_result}[/item] using [machine]{recipe_machine}[/machine][/color]")
+                        .format({ "recipe_result": recipe.result.id, "recipe_machine": recipe.machine.id })
                 ))
     
     return results
