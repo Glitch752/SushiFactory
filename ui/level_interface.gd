@@ -61,14 +61,14 @@ func update_money_display(money: int):
     $%MoneyLabel.text = "¥" + str(money)
 
 func update_day_display(day: int):
-    $%DayLabel.text = "Day " + str(day)
+    $%DayLabel.text = tr("Day %s") % str(day)
 
 func update_time_display(time_of_day: float):
     $%TimeLabel.text = DayManagerSingleton.format_time_of_day()
     $%TimeProgress.value = time_of_day
 
 func update_reputation_display(reputation: int):
-    $%ReputationLabel.text = "Reputation: %s/%s" % [str(reputation), str(StoreStatsSingleton.max_reputation)]
+    $%ReputationLabel.text = tr("Reputation: %s/%s") % [str(reputation), str(StoreStatsSingleton.max_reputation)]
 
 func clear_existing_notifications():
     for child in get_children():

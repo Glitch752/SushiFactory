@@ -92,6 +92,7 @@ scale = Vector2(2, 2)
 theme_override_constants/separation = 16
 
 [node name="EnglishPlay" type="Button" parent="MenuItems/Buttons"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(256, 46)
 layout_mode = 2
 focus_neighbor_right = NodePath("../JPPlay")
@@ -105,6 +106,7 @@ text = "Play (EN)"
 script = ExtResource("16_2qy1q")
 
 [node name="JPPlay" type="Button" parent="MenuItems/Buttons"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(256, 46)
 layout_mode = 2
 focus_neighbor_left = NodePath("../EnglishPlay")
@@ -114,7 +116,7 @@ theme_override_styles/pressed = ExtResource("13_elwp8")
 theme_override_styles/hover = ExtResource("13_elwp8")
 theme_override_styles/hover_pressed = ExtResource("13_elwp8")
 theme_override_styles/focus = ExtResource("16_lwhxt")
-text = "Play (JP)"
+text = "プレイ (日本語)"
 script = ExtResource("17_2qy1q")
 
 [node name="TextureRect" type="TextureRect" parent="MenuItems"]

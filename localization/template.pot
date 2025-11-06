@@ -88,6 +88,12 @@
 # res://ui/construction/ConstructionInterface.tscn
 # res://data/constructables/generic.gd
 # res://world/interactable/computer.gd
+# res://ui/day_notification_ui.gd
+# res://scripts/day_manager_singleton.gd
+# res://scripts/automation/automation_manager/automation_manager.gd
+# res://data/constructables/edit.gd
+# res://ui/level_interface.gd
+# res://world/interactable/computer/emails/email_system.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -628,14 +634,6 @@ msgid "Outside environment art coming soon :)"
 msgstr ""
 
 #: Menu.tscn
-msgid "Play (EN)"
-msgstr ""
-
-#: Menu.tscn
-msgid "Play (JP)"
-msgstr ""
-
-#: Menu.tscn
 msgid ""
 "All assets except some SFX are custom\n"
 "Open in a new tab if you're having issues :)"
@@ -663,14 +661,6 @@ msgstr ""
 
 #: ui/PauseMenu.tscn
 msgid "Resume"
-msgstr ""
-
-#: ui/PauseMenu.tscn
-msgid "English"
-msgstr ""
-
-#: ui/PauseMenu.tscn
-msgid "JP"
 msgstr ""
 
 #: ui/PauseMenu.tscn
@@ -893,6 +883,47 @@ msgstr ""
 msgid "fried"
 msgstr ""
 
+#: localization/interactable_fixes.tlstrings
+msgid "Master volume"
+msgstr ""
+
+#: localization/interactable_fixes.tlstrings
+msgid "Music volume"
+msgstr ""
+
+#: localization/interactable_fixes.tlstrings
+msgid "UI volume"
+msgstr ""
+
+#: localization/interactable_fixes.tlstrings
+msgid "World volume"
+msgstr ""
+
+#. TRANSLATORS: Control bind hint for pausing and disabling control hints
+#: localization/interactable_fixes.tlstrings
+msgid "Pause (or disable these hints)"
+msgstr ""
+
+#. TRANSLATORS: Switch active slot hint
+#: localization/interactable_fixes.tlstrings
+msgid "Switch slots"
+msgstr ""
+
+#. TRANSLATORS: Change active slot leftward
+#: localization/interactable_fixes.tlstrings
+msgid "Switch right"
+msgstr ""
+
+#. TRANSLATORS: Change active slot rightward
+#: localization/interactable_fixes.tlstrings
+msgid "Switch left"
+msgstr ""
+
+#. TRANSLATORS: Exit open menu
+#: localization/interactable_fixes.tlstrings
+msgid "Exit"
+msgstr ""
+
 #: world/interactable/cutting_board.gd
 msgid ""
 "A cutting board.\n"
@@ -944,6 +975,7 @@ msgid "Overwrite"
 msgstr ""
 
 #: data/constructables/generic.gd
+#: data/constructables/edit.gd
 msgctxt "Rotate the highlighted constructable"
 msgid "Rotate"
 msgstr ""
@@ -965,4 +997,103 @@ msgstr ""
 
 #: world/interactable/computer.gd
 msgid "Use Computer"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgctxt "arrival at work"
+msgid "Arrival"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgctxt "shop opening"
+msgid "Opening"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgctxt "shop closing"
+msgid "Closing"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgid "Day {day_number} - {event}"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgid "{time_of_day} - Restaurant closed"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgid "{time_of_day} - You have [color=#9999ff]{duration_remaining}[/color] to prepare"
+msgstr ""
+
+#: ui/day_notification_ui.gd
+msgid "{time_of_day} - Restaurant closes in [color=#9999ff]{duration_remaining}[/color]"
+msgstr ""
+
+#: scripts/day_manager_singleton.gd
+msgid "[b]Expected customer rate[/b]: [color={rate_color}]{hourly_rate}/hr[/color]"
+msgstr ""
+
+#: scripts/day_manager_singleton.gd
+msgid "[b]Customer patience[/b]: [color={patience_color}]{patience_minutes}m[/color]"
+msgstr ""
+
+#: scripts/day_manager_singleton.gd
+msgid "[b]Order difficulties[/b]: %s"
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "direction"
+msgid "left"
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "direction"
+msgid "right"
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "direction"
+msgid "up"
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "direction"
+msgid "down"
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "Moves items in the direction %s"
+msgid "A belt that moves items %s."
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "Belt holds the item %s"
+msgid "Currently has %s"
+msgstr ""
+
+#: scripts/automation/automation_manager/automation_manager.gd
+msgctxt "Belt doesn't have anything on it"
+msgid "Currently empty."
+msgstr ""
+
+#: data/constructables/edit.gd
+msgctxt "Remove the highlighted constructable"
+msgid "Remove"
+msgstr ""
+
+#: data/constructables/edit.gd
+msgid "This tile isn't editable."
+msgstr ""
+
+#: ui/level_interface.gd
+msgid "Day %s"
+msgstr ""
+
+#: ui/level_interface.gd
+msgid "Reputation: %s/%s"
+msgstr ""
+
+#: world/interactable/computer/emails/email_system.gd
+msgid "Day {day}, {time}"
 msgstr ""

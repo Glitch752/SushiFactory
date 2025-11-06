@@ -15,6 +15,8 @@ const InteractionAction = preload("res://world/interactable/interactable.gd").In
     set(val):
         placeholderText = val
         update_defaults()
+    get:
+        return tr(placeholderText)
 
 @export var force_hide: bool = false:
     set(val):

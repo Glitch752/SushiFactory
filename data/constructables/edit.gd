@@ -17,12 +17,15 @@ func get_interaction(context: SillyConstructionContext):
         var constructable_description = constructable.description if constructable else "An unknown constructable"
 
         if editable:
-            var remove_action = InteractionAction.new("Remove", context.remove_targeted_tile, 0.2)
-            var rotate_action = InteractionAction.new("Rotate", context.rotate_targeted_tile)
+            var remove_action = InteractionAction.new(tr("Remove", "Remove the highlighted constructable"), context.remove_targeted_tile, 0.2)
+            var rotate_action = InteractionAction.new(tr("Rotate", "Rotate the highlighted constructable"), context.rotate_targeted_tile)
             interaction.interaction = InteractionData.new(constructable_name, constructable_description, rotate_action, remove_action)
             interaction.color = context.colors.highlight_existing
         else:
-            interaction.interaction = InteractionData.new(constructable_name, "%s\n\n[color=#f77]This tile isn't editable.[/color]" % constructable_description)
+            interaction.interaction = InteractionData.new(constructable_name, "%s\n\n[color=#f77]%s[/color]" % [
+                constructable_description,
+                tr("This tile isn't editable.")
+            ])
             interaction.color = context.colors.highlight_invalid
     else:
         if zone and zone.get_custom_data("editable"):

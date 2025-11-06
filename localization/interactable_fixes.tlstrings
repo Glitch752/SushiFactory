@@ -32,3 +32,26 @@ A deep fryer.
 frying
 # Deep fryer action word past
 fried
+
+## Audio bus names
+
+Master volume
+Music volume
+UI volume
+World volume
+
+
+## Control bind hints
+# Control bind hint for pausing and disabling control hints
+Pause (or disable these hints)
+
+# Switch active slot hint
+Switch slots
+
+# Change active slot leftward
+Switch right
+# Change active slot rightward
+Switch left
+
+# Exit open menu
+Exit

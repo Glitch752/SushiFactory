@@ -20,13 +20,13 @@ func _ready():
     var eventName = ""
     match event:
         DayEvent.ARRIVAL:
-            eventName = "Arrival"
+            eventName = tr("Arrival", "arrival at work")
         DayEvent.OPENING:
-            eventName = "Opening"
+            eventName = tr("Opening", "shop opening")
         DayEvent.CLOSING:
-            eventName = "Closing"
+            eventName = tr("Closing", "shop closing")
     
-    dayTitle.text = "Day %d - %s" % [day, eventName]
+    dayTitle.text = tr("Day {day_number} - {event}").format({ "day_number": day, "event": eventName })
     infoRichText.text = infoText
 
     startHrWidth = hr.custom_minimum_size.x
@@ -38,17 +38,17 @@ func _ready():
 
 func update_time(new_time: float):
     if event == DayEvent.CLOSING:
-        timeTitle.text = "%s - Restaurant closed" % DayManagerSingleton.format_time_of_day()
+        timeTitle.text = tr("{time_of_day} - Restaurant closed").format({ "time_of_day": DayManagerSingleton.format_time_of_day() })
     elif event == DayEvent.ARRIVAL:
-        timeTitle.text = "%s - You have [color=#9999ff]%s[/color] to prepare" % [
-            DayManagerSingleton.format_time_of_day(),
-            preload("res://scripts/day_manager_singleton.gd").format_duration(9.0 - new_time)
-        ]
+        timeTitle.text = tr("{time_of_day} - You have [color=#9999ff]{duration_remaining}[/color] to prepare").format({
+            "time_of_day": DayManagerSingleton.format_time_of_day(),
+            "duration_remaining": preload("res://scripts/day_manager_singleton.gd").format_duration(9.0 - new_time)
+        })
     else:
-        timeTitle.text = "%s - Restaurant closes in [color=#9999ff]%s[/color]" % [
-            DayManagerSingleton.format_time_of_day(),
-            preload("res://scripts/day_manager_singleton.gd").format_duration(17.0 - new_time)
-        ]
+        timeTitle.text = tr("{time_of_day} - Restaurant closes in [color=#9999ff]{duration_remaining}[/color]").format({
+            "time_of_day": DayManagerSingleton.format_time_of_day(),
+            "duration_remaining": preload("res://scripts/day_manager_singleton.gd").format_duration(17.0 - new_time)
+        })
 
 # func _input(ev):
 #     # For debugging: on pressing 1, reaniamte

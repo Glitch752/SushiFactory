@@ -725,6 +725,33 @@ msgstr "------"
 msgid "fried"
 msgstr "-----"
 
+msgid "Master volume"
+msgstr "------ ------"
+
+msgid "Music volume"
+msgstr "----- ------"
+
+msgid "UI volume"
+msgstr "-- ------"
+
+msgid "World volume"
+msgstr "----- ------"
+
+msgid "Pause (or disable these hints)"
+msgstr "----- --- ------- ----- ------"
+
+msgid "Switch slots"
+msgstr "------ -----"
+
+msgid "Switch right"
+msgstr "------ -----"
+
+msgid "Switch left"
+msgstr "------ ----"
+
+msgid "Exit"
+msgstr "----"
+
 msgid ""
 "A cutting board.\n"
 "Place %s on it to cut."
@@ -793,3 +820,95 @@ msgstr ""
 
 msgid "Use Computer"
 msgstr "--- --------"
+
+msgctxt "arrival at work"
+msgid "Arrival"
+msgstr "-------"
+
+msgctxt "shop opening"
+msgid "Opening"
+msgstr "-------"
+
+msgctxt "shop closing"
+msgid "Closing"
+msgstr "-------"
+
+msgid "Day {day_number} - {event}"
+msgstr "--- ------------ - -------"
+
+msgid "{time_of_day} - Restaurant closed"
+msgstr "------------- - ---------- ------"
+
+msgid ""
+"{time_of_day} - You have [color=#9999ff]{duration_remaining}[/color] to "
+"prepare"
+msgstr ""
+"------------- - --- ---- [color=#9999ff]{duration_remaining}[/color] -- "
+"-------"
+
+msgid ""
+"{time_of_day} - Restaurant closes in "
+"[color=#9999ff]{duration_remaining}[/color]"
+msgstr ""
+"------------- - ---------- ------ -- "
+"[color=#9999ff]{duration_remaining}[/color]"
+
+msgid ""
+"[b]Expected customer rate[/b]: [color={rate_color}]{hourly_rate}/hr[/color]"
+msgstr ""
+"[b]Expected -------- ------------------ "
+"[color={rate_color}]{hourly_rate}/hr[/color]"
+
+msgid ""
+"[b]Customer patience[/b]: "
+"[color={patience_color}]{patience_minutes}m[/color]"
+msgstr ""
+"[b]Customer ---------------------- "
+"[color={patience_color}]{patience_minutes}m[/color]"
+
+msgid "[b]Order difficulties[/b]: %s"
+msgstr "[b]Order -------------------------- %s"
+
+msgctxt "direction"
+msgid "left"
+msgstr "----"
+
+msgctxt "direction"
+msgid "right"
+msgstr "-----"
+
+msgctxt "direction"
+msgid "up"
+msgstr "--"
+
+msgctxt "direction"
+msgid "down"
+msgstr "----"
+
+msgctxt "Moves items in the direction %s"
+msgid "A belt that moves items %s."
+msgstr "- ---- ---- ----- ----- %s."
+
+msgctxt "Belt holds the item %s"
+msgid "Currently has %s"
+msgstr "--------- --- %s"
+
+msgctxt "Belt doesn't have anything on it"
+msgid "Currently empty."
+msgstr "--------- ------"
+
+msgctxt "Remove the highlighted constructable"
+msgid "Remove"
+msgstr "------"
+
+msgid "This tile isn't editable."
+msgstr "---- ---- ----- ---------"
+
+msgid "Day %s"
+msgstr "--- %s"
+
+msgid "Reputation: %s/%s"
+msgstr "----------- %s/%s"
+
+msgid "Day {day}, {time}"
+msgstr "--- ------ ------"

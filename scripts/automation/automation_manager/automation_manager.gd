@@ -446,19 +446,19 @@ func get_interaction_data(cell: Vector2i) -> InteractionData:
         var automation_id: String = cell_data.get_custom_data("automation_id")
         match automation_id:
             "left_belt":
-                direction = "left"
+                direction = tr("left", "direction")
             "right_belt":
-                direction = "right"
+                direction = tr("right", "direction")
             "up_belt":
-                direction = "up"
+                direction = tr("up", "direction")
             "down_belt":
-                direction = "down"
+                direction = tr("down", "direction")
     
-    var desc = "A belt that moves items %s." % direction
+    var desc = tr("A belt that moves items %s.", "Moves items in the direction %s") % direction
     if has_item:
-        desc += "\nCurrently has %s" % lower_start(item_tile_positions[cell].get_description())
+        desc += "\n" + tr("Currently has %s", "Belt holds the item %s") % lower_start(item_tile_positions[cell].get_description())
     else:
-        desc += "\nCurrently empty."
+        desc += "\n" + tr("Currently empty.", "Belt doesn't have anything on it")
     
     return InteractionData.new(interactable_name, desc, action)
 

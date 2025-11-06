@@ -24,7 +24,7 @@ func update_volume(value: float):
     update_label(value)
 
 func update_label(volume: float):
-    label.text = "%s volume: %d%%" % [AudioServer.get_bus_name(bus), int(round(volume * 100))]
+    label.text = tr("%s volume" % AudioServer.get_bus_name(bus)) + ": %d%%" % int(round(volume * 100))
 
 func _validate_property(property: Dictionary):
     if property.name == "bus":

@@ -72,8 +72,21 @@ def unmask_tags(text: str, mapping: list[str]) -> str:
             return mapping[index]
         return m.group(0)
 
-    pattern = re.compile(r'__([0-9]+)_[A-Z0-9_]+__')
-    return pattern.sub(replacement, text)
+
+    pattern = re.compile(r'__([0-9]+)_[A-Z0-9_-]+__')
+    
+    print("----------------------------")
+    print(text)
+    
+    # Repeatedly find and replace. We can't use `.sub` once... for some reason??
+    while True:
+        new_text = pattern.sub(replacement, text, 1)
+        if new_text == text:
+            break
+        text = new_text
+    
+    print(text)
+    return text
 
 def translate_text(text: str, tl_desc: str, target_language: str):
     # Example call to GPT or translation API (this is a mock function)
@@ -142,8 +155,6 @@ def process_pot_file(pot_file_path, target_language):
             tl_desc += f" (Context: {entry.msgctxt})"
         
         (masked_line, mapping) = mask_tags(line)
-        
-        print(masked_line)
         
         translated = translate_text(masked_line, tl_desc, target_language)
         

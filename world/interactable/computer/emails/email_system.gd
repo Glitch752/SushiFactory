@@ -75,7 +75,10 @@ func send_email(email_data: EmailSendData):
     new_email.sender = email_data.sender
     new_email.subject = email_data.subject
     new_email.body = parse_email_content(email_data.body)
-    new_email.sent = "Day %d, %s" % [DayManagerSingleton.day, DayManagerSingleton.format_time_of_day()]
+    new_email.sent = tr("Day {day}, {time}").format({
+        "day": DayManagerSingleton.day,
+        "time": DayManagerSingleton.format_time_of_day()
+    })
 
     inbox.push_front(new_email)
 

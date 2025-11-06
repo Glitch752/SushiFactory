@@ -158,10 +158,16 @@ func generate_day_opening_info():
     var customerRate = 1.0 / current_day_data.customer_interval
     
     var rateColor = "#ff9988" if customerRate >= 6 else "#ffff99" if customerRate >= 3 else "#99ff88"
-    var info = "[b]Expected customer rate[/b]: [color=%s]%.1f/hr[/color]\n" % [rateColor, customerRate]
+    var info = tr("[b]Expected customer rate[/b]: [color={rate_color}]{hourly_rate}/hr[/color]").format({
+        "rate_color": rateColor,
+        "hourly_rate": "%.1f" % customerRate
+    }) + "\n"
 
     var patienceColor = "#ff9988" if current_day_data.customer_patience <= 30.0 else "#ffff99" if current_day_data.customer_patience <= 60.0 else "#99ff88"
-    info += "[b]Customer patience[/b]: [color=%s]%sm[/color]\n" % [patienceColor, round(current_day_data.customer_patience / 5) * 5]
+    info += tr("[b]Customer patience[/b]: [color={patience_color}]{patience_minutes}m[/color]").format({
+        "patience_color": patienceColor,
+        "patience_minutes": round(current_day_data.customer_patience / 5) * 5
+    }) + "\n"
 
     var difficulties = []
     for diff in current_day_data.difficulty_probabilities.keys():
@@ -172,7 +178,7 @@ func generate_day_opening_info():
         var possibleOrders = DayManagerSingleton.get_possible_orders(diff)
         difficulties.append("[color=#%s]%s%% %s[/color]" % [possibleOrders.color.to_html(), int(prob * 100), possibleOrders.name.to_lower()])
     
-    info += "[b]Order difficulties[/b]: %s" % ", ".join(difficulties)
+    info += tr("[b]Order difficulties[/b]: %s") % ", ".join(difficulties)
     
     return info
 

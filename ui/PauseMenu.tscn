@@ -143,6 +143,7 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="PauseContent/VBoxContainer/LanguageSelector/ENLangButton/MarginContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "English"
 label_settings = SubResource("LabelSettings_afaem")
@@ -176,8 +177,9 @@ theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 4
 
 [node name="Label" type="Label" parent="PauseContent/VBoxContainer/LanguageSelector/JPLangButton/MarginContainer"]
+auto_translate_mode = 2
 layout_mode = 2
-text = "JP"
+text = "日本語"
 label_settings = SubResource("LabelSettings_afaem")
 
 [node name="OptionsButton" type="Button" parent="PauseContent/VBoxContainer"]

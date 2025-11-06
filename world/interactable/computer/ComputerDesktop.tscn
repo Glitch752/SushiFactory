@@ -95,6 +95,7 @@ vertical = true
 [node name="AmazingButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
 custom_minimum_size = Vector2(64, 92)
 layout_mode = 2
+focus_mode = 0
 text = "Amazing"
 icon = SubResource("AtlasTexture_220wo")
 flat = true
@@ -108,6 +109,7 @@ window_title = "Amazing"
 [node name="RecipesButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
 custom_minimum_size = Vector2(64, 92)
 layout_mode = 2
+focus_mode = 0
 text = "Recipes"
 icon = SubResource("AtlasTexture_cbafg")
 flat = true
@@ -121,6 +123,7 @@ window_title = "Recipes"
 [node name="OrdersButton" type="Button" parent="AspectRatioContainer/Panel/MarginContainer/FlowContainer"]
 custom_minimum_size = Vector2(64, 92)
 layout_mode = 2
+focus_mode = 0
 text = "Orders"
 icon = SubResource("AtlasTexture_4ijat")
 flat = true
@@ -140,6 +143,7 @@ custom_minimum_size = Vector2(64, 92)
 layout_mode = 1
 offset_right = 75.0
 offset_bottom = 80.0
+focus_mode = 0
 text = "Email"
 icon = SubResource("AtlasTexture_ikyhb")
 flat = true
