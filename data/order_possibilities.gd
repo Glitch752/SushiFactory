@@ -4,7 +4,9 @@ class_name OrderPossibilities
 
 @export var single_items: Array[ItemData] = []
 @export var color: Color = Color.WHITE
-@export var name: String = "Unknown"
+@export var name: String = "Unknown":
+    get:
+        return tr(name)
 ## The amount paid when this dish is served to a customer.
 ## This is in Yen! 1 usd ~= 150 yen.
 @export var pay: int = 0

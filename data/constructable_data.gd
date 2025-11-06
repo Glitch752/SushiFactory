@@ -17,8 +17,12 @@ class ConstructableInteraction:
 
 @export var id: StringName
 
-@export var name: String
-@export_multiline var description: String
+@export var name: String:
+    get:
+        return tr(name)
+@export_multiline var description: String:
+    get:
+        return tr(description)
 
 @export var texture: Texture2D
 
