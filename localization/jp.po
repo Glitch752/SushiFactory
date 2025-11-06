@@ -611,11 +611,11 @@ msgctxt "A counter"
 msgid "Table"
 msgstr "-----"
 
-msgctxt "Take item %s from a machine"
+msgctxt "Take %s from a cutting board"
 msgid "Take %s"
 msgstr "---- %s"
 
-msgctxt "Place item %s on a table"
+msgctxt "Build the constructable %s"
 msgid "Place %s"
 msgstr "----- %s"
 
@@ -700,3 +700,96 @@ msgstr "---- %s --- --- -- -----"
 
 msgid "The {item} is {action_word_past} and ready to take."
 msgstr "--- ------ -- ------------------ --- ----- -- -----"
+
+msgid "Stove Top"
+msgstr "----- ---"
+
+msgid "A stove top with a frying pan."
+msgstr "- ----- --- ---- - ------ ----"
+
+msgid "cooking"
+msgstr "-------"
+
+msgid "cooked"
+msgstr "------"
+
+msgid "A rice cookear."
+msgstr "- ---- --------"
+
+msgid "A deep fryer."
+msgstr "- ---- ------"
+
+msgid "frying"
+msgstr "------"
+
+msgid "fried"
+msgstr "-----"
+
+msgid ""
+"A cutting board.\n"
+"Place %s on it to cut."
+msgstr ""
+"- ------- ------\n"
+"----- %s -- -- -- ----"
+
+msgid ""
+"A cutting board.\n"
+"You can place certain items on it to cut them."
+msgstr ""
+"- ------- ------\n"
+"--- --- ----- ------- ----- -- -- -- --- -----"
+
+msgctxt "Cut the item %s on a cutting board"
+msgid "Cut %s"
+msgstr "--- %s"
+
+msgid ""
+"A cutting board with {current_item} on it.\n"
+"You have cut it {cuts} out of {cuts_required} times."
+msgstr ""
+"- ------- ----- ---- -------------- -- ---\n"
+"--- ---- --- -- ------ --- -- --------------- ------"
+
+msgid ""
+"A cutting board with %s on it.\n"
+"Cutting complete."
+msgstr ""
+"- ------- ----- ---- %s -- ---\n"
+"------- ---------"
+
+msgid "Take plate"
+msgstr "---- -----"
+
+msgid "Take plate and add {new_item}"
+msgstr "---- ----- --- --- ----------"
+
+msgid "Plate Stack"
+msgstr "----- -----"
+
+msgid "A stack of clean plates. You can take one."
+msgstr "- ----- -- ----- ------- --- --- ---- ----"
+
+msgctxt "Overwrite the highlighted tile"
+msgid "Overwrite"
+msgstr "---------"
+
+msgctxt "Rotate the highlighted constructable"
+msgid "Rotate"
+msgstr "------"
+
+msgctxt "Build a constructable"
+msgid "Place"
+msgstr "-----"
+
+msgid "Computer"
+msgstr "--------"
+
+msgid ""
+"A computer used to manage your restaurant,\n"
+"order supplies, and communicate with your boss."
+msgstr ""
+"- -------- ---- -- ------ ---- -----------\n"
+"----- --------- --- ----------- ---- ---- -----"
+
+msgid "Use Computer"
+msgstr "--- --------"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://baly8m8dmbonq"]
+[gd_scene load_steps=10 format=3 uid="uid://baly8m8dmbonq"]
 
 [ext_resource type="Theme" uid="uid://ymm1n4k8ahab" path="res://ui/ui_theme.tres" id="1_f08ws"]
 [ext_resource type="PackedScene" uid="uid://c82m2vqfrqyrb" path="res://ui/Interactioninfo.tscn" id="2_5f0id"]
@@ -8,9 +8,6 @@
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="6_0rdtb"]
 [ext_resource type="Texture2D" uid="uid://ch33x2h2ux4j0" path="res://images/constructables.png" id="7_xjisp"]
 [ext_resource type="PackedScene" uid="uid://bvvox74aqqptw" path="res://ui/AutohideTooltip.tscn" id="8_5f0id"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_5f0id"]
-font_size = 20
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_isu10"]
 atlas = ExtResource("7_xjisp")
@@ -24,25 +21,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f08ws")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -520.0
-offset_top = -103.0
-offset_right = -16.0
-offset_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "note: you can delete interactables
-but not re-add most of them yet
- be careful not to softlock yourself here!"
-label_settings = SubResource("LabelSettings_5f0id")
-horizontal_alignment = 2
 
 [node name="InteractionInfo" parent="." instance=ExtResource("2_5f0id")]
 unique_name_in_owner = true

@@ -1,6 +1,9 @@
 @tool
 extends EditorTranslationParserPlugin
 
+func _get_recognized_extensions() -> PackedStringArray:
+    return ["tres"]
+
 ## The return value should be an Array of PackedStringArrays,
 ## one for each extracted translatable string.
 ## Each entry should contain [msgid, msgctxt, msgid_plural, comment]
@@ -40,7 +43,3 @@ func _parse_file(path: String) -> Array[PackedStringArray]:
         ])
 
     return msgids
-
-
-func _get_recognized_extensions() -> PackedStringArray:
-    return ["tres"]

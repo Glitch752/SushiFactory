@@ -75,15 +75,25 @@ func get_interaction_data() -> InteractionData:
     if !has_item():
         var held_item = PlayerInventorySingleton.held_item_data()
         if held_item and held_item.id in CUT_ITEMS.keys():
-            action = InteractionAction.new("Place %s" % held_item.item_name, place_item)
-            desc = "A cutting board.\nPlace %s on it to cut." % held_item.item_name.to_lower()
+            action = InteractionAction.new(
+                tr("Place %s", "Place %s on a cutting board") % held_item.item_name, place_item
+            )
+            desc = tr("A cutting board.\nPlace %s on it to cut.") % held_item.item_name.to_lower()
         else:
-            desc = "A cutting board.\nYou can place certain items on it to cut them."
+            desc = tr("A cutting board.\nYou can place certain items on it to cut them.")
     elif cut_progress < CUTS_REQUIRED:
-        action = InteractionAction.new("Cut %s" % item.data.item_name, cut_item)
-        desc = "A cutting board with %s on it.\nYou have cut it %d out of %d times." % [item.data.item_name.to_lower(), cut_progress, CUTS_REQUIRED]
+        action = InteractionAction.new(
+            tr("Cut %s", "Cut the item %s on a cutting board") % item.data.item_name, cut_item
+        )
+        desc = tr("A cutting board with {current_item} on it.\nYou have cut it {cuts} out of {cuts_required} times.").format({
+            "current_item": item.data.item_name.to_lower(),
+            "cuts": cut_progress,
+            "cuts_required": CUTS_REQUIRED
+        })
     elif !PlayerInventorySingleton.has_item():
-        action = InteractionAction.new("Take %s" % item.data.item_name, take_cut_item)
-        desc = "A cutting board with %s on it.\nCutting complete." % item.data.item_name.to_lower()
+        action = InteractionAction.new(
+            tr("Take %s", "Take %s from a cutting board") % item.data.item_name, take_cut_item
+        )
+        desc = tr("A cutting board with %s on it.\nCutting complete.") % item.data.item_name.to_lower()
     
     return InteractionData.new(interactable_name, desc, action)

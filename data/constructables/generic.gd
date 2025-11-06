@@ -19,15 +19,15 @@ func get_interaction(context: SillyConstructionContext) -> Variant:
     if can_overwrite(context):
         interaction.color = context.colors.highlight_existing
 
-        var place_action = InteractionAction.new("Overwrite", context.place_symbol_at_target, 0.2)
-        var rotate_action = InteractionAction.new("Rotate", context.rotate_highlight)
-        interaction.interaction = InteractionData.new("Place %s" % name, "", rotate_action, place_action)
+        var place_action = InteractionAction.new(tr("Overwrite", "Overwrite the highlighted tile"), context.place_symbol_at_target, 0.2)
+        var rotate_action = InteractionAction.new(tr("Rotate", "Rotate the highlighted constructable"), context.rotate_highlight)
+        interaction.interaction = InteractionData.new(tr("Place %s", "Build the constructable %s") % name, "", rotate_action, place_action)
     elif can_build(context):
         interaction.color = context.colors.highlight_valid
         
-        var place_action = InteractionAction.new("Place", context.place_symbol_at_target, 0.2)
-        var rotate_action = InteractionAction.new("Rotate", context.rotate_highlight)
-        interaction.interaction = InteractionData.new("Place %s" % name, "", rotate_action, place_action)
+        var place_action = InteractionAction.new(tr("Place", "Build a constructable"), context.place_symbol_at_target, 0.2)
+        var rotate_action = InteractionAction.new(tr("Rotate", "Rotate the highlighted constructable"), context.rotate_highlight)
+        interaction.interaction = InteractionData.new(tr("Place %s", "Build the constructable %s") % name, "", rotate_action, place_action)
     else:
         interaction.color = context.colors.highlight_invalid
         interaction.editor_symbol_opacity = 0.5

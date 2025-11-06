@@ -29,12 +29,14 @@ func take_plate_add():
 func get_interaction_data() -> InteractionData:
     var action = null
     if not PlayerInventorySingleton.has_item():
-        action = InteractionAction.new("Take plate", take_plate)
+        action = InteractionAction.new(tr("Take plate"), take_plate)
     elif can_add_to_plate(PlayerInventorySingleton.held_item_data()):
-        action = InteractionAction.new("Take plate and add %s" % PlayerInventorySingleton.held_item_data().item_name.to_lower(), take_plate_add, 0.25)
+        action = InteractionAction.new(tr("Take plate and add {new_item}").format({
+            "new_item": PlayerInventorySingleton.held_item_data().item_name.to_lower()
+        }), take_plate_add, 0.25)
     
     return InteractionData.new(
-        "Plate Stack",
-        "A stack of clean plates. You can take one.",
+        tr("Plate Stack"),
+        tr("A stack of clean plates. You can take one."),
         action
     )

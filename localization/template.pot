@@ -82,6 +82,12 @@
 # res://ui/Order.tscn
 # res://scripts/data_loader/data_loader.gd
 # res://world/interactable/counter_cooking_machine.gd
+# res://localization/interactable_fixes.tlstrings
+# res://world/interactable/cutting_board.gd
+# res://world/interactable/plate_stack.gd
+# res://ui/construction/ConstructionInterface.tscn
+# res://data/constructables/generic.gd
+# res://world/interactable/computer.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -462,12 +468,16 @@ msgid "Cutting Board"
 msgstr ""
 
 #. TRANSLATORS: Machine name for rice_cooker
+#. Machine name
 #: data/machines/rice_cooker.tres
+#: localization/interactable_fixes.tlstrings
 msgid "Rice Cooker"
 msgstr ""
 
 #. TRANSLATORS: Machine name for deep_fryer
+#. Machine name
 #: data/machines/deep_fryer.tres
+#: localization/interactable_fixes.tlstrings
 msgid "Deep Fryer"
 msgstr ""
 
@@ -721,8 +731,23 @@ msgctxt "Take item %s from a machine"
 msgid "Take %s"
 msgstr ""
 
+#: world/interactable/cutting_board.gd
+msgctxt "Take %s from a cutting board"
+msgid "Take %s"
+msgstr ""
+
 #: world/interactable/table_surface_interactable.gd
 msgctxt "Place item %s on a table"
+msgid "Place %s"
+msgstr ""
+
+#: world/interactable/cutting_board.gd
+msgctxt "Place %s on a cutting board"
+msgid "Place %s"
+msgstr ""
+
+#: data/constructables/generic.gd
+msgctxt "Build the constructable %s"
 msgid "Place %s"
 msgstr ""
 
@@ -824,4 +849,120 @@ msgstr ""
 
 #: world/interactable/counter_cooking_machine.gd
 msgid "The {item} is {action_word_past} and ready to take."
+msgstr ""
+
+#. TRANSLATORS: Machine name
+#: localization/interactable_fixes.tlstrings
+msgid "Stove Top"
+msgstr ""
+
+#. TRANSLATORS: Interactable description
+#: localization/interactable_fixes.tlstrings
+msgid "A stove top with a frying pan."
+msgstr ""
+
+#. TRANSLATORS: Stovetop action word
+#. Rice cooker action word
+#: localization/interactable_fixes.tlstrings
+msgid "cooking"
+msgstr ""
+
+#. TRANSLATORS: Stovetop action word past
+#. Rice cooker action word past
+#: localization/interactable_fixes.tlstrings
+msgid "cooked"
+msgstr ""
+
+#. TRANSLATORS: Interactable description
+#: localization/interactable_fixes.tlstrings
+msgid "A rice cookear."
+msgstr ""
+
+#. TRANSLATORS: interactable description
+#: localization/interactable_fixes.tlstrings
+msgid "A deep fryer."
+msgstr ""
+
+#. TRANSLATORS: Deep fryer action word
+#: localization/interactable_fixes.tlstrings
+msgid "frying"
+msgstr ""
+
+#. TRANSLATORS: Deep fryer action word past
+#: localization/interactable_fixes.tlstrings
+msgid "fried"
+msgstr ""
+
+#: world/interactable/cutting_board.gd
+msgid ""
+"A cutting board.\n"
+"Place %s on it to cut."
+msgstr ""
+
+#: world/interactable/cutting_board.gd
+msgid ""
+"A cutting board.\n"
+"You can place certain items on it to cut them."
+msgstr ""
+
+#: world/interactable/cutting_board.gd
+msgctxt "Cut the item %s on a cutting board"
+msgid "Cut %s"
+msgstr ""
+
+#: world/interactable/cutting_board.gd
+msgid ""
+"A cutting board with {current_item} on it.\n"
+"You have cut it {cuts} out of {cuts_required} times."
+msgstr ""
+
+#: world/interactable/cutting_board.gd
+msgid ""
+"A cutting board with %s on it.\n"
+"Cutting complete."
+msgstr ""
+
+#: world/interactable/plate_stack.gd
+msgid "Take plate"
+msgstr ""
+
+#: world/interactable/plate_stack.gd
+msgid "Take plate and add {new_item}"
+msgstr ""
+
+#: world/interactable/plate_stack.gd
+msgid "Plate Stack"
+msgstr ""
+
+#: world/interactable/plate_stack.gd
+msgid "A stack of clean plates. You can take one."
+msgstr ""
+
+#: data/constructables/generic.gd
+msgctxt "Overwrite the highlighted tile"
+msgid "Overwrite"
+msgstr ""
+
+#: data/constructables/generic.gd
+msgctxt "Rotate the highlighted constructable"
+msgid "Rotate"
+msgstr ""
+
+#: data/constructables/generic.gd
+msgctxt "Build a constructable"
+msgid "Place"
+msgstr ""
+
+#: world/interactable/computer.gd
+msgid "Computer"
+msgstr ""
+
+#: world/interactable/computer.gd
+msgid ""
+"A computer used to manage your restaurant,\n"
+"order supplies, and communicate with your boss."
+msgstr ""
+
+#: world/interactable/computer.gd
+msgid "Use Computer"
 msgstr ""

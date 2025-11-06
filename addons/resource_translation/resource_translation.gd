@@ -2,15 +2,20 @@
 extends EditorPlugin
 
 var parser_plugin: EditorTranslationParserPlugin
+var tlstrings_plugin: EditorTranslationParserPlugin
 
 func _enter_tree():
     parser_plugin = load("res://addons/resource_translation/parser_plugin.gd").new()
     add_translation_parser_plugin(parser_plugin)
+
+    tlstrings_plugin = load("res://addons/resource_translation/tlstrings.gd").new()
+    add_translation_parser_plugin(tlstrings_plugin)
     
     add_tool_menu_item("Resource translation: Generate POT files", generate_pot_files)
 
 func _exit_tree():
     remove_translation_parser_plugin(parser_plugin)
+    remove_translation_parser_plugin(tlstrings_plugin)
 
     remove_tool_menu_item("Resource translation: Generate POT files")
 
@@ -44,7 +49,7 @@ func recursively_load_resources(subpath: String = "", _type_hint: String = "") -
 func generate_pot_files() -> void:
     var resources = recursively_load_resources()
 
-    # Preserve any existing POT files that aren't under res://data and merge them with the newly discovered resources.
+    # Preserve any existing POT files that aren't resources under res://data and merge them with the newly discovered resources.
     var existing = ProjectSettings.get_setting("internationalization/locale/translations_pot_files", [])
     var merged: Array = []
 
@@ -54,7 +59,7 @@ func generate_pot_files() -> void:
     for p in existing:
         if typeof(p) != TYPE_STRING:
             continue
-        if p.begins_with("res://data"):
+        if p.begins_with("res://data") and p.get_extension() == "tres":
             continue
         if merged.has(p):
             continue

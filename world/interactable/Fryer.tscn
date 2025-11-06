@@ -19,6 +19,7 @@ machine = ExtResource("3_6o3cu")
 machine_name = "Deep Fryer"
 interactable_description = "A deep fryer."
 action_word = "frying"
+action_word_past = "fried"
 
 [node name="Sprite" parent="InteractableContent" index="1"]
 position = Vector2(0, 2)

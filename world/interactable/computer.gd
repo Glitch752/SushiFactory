@@ -62,8 +62,8 @@ func _input(event):
 
 func get_interaction_data() -> InteractionData:
     var action: InteractionAction = null
-    var interactable_name = "Computer"
-    var desc = "A computer used to manage your restaurant,\norder supplies, and communicate with your boss."
+    var interactable_name = tr("Computer")
+    var desc = tr("A computer used to manage your restaurant,\norder supplies, and communicate with your boss.")
     if not computer_ui_open:
-        action = InteractionAction.new("Use Computer", interact)
+        action = InteractionAction.new(tr("Use Computer"), interact)
     return InteractionData.new(interactable_name, desc, action)

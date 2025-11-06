@@ -1,0 +1,34 @@
+## Each entry should contain [msgid, msgctxt, msgid_plural, comment]
+
+## Stovetop
+
+# Machine name
+Stove Top
+# Interactable description
+A stove top with a frying pan.
+# Stovetop action word
+cooking
+# Stovetop action word past
+cooked
+
+## Rice cooker
+
+# Machine name
+Rice Cooker
+# Interactable description
+A rice cookear.
+# Rice cooker action word
+cooking
+# Rice cooker action word past
+cooked
+
+## Deep fryer
+
+# Machine name
+Deep Fryer
+# interactable description
+A deep fryer.
+# Deep fryer action word
+frying
+# Deep fryer action word past
+fried
