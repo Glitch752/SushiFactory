@@ -1,5 +1,5 @@
 extends Label
 
 func _ready():
-    if OS.has_feature("build"):
+    if OS.has_feature("arcade"):
         visible = false

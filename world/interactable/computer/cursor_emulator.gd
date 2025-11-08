@@ -45,7 +45,6 @@ func _process(delta: float) -> void:
         return
     
     var real_delta = delta / Engine.time_scale
-    print(Engine.time_scale)
 
     var analog = Input.get_vector("move_left", "move_right", "move_up", "move_down")
     cursor_velocity = cursor_velocity.move_toward(analog * CURSOR_MOVEMENT_SPEED, CURSOR_ACCELERATION * real_delta)
