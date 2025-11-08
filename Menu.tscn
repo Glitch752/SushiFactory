@@ -165,6 +165,7 @@ grow_vertical = 0
 text = "Some people have reported the game crashing!
 Try another browser if you experience this."
 label_settings = SubResource("LabelSettings_elwp8")
+script = ExtResource("18_n8j1b")
 
 [node name="Label" type="Label" parent="."]
 auto_translate_mode = 2
