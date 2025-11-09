@@ -46,7 +46,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Window title (with a background?? idk)"
+text = "Window title :O"
 horizontal_alignment = 1
 
 [node name="WindowButtons" type="Control" parent="OuterContainer/WindowTitlebar"]
@@ -54,19 +54,34 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="CloseButton" type="Button" parent="OuterContainer/WindowTitlebar/WindowButtons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_right = -16.0
-offset_bottom = 27.0
+offset_left = -50.0
+offset_top = -8.0
+offset_bottom = 35.0
 grow_horizontal = 0
 focus_mode = 1
-icon = SubResource("AtlasTexture_g87qx")
 flat = true
-expand_icon = true
+
+[node name="CloseButton" type="TextureRect" parent="OuterContainer/WindowTitlebar/WindowButtons/CloseButton"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+texture = SubResource("AtlasTexture_g87qx")
 
 [connection signal="gui_input" from="OuterContainer/WindowTitlebar" to="." method="_on_window_titlebar_gui_input"]
-[connection signal="pressed" from="OuterContainer/WindowTitlebar/WindowButtons/CloseButton" to="." method="_on_close_button_pressed"]

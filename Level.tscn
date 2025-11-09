@@ -246,14 +246,12 @@ show_behind_parent = false
 position = Vector2(56, 59)
 active_sound = ExtResource("23_lwa2w")
 finish_sound = null
-action_word_past = "fried"
 
 [node name="Fryer2" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("27_4vjci")]
 show_behind_parent = false
 position = Vector2(248, 123)
 active_sound = ExtResource("23_lwa2w")
 finish_sound = null
-action_word_past = "fried"
 
 [node name="RiceCooker" parent="BuildingTileMap/WorldInteractables" instance=ExtResource("23_q2vmi")]
 position = Vector2(184, 59)

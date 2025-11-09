@@ -5,31 +5,47 @@ var cursor_velocity: Vector2 = Vector2.ZERO
 enum CursorType {
     Arrow,
     Pointer,
-    NotAllowed
+    NotAllowed,
+    UpDownArrow
 }
 
-var cursor_offsets: Dictionary[CursorType, Vector2] = {
-    CursorType.Arrow: Vector2()
-}
+@export var arrow_cursor: Texture2D
+@export var pointer_cursor: Texture2D
+@export var not_allowed_cursor: Texture2D
+@export var up_down_arrow_cursor: Texture2D
 
 var cursor_pos: Vector2:
     set(pos):
         pos.x = clamp(0, pos.x, desktop_bounds.size.x)
         pos.y = clamp(0, pos.y, desktop_bounds.size.y)
         cursor_pos = pos
-        visual_position = cursor_pos
-var current_cursor_type: CursorType = CursorType.Arrow
+        visual_position = cursor_pos - Vector2(32, 32)
+
+var current_cursor_type: CursorType = CursorType.Arrow:
+    set(type):
+        current_cursor_type = type
+        update_cursor_sprite(type)
+
+func update_cursor_sprite(type: CursorType):
+    match type:
+        CursorType.Arrow:
+            $TextureRect.texture = arrow_cursor
+        CursorType.Pointer:
+            $TextureRect.texture = pointer_cursor
+        CursorType.NotAllowed:
+            $TextureRect.texture = not_allowed_cursor
 
 @onready var desktop_bounds: Panel = $".."
 
 var controlled_by_analog: bool = false
 
-const CURSOR_MOVEMENT_SPEED: float = 1000
+const CURSOR_MOVEMENT_SPEED: float = 500
 ## Really high acceleration; makes small movements easier
-const CURSOR_ACCELERATION: float = 500_000
+const CURSOR_ACCELERATION: float = 10_000
 
 func _ready():
-    pass
+    update_cursor_sprite(current_cursor_type)
+    cursor_pos = desktop_bounds.size / 2
 
 
 func is_in(node: Control, point: Vector2):

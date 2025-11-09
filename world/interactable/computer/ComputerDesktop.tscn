@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://btal74mucv6b0"]
+[gd_scene load_steps=23 format=3 uid="uid://btal74mucv6b0"]
 
 [ext_resource type="Script" uid="uid://bpxxda7d2j770" path="res://world/interactable/computer/computer_desktop.gd" id="1_4ijat"]
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://clkxj4bqb5lex" path="res://world/interactable/computer/desktop_time.gd" id="5_ky8ly"]
 [ext_resource type="Script" uid="uid://bkxafx6m3u6nq" path="res://world/interactable/computer/emails/unread_email_indicator.gd" id="6_eahm3"]
 [ext_resource type="PackedScene" uid="uid://boax4x7k0evpy" path="res://world/interactable/computer/orders/OrdersAppScene.tscn" id="6_h8s41"]
+[ext_resource type="Texture2D" uid="uid://c2unm5ippi3bt" path="res://images/windowIcons.png" id="11_le26q"]
 [ext_resource type="Script" uid="uid://bnh5odd4rwumx" path="res://world/interactable/computer/cursor_emulator.gd" id="11_t7jio"]
 [ext_resource type="Texture2D" uid="uid://m8sre02k4u" path="res://images/cursors.png" id="12_le26q"]
 
@@ -46,8 +47,16 @@ atlas = ExtResource("5_bth5r")
 region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ylhih"]
+atlas = ExtResource("11_le26q")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7jio"]
 atlas = ExtResource("12_le26q")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le26q"]
+atlas = ExtResource("12_le26q")
+region = Rect2(32, 0, 32, 31)
 
 [node name="ComputerDesktop" type="CanvasLayer"]
 process_mode = 3
@@ -182,7 +191,23 @@ theme_override_constants/margin_right = 15
 
 [node name="Taskbar" type="HBoxContainer" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 32
 alignment = 2
+
+[node name="CloseAll" type="HBoxContainer" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
+layout_mode = 2
+script = ExtResource("5_ky8ly")
+
+[node name="DesktopTime" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar/CloseAll"]
+layout_mode = 2
+text = "Close all"
+script = ExtResource("5_ky8ly")
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar/CloseAll"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ylhih")
+stretch_mode = 5
 
 [node name="DesktopTime" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
 unique_name_in_owner = true
@@ -192,6 +217,7 @@ script = ExtResource("5_ky8ly")
 
 [node name="Windows" type="Control" parent="AspectRatioContainer/Panel"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,10 +232,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("11_t7jio")
+arrow_cursor = SubResource("AtlasTexture_t7jio")
+pointer_cursor = SubResource("AtlasTexture_le26q")
 metadata/_custom_type_script = "uid://c5e3hpkep8iml"
 
 [node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Panel/Cursor"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 2
-texture = SubResource("AtlasTexture_ylhih")

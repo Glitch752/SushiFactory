@@ -2,6 +2,8 @@ extends Node
 
 # See https://docs.godotengine.org/en/stable/tutorials/i18n/internationalizing_games.html
 
+signal changed()
+
 func _ready():
     var config = ConfigFile.new()
     var err = config.load("user://locale.cfg")
@@ -36,6 +38,8 @@ func set_lang(lang: String):
     err = config.save("user://locale.cfg")
     if err != OK:
         push_error("Failed to save locale config: %s" % err)
+    
+    changed.emit()
 
 func get_lang() -> String:
     return TranslationServer.get_locale()

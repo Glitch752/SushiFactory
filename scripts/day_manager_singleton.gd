@@ -182,6 +182,11 @@ func generate_day_opening_info():
     
     return info
 
+func _play_reset() -> void:
+    day = 0
+    day_cycle_active = true
+    time_of_day = 0.0
+
 func begin_day():
     day += 1
     time_of_day = 8.0  # Start at 8 AM

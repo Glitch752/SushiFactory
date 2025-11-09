@@ -7,9 +7,8 @@ var dragging = false
 func _ready():
     $%WindowTitle.text = window_title
     $OuterContainer.add_child(app_scene_instance)
-
-func _on_close_button_pressed():
-    queue_free()
+    
+    $%CloseButton.pressed.connect(queue_free)
 
 func _on_window_titlebar_gui_input(event):
     if event is InputEventMouseButton:

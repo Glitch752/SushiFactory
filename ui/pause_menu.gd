@@ -1,5 +1,7 @@
 extends Control
 
+const ShaderSceneTransition = preload("res://ui/ShaderSceneTransition.tscn")
+
 @onready var mat: ShaderMaterial = $ColorRect.material
 
 @onready var transitionInWoosh: AudioStreamPlayer = $TransitionInWoosh
@@ -14,10 +16,12 @@ func _ready():
     modulate.a = 0.0
     
     $%ReturnButton.pressed.connect(unpause)
+    $%ExitButton.pressed.connect(exit_to_menu)
 
-    DayManagerSingleton.day_started.connect(day_started)
+    DayManagerSingleton.day_started.connect(func(_day, _day_data, info_text): day_started(info_text))
+    LocalizationSingleton.changed.connect(func(): day_started(DayManagerSingleton.generate_day_opening_info()))
 
-func day_started(_day: int, _day_data: DayData, info_text: String):
+func day_started(info_text: String):
     $%CurrentDayStats.text = info_text
 
 func pause(duration = 0.75):
@@ -56,6 +60,20 @@ func pause(duration = 0.75):
     get_tree().paused = true
 
     animating = false
+
+func exit_to_menu():
+    unpause()
+    
+    var transition = ShaderSceneTransition.instantiate()
+    get_tree().root.add_child(transition)
+    await transition.wipe_to_black()
+
+    # Not sure why this can't be preloaded, but whatever
+    get_tree().change_scene_to_packed(load("res://Menu.tscn"))
+
+    await transition.wipe_from_black()
+    transition.queue_free()
+    
 
 func unpause(duration = 0.75):
     if animating:

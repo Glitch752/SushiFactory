@@ -30,6 +30,10 @@ func _ready():
     update_day_display(DayManagerSingleton.day)
     update_time_display(DayManagerSingleton.time_of_day)
 
+    LocalizationSingleton.changed.connect(func(): update_money_display(StoreStatsSingleton.money))
+    LocalizationSingleton.changed.connect(func(): update_day_display(DayManagerSingleton.day))
+    LocalizationSingleton.changed.connect(func(): update_time_display(DayManagerSingleton.time_of_day))
+
     CustomerManagerSingleton.order_added.connect(add_order)
 
 func add_order(order: OrderData):
