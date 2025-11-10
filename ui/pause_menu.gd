@@ -68,6 +68,11 @@ func exit_to_menu():
     get_tree().root.add_child(transition)
     await transition.wipe_to_black()
 
+    # heck yeah! state reset (i'm sure this is a terrible way to do this but... whatever)
+    for node in get_tree().root.get_children():
+        if node.has_method("_play_reset"):
+            node._play_reset()
+    
     # Not sure why this can't be preloaded, but whatever
     get_tree().change_scene_to_packed(load("res://Menu.tscn"))
 

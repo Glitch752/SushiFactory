@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+func _ready() -> void:
+    update_lang_buttons()
 
 func _on_en_lang_button_pressed() -> void:
     LocalizationSingleton.set_lang("en")

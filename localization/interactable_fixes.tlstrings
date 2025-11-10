@@ -55,3 +55,17 @@ Switch left
 
 # Exit open menu
 Exit
+
+# Computer desktop stuff
+# Recipe app on computer
+Recipes
+# Email app on computer
+Email
+
+# Computer action
+Click
+# Computer action
+Scroll
+
+# Close all open computer windows
+Close all

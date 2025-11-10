@@ -94,6 +94,9 @@
 # res://data/constructables/edit.gd
 # res://ui/level_interface.gd
 # res://world/interactable/computer/emails/email_system.gd
+# res://ui/InteractKeybindHint.tscn
+# res://world/interactable/computer/recipes/RecipesAppScene.tscn
+# res://world/interactable/construction_corner.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -915,6 +918,31 @@ msgstr ""
 msgid "Switch left"
 msgstr ""
 
+#. TRANSLATORS: Recipe app on computer
+#: localization/interactable_fixes.tlstrings
+msgid "Recipes"
+msgstr ""
+
+#. TRANSLATORS: Email app on computer
+#: localization/interactable_fixes.tlstrings
+msgid "Email"
+msgstr ""
+
+#. TRANSLATORS: Computer action
+#: localization/interactable_fixes.tlstrings
+msgid "Click"
+msgstr ""
+
+#. TRANSLATORS: Computer action
+#: localization/interactable_fixes.tlstrings
+msgid "Scroll"
+msgstr ""
+
+#. TRANSLATORS: Close all open computer windows
+#: localization/interactable_fixes.tlstrings
+msgid "Close all"
+msgstr ""
+
 #: world/interactable/cutting_board.gd
 msgid ""
 "A cutting board.\n"
@@ -1087,4 +1115,36 @@ msgstr ""
 
 #: world/interactable/computer/emails/email_system.gd
 msgid "Day {day}, {time}"
+msgstr ""
+
+#: ui/InteractKeybindHint.tscn
+msgid "ERR"
+msgstr ""
+
+#: ui/InteractKeybindHint.tscn
+msgid "Secondary interact"
+msgstr ""
+
+#: world/interactable/computer/recipes/RecipesAppScene.tscn
+msgid "Dishes"
+msgstr ""
+
+#: world/interactable/computer/recipes/RecipesAppScene.tscn
+msgid ""
+"\n"
+"Ingredients"
+msgstr ""
+
+#: world/interactable/construction_corner.gd
+msgid "Construction Tools"
+msgstr ""
+
+#: world/interactable/construction_corner.gd
+msgid ""
+"The tools required to renovate your restaurant space!\n"
+"Interact to enter editing mode."
+msgstr ""
+
+#: world/interactable/construction_corner.gd
+msgid "Open editing mode"
 msgstr ""

@@ -1,0 +1,198 @@
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a table)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+%sを取る
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a machine)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+%s を取り出す
+
+=== PROMPT ===
+The following text is "general text (Context: Place item %s on a table)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+%sをテーブルに置く
+
+=== PROMPT ===
+The following text is "general text (Context: Place %s on a cutting board)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+まな板に%sをのせる
+
+=== PROMPT ===
+The following text is "Recipe app on computer". Translate the following text to jp:
+
+Recipes
+=== RESPONSE ===
+レシピ
+
+=== PROMPT ===
+The following text is "Email app on computer". Translate the following text to jp:
+
+Email
+=== RESPONSE ===
+メール
+
+=== PROMPT ===
+The following text is "Computer action". Translate the following text to jp:
+
+Click
+=== RESPONSE ===
+クリック
+
+=== PROMPT ===
+The following text is "Computer action". Translate the following text to jp:
+
+Scroll
+=== RESPONSE ===
+スクロール
+
+=== PROMPT ===
+The following text is "Close all open computer windows". Translate the following text to jp:
+
+Close all
+=== RESPONSE ===
+すべて閉じる
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+ERR
+=== RESPONSE ===
+エラー
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Secondary interact
+=== RESPONSE ===
+補助操作
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a table)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+%sを取る
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a machine)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+%sを取り出す
+
+=== PROMPT ===
+The following text is "general text (Context: Place item %s on a table)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+%s を置く
+
+=== PROMPT ===
+The following text is "general text (Context: Place %s on a cutting board)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+%s を置く
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Dishes
+=== RESPONSE ===
+料理
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+
+Ingredients
+=== RESPONSE ===
+材料
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a table)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+テーブルから%sを取る
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a machine)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+%sを取り出す
+
+=== PROMPT ===
+The following text is "general text (Context: Place item %s on a table)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+%sを置く
+
+=== PROMPT ===
+The following text is "general text (Context: Place %s on a cutting board)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+%sをまな板に置いてください
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a table)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+%sを取る
+
+=== PROMPT ===
+The following text is "general text (Context: Take item %s from a machine)". Translate the following text to jp:
+
+Take %s
+=== RESPONSE ===
+機械から%sを取り出す
+
+=== PROMPT ===
+The following text is "general text (Context: Place item %s on a table)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+テーブルに%sを置く
+
+=== PROMPT ===
+The following text is "general text (Context: Place %s on a cutting board)". Translate the following text to jp:
+
+Place %s
+=== RESPONSE ===
+まな板に%sを置く
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Construction Tools
+=== RESPONSE ===
+建設工具
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+The tools required to renovate your restaurant space!
+Interact to enter editing mode.
+=== RESPONSE ===
+レストランのスペースを改装するために必要なツール！ 編集モードに入るには操作してください。
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Open editing mode
+=== RESPONSE ===
+編集モードを開く
+

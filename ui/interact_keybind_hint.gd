@@ -30,6 +30,15 @@ const CUSTOM_KEYCODE_REPLACEMENTS: Dictionary[String, String] = {
     "Escape": "Esc"
 }
 
+const ARCADE_KEYCODES: Dictionary[String, String] = {
+    "`": " ",
+    "Esc": " ",
+    "E": "1",
+    "Q": "2",
+    "R": "›",
+    "Shift+R": "‹",
+}
+
 const SONY_JOY_BUTTON_MAP: Dictionary[JoyButton, String] = {
     JoyButton.JOY_BUTTON_A: "✕",
     JoyButton.JOY_BUTTON_B: "○",
@@ -96,6 +105,12 @@ func get_joypad_name(button_id: JoyButton) -> String:
         return XBOX_JOY_BUTTON_MAP.get(button_id, fallback)
 
 static func customize_keycode(keycode: String) -> String:
+    if not Engine.is_editor_hint() and ArcadeMode.is_arcade_mode():
+        if keycode in ARCADE_KEYCODES:
+            return ARCADE_KEYCODES[keycode]
+        else:
+            return ""
+
     for oldKey in CUSTOM_KEYCODE_REPLACEMENTS.keys():
         keycode = keycode.replace(oldKey, CUSTOM_KEYCODE_REPLACEMENTS[oldKey])
     return keycode

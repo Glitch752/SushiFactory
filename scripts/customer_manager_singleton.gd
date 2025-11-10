@@ -177,6 +177,8 @@ func _play_reset():
         c.node.queue_free()
     customers.clear()
 
+    initialized = false
+
 ## Checks if all customers have left the restaurant.
 func all_customers_left() -> bool:
     return customers.size() == 0

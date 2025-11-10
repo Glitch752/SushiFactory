@@ -5,6 +5,15 @@ const window_scene = preload("res://world/interactable/computer/ComputerAppWindo
 var cascade_offset = Vector2(50, 20)
 const MAXIMUM_WINDOWS = 20
 
+func _ready() -> void:
+    $%CloseAll.pressed.connect(close_all)
+
+func close_all() -> void:
+    var windows = get_tree().get_nodes_in_group("computer_windows")
+    for window in windows:
+        window.queue_free()
+    cascade_offset = Vector2(50, 20)
+
 func open_window(window_title: String, app_scene_instance: Node) -> void:
     var mainPanel = $%Windows
 

@@ -555,9 +555,25 @@ msgctxt "A counter"
 msgid "Table"
 msgstr "表"
 
+msgctxt "Take item %s from a table"
+msgid "Take %s"
+msgstr "%sを取る"
+
+msgctxt "Take item %s from a machine"
+msgid "Take %s"
+msgstr "機械から%sを取り出す"
+
 msgctxt "Take %s from a cutting board"
 msgid "Take %s"
 msgstr "まな板から%sを取る"
+
+msgctxt "Place item %s on a table"
+msgid "Place %s"
+msgstr "テーブルに%sを置く"
+
+msgctxt "Place %s on a cutting board"
+msgid "Place %s"
+msgstr "まな板に%sを置く"
 
 msgctxt "Build the constructable %s"
 msgid "Place %s"
@@ -608,7 +624,7 @@ msgstr ""
 "[color=red]残り10秒[/color]"
 
 msgid "[color=#ddd]Ingredient of [item]{recipe_result}[/item][/color]"
-msgstr "[color=#ddd]{recipe_result}[/item]の材料[/color]"
+msgstr "[color=#ddd][item]{recipe_result}[/item]の材料[/color]"
 
 msgid ""
 "[color=#ddd]Makes [item]{recipe_result}[/item] using "
@@ -691,6 +707,21 @@ msgstr "右に切り替える"
 
 msgid "Switch left"
 msgstr "左に切り替える"
+
+msgid "Recipes"
+msgstr "レシピ"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Click"
+msgstr "クリック"
+
+msgid "Scroll"
+msgstr "スクロール"
+
+msgid "Close all"
+msgstr "すべて閉じる"
 
 msgid ""
 "A cutting board.\n"
@@ -844,3 +875,28 @@ msgstr "評判: %s/%s"
 
 msgid "Day {day}, {time}"
 msgstr "日付 {day}、{time}"
+
+msgid "ERR"
+msgstr "エラー"
+
+msgid "Secondary interact"
+msgstr "補助操作"
+
+msgid "Dishes"
+msgstr "料理"
+
+msgid ""
+"\n"
+"Ingredients"
+msgstr "材料"
+
+msgid "Construction Tools"
+msgstr "建設工具"
+
+msgid ""
+"The tools required to renovate your restaurant space!\n"
+"Interact to enter editing mode."
+msgstr "レストランのスペースを改装するために必要なツール！ 編集モードに入るには操作してください。"
+
+msgid "Open editing mode"
+msgstr "編集モードを開く"

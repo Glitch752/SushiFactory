@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://btal74mucv6b0"]
+[gd_scene load_steps=24 format=3 uid="uid://btal74mucv6b0"]
 
 [ext_resource type="Script" uid="uid://bpxxda7d2j770" path="res://world/interactable/computer/computer_desktop.gd" id="1_4ijat"]
 [ext_resource type="Texture2D" uid="uid://b7i3034prr22w" path="res://images/computerDesktopIcons.png" id="1_220wo"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c2unm5ippi3bt" path="res://images/windowIcons.png" id="11_le26q"]
 [ext_resource type="Script" uid="uid://bnh5odd4rwumx" path="res://world/interactable/computer/cursor_emulator.gd" id="11_t7jio"]
 [ext_resource type="Texture2D" uid="uid://m8sre02k4u" path="res://images/cursors.png" id="12_le26q"]
+[ext_resource type="PackedScene" uid="uid://ckc3r4mx3l22v" path="res://ui/InteractKeybindHint.tscn" id="12_ylhih"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_220wo"]
 bg_color = Color(0.231373, 0.431373, 0.647059, 1)
@@ -194,20 +195,21 @@ layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 2
 
-[node name="CloseAll" type="HBoxContainer" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
+[node name="CloseAll" type="Button" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-script = ExtResource("5_ky8ly")
-
-[node name="DesktopTime" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar/CloseAll"]
-layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
 text = "Close all"
-script = ExtResource("5_ky8ly")
+icon = SubResource("AtlasTexture_ylhih")
+alignment = 0
+icon_alignment = 2
+expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar/CloseAll"]
-custom_minimum_size = Vector2(24, 24)
+[node name="Control" type="Control" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ylhih")
-stretch_mode = 5
+size_flags_horizontal = 3
 
 [node name="DesktopTime" type="Label" parent="AspectRatioContainer/Panel/PanelContainer/MarginContainer/Taskbar"]
 unique_name_in_owner = true
@@ -215,9 +217,31 @@ layout_mode = 2
 text = "5:30 PM"
 script = ExtResource("5_ky8ly")
 
+[node name="ComputerHints" type="VBoxContainer" parent="AspectRatioContainer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 90.0
+grow_horizontal = 0
+
+[node name="InteractKeybindHint" parent="AspectRatioContainer/Panel/ComputerHints" instance=ExtResource("12_ylhih")]
+layout_mode = 2
+size_flags_horizontal = 8
+action = "interact"
+placeholderText = "Click"
+
+[node name="InteractKeybindHint2" parent="AspectRatioContainer/Panel/ComputerHints" instance=ExtResource("12_ylhih")]
+layout_mode = 2
+size_flags_horizontal = 8
+action = "secondary_interact"
+placeholderText = "Scroll"
+
 [node name="Windows" type="Control" parent="AspectRatioContainer/Panel"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

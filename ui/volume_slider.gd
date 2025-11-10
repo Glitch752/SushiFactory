@@ -18,6 +18,8 @@ func _ready():
     
     slider.value_changed.connect(update_volume)
 
+    LocalizationSingleton.changed.connect(func(): update_label(slider.value))
+
 func update_volume(value: float):
     AudioServer.set_bus_volume_linear(bus, value)
     SoundManager.bus_volume_updated()
