@@ -7,6 +7,16 @@ const PlateScene = preload("res://world/items/Plate.tscn")
 
 @export var menu_items: Array[ItemData] = []
 
+@onready var menu_camera = $"MenuCamera"
+var showing_leaderboard = false:
+    set(showing):
+        showing_leaderboard = showing
+        var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+        if showing:
+            tween.tween_property(menu_camera, "position", Vector2(0, 1000), 0.5)
+        else:
+            tween.tween_property(menu_camera, "position", Vector2.ZERO, 0.5)
+
 func _ready():
     timer.start()
     timer.timeout.connect(spawn_item)
@@ -37,3 +47,12 @@ func _process(delta):
             follower.queue_free()
         else:
             follower.progress += delta * 480
+
+
+func _on_leaderboard_button_pressed() -> void:
+    showing_leaderboard = true
+
+func _input(event):
+    if showing_leaderboard:
+        showing_leaderboard = false
+        get_viewport().set_input_as_handled()

@@ -222,6 +222,7 @@ offset_right = 0.0
 grow_horizontal = 0
 
 [node name="LosePanel" parent="." instance=ExtResource("13_vlba3")]
+visible = false
 layout_mode = 1
 offset_left = -392.0
 offset_top = -187.0
