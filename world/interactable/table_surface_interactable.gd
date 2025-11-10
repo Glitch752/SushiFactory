@@ -63,7 +63,7 @@ func get_interaction_data() -> InteractionData:
     if has_plate():
         var dish = current_object.can_make_recipe()
         if dish != null:
-            secondary_action = InteractionAction.new("Make %s" % dish, current_object.make_recipe, 2.5)
+            secondary_action = InteractionAction.new("Make %s" % dish, current_object.make_recipe, 2.0)
     
     var desc = \
         tr("An empty table.") if current_object == null else \

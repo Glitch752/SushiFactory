@@ -196,3 +196,31 @@ Open editing mode
 === RESPONSE ===
 編集モードを開く
 
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Leaderboard
+=== RESPONSE ===
+ランキング
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Name
+=== RESPONSE ===
+名前
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Days
+=== RESPONSE ===
+日
+
+=== PROMPT ===
+The following text is "general text". Translate the following text to jp:
+
+Earnings
+=== RESPONSE ===
+収益
+

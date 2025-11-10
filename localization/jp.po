@@ -492,6 +492,9 @@ msgstr ""
 msgid "Outside environment art coming soon :)"
 msgstr "屋外環境アートは近日公開予定です :)"
 
+msgid "Leaderboard"
+msgstr "ランキング"
+
 msgid ""
 "All assets except some SFX are custom\n"
 "Open in a new tab if you're having issues :)"
@@ -539,6 +542,9 @@ msgstr "%sの入手先です。ここで1つ入手できます。"
 msgid "Pick Up {item}"
 msgstr "{item}を拾う"
 
+msgid "Put %s on the plate"
+msgstr "皿に%sを置いてください"
+
 msgid "Trash Can"
 msgstr "ゴミ箱"
 
@@ -578,9 +584,6 @@ msgstr "まな板に%sを置く"
 msgctxt "Build the constructable %s"
 msgid "Place %s"
 msgstr "%s を設置する"
-
-msgid "Put %s on the plate"
-msgstr "皿に%sを置いてください"
 
 msgid "An empty table."
 msgstr "空のテーブル。"
@@ -900,3 +903,12 @@ msgstr "レストランのスペースを改装するために必要なツール
 
 msgid "Open editing mode"
 msgstr "編集モードを開く"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Days"
+msgstr "日"
+
+msgid "Earnings"
+msgstr "収益"

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0tmd128u41d5"]
+
+[ext_resource type="Script" uid="uid://dily20vfllal0" path="res://ui/leaderboard/leaderboard_row.gd" id="1_jb844"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5yyp"]
+font_color = Color(0.6, 1, 0.53333336, 1)
+
+[node name="LeaderboardRow" type="HBoxContainer"]
+script = ExtResource("1_jb844")
+entry_name = "AAA"
+days = 5
+money = 12000
+
+[node name="Name" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "AAA"
+
+[node name="Days" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "¥12,000"
+label_settings = SubResource("LabelSettings_j5yyp")
+horizontal_alignment = 2

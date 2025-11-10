@@ -10,6 +10,7 @@ const PlateScene = preload("res://world/items/Plate.tscn")
 func _ready():
     timer.start()
     timer.timeout.connect(spawn_item)
+    $%EnglishPlay.grab_focus()
 
 func spawn_item():
     var path_follower = PathFollow2D.new()

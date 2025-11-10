@@ -41,4 +41,4 @@ func _gui_input(event):
 
         var scene = recipe_scene.instantiate()
         scene.recipe = recipe
-        find_parent("ComputerDesktop").open_window(item.item_name + " Recipe", scene)
+        find_parent("ComputerDesktop").open_window_or_focus_existing(item.item_name + " Recipe", scene)

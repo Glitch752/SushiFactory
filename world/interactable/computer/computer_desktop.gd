@@ -14,6 +14,15 @@ func close_all() -> void:
         window.queue_free()
     cascade_offset = Vector2(50, 20)
 
+func open_window_or_focus_existing(window_title: String, app_scene_instance: Node) -> void:
+    var windows = get_tree().get_nodes_in_group("computer_windows")
+    for window in windows:
+        if window.window_title == window_title:
+            window.move_to_front()
+            return
+    
+    open_window(window_title, app_scene_instance)
+
 func open_window(window_title: String, app_scene_instance: Node) -> void:
     var mainPanel = $%Windows
 

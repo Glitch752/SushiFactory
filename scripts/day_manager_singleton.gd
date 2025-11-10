@@ -17,20 +17,20 @@ const OrderDifficulty = preload("res://scripts/day_data.gd").OrderDifficulty
 var current_day_data: DayData = null
 
 const MAX_DIFFICULTY: int = OrderDifficulty.EXPERT
-const K_DIFF_PROGRESS: float = 0.3
+const K_DIFF_PROGRESS: float = 0.25
 
 const SIGMA_MIN: float = 0.1
 const SIGMA_PEAK: float = 1.25
 const SIGMA_A: float = 0.3
 const SIGMA_B: float = 0.2
 
-const INTERVAL_MAX: float = 1.0
+const INTERVAL_MAX: float = 2.0
 const INTERVAL_MIN: float = 0.15
-const INTERVAL_LAMBDA: float = 0.2
+const INTERVAL_LAMBDA: float = 0.15
 const INTERVAL_JITTER_RATIO = 0.15
 
-const PATIENCE_MAX: float = 180.0
-const PATIENCE_MIN: float = 45.0
+const PATIENCE_MAX: float = 360.0
+const PATIENCE_MIN: float = 90.0
 const PATIENCE_LAMBDA: float = 0.2
 const PATIENCE_JITTER_RATIO = 0.1
 

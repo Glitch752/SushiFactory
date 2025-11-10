@@ -67,13 +67,25 @@ func update_progressbar():
         var frame_count = progress_bar.sprite_frames.get_frame_count("default");
         progress_bar.frame = int((cut_progress / CUTS_REQUIRED) * frame_count) % frame_count
 
+func move_to_held_plate():
+    var plate = PlayerInventorySingleton.held_item
+    assert(plate != null and plate.data.id == &"plate" and has_item() and plate.can_add(item.data))
+
+    plate.add_to_plate(item.data)
+    item.queue_free()
+    item = null
+
+    cut_progress = 0
+    
+    update_progressbar()
 
 func get_interaction_data() -> InteractionData:
+    var held_item = PlayerInventorySingleton.held_item_data()
+
     var action: InteractionAction = null
     var interactable_name = "Cutting Board"
     var desc = ""
     if !has_item():
-        var held_item = PlayerInventorySingleton.held_item_data()
         if held_item and held_item.id in CUT_ITEMS.keys():
             action = InteractionAction.new(
                 tr("Place %s", "Place %s on a cutting board") % held_item.item_name, place_item
@@ -93,6 +105,11 @@ func get_interaction_data() -> InteractionData:
     elif !PlayerInventorySingleton.has_item():
         action = InteractionAction.new(
             tr("Take %s", "Take %s from a cutting board") % item.data.item_name, take_cut_item
+        )
+        desc = tr("A cutting board with %s on it.\nCutting complete.") % item.data.item_name.to_lower()
+    elif held_item.id == &"plate" and held_item.can_add(item.data):
+        action = InteractionAction.new(
+            tr("Put %s on the plate") % item.data.item_name, move_to_held_plate, 0.25
         )
         desc = tr("A cutting board with %s on it.\nCutting complete.") % item.data.item_name.to_lower()
     

@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://vixlmpmbvsxs"]
+
+[ext_resource type="Script" uid="uid://g5e5vr6ok8ry" path="res://ui/leaderboard/name_selector.gd" id="1_hp123"]
+[ext_resource type="StyleBox" uid="uid://ioeacivvvyo1" path="res://ui/stylebox/9_patch_stylebox_dark.tres" id="1_usjtn"]
+[ext_resource type="StyleBox" uid="uid://b3j8r1u3k3k2k" path="res://ui/stylebox/9_patch_stylebox_outline.tres" id="3_e7pgg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_np5p6"]
+font_size = 50
+
+[node name="NameSelector" type="HBoxContainer"]
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_mode = 2
+script = ExtResource("1_hp123")
+
+[node name="Letter1" type="Panel" parent="."]
+custom_minimum_size = Vector2(75, 90)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_usjtn")
+
+[node name="Outline" type="Panel" parent="Letter1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_e7pgg")
+
+[node name="Label" type="Label" parent="Letter1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -34.5
+offset_right = 16.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+label_settings = SubResource("LabelSettings_np5p6")
+
+[node name="Letter2" type="Panel" parent="."]
+custom_minimum_size = Vector2(75, 90)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_usjtn")
+
+[node name="Outline" type="Panel" parent="Letter2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_e7pgg")
+
+[node name="Label" type="Label" parent="Letter2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -34.5
+offset_right = 16.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+label_settings = SubResource("LabelSettings_np5p6")
+
+[node name="Letter3" type="Panel" parent="."]
+custom_minimum_size = Vector2(75, 90)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_usjtn")
+
+[node name="Outline" type="Panel" parent="Letter3"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_e7pgg")
+
+[node name="Label" type="Label" parent="Letter3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -34.5
+offset_right = 16.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+label_settings = SubResource("LabelSettings_np5p6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfpegqboaskg6"]
+[gd_scene load_steps=20 format=3 uid="uid://bfpegqboaskg6"]
 
 [ext_resource type="Script" uid="uid://b30d73yiu1pb4" path="res://ui/level_interface.gd" id="1_ta4wj"]
 [ext_resource type="Script" uid="uid://dtwh5roueex1s" path="res://ui/inventory/inventory_ui.gd" id="1_u453c"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bvvox74aqqptw" path="res://ui/AutohideTooltip.tscn" id="9_w37h7"]
 [ext_resource type="PackedScene" uid="uid://8yqq8xpoyy31" path="res://ui/inventory/InventorySlot.tscn" id="10_4hwu7"]
 [ext_resource type="StyleBox" uid="uid://mn6godbulh05" path="res://ui/stylebox/9_patch_stylebox.tres" id="11_w37h7"]
+[ext_resource type="PackedScene" uid="uid://fydbqubspssa" path="res://ui/LosePanel.tscn" id="13_vlba3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oftlk"]
 font = ExtResource("4_lfe7y")
@@ -122,7 +123,7 @@ text = "5:33 PM"
 label_settings = SubResource("LabelSettings_xj0kr")
 
 [node name="Money" type="PanelContainer" parent="InfoDisplays"]
-custom_minimum_size = Vector2(128, 48)
+custom_minimum_size = Vector2(152, 48)
 layout_mode = 2
 tooltip_text = "Your balance. "
 
@@ -219,3 +220,10 @@ offset_left = -30.0
 offset_top = 56.0
 offset_right = 0.0
 grow_horizontal = 0
+
+[node name="LosePanel" parent="." instance=ExtResource("13_vlba3")]
+layout_mode = 1
+offset_left = -392.0
+offset_top = -187.0
+offset_right = 392.0
+offset_bottom = 187.0

@@ -97,6 +97,7 @@
 # res://ui/InteractKeybindHint.tscn
 # res://world/interactable/computer/recipes/RecipesAppScene.tscn
 # res://world/interactable/construction_corner.gd
+# res://ui/leaderboard/Leaderboard.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -637,6 +638,11 @@ msgid "Outside environment art coming soon :)"
 msgstr ""
 
 #: Menu.tscn
+#: ui/leaderboard/Leaderboard.tscn
+msgid "Leaderboard"
+msgstr ""
+
+#: Menu.tscn
 msgid ""
 "All assets except some SFX are custom\n"
 "Open in a new tab if you're having issues :)"
@@ -689,6 +695,12 @@ msgstr ""
 msgid "Pick Up {item}"
 msgstr ""
 
+#: world/interactable/item_source.gd
+#: world/interactable/table_surface_interactable.gd
+#: world/interactable/cutting_board.gd
+msgid "Put %s on the plate"
+msgstr ""
+
 #: world/interactable/trash_can.gd
 msgid "Trash Can"
 msgstr ""
@@ -738,10 +750,6 @@ msgstr ""
 #: data/constructables/generic.gd
 msgctxt "Build the constructable %s"
 msgid "Place %s"
-msgstr ""
-
-#: world/interactable/table_surface_interactable.gd
-msgid "Put %s on the plate"
 msgstr ""
 
 #: world/interactable/table_surface_interactable.gd
@@ -1147,4 +1155,16 @@ msgstr ""
 
 #: world/interactable/construction_corner.gd
 msgid "Open editing mode"
+msgstr ""
+
+#: ui/leaderboard/Leaderboard.tscn
+msgid "Name"
+msgstr ""
+
+#: ui/leaderboard/Leaderboard.tscn
+msgid "Days"
+msgstr ""
+
+#: ui/leaderboard/Leaderboard.tscn
+msgid "Earnings"
 msgstr ""
