@@ -6,6 +6,7 @@
 font_color = Color(0.6, 1, 0.53333336, 1)
 
 [node name="LeaderboardRow" type="HBoxContainer"]
+auto_translate_mode = 2
 script = ExtResource("1_jb844")
 entry_name = "AAA"
 days = 5

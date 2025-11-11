@@ -20,15 +20,19 @@ signal money_changed(new_money: int)
 
 var max_reputation: int = 5
 
+signal game_over()
+
 signal reputation_changed(new_reputation: int)
 @export var reputation: int = 5:
     set(value):
+        if value == reputation:
+            return
+        
         reputation = value
         reputation_changed.emit(value)
 
         if reputation <= 0:
-            # TODO: lose screen
-            print("you lose or something")
+            game_over.emit()
 
 
 ## Logic
@@ -54,3 +58,14 @@ func pay_for_dish(difficulty: OrderPossibilities):
 func _play_reset() -> void:
     money = 0
     reputation = max_reputation
+
+
+# For debugging only!
+func _unhandled_input(event):
+    # Disable in builds in case I forget :)
+    if OS.has_feature("release") or OS.has_feature("production"):
+        return
+
+    if event is InputEventKey and event.pressed and not event.echo:
+        if event.keycode == KEY_9:
+            reputation -= 1

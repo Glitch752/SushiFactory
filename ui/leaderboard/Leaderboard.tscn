@@ -4,7 +4,8 @@
 [ext_resource type="FontFile" uid="uid://cxnoipmvnvnbx" path="res://ui/RobotoMono-Bold.ttf" id="2_haofe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xhk8u"]
-font_size = 20
+font = ExtResource("2_haofe")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_qnuhg"]
 font = ExtResource("2_haofe")

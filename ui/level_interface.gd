@@ -36,6 +36,18 @@ func _ready():
 
     CustomerManagerSingleton.order_added.connect(add_order)
 
+    StoreStatsSingleton.game_over.connect(game_over)
+
+func game_over():
+    var lose_panel = preload("res://ui/LosePanel.tscn").instantiate()
+    lose_panel.days_survived = DayManagerSingleton.day
+    lose_panel.money_earned = StoreStatsSingleton.money
+    lose_panel.customers_served = CustomerManagerSingleton.total_customers_served
+    lose_panel.customers_disappointed = CustomerManagerSingleton.total_customers_disappointed
+    add_child(lose_panel)
+
+    InputTargetSingleton.activate(InputTargetSingleton.InputTarget.LoseScreen)
+
 func add_order(order: OrderData):
     var container = TransitionContainer.new()
 

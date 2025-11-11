@@ -5,6 +5,7 @@ enum InputTarget {
     PlayerMovement,
     ComputerDesktop,
     ConstructionMenu,
+    LoseScreen,
     PauseMenu
 }
 
@@ -12,6 +13,7 @@ var target_time_scales: Dictionary[InputTarget, float] = {
     InputTarget.PlayerMovement: 1.0,
     InputTarget.ComputerDesktop: 0.05,
     InputTarget.ConstructionMenu: 0.05,
+    InputTarget.LoseScreen: 0.01,
     InputTarget.PauseMenu: 0.0
 }
 

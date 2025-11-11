@@ -170,6 +170,9 @@ func anger_customer(customerData: CustomerData) -> void:
 
 var customers: Array[CustomerData] = []
 
+var total_customers_served: int = 0
+var total_customers_disappointed: int = 0
+
 ## Reset logic
 
 func _play_reset():
@@ -178,6 +181,8 @@ func _play_reset():
     customers.clear()
 
     initialized = false
+    total_customers_served = 0
+    total_customers_disappointed = 0
 
 ## Checks if all customers have left the restaurant.
 func all_customers_left() -> bool:

@@ -633,7 +633,7 @@ msgid ""
 "[color=#ddd]Makes [item]{recipe_result}[/item] using "
 "[machine]{recipe_machine}[/machine][/color]"
 msgstr ""
-"[color=#ddd]{recipe_machine}[/machine]を使って[item]{recipe_result}[/item]を作る[/color]"
+"[color=#ddd][machine]{recipe_machine}[/machine]を使って[item]{recipe_result}[/item]を作る[/color]"
 
 msgctxt "Add item %s to a machine"
 msgid "Add %s"
